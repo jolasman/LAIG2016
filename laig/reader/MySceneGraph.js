@@ -357,7 +357,7 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 
 
-    /********************* traget in spot  *******************/
+    /********************* target in spot  *******************/
 
 
         var targets = spots2.getElementsByTagName('target');
@@ -488,8 +488,8 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
     	var material12 = material1[0];
 
         var material2 =  material12.getElementsByTagName('material');
-        if (textures == null) {
-        		return "material' element in materials is missing.";
+        if (material2 == null) {
+        		return "'material' element in materials is missing.";
         	}
 
         var material23 = material2[0];
@@ -564,6 +564,309 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
      var shinemi2 = shinemi[0];
      this.rshinemi = this.reader.getFloat(shinemi2,"value",true);
+
+
+ /*************************** transformations ***************************/
+
+	var trans = rootElement.getElementsByTagName('transformations');
+	if (trans == null) {
+        	return "'transformations' element in materials is missing."
+        	}
+	if (trans.length != 1) {
+        	return "either zero or more than one 'transformations' element found in spot declaration.";
+        	}
+
+     	var trans2 = trans[0];
+
+	var trans3 =  trans2.getElementsByTagName('transformation');
+        if (trans3 == null) {
+        		return "'trans3' element in materials is missing.";
+        	}
+
+        var trans4 = trans3[0];
+
+        this.idtrans = this.reader.getString(trans4,"id",true);
+
+
+ /*************************** translate ***************************/
+
+	var translation =  trans4.getElementsByTagName('translate');
+     	if (translation == null) {
+        	return "'translate' element in materials is missing."
+        }
+
+     	var translation2 = translation[0];
+     	this.xtransl = this.reader.getFloat(translation2,"x",true);
+	this.ytransl = this.reader.getFloat(translation2,"y",true);
+	this.ztransl = this.reader.getFloat(translation2,"z",true);
+
+ /*************************** rotate ***************************/
+
+	var rotation =  trans4.getElementsByTagName('rotate');
+     	if (rotation == null) {
+        	return "'rotate' element in materials is missing."
+        }
+
+     	var rotation2 = rotation[0];
+     	this.rotaxis = this.reader.getString(rotation2,"axis",true);
+	this.rotangle = this.reader.getFloat(rotation2,"angle",true);
+
+ /*************************** scale ***************************/
+
+	var scale2 =  trans4.getElementsByTagName('scale');
+     	if (scale2 == null) {
+        	return "'scale' element in materials is missing."
+        }
+
+     	var scale3 = scale2[0];
+     	this.xscale = this.reader.getFloat(scale3,"x",true);
+	this.yscale = this.reader.getFloat(scale3,"y",true);
+	this.zscale = this.reader.getFloat(scale3,"z",true);
+
+
+ /*************************** primitives ***************************/
+
+	var prims = rootElement.getElementsByTagName('primitives');
+	if (prims == null) {
+        	return "'primitives' element in materials is missing."
+        	}
+	if (prims.length != 1) {
+        	return "either zero or more than one 'primitives' element found in spot declaration.";
+        	}
+
+     	var prims2 = prims[0];
+
+	var prims3 =  prims2.getElementsByTagName('primitive');
+        if (prims3 == null) {
+        		return "'prims3' element in materials is missing.";
+        	}
+
+        var prims4 = prims3[0];
+
+        this.idprims = this.reader.getString(prims4,"id",true);
+
+
+/*************************** rectangle ***************************/
+
+	var rect =  prims4.getElementsByTagName('rectangle');
+     	if (rect == null) {
+        	return "'rectangle' element in materials is missing."
+        }
+
+     	var rect2 = rect[0];
+     	this.x1rect = this.reader.getFloat(rect2,"x1",true);
+	this.ylrect = this.reader.getFloat(rect2,"y1",true);
+	this.x2rect = this.reader.getFloat(rect2,"x2",true);
+	this.y2rect = this.reader.getFloat(rect2,"y2",true);
+
+/*************************** triangle ***************************/
+
+	var tri =  prims4.getElementsByTagName('triangle');
+     	if (tri == null) {
+        	return "'triangle' element in materials is missing."
+        }
+
+     	var tri2 = tri[0];
+     	this.x1tri = this.reader.getFloat(tri2,"x1",true);
+	this.yltri = this.reader.getFloat(tri2,"y1",true);
+	this.zltri = this.reader.getFloat(tri2,"z1",true);
+	this.x2tri = this.reader.getFloat(tri2,"x2",true);
+	this.y2tri = this.reader.getFloat(tri2,"y2",true);
+	this.z2tri = this.reader.getFloat(tri2,"z2",true);
+	this.x3tri = this.reader.getFloat(tri2,"x3",true);
+	this.y3tri = this.reader.getFloat(tri2,"y3",true);
+	this.z3tri = this.reader.getFloat(tri2,"z3",true);
+
+/*************************** cylinder ***************************/
+
+	var cyl =  prims4.getElementsByTagName('cylinder');
+     	if (cyl == null) {
+        	return "'cylinder' element in materials is missing."
+        }
+
+     	var cyl2 = cyl[0];
+     	this.cylbase = this.reader.getFloat(cyl2,"base",true);
+	this.cyltop = this.reader.getFloat(cyl2,"top",true);
+	this.cylheight = this.reader.getFloat(cyl2,"height",true);
+	this.cylslices = this.reader.getInteger(cyl2,"slices",true);
+	this.cylstacks = this.reader.getInteger(cyl2,"stacks",true);
+
+/*************************** sphere ***************************/
+
+	var sphe =  prims4.getElementsByTagName('sphere');
+     	if (sphe == null) {
+        	return "'sphere' element in materials is missing."
+        }
+
+     	var sphe2 = sphe[0];
+     	this.spheradius = this.reader.getFloat(sphe2,"radius",true);
+	this.spheslices = this.reader.getInteger(sphe2,"slices",true);
+	this.sphestacks = this.reader.getInteger(sphe2,"stacks",true);
+
+/*************************** torus ***************************/
+
+	var tor =  prims4.getElementsByTagName('torus');
+     	if (tor == null) {
+        	return "'torus' element in materials is missing."
+        }
+
+     	var tor2 = tor[0];
+     	this.torinner = this.reader.getFloat(tor2,"inner",true);
+	this.torouter = this.reader.getFloat(tor2,"outer",true);
+	this.torslices = this.reader.getInteger(tor2,"slices",true);
+	this.torloops = this.reader.getInteger(tor2,"loops",true);
+
+
+ /*************************** components ***************************/
+
+	var comps = rootElement.getElementsByTagName('components');
+	if (comps == null) {
+        	return "'components' element in materials is missing."
+        	}
+	if (comps.length != 1) {
+        	return "either zero or more than one 'components' element found in spot declaration.";
+        	}
+
+     	var comps2 = comps[0];
+
+	var comps3 =  comps2.getElementsByTagName('component');
+        if (comps3 == null) {
+        		return "'comps3' element in materials is missing.";
+        	}
+
+        var comps4 = comps3[0];
+
+        this.idcomps = this.reader.getString(comps4,"id",true);
+
+
+ /*************************** transformation ***************************/
+
+	var tran = comps4.getElementsByTagName('transformation');
+	if (tran == null) {
+        	return "'transformation' element in materials is missing."
+        	}
+	if (tran.length != 1) {
+        	return "either zero or more than one 'transformations' element found in spot declaration.";
+        	}
+
+     	var tran2 = tran[0];
+
+	var tran3 =  tran2.getElementsByTagName('transformationref');
+        if (tran3 == null) {
+        		return "'tran3' element in materials is missing.";
+        	}
+
+        var tran4 = tran3[0];
+
+        this.idtran = this.reader.getString(trans4,"id",true);
+
+
+ /*************************** translate ***************************/
+
+	var transl =  tran4.getElementsByTagName('translate');
+     	if (transl == null) {
+        	return "'translate' element in materials is missing."
+        }
+
+     	var transl2 = transl[0];
+     	this.xtransl2 = this.reader.getFloat(transl2,"x",true);
+	this.ytransl2 = this.reader.getFloat(transl2,"y",true);
+	this.ztransl2 = this.reader.getFloat(transl2,"z",true);
+
+ /*************************** rotate ***************************/
+
+	var rot =  tran4.getElementsByTagName('rotate');
+     	if (rot == null) {
+        	return "'rotate' element in materials is missing."
+        }
+
+     	var rot2 = rot[0];
+     	this.rotaxis2 = this.reader.getString(rot2,"axis",true);
+	this.rotangle2 = this.reader.getFloat(rot2,"angle",true);
+
+ /*************************** scale ***************************/
+
+	var scal2 =  tran4.getElementsByTagName('scale');
+     	if (scal2 == null) {
+        	return "'scale' element in materials is missing."
+        }
+
+     	var scal3 = scal2[0];
+     	this.xscale2 = this.reader.getFloat(scal3,"x",true);
+	this.yscale2 = this.reader.getFloat(scal3,"y",true);
+	this.zscale2 = this.reader.getFloat(scal3,"z",true);
+
+
+ /*************************** materials ***************************/
+
+	var mat = comps4.getElementsByTagName('materials');
+	if (mat == null) {
+        	return "'materials' element in materials is missing."
+        	}
+	if (mat.length != 1) {
+        	return "either zero or more than one 'materials' element found in spot declaration.";
+        	}
+
+     	var mat2 = mat[0];
+
+	var mat3 =  mat2.getElementsByTagName('material');
+        if (mat3 == null) {
+        		return "'mat3' element in material is missing.";
+        	}
+
+        var mat4 = mat3[0];
+
+        this.idmat = this.reader.getString(mat4,"id",true);
+
+
+/*************************** texture ***************************/
+
+	var tex = comps4.getElementsByTagName('texture');
+	if (tex == null) {
+        	return "'texture' element in texture is missing."
+        	}
+	if (tex.length != 1) {
+        	return "either zero or more than one 'texture' element found in spot declaration.";
+        	}
+
+     	var tex2 = tex[0];
+
+        this.idtex = this.reader.getString(tex2,"id",true);
+
+
+ /*************************** children ***************************/
+
+	var child = comps4.getElementsByTagName('children');
+	if (child == null) {
+        	return "'children' element in children is missing."
+        	}
+	if (child.length != 1) {
+        	return "either zero or more than one 'children' element found in spot declaration.";
+        	}
+
+     	var child2 = child[0];
+
+	var component =  child2.getElementsByTagName('componentref');
+        if (component == null) {
+        		return "'component' element in material is missing.";
+        	}
+
+        var component2 = component[0];
+
+        this.componentrefid = this.reader.getString(component,"id",true);
+
+	var primitive =  child2.getElementsByTagName('primitiveref');
+        if (primitive == null) {
+        		return "'primitive' element in material is missing.";
+        	}
+
+        var primitive2 = primitive[0];
+
+        this.primitiverefid = this.reader.getString(primitive,"id",true);
+
+
+
+
 
 
 
