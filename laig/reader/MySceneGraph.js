@@ -566,22 +566,25 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
      this.rshinemi = this.reader.getFloat(shinemi2,"value",true);
 
 
- /*************************** transformations ***************************/
+
+/*****************************************************************************************************/
+
+
+ /******************************************* transformations **************************************/
+
+
 
 	var trans = rootElement.getElementsByTagName('transformations');
 	if (trans == null) {
-        	return "'transformations' element in materials is missing."
-        	}
-	if (trans.length != 1) {
-        	return "either zero or more than one 'transformations' element found in spot declaration.";
+        	return "'transformations' element is missing."
         	}
 
-     	var trans2 = trans[0];
+     var trans2 = trans[0];
 
 	var trans3 =  trans2.getElementsByTagName('transformation');
-        if (trans3 == null) {
-        		return "'trans3' element in materials is missing.";
-        	}
+    if (trans3 == null) {
+        return "'transformation' element in transformations is missing.";
+        }
 
         var trans4 = trans3[0];
 
@@ -592,7 +595,7 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var translation =  trans4.getElementsByTagName('translate');
      	if (translation == null) {
-        	return "'translate' element in materials is missing."
+        	return "'translate' element in transformation is missing."
         }
 
      	var translation2 = translation[0];
@@ -604,7 +607,7 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var rotation =  trans4.getElementsByTagName('rotate');
      	if (rotation == null) {
-        	return "'rotate' element in materials is missing."
+        	return "'rotate' element in transformation is missing."
         }
 
      	var rotation2 = rotation[0];
@@ -615,7 +618,7 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var scale2 =  trans4.getElementsByTagName('scale');
      	if (scale2 == null) {
-        	return "'scale' element in materials is missing."
+        	return "'scale' element in transformation is missing."
         }
 
      	var scale3 = scale2[0];
@@ -624,21 +627,20 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 	this.zscale = this.reader.getFloat(scale3,"z",true);
 
 
- /*************************** primitives ***************************/
+
+ /************************************** primitives *********************************************/
+
 
 	var prims = rootElement.getElementsByTagName('primitives');
 	if (prims == null) {
-        	return "'primitives' element in materials is missing."
-        	}
-	if (prims.length != 1) {
-        	return "either zero or more than one 'primitives' element found in spot declaration.";
+        	return "'primitives' element is missing."
         	}
 
-     	var prims2 = prims[0];
+    var prims2 = prims[0];
 
 	var prims3 =  prims2.getElementsByTagName('primitive');
         if (prims3 == null) {
-        		return "'prims3' element in materials is missing.";
+        		return "'primitive' element in primitives is missing.";
         	}
 
         var prims4 = prims3[0];
@@ -650,11 +652,11 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var rect =  prims4.getElementsByTagName('rectangle');
      	if (rect == null) {
-        	return "'rectangle' element in materials is missing."
+        	return "'rectangle' element in primitive is missing."
         }
 
-     	var rect2 = rect[0];
-     	this.x1rect = this.reader.getFloat(rect2,"x1",true);
+    var rect2 = rect[0];
+    this.x1rect = this.reader.getFloat(rect2,"x1",true);
 	this.ylrect = this.reader.getFloat(rect2,"y1",true);
 	this.x2rect = this.reader.getFloat(rect2,"x2",true);
 	this.y2rect = this.reader.getFloat(rect2,"y2",true);
@@ -663,11 +665,11 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var tri =  prims4.getElementsByTagName('triangle');
      	if (tri == null) {
-        	return "'triangle' element in materials is missing."
+        	return "'triangle' element in primitive is missing."
         }
 
-     	var tri2 = tri[0];
-     	this.x1tri = this.reader.getFloat(tri2,"x1",true);
+    var tri2 = tri[0];
+    this.x1tri = this.reader.getFloat(tri2,"x1",true);
 	this.yltri = this.reader.getFloat(tri2,"y1",true);
 	this.zltri = this.reader.getFloat(tri2,"z1",true);
 	this.x2tri = this.reader.getFloat(tri2,"x2",true);
@@ -681,11 +683,11 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var cyl =  prims4.getElementsByTagName('cylinder');
      	if (cyl == null) {
-        	return "'cylinder' element in materials is missing."
+        	return "'cylinder' element in primitive is missing."
         }
 
-     	var cyl2 = cyl[0];
-     	this.cylbase = this.reader.getFloat(cyl2,"base",true);
+    var cyl2 = cyl[0];
+    this.cylbase = this.reader.getFloat(cyl2,"base",true);
 	this.cyltop = this.reader.getFloat(cyl2,"top",true);
 	this.cylheight = this.reader.getFloat(cyl2,"height",true);
 	this.cylslices = this.reader.getInteger(cyl2,"slices",true);
@@ -695,11 +697,11 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var sphe =  prims4.getElementsByTagName('sphere');
      	if (sphe == null) {
-        	return "'sphere' element in materials is missing."
+        	return "'sphere' element in primitive is missing."
         }
 
-     	var sphe2 = sphe[0];
-     	this.spheradius = this.reader.getFloat(sphe2,"radius",true);
+    var sphe2 = sphe[0];
+    this.spheradius = this.reader.getFloat(sphe2,"radius",true);
 	this.spheslices = this.reader.getInteger(sphe2,"slices",true);
 	this.sphestacks = this.reader.getInteger(sphe2,"stacks",true);
 
@@ -707,126 +709,138 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 
 	var tor =  prims4.getElementsByTagName('torus');
      	if (tor == null) {
-        	return "'torus' element in materials is missing."
+        	return "'torus' element in primitive is missing."
         }
 
-     	var tor2 = tor[0];
-     	this.torinner = this.reader.getFloat(tor2,"inner",true);
+    var tor2 = tor[0];
+    this.torinner = this.reader.getFloat(tor2,"inner",true);
 	this.torouter = this.reader.getFloat(tor2,"outer",true);
 	this.torslices = this.reader.getInteger(tor2,"slices",true);
 	this.torloops = this.reader.getInteger(tor2,"loops",true);
 
 
- /*************************** components ***************************/
+
+ /**************************************** components ***************************************/
+
 
 	var comps = rootElement.getElementsByTagName('components');
 	if (comps == null) {
-        	return "'components' element in materials is missing."
-        	}
-	if (comps.length != 1) {
-        	return "either zero or more than one 'components' element found in spot declaration.";
-        	}
+       return "'components' element is missing."
+       }
 
-     	var comps2 = comps[0];
+	if (comps.length != 1) {
+       return "either zero or more than one 'components' element found.";
+       }
+
+     var comps2 = comps[0];
 
 	var comps3 =  comps2.getElementsByTagName('component');
-        if (comps3 == null) {
-        		return "'comps3' element in materials is missing.";
-        	}
+	if (comps3 == null) {
+       return "'component' element in components is missing.";
+       }
 
-        var comps4 = comps3[0];
-
-        this.idcomps = this.reader.getString(comps4,"id",true);
+    var comps4 = comps3[0];
+    this.idcomps = this.reader.getString(comps4,"id",true);
 
 
  /*************************** transformation ***************************/
 
+
 	var tran = comps4.getElementsByTagName('transformation');
 	if (tran == null) {
-        	return "'transformation' element in materials is missing."
+        	return "'transformation' element in component is missing."
         	}
 	if (tran.length != 1) {
-        	return "either zero or more than one 'transformations' element found in spot declaration.";
+        	return "either zero or more than one 'transformations' element found in component declaration.";
         	}
 
-     	var tran2 = tran[0];
+    var tran2 = tran[0];
 
 	var tran3 =  tran2.getElementsByTagName('transformationref');
         if (tran3 == null) {
-        		return "'tran3' element in materials is missing.";
+        		return "'transformationref' element in component is missing.";
         	}
 
-        var tran4 = tran3[0];
+    var tran4 = tran3[0];
+    this.idtran = this.reader.getString(tran4,"id",true);
 
-        this.idtran = this.reader.getString(trans4,"id",true);
 
 
- /*************************** translate ***************************/
 
-	var transl =  tran4.getElementsByTagName('translate');
+/*************************** translate ***************************/
+
+
+	var transl =  tran2.getElementsByTagName('translate');
      	if (transl == null) {
-        	return "'translate' element in materials is missing."
+        	return "'translate' element in transformationref is missing."
         }
 
-     	var transl2 = transl[0];
-     	this.xtransl2 = this.reader.getFloat(transl2,"x",true);
-	this.ytransl2 = this.reader.getFloat(transl2,"y",true);
-	this.ztransl2 = this.reader.getFloat(transl2,"z",true);
+    var transl2 = transl[0];
+    this.xtranslate2 = this.reader.getFloat(transl2,"x",true);
+	this.ytranslate2 = this.reader.getFloat(transl2,"y",true);
+	this.ztranslate2 = this.reader.getFloat(transl2,"z",true);
 
- /*************************** rotate ***************************/
 
-	var rot =  tran4.getElementsByTagName('rotate');
+/*************************** rotate ***************************/
+
+
+	var rot =  tran2.getElementsByTagName('rotate');
      	if (rot == null) {
-        	return "'rotate' element in materials is missing."
+        	return "'rotate' element in transformationref is missing."
         }
 
-     	var rot2 = rot[0];
-     	this.rotaxis2 = this.reader.getString(rot2,"axis",true);
+    var rot2 = rot[0];
+    this.rotaxis2 = this.reader.getString(rot2,"axis",true);
 	this.rotangle2 = this.reader.getFloat(rot2,"angle",true);
 
- /*************************** scale ***************************/
 
-	var scal2 =  tran4.getElementsByTagName('scale');
-     	if (scal2 == null) {
-        	return "'scale' element in materials is missing."
+/*************************** scale ***************************/
+
+
+	var scal2 =  tran2.getElementsByTagName('scale');
+    if (scal2 == null) {
+      return "'scale' element in transformationref is missing."
         }
 
-     	var scal3 = scal2[0];
-     	this.xscale2 = this.reader.getFloat(scal3,"x",true);
+    var scal3 = scal2[0];
+    this.xscale2 = this.reader.getFloat(scal3,"x",true);
 	this.yscale2 = this.reader.getFloat(scal3,"y",true);
 	this.zscale2 = this.reader.getFloat(scal3,"z",true);
 
 
- /*************************** materials ***************************/
+
+/*************************** materials ***************************/
+
 
 	var mat = comps4.getElementsByTagName('materials');
 	if (mat == null) {
-        	return "'materials' element in materials is missing."
+        	return "'materials' element in component is missing."
         	}
 	if (mat.length != 1) {
-        	return "either zero or more than one 'materials' element found in spot declaration.";
+        	return "either zero or more than one 'materials' element found in component declaration.";
         	}
 
      	var mat2 = mat[0];
 
 	var mat3 =  mat2.getElementsByTagName('material');
         if (mat3 == null) {
-        		return "'mat3' element in material is missing.";
+        		return "'material' element in materials(component) is missing.";
         	}
 
         var mat4 = mat3[0];
-
         this.idmat = this.reader.getString(mat4,"id",true);
+
 
 
 /*************************** texture ***************************/
 
+
 	var tex = comps4.getElementsByTagName('texture');
 	if (tex == null) {
-        	return "'texture' element in texture is missing."
+        	return "'texture' element in component is missing."
         	}
 	if (tex.length != 1) {
-        	return "either zero or more than one 'texture' element found in spot declaration.";
+        	return "either zero or more than one 'texture' element found in component declaration.";
         	}
 
      	var tex2 = tex[0];
@@ -834,35 +848,33 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
         this.idtex = this.reader.getString(tex2,"id",true);
 
 
- /*************************** children ***************************/
+
+/*************************** children ***************************/
+
 
 	var child = comps4.getElementsByTagName('children');
 	if (child == null) {
-        	return "'children' element in children is missing."
-        	}
-	if (child.length != 1) {
-        	return "either zero or more than one 'children' element found in spot declaration.";
+        	return "'children' element in component is missing."
         	}
 
-     	var child2 = child[0];
+     var child2 = child[0];
 
 	var component =  child2.getElementsByTagName('componentref');
         if (component == null) {
-        		return "'component' element in material is missing.";
+        		return "'componentref' element in children(component) is missing.";
         	}
 
         var component2 = component[0];
-
-        this.componentrefid = this.reader.getString(component,"id",true);
+        this.componentrefid = this.reader.getString(component2,"id",true);
 
 	var primitive =  child2.getElementsByTagName('primitiveref');
         if (primitive == null) {
-        		return "'primitive' element in material is missing.";
+        		return "'primitiveref' element in children(component) is missing.";
         	}
 
         var primitive2 = primitive[0];
+        this.primitiverefid = this.reader.getString(primitive2,"id",true);
 
-        this.primitiverefid = this.reader.getString(primitive,"id",true);
 
 
 
