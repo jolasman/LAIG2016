@@ -239,26 +239,34 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
        if (omnis == null) {
            		return "omni' element is missing.";
            	}
-/*
-     	if (omnis.length != 1) {
-           		return "either zero or more than one 'omni' element found.";
-          	}
+
+/*****************************************************************************************
+*
+* neste momento os valores de cada tag omni esta a ser lido e guardado com os valores em arrays diferentes
+* um para o id e enabled
+* outro para guardar a location
+* outro para o ambient, etc.
+* estando guardados em cada array pela sua ordem correspondente, isto é a posicao[i] de cada array
+* coresponde a cada tag[i] omni
+*****************************************************************************************/
+        var arrayOmni = [];
+        var arrayLocationOmni = [];
+        var arrayAmbientOmni = [];
+        var arrayDiffuseOmni = [];
+        var arraySpecularOmni = [];
+
+                for(var i = 0; i < omnis.length; i++)
+                {
+                   this.idomni = this.reader.getString(omnis[i],"id",true);
+                   this.enabledomni = this.reader.getBoolean(omnis[i],"enabled",true);
+
+                   arrayOmni.push([this.idomni,this.enabledomni]);
 
 
-          	****************** podem existir mais do que um omni ou spot
+ /********************* location in omni   *******************/
 
 
-*/
-        var omnis2 = omnis[0];
-
-        this.idomni = this.reader.getString(omnis2,"id",true);
-        this.enabledomni = this.reader.getBoolean(omnis2,"enabled",true);
-
-
-    /********************* location in omni   *******************/
-
-
-        var locations = omnis2.getElementsByTagName('location');
+        var locations = omnis[i].getElementsByTagName('location');
         if (locations == null) {
          	return "location' element in omni is missing.";
            	}
@@ -273,12 +281,13 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.zloc = this.reader.getFloat(location2, "z", true);
          this.wloc = this.reader.getFloat(location2, "w", true);
 
+        arrayLocationOmni.push([this.xloc,this.yloc,this.zloc,this.wloc]);
 
 
     /********************* ambient in omni   *******************/
 
 
-        var ambomni = omnis2.getElementsByTagName('ambient');
+        var ambomni = omnis[i].getElementsByTagName('ambient');
         if (ambomni == null) {
        	return "ambient' element in omni is missing.";
           	}
@@ -292,11 +301,12 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
         this.bao = this.reader.getFloat(ambomni2, "b", true);
         this.aao = this.reader.getFloat(ambomni2, "a", true);
 
+        arrayAmbientOmni.push([this.rao,this.gao,this.bao,this.aao]);
 
     /********************* diffuse in omni   *******************/
 
 
-         var difomni = omnis2.getElementsByTagName('diffuse');
+         var difomni = omnis[i].getElementsByTagName('diffuse');
          if (difomni == null) {
          return "diffuse' element in omni is missing.";
            	}
@@ -311,11 +321,12 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.bdo = this.reader.getFloat(difomni2, "b", true);
          this.ado = this.reader.getFloat(difomni2, "a", true);
 
+        arrayDiffuseOmni.push([this.rdo,this.gdo,this.bdo,this.ado]);
 
     /********************* specular in omni   *******************/
 
 
-         var specomni = omnis2.getElementsByTagName('specular');
+         var specomni = omnis[i].getElementsByTagName('specular');
          if (specomni == null) {
          return "specular' element in omni is missing.";
            	}
@@ -330,37 +341,50 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.bso = this.reader.getFloat(specomni2, "b", true);
          this.aso = this.reader.getFloat(specomni2, "a", true);
 
+        arraySpecularOmni.push([this.rso,this.gso,this.bso,this.aso]);
 
-      /******************************************* spot *************************************************/
+ }
+
+
+
+/******************************************* spot *************************************************/
+
 
 
        var spots = luzes.getElementsByTagName('spot');
        if (spots == null) {
            		return "spot' element is missing.";
            	}
-/*
-     	if (omnis.length != 1) {
-           		return "either zero or more than one 'omni' element found.";
-          	}
 
 
-          	****************** podem existir mais do que um omni ou spot
+/*****************************************************************************************
+*
+* neste momento os valores de cada tag spot esta a ser lido e guardado da mesma forma que os omnis
+*
+*****************************************************************************************/
+        var arraySpot = [];
+        var arrayLocationSpot = [];
+        var arrayTargetSpot = [];
+        var arrayAmbientSpot = [];
+        var arrayDiffuseSpot = [];
+        var arraySpecularSpot = [];
+
+                for(var i = 0; i < spots.length; i++)
+                {
+
+                    this.idspot = this.reader.getString(spots[i],"id",true);
+                    this.enabledspot = this.reader.getBoolean(spots[i],"enabled",true);
+                    this.anglespot = this.reader.getFloat(spots[i],"angle",true);
+                    this.exponentspot = this.reader.getFloat(spots[i],"exponent",true);
+
+                    arraySpot.push([this.idspot,this.enabledspot,this.anglespot,this.exponentspot]);
 
 
-*/
-        var spots2 = spots[0];
 
-        this.idspot = this.reader.getString(spots2,"id",true);
-        this.enabledspot = this.reader.getBoolean(spots2,"enabled",true);
-        this.anglespot = this.reader.getFloat(spots2,"angle",true);
-        this.exponentspot = this.reader.getFloat(spots2,"exponent",true);
+/********************* target in spot  *******************/
 
 
-
-    /********************* target in spot  *******************/
-
-
-        var targets = spots2.getElementsByTagName('target');
+        var targets = spots[i].getElementsByTagName('target');
         if (targets == null) {
          	return "target' element in spot is missing.";
            	}
@@ -374,11 +398,13 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.ytarspot = this.reader.getFloat(targets2, "y", true);
          this.ztarspot = this.reader.getFloat(targets2, "z", true);
 
+         arrayTargetSpot.push([this.xtarspot,this.ytarspot,this.ztarspot]);
 
-    /********************* location in spot   *******************/
+
+/********************* location in spot   *******************/
 
 
-        var locationspot = spots2.getElementsByTagName('location');
+        var locationspot = spots[i].getElementsByTagName('location');
         if (locationspot == null) {
          	return "location' element in spot is missing.";
            	}
@@ -392,11 +418,13 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.ylocspot = this.reader.getFloat(locationspot2, "y", true);
          this.zlocspot = this.reader.getFloat(locationspot2, "z", true);
 
+        arrayLocationSpot.push([this.xlocspot,this.ylocspot,this.zlocspot]);
 
-    /********************* ambient in spot   *******************/
+
+/********************* ambient in spot   *******************/
 
 
-        var ambspot = spots2.getElementsByTagName('ambient');
+        var ambspot = spots[i].getElementsByTagName('ambient');
         if (ambspot == null) {
        	return "ambient' element in spot is missing.";
           	}
@@ -410,11 +438,15 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
         this.bal = this.reader.getFloat(ambspot2, "b", true);
         this.aal = this.reader.getFloat(ambspot2, "a", true);
 
+        arrayAmbientSpot.push([this.ral,this.gal,this.bal,this.aal]);
 
-    /********************* diffuse in spot   *******************/
 
 
-         var diffspot = spots2.getElementsByTagName('diffuse');
+/********************* diffuse in spot   *******************/
+
+
+
+         var diffspot = spots[i].getElementsByTagName('diffuse');
          if (diffspot == null) {
          return "diffuse' element in spot is missing.";
            	}
@@ -429,11 +461,14 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.bds = this.reader.getFloat(diffspot2, "b", true);
          this.ads = this.reader.getFloat(diffspot2, "a", true);
 
+        arrayDiffuseSpot.push([this.rds,this.gds,this.bds,this.ads]);
 
-    /********************* specular in spot   *******************/
+
+/********************* specular in spot   *******************/
 
 
-         var specspot = spots2.getElementsByTagName('specular');
+
+         var specspot = spots[i].getElementsByTagName('specular');
          if (specspot == null) {
          return "specular' element in spot is missing.";
            	}
@@ -448,7 +483,10 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
          this.bsspot = this.reader.getFloat(specspot2, "b", true);
          this.asspot = this.reader.getFloat(specspot2, "a", true);
 
+         arraySpecularSpot.push([this.rsspot,this.gsspot,this.bsspot,this.asspot]);
 
+
+}
 
     /****************************************** textures ************************************************/
 
@@ -466,12 +504,20 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
         		return "texture' element in textures is missing.";
         	}
 
-        var textures2 = textures[0];
+        var arrayTextures = [];
 
-        this.idtexture = this.reader.getString(textures2,"id",true);
-        this.filetexture = this.reader.getString(textures2,"file",true);
-        this.length_stexture = this.reader.getFloat(textures2,"length_s",true);
-        this.length_ttexture = this.reader.getFloat(textures2,"length_t",true);
+        for(var i = 0; i < textures.length; i++)
+        {
+                this.idtexture = this.reader.getString(textures[i],"id",true);
+                this.filetexture = this.reader.getString(textures[i],"file",true);
+                this.length_stexture = this.reader.getFloat(textures[i],"length_s",true);
+                this.length_ttexture = this.reader.getFloat(textures[i],"length_t",true);
+
+           arrayTextures.push([this.idtexture,this.filetexture,this.length_stexture,this.length_ttexture]);
+
+        }
+
+
 
 
 
