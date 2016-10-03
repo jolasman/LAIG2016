@@ -531,21 +531,28 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
     	}
 
     	// various examples of different types of access
-    	var material12 = material1[0];
+    	var materiais1 = material1[0];
 
-        var material2 =  material12.getElementsByTagName('material');
-        if (material2 == null) {
-        		return "'material' element in materials is missing.";
-        	}
+        var materiais = materiais1.getElementsByTagName('material');
 
-        var material23 = material2[0];
+        var arrayMaterials = [];
+        var arrayEmissionMaterial = [];
+        var arrayAmbientMaterial = [];
+        var arrayDiffuseMaterial = [];
+        var arraySpecularMaterial = [];
+        var arrayShininnesMaterial = [];
 
-        this.idmaterial = this.reader.getString(material23,"id",true);
+        for(var i = 0; i < materiais.length; i++)
+           {
+
+          this.idmaterial = this.reader.getString(materiais[i],"id",true);
+
+          arrayMaterials.push(this.idmaterial);
 
 
     /*************************** emisiion material ***************************/
 
-    var emissions =  material23.getElementsByTagName('emission');
+    var emissions =  materiais[i].getElementsByTagName('emission');
     if (emissions == null) {
        return "emissions' element in materials is missing.";
       	}
@@ -557,10 +564,12 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
      this.bemission = this.reader.getFloat(emissions2,"b",true);
      this.aemission = this.reader.getFloat(emissions2,"a",true);
 
+    arrayEmissionMaterial.push([this.remission,this.gemission,this.bemission,this.aemission]);
+
 
 /*************************** ambiente material ***************************/
 
-    var ambemi =  material23.getElementsByTagName('ambient');
+    var ambemi =  materiais[i].getElementsByTagName('ambient');
     if (ambemi == null) {
        return "ambient' element in materials is missing.";
       	}
@@ -572,10 +581,12 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
      this.bambemi = this.reader.getFloat(ambemi2,"b",true);
      this.aambemi = this.reader.getFloat(ambemi2,"a",true);
 
+    arrayAmbientMaterial.push([this.rambemi,this.gambemi,this.bambemi,this.aambemi]);
+
 
 /*************************** diffuse material ***************************/
 
-    var diffemi =  material23.getElementsByTagName('diffuse');
+    var diffemi =  materiais[i].getElementsByTagName('diffuse');
     if (diffemi == null) {
        return "diffuse' element in materials is missing.";
       	}
@@ -587,23 +598,28 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
      this.bdiffemi = this.reader.getFloat(diffemi2,"b",true);
      this.adiffemi = this.reader.getFloat(diffemi2,"a",true);
 
+    arrayDiffuseMaterial.push([this.rdiffemi,this.gdiffemii,this.bdiffemi,this.adiffemi]);
+
 
      /*************************** specular material ***************************/
 
-     var specemi =  material23.getElementsByTagName('specular');
+     var specemi =  materiais[i].getElementsByTagName('specular');
      if (specemi == null) {
         return "specular' element in materials is missing."
         }
 
      var specemi2 = specemi[0];
+
      this.rspecemi = this.reader.getFloat(specemi2,"r",true);
      this.gspecemi = this.reader.getFloat(specemi2,"g",true);
      this.bspecemi = this.reader.getFloat(specemi2,"b",true);
      this.aspecemi = this.reader.getFloat(specemi2,"a",true);
 
+     arraySpecularMaterial.push([this.rspecemi,this.gspecemi,this.bspecemi,this.aspecemi]);
+
  /*************************** shininess material ***************************/
 
-     var shinemi =  material23.getElementsByTagName('shininess');
+     var shinemi =  materiais[i].getElementsByTagName('shininess');
      if (shinemi == null) {
         return "shininess' element in materials is missing."
         }
@@ -611,6 +627,11 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
      var shinemi2 = shinemi[0];
      this.rshinemi = this.reader.getFloat(shinemi2,"value",true);
 
+
+     arrayShininnesMaterial.push(this.rshinemi);
+
+
+ }
 
 
 /*****************************************************************************************************/
@@ -632,46 +653,87 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
         return "'transformation' element in transformations is missing.";
         }
 
-        var trans4 = trans3[0];
 
-        this.idtrans = this.reader.getString(trans4,"id",true);
+         var arrayTransformations = [];
+         var arrayTranslateTransformations = [];
+         var arrayRotateTransformations = [];
+         var arrayScaleTransformations = [];
+
+
+        for(var i = 0; i < trans3.length; i++)
+                   {
+
+        this.idtrans = this.reader.getString(trans3[i],"id",true);
+
+        arrayTransformations.push(this.idtrans);
+
+
+	var transla =  trans3[i].getElementsByTagName('translate');
+	var rota =  trans3[i].getElementsByTagName('rotate');
+	var sca =  trans3[i].getElementsByTagName('scale');
+
+     	if (transla == null) {
+          	if (rota == null) {
+             	if (sca == null) {
+                    console.log(" Translate, rotate or scale need to be declared in tranformation tag");
+            }
+      }
+}
+
+
 
 
  /*************************** translate ***************************/
 
-	var translation =  trans4.getElementsByTagName('translate');
-     	if (translation == null) {
-        	return "'translate' element in transformation is missing."
-        }
+    if (transla){
 
-     	var translation2 = translation[0];
-     	this.xtransl = this.reader.getFloat(translation2,"x",true);
-	this.ytransl = this.reader.getFloat(translation2,"y",true);
-	this.ztransl = this.reader.getFloat(translation2,"z",true);
+    var translation = transla[0];
+
+    this.xtransl = this.reader.getFloat(translation,"x",true);
+	this.ytransl = this.reader.getFloat(translation,"y",true);
+	this.ztransl = this.reader.getFloat(translation,"z",true);
+
+	arrayTranslateTransformations.push([this.xtransl,this.ytransl,this.ztransl]);
+
+
+    }
+
 
  /*************************** rotate ***************************/
 
-	var rotation =  trans4.getElementsByTagName('rotate');
-     	if (rotation == null) {
-        	return "'rotate' element in transformation is missing."
-        }
+if (rota){
 
-     	var rotation2 = rotation[0];
-     	this.rotaxis = this.reader.getString(rotation2,"axis",true);
-	this.rotangle = this.reader.getFloat(rotation2,"angle",true);
+     	var rotation = rota[0];
+     	this.rotaxis = this.reader.getString(rotation,"axis",true);
+	    this.rotangle = this.reader.getFloat(rotation,"angle",true);
+
+
+	arrayRotateTransformations.push([this.rotaxis,this.rotangle]);
+
+
+    }
+
 
  /*************************** scale ***************************/
 
-	var scale2 =  trans4.getElementsByTagName('scale');
-     	if (scale2 == null) {
-        	return "'scale' element in transformation is missing."
-        }
 
-     	var scale3 = scale2[0];
-     	this.xscale = this.reader.getFloat(scale3,"x",true);
-	this.yscale = this.reader.getFloat(scale3,"y",true);
-	this.zscale = this.reader.getFloat(scale3,"z",true);
+if (sca){
 
+     	var scale = sca[0];
+        this.xscale = this.reader.getFloat(scale,"x",true);
+        this.yscale = this.reader.getFloat(scale,"y",true);
+        this.zscale = this.reader.getFloat(scale,"z",true);
+
+	    arrayScaleTransformations.push([this.xscale,this.yscale,this.zscale]);
+
+    }
+
+
+}
+
+
+
+/**************************************************************************************************/
 
 
  /************************************** primitives *********************************************/
@@ -689,32 +751,101 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
         		return "'primitive' element in primitives is missing.";
         	}
 
-        var prims4 = prims3[0];
+       var arrayPrimitives = [];
+       var arrayRectanglePrimitives = [];
+       var arrayTrianglePrimitives = [];
+       var arrayCylinderPrimitives = [];
+       var arraySpherePrimitives = [];
+       var arrayTorusPrimitives = [];
 
-        this.idprims = this.reader.getString(prims4,"id",true);
+    for(var i = 0; i < prims3.length; i++){
 
 
-/*************************** rectangle ***************************/
+    this.idprims = this.reader.getString(prims3[i],"id",true);
+    arrayPrimitives.push(this.idprims);
+   
 
-	var rect =  prims4.getElementsByTagName('rectangle');
-     	if (rect == null) {
-        	return "'rectangle' element in primitive is missing."
-        }
+
+/****************************************
+    if(i > 0){
+    for(var j = 0; j < arrayPrimitives.length; j++)
+    {
+
+
+       var result = arrayPrimitives[j].localeCompare(this.idprims);
+       console.log(result);
+       if(result == 0){
+            console.log("id of primite tag equal to another primite id. not allowed");
+       }
+       else
+       {
+         arrayPrimitives.push(this.idprims);
+       }
+    }
+}
+
+*
+* falta verificar se o id e diferente do id de outra primitiva
+*
+*
+********************************************/
+
+    var rect = prims3[i].getElementsByTagName('rectangle');
+    var tri = prims3[i].getElementsByTagName('triangle');
+    var cyl = prims3[i].getElementsByTagName('cylinder');
+    var sphe = prims3[i].getElementsByTagName('sphere');
+    var tor = prims3[i].getElementsByTagName('torus');
+
+
+
+    if(rect.length > 1){
+    console.log("rectangle defined more than once in primitive tag");
+    }
+    if(tri.length > 1){
+    console.log("triangle defined more than once in primitive tag");
+    }
+    if(cyl.length > 1){
+    console.log("cylinder defined more than once in primitive tag");
+    }
+    if(sphe.length > 1){
+    console.log("sphere defined more than once in primitive tag");
+    }
+    if(tor.length > 1){
+    console.log("torus defined more than once in primitive tag");
+    }
+
+    /******************************************************************************************************************************************************************************
+
+
+
+
+    ********************************************************************************************************************************************************/
+
+    if((rect.length && tri.length && cyl.length && sphe.length && tor.length) == 0 ){         //porque e que aqui nao faz o pedido caso haja alguma primitiva declarada
+    console.log("no primitive defined in primitive:" + this.idprims + ".");
+    }
+
+
+   /*************************** rectangle ***************************/
+
+   if( ( (tri.length && cyl.length && sphe.length && tor.length) == 0) && rect.length == 1 ){
 
     var rect2 = rect[0];
+
     this.x1rect = this.reader.getFloat(rect2,"x1",true);
 	this.ylrect = this.reader.getFloat(rect2,"y1",true);
 	this.x2rect = this.reader.getFloat(rect2,"x2",true);
 	this.y2rect = this.reader.getFloat(rect2,"y2",true);
 
+	arrayRectanglePrimitives.push([this.x1rect,this.ylrect,this.x2rect,this.y2rect]);
+}
+
 /*************************** triangle ***************************/
 
-	var tri =  prims4.getElementsByTagName('triangle');
-     	if (tri == null) {
-        	return "'triangle' element in primitive is missing."
-        }
+if( ( (rect.length && cyl.length && sphe.length && tor.length) == 0) && tri.length == 1 ){
 
     var tri2 = tri[0];
+
     this.x1tri = this.reader.getFloat(tri2,"x1",true);
 	this.yltri = this.reader.getFloat(tri2,"y1",true);
 	this.zltri = this.reader.getFloat(tri2,"z1",true);
@@ -725,46 +856,52 @@ MySceneGraph.prototype.parseGlobalsExample= function(rootElement) {
 	this.y3tri = this.reader.getFloat(tri2,"y3",true);
 	this.z3tri = this.reader.getFloat(tri2,"z3",true);
 
+    arrayTrianglePrimitives.push([this.x1tri,this.yltri,this.zltri,this.x2tri,this.y2tri,this.z2tri,this.x3tri,this.y3tri,this.z3tri]);
+}
 /*************************** cylinder ***************************/
 
-	var cyl =  prims4.getElementsByTagName('cylinder');
-     	if (cyl == null) {
-        	return "'cylinder' element in primitive is missing."
-        }
+if( ( (tri.length && rect.length && sphe.length && tor.length) == 0) && cyl.length == 1 ){
 
     var cyl2 = cyl[0];
+
     this.cylbase = this.reader.getFloat(cyl2,"base",true);
 	this.cyltop = this.reader.getFloat(cyl2,"top",true);
 	this.cylheight = this.reader.getFloat(cyl2,"height",true);
 	this.cylslices = this.reader.getInteger(cyl2,"slices",true);
 	this.cylstacks = this.reader.getInteger(cyl2,"stacks",true);
 
+	arrayCylinderPrimitives.push([this.cylbase,this.cyltop,this.cylheight,this.cylslices,this.cylstacks]);
+}
 /*************************** sphere ***************************/
 
-	var sphe =  prims4.getElementsByTagName('sphere');
-     	if (sphe == null) {
-        	return "'sphere' element in primitive is missing."
-        }
+if( ( (tri.length && cyl.length && cyl.length && tor.length) == 0) && sphe.length == 1 ){
 
     var sphe2 = sphe[0];
+
     this.spheradius = this.reader.getFloat(sphe2,"radius",true);
 	this.spheslices = this.reader.getInteger(sphe2,"slices",true);
 	this.sphestacks = this.reader.getInteger(sphe2,"stacks",true);
 
+	arraySpherePrimitives.push([this.spheradius,this.spheslices,this.sphestacks]);
+}
 /*************************** torus ***************************/
 
-	var tor =  prims4.getElementsByTagName('torus');
-     	if (tor == null) {
-        	return "'torus' element in primitive is missing."
-        }
+if( ( (tri.length && cyl.length && sphe.length && sphe.length) == 0) && tor.length == 1 ){
 
     var tor2 = tor[0];
+
     this.torinner = this.reader.getFloat(tor2,"inner",true);
 	this.torouter = this.reader.getFloat(tor2,"outer",true);
 	this.torslices = this.reader.getInteger(tor2,"slices",true);
 	this.torloops = this.reader.getInteger(tor2,"loops",true);
 
+	arrayTorusPrimitives.push([this.torinner,this.torouter,this.torslices,this.torloops]);
+}
 
+if((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1){
+console.log("more than one primitive defined in primitive tag. not allowed");
+}
+}
 
  /**************************************** components ***************************************/
 
