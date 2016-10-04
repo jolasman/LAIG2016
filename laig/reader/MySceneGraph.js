@@ -763,7 +763,7 @@ if (sca){
 
     this.idprims = this.reader.getString(prims3[i],"id",true);
     arrayPrimitives.push(this.idprims);
-   
+
 
 
 /****************************************
@@ -903,7 +903,15 @@ console.log("more than one primitive defined in primitive tag. not allowed");
 }
 }
 
+
+/********************************************************************************************/
+
+
+
+
  /**************************************** components ***************************************/
+
+
 
 
 	var comps = rootElement.getElementsByTagName('components');
@@ -922,14 +930,27 @@ console.log("more than one primitive defined in primitive tag. not allowed");
        return "'component' element in components is missing.";
        }
 
-    var comps4 = comps3[0];
-    this.idcomps = this.reader.getString(comps4,"id",true);
+    var arrayComponents = [];
+    var arrayComponentComponents = [];
+    var arrayTransformationRefComponents = [];
+    var arrayTransformationTranslateComponents = [];
+    var arrayTransformationRotateComponents = [];
+    var arrayTransformationScaleComponents = [];
+    var arrayMaterialsComponents = [];
+    var arrayTextureComponents = [];
+    var arraychildrenComponents = [];
 
+
+    for(var i = 0; i < comps3.length; i++){
+
+
+   this.idcomps = this.reader.getString(comps3[i],"id",true);
+   arrayComponents.push(this.idcomps);
 
  /*************************** transformation ***************************/
 
 
-	var tran = comps4.getElementsByTagName('transformation');
+	var tran = comps3[i].getElementsByTagName('transformation');
 	if (tran == null) {
         	return "'transformation' element in component is missing."
         	}
@@ -939,63 +960,79 @@ console.log("more than one primitive defined in primitive tag. not allowed");
 
     var tran2 = tran[0];
 
-	var tran3 =  tran2.getElementsByTagName('transformationref');
-        if (tran3 == null) {
-        		return "'transformationref' element in component is missing.";
-        	}
+	var transformationRef =  tran2.getElementsByTagName('transformationref');
+    var transl =  trans2.getElementsByTagName('translate');
+    var rot =  trans2.getElementsByTagName('rotate');
+    var scal2 =  trans2.getElementsByTagName('scale');
 
-    var tran4 = tran3[0];
-    this.idtran = this.reader.getString(tran4,"id",true);
 
+/***********************************************************************************************************
+
+
+        if(transformationRef == 1) // caso haja transformationref
+        {
+            if( (transl.length && rot.length & scal2.length) !== 0){
+            var tran4 = transformationRef[0];
+            this.idtran = this.reader.getString(tran4,"id",true);
+            arrayTransformationRefComponents.push(this.idtran);
+            }else{
+            console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
+            }
+
+        }
+        if (transformationRef == 0) {
+
+        if( (transl.length && rot.length & scal2.length) == 0){
+        console.log("in transformation tag inside component :" + this.idcomps + ". you need to put one type of transformation");
+        }else{
+
+
+
+
+
+**********************************************************************************************************/
 
 
 
 /*************************** translate ***************************/
-
-
-	var transl =  tran2.getElementsByTagName('translate');
-     	if (transl == null) {
-        	return "'translate' element in transformationref is missing."
-        }
 
     var transl2 = transl[0];
     this.xtranslate2 = this.reader.getFloat(transl2,"x",true);
 	this.ytranslate2 = this.reader.getFloat(transl2,"y",true);
 	this.ztranslate2 = this.reader.getFloat(transl2,"z",true);
 
+    arrayTransformationTranslateComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
 
 /*************************** rotate ***************************/
-
-
-	var rot =  tran2.getElementsByTagName('rotate');
-     	if (rot == null) {
-        	return "'rotate' element in transformationref is missing."
-        }
 
     var rot2 = rot[0];
     this.rotaxis2 = this.reader.getString(rot2,"axis",true);
 	this.rotangle2 = this.reader.getFloat(rot2,"angle",true);
 
+    arrayTransformationRotateComponents.push([this.rotaxis2,this.rotangle2]);
 
 /*************************** scale ***************************/
-
-
-	var scal2 =  tran2.getElementsByTagName('scale');
-    if (scal2 == null) {
-      return "'scale' element in transformationref is missing."
-        }
 
     var scal3 = scal2[0];
     this.xscale2 = this.reader.getFloat(scal3,"x",true);
 	this.yscale2 = this.reader.getFloat(scal3,"y",true);
 	this.zscale2 = this.reader.getFloat(scal3,"z",true);
 
+    arrayTransformationScaleComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
+    }
+  }
+}
 
 
-/*************************** materials ***************************/
+/*
 
 
-	var mat = comps4.getElementsByTagName('materials');
+*/
+/*************************** materials ***************************//*
+
+
+
+	var mat = comps3[i].getElementsByTagName('materials');
 	if (mat == null) {
         	return "'materials' element in component is missing."
         	}
@@ -1015,10 +1052,12 @@ console.log("more than one primitive defined in primitive tag. not allowed");
 
 
 
-/*************************** texture ***************************/
+*/
+/*************************** texture ***************************//*
 
 
-	var tex = comps4.getElementsByTagName('texture');
+
+	var tex = comps3[i].getElementsByTagName('texture');
 	if (tex == null) {
         	return "'texture' element in component is missing."
         	}
@@ -1032,10 +1071,12 @@ console.log("more than one primitive defined in primitive tag. not allowed");
 
 
 
-/*************************** children ***************************/
+*/
+/*************************** children ***************************//*
 
 
-	var child = comps4.getElementsByTagName('children');
+
+	var child = comps3[i].getElementsByTagName('children');
 	if (child == null) {
         	return "'children' element in component is missing."
         	}
@@ -1058,6 +1099,7 @@ console.log("more than one primitive defined in primitive tag. not allowed");
         var primitive2 = primitive[0];
         this.primitiverefid = this.reader.getString(primitive2,"id",true);
 
+*/
 
 
 
