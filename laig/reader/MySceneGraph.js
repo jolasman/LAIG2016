@@ -930,7 +930,6 @@ console.log("more than one primitive defined in primitive tag. not allowed");
        return "'component' element in components is missing.";
        }
 
-    var arrayComponents = [];
     var arrayComponentComponents = [];
     var arrayTransformationRefComponents = [];
     var arrayTransformationTranslateComponents = [];
@@ -938,14 +937,15 @@ console.log("more than one primitive defined in primitive tag. not allowed");
     var arrayTransformationScaleComponents = [];
     var arrayMaterialsComponents = [];
     var arrayTextureComponents = [];
-    var arraychildrenComponents = [];
+    var arraychildrenComponentrefComponents = [];
+    var arraychildrenPrimitiverefComponents = [];
 
 
     for(var i = 0; i < comps3.length; i++){
 
 
    this.idcomps = this.reader.getString(comps3[i],"id",true);
-   arrayComponents.push(this.idcomps);
+   arrayComponentComponents.push(this.idcomps);
 
  /*************************** transformation ***************************/
 
@@ -958,41 +958,34 @@ console.log("more than one primitive defined in primitive tag. not allowed");
         	return "either zero or more than one 'transformations' element found in component declaration.";
         	}
 
-    var tran2 = tran[0];
+    var cenas = tran[0];
 
-	var transformationRef =  tran2.getElementsByTagName('transformationref');
-    var transl =  trans2.getElementsByTagName('translate');
-    var rot =  trans2.getElementsByTagName('rotate');
-    var scal2 =  trans2.getElementsByTagName('scale');
-
-
-/***********************************************************************************************************
+	var transformationRef =  cenas.getElementsByTagName('transformationref');
+    var transl =  cenas.getElementsByTagName('translate');
+    var rot =  cenas.getElementsByTagName('rotate');
+    var scal2 =  cenas.getElementsByTagName('scale');
 
 
-        if(transformationRef == 1) // caso haja transformationref
+
+
+
+        if(transformationRef.length !== 0) // caso haja transformationref
         {
-            if( (transl.length && rot.length & scal2.length) !== 0){
+            if( (transl.length && rot.length & scal2.length) == 0){
             var tran4 = transformationRef[0];
             this.idtran = this.reader.getString(tran4,"id",true);
             arrayTransformationRefComponents.push(this.idtran);
-            }else{
+            }
+            else{
             console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
             }
 
         }
-        if (transformationRef == 0) {
+        if (transformationRef.length == 0) {
 
         if( (transl.length && rot.length & scal2.length) == 0){
         console.log("in transformation tag inside component :" + this.idcomps + ". you need to put one type of transformation");
         }else{
-
-
-
-
-
-**********************************************************************************************************/
-
-
 
 /*************************** translate ***************************/
 
@@ -1021,86 +1014,93 @@ console.log("more than one primitive defined in primitive tag. not allowed");
     arrayTransformationScaleComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
     }
   }
-}
+
+  /*************************** materials ***************************/
+
+        var mat = comps3[i].getElementsByTagName('materials');
+
+        if (mat == null) {
+        return "'materials' element in component is missing."
+        }
 
 
-/*
+        var mat2 = mat[0];
 
-
-*/
-/*************************** materials ***************************//*
-
-
-
-	var mat = comps3[i].getElementsByTagName('materials');
-	if (mat == null) {
-        	return "'materials' element in component is missing."
-        	}
-	if (mat.length != 1) {
-        	return "either zero or more than one 'materials' element found in component declaration.";
-        	}
-
-     	var mat2 = mat[0];
-
-	var mat3 =  mat2.getElementsByTagName('material');
+        var mat3 =  mat2.getElementsByTagName('material');
         if (mat3 == null) {
-        		return "'material' element in materials(component) is missing.";
-        	}
+        return "'material' element in materials(component) is missing.";
+        }
 
-        var mat4 = mat3[0];
-        this.idmat = this.reader.getString(mat4,"id",true);
+        for(var j = 0; j < mat3.length; j++){
 
-
-
-*/
-/*************************** texture ***************************//*
+        this.idmat = this.reader.getString(mat3[j],"id",true);
+        arrayMaterialsComponents.push(this.idmat);
+        }
 
 
+/*************************** texture ***************************/
 
-	var tex = comps3[i].getElementsByTagName('texture');
-	if (tex == null) {
-        	return "'texture' element in component is missing."
-        	}
-	if (tex.length != 1) {
-        	return "either zero or more than one 'texture' element found in component declaration.";
-        	}
+        var tex = comps3[i].getElementsByTagName('texture');
+        if (tex == null) {
+        return "'texture' element in component is missing."
+        }
+        if (tex.length != 1) {
+        return "either zero or more than one 'texture' element found in component declaration.";
+        }
 
-     	var tex2 = tex[0];
+        var tex2 = tex[0];
 
         this.idtex = this.reader.getString(tex2,"id",true);
+        arrayTextureComponents.push(this.idtex);
 
 
 
-*/
-/*************************** children ***************************//*
+/*************************** children ***************************/
+
+
+        var child = comps3[i].getElementsByTagName('children');
+        if (child.length == 0) {
+        console.log("'children' element in component: " + this.idcomps + " is missing in component. NOT ALLWOED.");
+        }
+
+        var child2 = child[0];
+
+        var componentrefChildren =  child2.getElementsByTagName('componentref');
+
+        if (componentrefChildren.length == 0) {
+        console.log("'componentref' element in children(component:"+ this.idcomps +") is missing.");
+        }
+        if(componentrefChildren.length !== 0){
+
+        for(var k = 0; k < componentrefChildren.length; k++){
+
+        this.componentrefidchildren = this.reader.getString(componentrefChildren[k],"id",true);
+        arraychildrenComponentrefComponents.push(this.componentrefidchildren);
+
+        }
+        }
+
+
+        var primitiverefCholdren =  child2.getElementsByTagName('primitiveref');
+
+        if (primitiverefCholdren.length == 0) {
+        console.log("'primitiveref' element in children(component:"+ this.idcomps +") is missing.");
+        }
+        if(primitiverefCholdren.length !== 0){
+
+        for(var l = 0; l < primitiverefCholdren.length; l++){
+
+        this.primitiverefidchildren = this.reader.getString(primitiverefCholdren[l],"id",true);
+        arraychildrenPrimitiverefComponents.push(this.primitiverefidchildren);
+
+        }
+
+        }
 
 
 
-	var child = comps3[i].getElementsByTagName('children');
-	if (child == null) {
-        	return "'children' element in component is missing."
-        	}
 
-     var child2 = child[0];
-
-	var component =  child2.getElementsByTagName('componentref');
-        if (component == null) {
-        		return "'componentref' element in children(component) is missing.";
-        	}
-
-        var component2 = component[0];
-        this.componentrefid = this.reader.getString(component2,"id",true);
-
-	var primitive =  child2.getElementsByTagName('primitiveref');
-        if (primitive == null) {
-        		return "'primitiveref' element in children(component) is missing.";
-        	}
-
-        var primitive2 = primitive[0];
-        this.primitiverefid = this.reader.getString(primitive2,"id",true);
-
-*/
-
+}
 
 
 
