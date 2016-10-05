@@ -739,56 +739,55 @@ if (sca){
  /************************************** primitives *********************************************/
 
 
-	var prims = rootElement.getElementsByTagName('primitives');
-	if (prims == null) {
-        	return "'primitives' element is missing."
-        	}
+        var prims = rootElement.getElementsByTagName('primitives');
+        if (prims == null) {
+        return "'primitives' element is missing."
+        }
 
-    var prims2 = prims[0];
+        var prims2 = prims[0];
 
-	var prims3 =  prims2.getElementsByTagName('primitive');
+        var prims3 =  prims2.getElementsByTagName('primitive');
         if (prims3 == null) {
-        		return "'primitive' element in primitives is missing.";
-        	}
+        return "'primitive' element in primitives is missing.";
+        }
 
-       var arrayPrimitives = [];
-       var arrayRectanglePrimitives = [];
-       var arrayTrianglePrimitives = [];
-       var arrayCylinderPrimitives = [];
-       var arraySpherePrimitives = [];
-       var arrayTorusPrimitives = [];
+        var arrayPrimitives = [];
+        var arrayRectanglePrimitives = [];
+        var arrayTrianglePrimitives = [];
+        var arrayCylinderPrimitives = [];
+        var arraySpherePrimitives = [];
+        var arrayTorusPrimitives = [];
+        var result = [];
 
-    for(var i = 0; i < prims3.length; i++){
+        for(var i = 0; i < prims3.length; i++){
 
+        if(i == 0){
+        this.idprims = this.reader.getString(prims3[i],"id",true);
+        arrayPrimitives.push(this.idprims);
+        }
 
-    this.idprims = this.reader.getString(prims3[i],"id",true);
-    arrayPrimitives.push(this.idprims);
-
-
-
-/****************************************
-    if(i > 0){
-    for(var j = 0; j < arrayPrimitives.length; j++)
-    {
+        if(i > 0){
 
 
-       var result = arrayPrimitives[j].localeCompare(this.idprims);
-       console.log(result);
-       if(result == 0){
-            console.log("id of primite tag equal to another primite id. not allowed");
-       }
-       else
-       {
-         arrayPrimitives.push(this.idprims);
-       }
-    }
-}
+        for(var j = 0; j < arrayPrimitives.length; j++)
+        {
 
-*
-* falta verificar se o id e diferente do id de outra primitiva
-*
-*
-********************************************/
+        this.secondid =  this.idprims = this.reader.getString(prims3[i],"id",true);
+        var resultado = arrayPrimitives[j].localeCompare(this.secondid);
+        result.push(resultado);
+        }
+        for(var y = 0; y < result.length; y++){
+
+        if(result[y] == 0 ){
+        console.log("id of primite tag equal to another primite id. not allowed");
+        break;
+        }else{
+        arrayPrimitives.push(this.idprims);
+        }
+        }
+        }
+
+
 
     var rect = prims3[i].getElementsByTagName('rectangle');
     var tri = prims3[i].getElementsByTagName('triangle');
@@ -821,87 +820,87 @@ if (sca){
 
     ********************************************************************************************************************************************************/
 
-    if((rect.length && tri.length && cyl.length && sphe.length && tor.length) == 0 ){         //porque e que aqui nao faz o pedido caso haja alguma primitiva declarada
-    console.log("no primitive defined in primitive:" + this.idprims + ".");
-    }
+   // if( (rect.length && tri.length && cyl.length && sphe.length && tor.length) == 0 ){         //porque e que aqui nao faz o pedido caso haja alguma primitiva declarada
+   // console.log("no primitive defined in primitive:" + this.idprims + ".");
+   // }
 
 
    /*************************** rectangle ***************************/
 
-   if( ( (tri.length && cyl.length && sphe.length && tor.length) == 0) && rect.length == 1 ){
+        if( ( (tri.length && cyl.length && sphe.length && tor.length) == 0) && rect.length == 1 ){
 
-    var rect2 = rect[0];
+        var rect2 = rect[0];
 
-    this.x1rect = this.reader.getFloat(rect2,"x1",true);
-	this.ylrect = this.reader.getFloat(rect2,"y1",true);
-	this.x2rect = this.reader.getFloat(rect2,"x2",true);
-	this.y2rect = this.reader.getFloat(rect2,"y2",true);
+        this.x1rect = this.reader.getFloat(rect2,"x1",true);
+        this.ylrect = this.reader.getFloat(rect2,"y1",true);
+        this.x2rect = this.reader.getFloat(rect2,"x2",true);
+        this.y2rect = this.reader.getFloat(rect2,"y2",true);
 
-	arrayRectanglePrimitives.push([this.x1rect,this.ylrect,this.x2rect,this.y2rect]);
-}
+        arrayRectanglePrimitives.push([this.x1rect,this.ylrect,this.x2rect,this.y2rect]);
+        }
 
 /*************************** triangle ***************************/
 
-if( ( (rect.length && cyl.length && sphe.length && tor.length) == 0) && tri.length == 1 ){
+        if( ( (rect.length && cyl.length && sphe.length && tor.length) == 0) && tri.length == 1 ){
 
-    var tri2 = tri[0];
+        var tri2 = tri[0];
 
-    this.x1tri = this.reader.getFloat(tri2,"x1",true);
-	this.yltri = this.reader.getFloat(tri2,"y1",true);
-	this.zltri = this.reader.getFloat(tri2,"z1",true);
-	this.x2tri = this.reader.getFloat(tri2,"x2",true);
-	this.y2tri = this.reader.getFloat(tri2,"y2",true);
-	this.z2tri = this.reader.getFloat(tri2,"z2",true);
-	this.x3tri = this.reader.getFloat(tri2,"x3",true);
-	this.y3tri = this.reader.getFloat(tri2,"y3",true);
-	this.z3tri = this.reader.getFloat(tri2,"z3",true);
+        this.x1tri = this.reader.getFloat(tri2,"x1",true);
+        this.yltri = this.reader.getFloat(tri2,"y1",true);
+        this.zltri = this.reader.getFloat(tri2,"z1",true);
+        this.x2tri = this.reader.getFloat(tri2,"x2",true);
+        this.y2tri = this.reader.getFloat(tri2,"y2",true);
+        this.z2tri = this.reader.getFloat(tri2,"z2",true);
+        this.x3tri = this.reader.getFloat(tri2,"x3",true);
+        this.y3tri = this.reader.getFloat(tri2,"y3",true);
+        this.z3tri = this.reader.getFloat(tri2,"z3",true);
 
-    arrayTrianglePrimitives.push([this.x1tri,this.yltri,this.zltri,this.x2tri,this.y2tri,this.z2tri,this.x3tri,this.y3tri,this.z3tri]);
-}
+        arrayTrianglePrimitives.push([this.x1tri,this.yltri,this.zltri,this.x2tri,this.y2tri,this.z2tri,this.x3tri,this.y3tri,this.z3tri]);
+        }
 /*************************** cylinder ***************************/
 
-if( ( (tri.length && rect.length && sphe.length && tor.length) == 0) && cyl.length == 1 ){
+        if( ( (tri.length && rect.length && sphe.length && tor.length) == 0) && cyl.length == 1 ){
 
-    var cyl2 = cyl[0];
+        var cyl2 = cyl[0];
 
-    this.cylbase = this.reader.getFloat(cyl2,"base",true);
-	this.cyltop = this.reader.getFloat(cyl2,"top",true);
-	this.cylheight = this.reader.getFloat(cyl2,"height",true);
-	this.cylslices = this.reader.getInteger(cyl2,"slices",true);
-	this.cylstacks = this.reader.getInteger(cyl2,"stacks",true);
+        this.cylbase = this.reader.getFloat(cyl2,"base",true);
+        this.cyltop = this.reader.getFloat(cyl2,"top",true);
+        this.cylheight = this.reader.getFloat(cyl2,"height",true);
+        this.cylslices = this.reader.getInteger(cyl2,"slices",true);
+        this.cylstacks = this.reader.getInteger(cyl2,"stacks",true);
 
-	arrayCylinderPrimitives.push([this.cylbase,this.cyltop,this.cylheight,this.cylslices,this.cylstacks]);
-}
+        arrayCylinderPrimitives.push([this.cylbase,this.cyltop,this.cylheight,this.cylslices,this.cylstacks]);
+        }
 /*************************** sphere ***************************/
 
-if( ( (tri.length && cyl.length && cyl.length && tor.length) == 0) && sphe.length == 1 ){
+        if( ( (tri.length && cyl.length && cyl.length && tor.length) == 0) && sphe.length == 1 ){
 
-    var sphe2 = sphe[0];
+        var sphe2 = sphe[0];
 
-    this.spheradius = this.reader.getFloat(sphe2,"radius",true);
-	this.spheslices = this.reader.getInteger(sphe2,"slices",true);
-	this.sphestacks = this.reader.getInteger(sphe2,"stacks",true);
+        this.spheradius = this.reader.getFloat(sphe2,"radius",true);
+        this.spheslices = this.reader.getInteger(sphe2,"slices",true);
+        this.sphestacks = this.reader.getInteger(sphe2,"stacks",true);
 
-	arraySpherePrimitives.push([this.spheradius,this.spheslices,this.sphestacks]);
-}
+        arraySpherePrimitives.push([this.spheradius,this.spheslices,this.sphestacks]);
+        }
 /*************************** torus ***************************/
 
-if( ( (tri.length && cyl.length && sphe.length && sphe.length) == 0) && tor.length == 1 ){
+        if( ( (tri.length && cyl.length && sphe.length && sphe.length) == 0) && tor.length == 1 ){
 
-    var tor2 = tor[0];
+        var tor2 = tor[0];
 
-    this.torinner = this.reader.getFloat(tor2,"inner",true);
-	this.torouter = this.reader.getFloat(tor2,"outer",true);
-	this.torslices = this.reader.getInteger(tor2,"slices",true);
-	this.torloops = this.reader.getInteger(tor2,"loops",true);
+        this.torinner = this.reader.getFloat(tor2,"inner",true);
+        this.torouter = this.reader.getFloat(tor2,"outer",true);
+        this.torslices = this.reader.getInteger(tor2,"slices",true);
+        this.torloops = this.reader.getInteger(tor2,"loops",true);
 
-	arrayTorusPrimitives.push([this.torinner,this.torouter,this.torslices,this.torloops]);
-}
+        arrayTorusPrimitives.push([this.torinner,this.torouter,this.torslices,this.torloops]);
+        }
 
-if((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1){
-console.log("more than one primitive defined in primitive tag. not allowed");
-}
-}
+        if((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1){
+        console.log("more than one primitive defined in primitive tag. not allowed");
+        }
+        }
 
 
 /********************************************************************************************/
@@ -912,73 +911,67 @@ console.log("more than one primitive defined in primitive tag. not allowed");
  /**************************************** components ***************************************/
 
 
+        var comps = rootElement.getElementsByTagName('components');
+        if (comps == null) {
+        return "'components' element is missing."
+        }
+
+        if (comps.length != 1) {
+        return "either zero or more than one 'components' element found.";
+        }
+
+        var comps2 = comps[0];
+
+        var comps3 =  comps2.getElementsByTagName('component');
+        if (comps3 == null) {
+        return "'component' element in components is missing.";
+        }
+
+        var arrayComponentComponents = [];
+        var arrayTransformationRefComponents = [];
+        var arrayTransformationTranslateComponents = [];
+        var arrayTransformationRotateComponents = [];
+        var arrayTransformationScaleComponents = [];
+        var arrayMaterialsComponents = [];
+        var arrayTextureComponents = [];
+        var arraychildrenComponentrefComponents = [];
+        var arraychildrenPrimitiverefComponents = [];
 
 
-	var comps = rootElement.getElementsByTagName('components');
-	if (comps == null) {
-       return "'components' element is missing."
-       }
-
-	if (comps.length != 1) {
-       return "either zero or more than one 'components' element found.";
-       }
-
-     var comps2 = comps[0];
-
-	var comps3 =  comps2.getElementsByTagName('component');
-	if (comps3 == null) {
-       return "'component' element in components is missing.";
-       }
-
-    var arrayComponentComponents = [];
-    var arrayTransformationRefComponents = [];
-    var arrayTransformationTranslateComponents = [];
-    var arrayTransformationRotateComponents = [];
-    var arrayTransformationScaleComponents = [];
-    var arrayMaterialsComponents = [];
-    var arrayTextureComponents = [];
-    var arraychildrenComponentrefComponents = [];
-    var arraychildrenPrimitiverefComponents = [];
+        for(var i = 0; i < comps3.length; i++){
 
 
-    for(var i = 0; i < comps3.length; i++){
-
-
-   this.idcomps = this.reader.getString(comps3[i],"id",true);
-   arrayComponentComponents.push(this.idcomps);
+        this.idcomps = this.reader.getString(comps3[i],"id",true);
+        arrayComponentComponents.push(this.idcomps);
 
  /*************************** transformation ***************************/
 
 
-	var tran = comps3[i].getElementsByTagName('transformation');
-	if (tran == null) {
-        	return "'transformation' element in component is missing."
-        	}
-	if (tran.length != 1) {
-        	return "either zero or more than one 'transformations' element found in component declaration.";
-        	}
+        var tran = comps3[i].getElementsByTagName('transformation');
+        if (tran == null) {
+        return "'transformation' element in component is missing."
+        }
+        if (tran.length != 1) {
+        return "either zero or more than one 'transformations' element found in component declaration.";
+        }
 
-    var cenas = tran[0];
+        var cenas = tran[0];
 
-	var transformationRef =  cenas.getElementsByTagName('transformationref');
-    var transl =  cenas.getElementsByTagName('translate');
-    var rot =  cenas.getElementsByTagName('rotate');
-    var scal2 =  cenas.getElementsByTagName('scale');
-
-
-
-
+        var transformationRef =  cenas.getElementsByTagName('transformationref');
+        var transl =  cenas.getElementsByTagName('translate');
+        var rot =  cenas.getElementsByTagName('rotate');
+        var scal2 =  cenas.getElementsByTagName('scale');
 
         if(transformationRef.length !== 0) // caso haja transformationref
         {
-            if( (transl.length && rot.length & scal2.length) == 0){
-            var tran4 = transformationRef[0];
-            this.idtran = this.reader.getString(tran4,"id",true);
-            arrayTransformationRefComponents.push(this.idtran);
-            }
-            else{
-            console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
-            }
+        if( (transl.length && rot.length & scal2.length) == 0){
+        var tran4 = transformationRef[0];
+        this.idtran = this.reader.getString(tran4,"id",true);
+        arrayTransformationRefComponents.push(this.idtran);
+        }
+        else{
+        console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
+        }
 
         }
         if (transformationRef.length == 0) {
@@ -989,31 +982,31 @@ console.log("more than one primitive defined in primitive tag. not allowed");
 
 /*************************** translate ***************************/
 
-    var transl2 = transl[0];
-    this.xtranslate2 = this.reader.getFloat(transl2,"x",true);
-	this.ytranslate2 = this.reader.getFloat(transl2,"y",true);
-	this.ztranslate2 = this.reader.getFloat(transl2,"z",true);
+        var transl2 = transl[0];
+        this.xtranslate2 = this.reader.getFloat(transl2,"x",true);
+        this.ytranslate2 = this.reader.getFloat(transl2,"y",true);
+        this.ztranslate2 = this.reader.getFloat(transl2,"z",true);
 
-    arrayTransformationTranslateComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
+        arrayTransformationTranslateComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
 
 /*************************** rotate ***************************/
 
-    var rot2 = rot[0];
-    this.rotaxis2 = this.reader.getString(rot2,"axis",true);
-	this.rotangle2 = this.reader.getFloat(rot2,"angle",true);
+        var rot2 = rot[0];
+        this.rotaxis2 = this.reader.getString(rot2,"axis",true);
+        this.rotangle2 = this.reader.getFloat(rot2,"angle",true);
 
-    arrayTransformationRotateComponents.push([this.rotaxis2,this.rotangle2]);
+        arrayTransformationRotateComponents.push([this.rotaxis2,this.rotangle2]);
 
 /*************************** scale ***************************/
 
-    var scal3 = scal2[0];
-    this.xscale2 = this.reader.getFloat(scal3,"x",true);
-	this.yscale2 = this.reader.getFloat(scal3,"y",true);
-	this.zscale2 = this.reader.getFloat(scal3,"z",true);
+        var scal3 = scal2[0];
+        this.xscale2 = this.reader.getFloat(scal3,"x",true);
+        this.yscale2 = this.reader.getFloat(scal3,"y",true);
+        this.zscale2 = this.reader.getFloat(scal3,"z",true);
 
-    arrayTransformationScaleComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
-    }
-  }
+        arrayTransformationScaleComponents.push([this.xtranslate2,this.ytranslate2,this.ztranslate2]);
+        }
+        }
 
   /*************************** materials ***************************/
 
