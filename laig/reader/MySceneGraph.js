@@ -379,6 +379,12 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.enabledspot = this.reader.getBoolean(spots[i], "enabled", true);
         this.anglespot = this.reader.getFloat(spots[i], "angle", true);
         this.exponentspot = this.reader.getFloat(spots[i], "exponent", true);
+
+        if(this.enabledspot == null){
+            console.warn(" Enabled value in spot: " + this.idspot +" not declared. default value used (1 == true).");
+            this.enabledspot = true;
+        }
+
         arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
 
 
@@ -474,7 +480,7 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
 MySceneGraph.prototype.parseTextures = function(rootElement) {
 
     var textura = rootElement.getElementsByTagName('textures');
-    if (textura == null) {
+    if (textura == null || textura.length == 0) {
         return "textures' element is missing.";
     }
     // various examples of different types of access
@@ -484,15 +490,39 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
         return "texture' element in textures is missing.";
     }
     var arrayTextures = [];
+    var arrayTexturesID = [];
+
 
     for (var i = 0; i < textures.length; i++) {
+
         this.idtexture = this.reader.getString(textures[i], "id", true);
         this.filetexture = this.reader.getString(textures[i], "file", true);
         this.length_stexture = this.reader.getFloat(textures[i], "length_s", true);
         this.length_ttexture = this.reader.getFloat(textures[i], "length_t", true);
 
-        arrayTextures.push([this.idtexture, this.filetexture, this.length_stexture, this.length_ttexture]);
+        if (i == 0) {
+            this.idtexture = this.reader.getString(textures[i], "id", true);
 
+            arrayTextures.push([this.filetexture, this.length_stexture, this.length_ttexture]);
+            arrayTexturesID.push(this.idtexture);
+        }
+        if (i > 0) {
+            for (var j = 0; j < arrayTexturesID.length; j++) {
+                var resultTexture = [];
+                this.secondidText = this.idtexture = this.reader.getString(textures[i], "id", true);
+                var texturasID = arrayTexturesID[j].localeCompare(this.secondidText);
+                resultTexture.push(texturasID);
+            }
+            for (var y = 0; y < resultTexture.length; y++) {
+                if (resultTexture[y] == 0) {
+                    console.log("id of Texture: " + this.idtexture + " must be different from the other ones");
+                    break;
+                } else {
+                    arrayTextures.push([this.filetexture, this.length_stexture, this.length_ttexture]);
+                    arrayTexturesID.push(this.idtexture);
+                }
+            }
+        }
     }
 };
 
@@ -672,7 +702,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
     var arrayCylinderPrimitives = [];
     var arraySpherePrimitives = [];
     var arrayTorusPrimitives = [];
-    var result = [];
 
     for (var i = 0; i < prims3.length; i++) {
         if (i == 0) {
@@ -681,13 +710,14 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         }
         if (i > 0) {
             for (var j = 0; j < arrayPrimitives.length; j++) {
+                var result = [];
                 this.secondid = this.idprims = this.reader.getString(prims3[i], "id", true);
                 var resultado = arrayPrimitives[j].localeCompare(this.secondid);
                 result.push(resultado);
             }
             for (var y = 0; y < result.length; y++) {
                 if (result[y] == 0) {
-                    console.log("id of primite tag equal to another primite id. not allowed");
+                    console.log("id of primite tag: " + this.secondid + " equals to another primite id. not allowed");
                     break;
                 } else {
                     arrayPrimitives.push(this.idprims);
@@ -792,7 +822,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 MySceneGraph.prototype.parseComponents = function(rootElement) {
 
     var comps = rootElement.getElementsByTagName('components');
-    if (comps == null) {
+    if (comps == null || comps.length == 0) {
         return "'components' element is missing."
     }
     if (comps.length != 1) {
@@ -800,7 +830,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     }
     var comps2 = comps[0];
     var comps3 = comps2.getElementsByTagName('component');
-    if (comps3 == null) {
+    if (comps3 == null || comps3.length == 0) {
         return "'component' element in components is missing.";
     }
     var arrayComponentComponents = [];
@@ -820,17 +850,17 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         /*************************** transformation ***************************/
 
         var tran = comps3[i].getElementsByTagName('transformation');
-        if (tran == null) {
+        if (tran == null || tran.length == 0) {
             return "'transformation' element in component is missing."
         }
         if (tran.length != 1) {
             return "either zero or more than one 'transformations' element found in component declaration.";
         }
-        var cenas = tran[0];
-        var transformationRef = cenas.getElementsByTagName('transformationref');
-        var transl = cenas.getElementsByTagName('translate');
-        var rot = cenas.getElementsByTagName('rotate');
-        var scal2 = cenas.getElementsByTagName('scale');
+        var variableTranformation = tran[0];
+        var transformationRef = variableTranformation.getElementsByTagName('transformationref');
+        var transl = variableTranformation.getElementsByTagName('translate');
+        var rot = variableTranformation.getElementsByTagName('rotate');
+        var scal2 = variableTranformation.getElementsByTagName('scale');
 
         if (transformationRef.length !== 0) // caso haja transformationref
         {
@@ -845,7 +875,12 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         }
         if (transformationRef.length == 0) {
             if ((transl.length && rot.length & scal2.length) == 0) {
-                console.log("in transformation tag inside component :" + this.idcomps + ". you need to put one type of transformation");
+                console.warn("in transformation tag inside component :" + this.idcomps + " you need to put one type of transformation.  "
+                    +"the default transformation will be applied: translate x = 0 , y = 0 , z = 0");
+                this.xtranslate2 = 0;
+                this.ytranslate2 = 0;
+                this.ztranslate2 = 0;
+                arrayTransformationTranslateComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
             } else {
 
                 /*************************** translate ***************************/
@@ -876,13 +911,16 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         /*************************** materials ***************************/
 
         var mat = comps3[i].getElementsByTagName('materials');
-        if (mat == null) {
+        if (mat == null || mat.length == 0) {
             return "'materials' element in component is missing."
         }
         var mat2 = mat[0];
         var mat3 = mat2.getElementsByTagName('material');
-        if (mat3 == null) {
-            return "'material' element in materials(component) is missing.";
+        if (mat3 == null || mat3.length == 0) {
+            console.warn("you need to declare at least one material in component: " + this.idcomps + "" +
+                " default material will be applied: inherit");
+            this.idmat = "inherit";
+            arrayMaterialsComponents.push(this.idmat);
         }
 
         for (var j = 0; j < mat3.length; j++) {
