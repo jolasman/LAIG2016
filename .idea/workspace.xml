@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" afterPath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
@@ -24,15 +25,18 @@
     <favorites_list name="LAIG2016" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.52723145">
+    <splitter split-orientation="horizontal" split-proportion="0.63307726">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="209">
-                  <caret line="919" column="12" selection-start-line="919" selection-start-column="12" selection-end-line="919" selection-end-column="12" />
-                  <folding />
+                <state relative-caret-position="663">
+                  <caret line="583" column="50" selection-start-line="583" selection-start-column="50" selection-end-line="583" selection-end-column="50" />
+                  <folding>
+                    <element signature="e#5883#7659#0" expanded="false" />
+                    <marker date="1475881815500" expanded="false" signature="8156:17529" ph="{...}" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -44,8 +48,8 @@
           <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="289">
-                  <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+                <state relative-caret-position="238">
+                  <caret line="125" column="29" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
                   <folding />
                 </state>
               </provider>
@@ -79,10 +83,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="2576" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -109,9 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -186,6 +187,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -624,14 +628,15 @@
       <workItem from="1475784279620" duration="85000" />
       <workItem from="1475841871800" duration="3323000" />
       <workItem from="1475846253647" duration="5295000" />
+      <workItem from="1475874450113" duration="7478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8703000" />
+    <option name="totallyTimeSpent" value="16181000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1358" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -645,7 +650,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.032210834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13554688" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -672,15 +677,39 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15623">
+          <caret line="919" column="12" selection-start-line="919" selection-start-column="12" selection-end-line="919" selection-end-column="12" />
+          <folding>
+            <element signature="e#5883#7659#0" expanded="false" />
+            <marker date="1475881815500" expanded="false" signature="8156:17529" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4743">
           <caret line="279" column="112" selection-start-line="279" selection-start-column="112" selection-end-line="279" selection-end-column="112" />
-          <folding />
+          <folding>
+            <element signature="e#5883#7659#0" expanded="false" />
+            <marker date="1475881815500" expanded="false" signature="8156:17529" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -696,7 +725,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#5883#7659#0" expanded="false" />
+            <marker date="1475881815500" expanded="false" signature="8156:17529" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -710,17 +742,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+        <state relative-caret-position="238">
+          <caret line="125" column="29" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="919" column="12" selection-start-line="919" selection-start-column="12" selection-end-line="919" selection-end-column="12" />
-          <folding />
+        <state relative-caret-position="663">
+          <caret line="583" column="50" selection-start-line="583" selection-start-column="50" selection-end-line="583" selection-end-column="50" />
+          <folding>
+            <element signature="e#5883#7659#0" expanded="false" />
+            <marker date="1475881815500" expanded="false" signature="8156:17529" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
