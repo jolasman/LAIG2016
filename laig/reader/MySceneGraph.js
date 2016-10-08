@@ -269,14 +269,42 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         var arrayDiffuseOmni = [];
         var arraySpecularOmni = [];
 
-        this.idomni = this.reader.getString(omnis[i], "id", true);
         this.enabledomni = this.reader.getBoolean(omnis[i], "enabled", true);
         if(this.enabledomni == null){
             console.warn(" Enabled value in omni: " + this.idomni +" not declared. default value used (1 == true).");
             this.enabledomni = true;
         }
 
-        arrayOmni.push([this.idomni, this.enabledomni]);
+
+
+        if (i == 0) {
+            this.idomni = this.reader.getString(omnis[i], "id", true);
+            arrayOmni.push([this.idomni, this.enabledomni]);
+        }
+
+        if (i > 0) {
+            for (var j = 0; j < arrayOmni.length; j++) {
+                var resultOmni = [];
+                var secondidOmni = this.reader.getString(omnis[i], "id", true);
+                var omniID = arrayOmni[j][0].localeCompare(secondidOmni);
+                resultOmni.push(omniID);
+                if(omniID == 0){
+                    break;
+                }
+            }
+            for (var y = 0; y < resultOmni.length; y++) {
+                if (resultOmni[y] == 0) {
+                    console.log("id of Material: " + this.idomni + " must be different from the other ones. " +
+                        " A new random id will be applied : " + this.idomni + i);
+                    arrayOmni.push([this.idomni + i, this.enabledomni]);
+                    break;
+                } else {
+                    this.idomni = this.reader.getString(omnis[i], "id", true);
+                    arrayOmni.push([this.idomni, this.enabledomni]);
+                }
+            }
+        }
+
 
 
         /********************* location in omni   *******************/
@@ -376,7 +404,7 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         var arrayDiffuseSpot = [];
         var arraySpecularSpot = [];
 
-        this.idspot = this.reader.getString(spots[i], "id", true);
+
         this.enabledspot = this.reader.getBoolean(spots[i], "enabled", true);
         this.anglespot = this.reader.getFloat(spots[i], "angle", true);
         this.exponentspot = this.reader.getFloat(spots[i], "exponent", true);
@@ -386,9 +414,33 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
             this.enabledspot = true;
         }
 
-        arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
+        if (i == 0) {
+            this.idspot = this.reader.getString(spots[i], "id", true);
+            arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
+        }
 
-
+        if (i > 0) {
+            for (var j = 0; j < arraySpot.length; j++) {
+                var resultSpot = [];
+                var secondidSpot = this.reader.getString(spots[i], "id", true);
+                var spotID = arraySpot[j][0].localeCompare(secondidSpot);
+                resultSpot.push(spotID);
+                if(spotID == 0){
+                    break;
+                }
+            }
+            for (var y = 0; y < resultSpot.length; y++) {
+                if (resultSpot[y] == 0) {
+                    console.log("id of Material: " + this.idspot + " must be different from the other ones. " +
+                        " A new random id will be applied : " + this.idspot + i);
+                    arraySpot.push([this.idspot + i, this.enabledspot, this.anglespot, this.exponentspot]);
+                    break;
+                } else {
+                    this.idspot = this.reader.getString(spots[i], "id", true);
+                    arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
+                }
+            }
+        }
         /********************* target in spot  *******************/
 
         var targets = spots[i].getElementsByTagName('target');
@@ -516,6 +568,9 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
                 var secondidText = this.idtexture = this.reader.getString(textures[i], "id", true);
                 var texturasID = arrayTextures[j][0].localeCompare(secondidText);
                 resultTexture.push(texturasID);
+                if(texturasID == 0){
+                    break;
+                }
             }
             for (var y = 0; y < resultTexture.length; y++) {
                 if (resultTexture[y] == 0) {
@@ -551,18 +606,21 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
         var arrayDiffuseMaterial = [];
         var arraySpecularMaterial = [];
         var arrayShininnesMaterial = [];
-        var resultMaterials = [];
         if (i == 0) {
 
             this.idmaterial = this.reader.getString(materiais[i], "id", true);
             arrayMaterials.push([this.idmaterial]);
         }
+
         if (i > 0) {
             for (var j = 0; j < arrayMaterials.length; j++) {
-
-                var secondidMaterial = this.idtexture = this.reader.getString(materiais[i], "id", true);
+                var resultMaterials = [];
+                var secondidMaterial = this.reader.getString(materiais[i], "id", true);
                 var materialID = arrayMaterials[j][0].localeCompare(secondidMaterial);
                 resultMaterials.push(materialID);
+                if(materialID == 0){
+                    break;
+                }
             }
             for (var y = 0; y < resultMaterials.length; y++) {
                 if (resultMaterials[y] == 0) {
@@ -570,25 +628,9 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
                         " A new random id will be applied : " + this.idmaterial + i);
                     arrayMaterials.push([this.idmaterial + i]);
                     break;
-                }
-                for (var i = resultMaterials.length - 1; i >= 0; i--) {
-                    var iguais = false;
-                    if (!(resultMaterials[0] === resultMaterials[i])) {
-                        iguais = false;
-                        break;
-                    } else {
-                        iguais = true;
-                    }
-                }
-                if (iguais) {
+                } else {
+                    this.idmaterial = this.reader.getString(materiais[i], "id", true);
                     arrayMaterials.push([this.idmaterial]);
-                    break;
-                }
-                else{
-                    console.log("id of Material: " + this.idmaterial + " must be different from the other ones. " +
-                        " A new random id will be applied : " + this.idmaterial + i);
-                    arrayMaterials.push([this.idmaterial + i]);
-                    break;
                 }
             }
         }
@@ -683,12 +725,10 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
     if (trans3 == null) {
         return "'transformation' element in transformations is missing.";
     }
+
     var arrayTransformations = [];
 
-
     for (var i = 0; i < trans3.length; i++) {
-        this.idtrans = this.reader.getString(trans3[i], "id", true);
-        arrayTransformations.push([this.idtrans]);
 
         var transla = trans3[i].getElementsByTagName('translate');
         var rota = trans3[i].getElementsByTagName('rotate');
@@ -705,38 +745,68 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
         var arrayRotateTransformations = [];
         var arrayScaleTransformations = [];
 
+        if (i == 0) {
+
+            this.idtrans = this.reader.getString(trans3[i], "id", true);
+            arrayTransformations.push([this.idtrans]);
+        }
+
+        if (i > 0) {
+            for (var j = 0; j < arrayTransformations.length; j++) {
+                var resultTransformations = [];
+                var secondidTransf = this.reader.getString(trans3[i], "id", true);
+                var transformationsID = arrayTransformations[j][0].localeCompare(secondidTransf);
+                resultTransformations.push(transformationsID);
+                if(transformationsID == 0){
+                    break;
+                }
+            }
+            for (var y = 0; y < resultTransformations.length; y++) {
+                if (resultTransformations[y] == 0) {
+                    console.log("id of Transformations: " + secondidTransf + " must be different from the other ones. " +
+                        " A new random id will be applied : " + secondidTransf + i);
+                    //this.idtrans = this.reader.getString(trans3[i], "id", true);
+                    arrayTransformations.push([this.idtrans + i]);
+                    break;
+                } else {
+                    this.idtrans = this.reader.getString(trans3[i], "id", true);
+                    arrayTransformations.push([this.idtrans]);
+                }
+            }
+        }
+
         /*************************** translate ***************************/
 
-        if (transla) {
+        if (transla.length !== 0) {
 
             var translation = transla[0];
             this.xtransl = this.reader.getFloat(translation, "x", true);
             this.ytransl = this.reader.getFloat(translation, "y", true);
             this.ztransl = this.reader.getFloat(translation, "z", true);
-            arrayTranslateTransformations.push(this.xtransl, this.ytransl, this.ztransl);
-            arrayTransformations.push(arrayTranslateTransformations);
+            arrayTranslateTransformations.push(1,this.xtransl, this.ytransl, this.ztransl);
+            arrayTransformations[i].push(arrayTranslateTransformations);
         }
 
         /*************************** rotate ***************************/
 
-        if (rota) {
+        if (rota.length !== 0) {
             var rotation = rota[0];
             this.rotaxis = this.reader.getString(rotation, "axis", true);
             this.rotangle = this.reader.getFloat(rotation, "angle", true);
-            arrayRotateTransformations.push(this.rotaxis, this.rotangle);
-            arrayTransformations.push(arrayRotateTransformations);
+            arrayRotateTransformations.push(2,this.rotaxis, this.rotangle);
+            arrayTransformations[i].push(arrayRotateTransformations);
 
         }
 
         /*************************** scale ***************************/
 
-        if (sca) {
+        if (sca.length !== 0) {
             var scale = sca[0];
             this.xscale = this.reader.getFloat(scale, "x", true);
             this.yscale = this.reader.getFloat(scale, "y", true);
             this.zscale = this.reader.getFloat(scale, "z", true);
-            arrayScaleTransformations.push(this.xscale, this.yscale, this.zscale);
-            arrayTransformations.push(arrayScaleTransformations);
+            arrayScaleTransformations.push(3,this.xscale, this.yscale, this.zscale);
+            arrayTransformations[i].push(arrayScaleTransformations);
 
         }
     }
@@ -757,30 +827,34 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         return "'primitive' element in primitives is missing.";
     }
     var arrayPrimitives = [];
-    var arrayRectanglePrimitives = [];
-    var arrayTrianglePrimitives = [];
-    var arrayCylinderPrimitives = [];
-    var arraySpherePrimitives = [];
-    var arrayTorusPrimitives = [];
+
 
     for (var i = 0; i < prims3.length; i++) {
+
+
         if (i == 0) {
             this.idprims = this.reader.getString(prims3[i], "id", true);
-            arrayPrimitives.push(this.idprims);
+            arrayPrimitives.push([this.idprims]);
         }
         if (i > 0) {
             for (var j = 0; j < arrayPrimitives.length; j++) {
                 var result = [];
-                this.secondid = this.idprims = this.reader.getString(prims3[i], "id", true);
-                var resultado = arrayPrimitives[j].localeCompare(this.secondid);
+                this.secondid = this.reader.getString(prims3[i], "id", true);
+                var resultado = arrayPrimitives[j][0].localeCompare(this.secondid);
                 result.push(resultado);
+                if(resultado == 0){
+                    break;
+                }
             }
             for (var y = 0; y < result.length; y++) {
                 if (result[y] == 0) {
-                    console.log("id of primite tag: " + this.secondid + " equals to another primite id. not allowed");
+                    console.log("id of Primitive: " + this.secondid + " must be different from the other ones. " +
+                        " A new random id will be applied : " + this.secondid + i);
+                    arrayPrimitives.push([this.secondid + i]);
                     break;
                 } else {
-                    arrayPrimitives.push(this.idprims);
+                    this.idprims = this.reader.getString(prims3[i], "id", true);
+                    arrayPrimitives.push([this.idprims]);
                 }
             }
         }
@@ -789,6 +863,12 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         var cyl = prims3[i].getElementsByTagName('cylinder');
         var sphe = prims3[i].getElementsByTagName('sphere');
         var tor = prims3[i].getElementsByTagName('torus');
+
+        var arrayRectanglePrimitives = [];
+        var arrayTrianglePrimitives = [];
+        var arrayCylinderPrimitives = [];
+        var arraySpherePrimitives = [];
+        var arrayTorusPrimitives = [];
 
         if (rect.length > 1) {
             console.log("rectangle defined more than once in primitive tag");
@@ -820,7 +900,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.ylrect = this.reader.getFloat(rect2, "y1", true);
             this.x2rect = this.reader.getFloat(rect2, "x2", true);
             this.y2rect = this.reader.getFloat(rect2, "y2", true);
-            arrayRectanglePrimitives.push([this.x1rect, this.ylrect, this.x2rect, this.y2rect]);
+            arrayRectanglePrimitives.push(1,this.x1rect, this.ylrect, this.x2rect, this.y2rect);
+            arrayPrimitives[i].push(arrayRectanglePrimitives);
         }
 
         /*************************** triangle ***************************/
@@ -837,7 +918,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.y3tri = this.reader.getFloat(tri2, "y3", true);
             this.z3tri = this.reader.getFloat(tri2, "z3", true);
 
-            arrayTrianglePrimitives.push([this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri]);
+            arrayTrianglePrimitives.push(2,this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
+            arrayPrimitives[i].push(arrayTrianglePrimitives);
+
         }
         /*************************** cylinder ***************************/
 
@@ -849,7 +932,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.cylslices = this.reader.getInteger(cyl2, "slices", true);
             this.cylstacks = this.reader.getInteger(cyl2, "stacks", true);
 
-            arrayCylinderPrimitives.push([this.cylbase, this.cyltop, this.cylheight, this.cylslices, this.cylstacks]);
+            arrayCylinderPrimitives.push(3,this.cylbase, this.cyltop, this.cylheight, this.cylslices, this.cylstacks);
+            arrayPrimitives[i].push(arrayCylinderPrimitives);
+
         }
         /*************************** sphere ***************************/
 
@@ -858,7 +943,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.spheradius = this.reader.getFloat(sphe2, "radius", true);
             this.spheslices = this.reader.getInteger(sphe2, "slices", true);
             this.sphestacks = this.reader.getInteger(sphe2, "stacks", true);
-            arraySpherePrimitives.push([this.spheradius, this.spheslices, this.sphestacks]);
+            arraySpherePrimitives.push(4,this.spheradius, this.spheslices, this.sphestacks);
+            arrayPrimitives[i].push(arraySpherePrimitives);
+
         }
         /*************************** torus ***************************/
 
@@ -868,7 +955,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.torouter = this.reader.getFloat(tor2, "outer", true);
             this.torslices = this.reader.getInteger(tor2, "slices", true);
             this.torloops = this.reader.getInteger(tor2, "loops", true);
-            arrayTorusPrimitives.push([this.torinner, this.torouter, this.torslices, this.torloops]);
+            arrayTorusPrimitives.push(5,this.torinner, this.torouter, this.torslices, this.torloops);
+            arrayPrimitives[i].push(arrayTorusPrimitives);
+
         }
         if ((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1) {
             console.log("more than one primitive defined in primitive tag. not allowed");
