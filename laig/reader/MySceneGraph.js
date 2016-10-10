@@ -184,8 +184,7 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
 };
 
 
-/***************************************  ilumination    ****************************************/
-
+/***************************************  ilumination    *********************************************/
 MySceneGraph.prototype.parseIllumination = function(rootElement) {
 
     var iluminacao = rootElement.getElementsByTagName('illumination');
@@ -231,17 +230,8 @@ MySceneGraph.prototype.parseIllumination = function(rootElement) {
     this.aback = this.reader.getFloat(fundo2, "a", true);
 };
 
-/************************************** lights *******************************************/
-/**
- *
- * neste momento os valores de cada tag omni esta a ser lido e guardado com os valores em arrays diferentes
- * um para o id e enabled
- * outro para guardar a location
- * outro para o ambient, etc.
- * estando guardados em cada array pela sua ordem correspondente, isto é a posicao[i] de cada array
- * coresponde a cada tag[i] omni
- **/
 
+/************************************** lights ******************************************************/
 MySceneGraph.prototype.parseLights = function(rootElement) {
 
     var luz = rootElement.getElementsByTagName('lights');
@@ -532,9 +522,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
     }
 };
 
+
 /****************************************** textures ************************************************/
-
-
 MySceneGraph.prototype.parseTextures = function(rootElement) {
 
     var textura = rootElement.getElementsByTagName('textures');
@@ -585,9 +574,8 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
     }
 };
 
-/****************************************** materials ************************************************/
 
-
+/****************************************** materials ***********************************************/
 MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
     var material1 = rootElement.getElementsByTagName('materials');
@@ -710,9 +698,8 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
     }
 };
 
-/******************************************* transformations **************************************/
 
-
+/******************************************* transformations ***************************************/
 MySceneGraph.prototype.parseTransformations = function(rootElement) {
 
 
@@ -812,9 +799,8 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
     }
 };
 
-/************************************** primitives *********************************************/
 
-
+/************************************** primitives *************************************************/
 MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
     var prims = rootElement.getElementsByTagName('primitives');
@@ -965,9 +951,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
     }
 };
 
-/**************************************** components ***************************************/
 
-
+/**************************************** components **********************************************/
 MySceneGraph.prototype.parseComponents = function(rootElement) {
 
     var comps = rootElement.getElementsByTagName('components');
@@ -980,27 +965,32 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     var comps2 = comps[0];
     var comps3 = comps2.getElementsByTagName('component');
     if (comps3 == null || comps3.length == 0) {
-        return "'component' element in components is missing.";
+        console.warn( "'component' element in components is missing." + "  NOT ALLOWED");
     }
+
+    //falta aqui dar erro
+
+
+
     var arrayComponentComponents = [];
-    var arrayTransformationRefComponents = [];
-    var arrayTransformationTranslateComponents = [];
-    var arrayTransformationRotateComponents = [];
-    var arrayTransformationScaleComponents = [];
-    var arrayMaterialsComponents = [];
-    var arrayTextureComponents = [];
-    var arraychildrenComponentrefComponents = [];
-    var arraychildrenPrimitiverefComponents = [];
+
 
     for (var i = 0; i < comps3.length; i++) {
         this.idcomps = this.reader.getString(comps3[i], "id", true);
-        arrayComponentComponents.push(this.idcomps);
+        arrayComponentComponents.push([this.idcomps]);
+
+        var arrayTransformationRefComponents = [];
+        var arrayTransformationTranslateComponents = [];
+        var arrayTransformationRotateComponents = [];
+        var arrayTransformationScaleComponents = [];
+        var arrayMaterialsComponents = [];
+        var arrayTextureComponents = [];
 
         /*************************** transformation ***************************/
 
         var tran = comps3[i].getElementsByTagName('transformation');
         if (tran == null || tran.length == 0) {
-            return "'transformation' element in component is missing."
+            console.warn( "'transformation' element in component: "+ this.idcomps + " is missing." + "  NOT ALLOWED");
         }
         if (tran.length != 1) {
             return "either zero or more than one 'transformations' element found in component declaration.";
@@ -1011,12 +1001,18 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         var rot = variableTranformation.getElementsByTagName('rotate');
         var scal2 = variableTranformation.getElementsByTagName('scale');
 
+        // se a tranformacao tiver sido referenciada id no array : 1
+        // para conjunto de transformacoes na hora id : 2
+        //translate : [2,1]
+        //rotate : [2,2]
+        //scale : [2,3]
         if (transformationRef.length !== 0) // caso haja transformationref
         {
             if ((transl.length && rot.length & scal2.length) == 0) {
                 var tran4 = transformationRef[0];
                 this.idtran = this.reader.getString(tran4, "id", true);
-                arrayTransformationRefComponents.push(this.idtran);
+                arrayTransformationRefComponents.push(1,this.idtran);
+                arrayComponentComponents[i].push(arrayTransformationRefComponents);
             }
             else {
                 console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
@@ -1029,99 +1025,125 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.xtranslate2 = 0;
                 this.ytranslate2 = 0;
                 this.ztranslate2 = 0;
-                arrayTransformationTranslateComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
+                arrayTransformationTranslateComponents.push([2,1,this.xtranslate2, this.ytranslate2, this.ztranslate2]);
+                arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
             } else {
 
                 /*************************** translate ***************************/
 
                 var transl2 = transl[0];
-                this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
-                this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
-                this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
-                arrayTransformationTranslateComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
+                if (transl2.length !== 0) {
+                    this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
+                    this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
+                    this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
+                    arrayTransformationTranslateComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
+                    arrayComponentComponents[i].push(2, 1, arrayTransformationTranslateComponents);
+                }
 
                 /*************************** rotate ***************************/
 
                 var rot2 = rot[0];
-                this.rotaxis2 = this.reader.getString(rot2, "axis", true);
-                this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
-                arrayTransformationRotateComponents.push([this.rotaxis2, this.rotangle2]);
+                if (rot2.length !== 0) {
+                    this.rotaxis2 = this.reader.getString(rot2, "axis", true);
+                    this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
+                    arrayTransformationRotateComponents.push([this.rotaxis2, this.rotangle2]);
+                    arrayComponentComponents[i].push(2, 2, arrayTransformationRotateComponents);
 
+                }
                 /*************************** scale ***************************/
 
                 var scal3 = scal2[0];
+                if (scal3.length !== 0) {
                 this.xscale2 = this.reader.getFloat(scal3, "x", true);
                 this.yscale2 = this.reader.getFloat(scal3, "y", true);
                 this.zscale2 = this.reader.getFloat(scal3, "z", true);
                 arrayTransformationScaleComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
-            }
-        }
-
-        /*************************** materials ***************************/
-
-        var mat = comps3[i].getElementsByTagName('materials');
-        if (mat == null || mat.length == 0) {
-            return "'materials' element in component is missing."
-        }
-        var mat2 = mat[0];
-        var mat3 = mat2.getElementsByTagName('material');
-        if (mat3 == null || mat3.length == 0) {
-            console.warn("you need to declare at least one material in component: " + this.idcomps + "" +
-                " default material will be applied: inherit");
-            this.idmat = "inherit";
-            arrayMaterialsComponents.push(this.idmat);
-        }
-
-        for (var j = 0; j < mat3.length; j++) {
-            this.idmat = this.reader.getString(mat3[j], "id", true);
-            arrayMaterialsComponents.push(this.idmat);
-        }
-
-
-        /*************************** texture ***************************/
-
-        var tex = comps3[i].getElementsByTagName('texture');
-        if (tex == null) {
-            return "'texture' element in component is missing."
-        }
-        if (tex.length != 1) {
-            return "either zero or more than one 'texture' element found in component declaration.";
-        }
-        var tex2 = tex[0];
-        this.idtex = this.reader.getString(tex2, "id", true);
-        arrayTextureComponents.push(this.idtex);
-
-
-        /*************************** children ***************************/
-
-
-        var child = comps3[i].getElementsByTagName('children');
-        if (child.length == 0) {
-            console.log("'children' element in component: " + this.idcomps + " is missing in component. NOT ALLWOED.");
-        }
-        var child2 = child[0];
-        var componentrefChildren = child2.getElementsByTagName('componentref');
-        if (componentrefChildren.length == 0) {
-            console.log("'componentref' element in children(component:" + this.idcomps + ") is missing.");
-        }
-        if (componentrefChildren.length !== 0) {
-            for (var k = 0; k < componentrefChildren.length; k++) {
-                this.componentrefidchildren = this.reader.getString(componentrefChildren[k], "id", true);
-                arraychildrenComponentrefComponents.push(this.componentrefidchildren);
-            }
-        }
-
-        var primitiverefCholdren = child2.getElementsByTagName('primitiveref');
-        if (primitiverefCholdren.length == 0) {
-            console.log("'primitiveref' element in children(component:" + this.idcomps + ") is missing.");
-        }
-        if (primitiverefCholdren.length !== 0) {
-            for (var l = 0; l < primitiverefCholdren.length; l++) {
-                this.primitiverefidchildren = this.reader.getString(primitiverefCholdren[l], "id", true);
-                arraychildrenPrimitiverefComponents.push(this.primitiverefidchildren);
+                    arrayComponentComponents[i].push(2, 3, arrayTransformationScaleComponents);
             }
         }
     }
+
+    /*************************** materials ***************************/
+
+    var mat = comps3[i].getElementsByTagName('materials');
+    if (mat == null || mat.length == 0) {
+        return "'materials' element in component is missing."
+    }
+    var mat2 = mat[0];
+    var mat3 = mat2.getElementsByTagName('material');
+    if (mat3 == null || mat3.length == 0) {
+        console.warn("you need to declare at least one material in component: " + this.idcomps + "" +
+            " default material will be applied: inherit");
+        this.idmat = "inherit";
+        arrayMaterialsComponents.push(this.idmat);
+        arrayComponentComponents[i].push(arrayMaterialsComponents);
+    }else {
+        var arrayMateriaisTodosComponentes = [];
+
+        for (var j = 0; j < mat3.length; j++) {
+            this.idmat = this.reader.getString(mat3[j], "id", true);
+            arrayMateriaisTodosComponentes.push(this.idmat);
+
+        }
+        arrayComponentComponents[i].push(arrayMateriaisTodosComponentes);
+    }
+
+        /*************************** texture ***************************/
+
+    var tex = comps3[i].getElementsByTagName('texture');
+    if (tex.length != 1) {
+        return "either zero or more than one 'texture' element found in component declaration.";
+    }
+        if (tex == null || tex.length == 0) {
+            console.warn("you need to declare at least one texture in component: " + this.idcomps + "" +
+                " default texture will be applied: inherit");
+            this.idtex = "inherit";
+            arrayTextureComponents.push(this.idtex);
+            arrayComponentComponents[i].push(arrayTextureComponents);
+        }else {
+            var tex2 = tex[0];
+            this.idtex = this.reader.getString(tex2, "id", true);
+            arrayTextureComponents.push(this.idtex);
+            arrayComponentComponents[i].push(arrayTextureComponents);
+        }
+
+    /*************************** children ***************************/
+
+
+    var child = comps3[i].getElementsByTagName('children');
+    if (child.length == 0) {
+        console.warn("'children' element in component: " + this.idcomps + " is missing in component. NOT ALLWOED.");
+    }
+    var child2 = child[0];
+    var componentrefChildren = child2.getElementsByTagName('componentref');
+    if (componentrefChildren.length == 0) {
+        console.warn("'componentref' element in children(component:" + this.idcomps + ") is missing.");
+    }
+    var arrayChildrenRefPrimComp = [];
+    var arrayChildrenRefCompComp = [];
+        //id : 1
+    if (componentrefChildren.length !== 0) {
+        for (var k = 0; k < componentrefChildren.length; k++) {
+            this.componentrefidchildren = this.reader.getString(componentrefChildren[k], "id", true);
+            arrayChildrenRefCompComp.push(1, this.componentrefidchildren);
+        }
+        arrayComponentComponents[i].push(arrayChildrenRefCompComp);
+
+    }
+
+    var primitiverefCholdren = child2.getElementsByTagName('primitiveref');
+    if (primitiverefCholdren.length == 0) {
+        console.warn("'primitiveref' element in children(component:" + this.idcomps + ") is missing.");
+    }
+    //id : 2
+    if (primitiverefCholdren.length !== 0) {
+        for (var l = 0; l < primitiverefCholdren.length; l++) {
+            this.primitiverefidchildren = this.reader.getString(primitiverefCholdren[l], "id", true);
+            arrayChildrenRefPrimComp.push(2,this.primitiverefidchildren);
+        }
+        arrayComponentComponents[i].push(arrayChildrenRefPrimComp);
+    }
+}
 
 
 
