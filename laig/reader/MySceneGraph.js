@@ -971,7 +971,6 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     //falta aqui dar erro
 
 
-
     var arrayComponentComponents = [];
 
 
@@ -1025,7 +1024,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.xtranslate2 = 0;
                 this.ytranslate2 = 0;
                 this.ztranslate2 = 0;
-                arrayTransformationTranslateComponents.push([2,1,this.xtranslate2, this.ytranslate2, this.ztranslate2]);
+                arrayTransformationTranslateComponents.push(2,1,this.xtranslate2, this.ytranslate2, this.ztranslate2);
                 arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
             } else {
 
@@ -1036,8 +1035,8 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                     this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
                     this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
                     this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
-                    arrayTransformationTranslateComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
-                    arrayComponentComponents[i].push(2, 1, arrayTransformationTranslateComponents);
+                    arrayTransformationTranslateComponents.push(2, 1,this.xtranslate2, this.ytranslate2, this.ztranslate2);
+                    arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
                 }
 
                 /*************************** rotate ***************************/
@@ -1046,8 +1045,8 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 if (rot2.length !== 0) {
                     this.rotaxis2 = this.reader.getString(rot2, "axis", true);
                     this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
-                    arrayTransformationRotateComponents.push([this.rotaxis2, this.rotangle2]);
-                    arrayComponentComponents[i].push(2, 2, arrayTransformationRotateComponents);
+                    arrayTransformationRotateComponents.push(2,2,this.rotaxis2, this.rotangle2);
+                    arrayComponentComponents[i].push(arrayTransformationRotateComponents);
 
                 }
                 /*************************** scale ***************************/
@@ -1057,8 +1056,8 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.xscale2 = this.reader.getFloat(scal3, "x", true);
                 this.yscale2 = this.reader.getFloat(scal3, "y", true);
                 this.zscale2 = this.reader.getFloat(scal3, "z", true);
-                arrayTransformationScaleComponents.push([this.xtranslate2, this.ytranslate2, this.ztranslate2]);
-                    arrayComponentComponents[i].push(2, 3, arrayTransformationScaleComponents);
+                arrayTransformationScaleComponents.push(2, 3,this.xtranslate2, this.ytranslate2, this.ztranslate2);
+                    arrayComponentComponents[i].push(arrayTransformationScaleComponents);
             }
         }
     }
@@ -1120,13 +1119,16 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         console.warn("'componentref' element in children(component:" + this.idcomps + ") is missing.");
     }
     var arrayChildrenRefPrimComp = [];
+    var arrayChildrenRefPrimComp2 = [];
     var arrayChildrenRefCompComp = [];
+    var arrayChildrenRefCompComp2 = [];
         //id : 1
     if (componentrefChildren.length !== 0) {
         for (var k = 0; k < componentrefChildren.length; k++) {
             this.componentrefidchildren = this.reader.getString(componentrefChildren[k], "id", true);
-            arrayChildrenRefCompComp.push(1, this.componentrefidchildren);
+            arrayChildrenRefCompComp2.push(this.componentrefidchildren);
         }
+        arrayChildrenRefCompComp.push(1,arrayChildrenRefCompComp2);
         arrayComponentComponents[i].push(arrayChildrenRefCompComp);
 
     }
@@ -1139,8 +1141,9 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     if (primitiverefCholdren.length !== 0) {
         for (var l = 0; l < primitiverefCholdren.length; l++) {
             this.primitiverefidchildren = this.reader.getString(primitiverefCholdren[l], "id", true);
-            arrayChildrenRefPrimComp.push(2,this.primitiverefidchildren);
+            arrayChildrenRefPrimComp2.push(this.primitiverefidchildren);
         }
+        arrayChildrenRefPrimComp.push(2,arrayChildrenRefPrimComp2);
         arrayComponentComponents[i].push(arrayChildrenRefPrimComp);
     }
 }
