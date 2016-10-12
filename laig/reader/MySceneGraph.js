@@ -116,7 +116,7 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
     if (vistas == null || vistas.length == 0) {
         return "views element is missing.";
     }
-    var arrayPerspectiveViews = [];
+    this.arrayPerspectiveViews = [];
 
     // various examples of different types of access
 
@@ -132,8 +132,8 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
         }
 
         for (var j = 0; j < perspectives.length; j++) {
-            var arrayFromPerspectiveViews = [];
-            var arrayToPerspectiveViews = [];
+            this.arrayFromPerspectiveViews = [];
+            this.arrayToPerspectiveViews = [];
             this.id = this.reader.getString(perspectives[j], "id", true);
             this.near = this.reader.getFloat(perspectives[j], "near", true);
             this.far = this.reader.getFloat(perspectives[j], "far", true);
@@ -142,14 +142,14 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
             if(j == 0) {
                 var resultados = this.default.localeCompare(this.id);
                 if (resultados == 0) {
-                    arrayPerspectiveViews.push([this.id, this.near, this.far, this.angle]);
+                    this.arrayPerspectiveViews.push([this.id, this.near, this.far, this.angle]);
                 } else {
                     console.warn(" The default view does not have the same name as the first view declared. " +
                         "the name os the first perspective cam is now the default");
-                    arrayPerspectiveViews.push([this.default, this.near, this.far, this.angle]);
+                    this.arrayPerspectiveViews.push([this.default, this.near, this.far, this.angle]);
                 }
             }else{
-                arrayPerspectiveViews.push([this.id, this.near, this.far, this.angle]);
+                this.arrayPerspectiveViews.push([this.id, this.near, this.far, this.angle]);
             }
             /************** from   *******************/
 
@@ -162,8 +162,8 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
             this.yfrom = this.reader.getFloat(froms2, "y", true);
             this.zfrom = this.reader.getFloat(froms2, "z", true);
 
-            arrayFromPerspectiveViews.push(this.xfrom, this.yfrom, this.zfrom);
-            arrayPerspectiveViews[j].push(arrayFromPerspectiveViews);
+            this.arrayFromPerspectiveViews.push(this.xfrom, this.yfrom, this.zfrom);
+            this.arrayPerspectiveViews[j].push(this.arrayFromPerspectiveViews);
 
             /************** to   *******************/
 
@@ -176,8 +176,8 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
             this.yto = this.reader.getFloat(tos2, "y", true);
             this.zto = this.reader.getFloat(tos2, "z", true);
 
-            arrayToPerspectiveViews.push(this.xto, this.yto, this.zto);
-            arrayPerspectiveViews[j].push(arrayToPerspectiveViews);
+            this.arrayToPerspectiveViews.push(this.xto, this.yto, this.zto);
+            this.arrayPerspectiveViews[j].push(this.arrayToPerspectiveViews);
 
         }
     }
@@ -199,6 +199,8 @@ MySceneGraph.prototype.parseIllumination = function(rootElement) {
     this.doublesided = this.reader.getBoolean(illumination2, "doublesided", true);
     this.local = this.reader.getBoolean(illumination2, "local", true);
 
+    this.arrayAmbient = [];
+    this.arrayBackground = [];
     /*********************** ambient  ***********************/
 
     var ambiente = illumination2.getElementsByTagName('ambient');
@@ -213,7 +215,7 @@ MySceneGraph.prototype.parseIllumination = function(rootElement) {
     this.gamb = this.reader.getFloat(ambiente2, "g", true);
     this.bamb = this.reader.getFloat(ambiente2, "b", true);
     this.aamb = this.reader.getFloat(ambiente2, "a", true);
-
+    this.arrayAmbient.push(this.ramb,this.gamb,this.bamb,this.aamb);
     /*********************** background  ***********************/
 
     var fundo = illumination2.getElementsByTagName('background');
@@ -228,6 +230,7 @@ MySceneGraph.prototype.parseIllumination = function(rootElement) {
     this.gback = this.reader.getFloat(fundo2, "g", true);
     this.bback = this.reader.getFloat(fundo2, "b", true);
     this.aback = this.reader.getFloat(fundo2, "a", true);
+    this.arrayBackground.push(this.rback,this.gback,this.bback,this.aback);
 };
 
 
@@ -250,14 +253,14 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
     if (omnis == null) {
         return "omni' element is missing.";
     }
-    var arrayOmni = [];
+    this.arrayOmni = [];
 
     for (var i = 0; i < omnis.length; i++) {
 
-        var arrayLocationOmni = [];
-        var arrayAmbientOmni = [];
-        var arrayDiffuseOmni = [];
-        var arraySpecularOmni = [];
+        this.arrayLocationOmni = [];
+        this.arrayAmbientOmni = [];
+        this.arrayDiffuseOmni = [];
+        this.arraySpecularOmni = [];
 
         this.enabledomni = this.reader.getBoolean(omnis[i], "enabled", true);
         if(this.enabledomni == null){
@@ -269,14 +272,14 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
 
         if (i == 0) {
             this.idomni = this.reader.getString(omnis[i], "id", true);
-            arrayOmni.push([this.idomni, this.enabledomni]);
+            this.arrayOmni.push([this.idomni, this.enabledomni]);
         }
 
         if (i > 0) {
-            for (var j = 0; j < arrayOmni.length; j++) {
+            for (var j = 0; j < this.arrayOmni.length; j++) {
                 var resultOmni = [];
                 var secondidOmni = this.reader.getString(omnis[i], "id", true);
-                var omniID = arrayOmni[j][0].localeCompare(secondidOmni);
+                var omniID = this.arrayOmni[j][0].localeCompare(secondidOmni);
                 resultOmni.push(omniID);
                 if(omniID == 0){
                     break;
@@ -286,11 +289,11 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
                 if (resultOmni[y] == 0) {
                     console.log("id of Material: " + this.idomni + " must be different from the other ones. " +
                         " A new random id will be applied : " + this.idomni + i);
-                    arrayOmni.push([this.idomni + i, this.enabledomni]);
+                    this.arrayOmni.push([this.idomni + i, this.enabledomni]);
                     break;
                 } else {
                     this.idomni = this.reader.getString(omnis[i], "id", true);
-                    arrayOmni.push([this.idomni, this.enabledomni]);
+                    this.arrayOmni.push([this.idomni, this.enabledomni]);
                 }
             }
         }
@@ -313,8 +316,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.zloc = this.reader.getFloat(location2, "z", true);
         this.wloc = this.reader.getFloat(location2, "w", true);
 
-        arrayLocationOmni.push(this.xloc, this.yloc, this.zloc, this.wloc);
-        arrayOmni[i].push(arrayLocationOmni);
+        this.arrayLocationOmni.push(this.xloc, this.yloc, this.zloc, this.wloc);
+        this.arrayOmni[i].push(this.arrayLocationOmni);
 
         /********************* ambient in omni   *******************/
 
@@ -331,8 +334,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.bao = this.reader.getFloat(ambomni2, "b", true);
         this.aao = this.reader.getFloat(ambomni2, "a", true);
 
-        arrayAmbientOmni.push(this.rao, this.gao, this.bao, this.aao);
-        arrayOmni[i].push(arrayAmbientOmni);
+        this.arrayAmbientOmni.push(this.rao, this.gao, this.bao, this.aao);
+        this.arrayOmni[i].push(this.arrayAmbientOmni);
 
         /********************* diffuse in omni   *******************/
 
@@ -349,8 +352,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.bdo = this.reader.getFloat(difomni2, "b", true);
         this.ado = this.reader.getFloat(difomni2, "a", true);
 
-        arrayDiffuseOmni.push(this.rdo, this.gdo, this.bdo, this.ado);
-        arrayOmni[i].push(arrayDiffuseOmni);
+        this.arrayDiffuseOmni.push(this.rdo, this.gdo, this.bdo, this.ado);
+        this.arrayOmni[i].push(this.arrayDiffuseOmni);
 
         /********************* specular in omni   *******************/
 
@@ -367,8 +370,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.bso = this.reader.getFloat(specomni2, "b", true);
         this.aso = this.reader.getFloat(specomni2, "a", true);
 
-        arraySpecularOmni.push(this.rso, this.gso, this.bso, this.aso);
-        arrayOmni[i].push(arraySpecularOmni);
+        this.arraySpecularOmni.push(this.rso, this.gso, this.bso, this.aso);
+        this.arrayOmni[i].push(this.arraySpecularOmni);
     }
 
 
@@ -383,16 +386,16 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
      * neste momento os valores de cada tag spot esta a ser lido e guardado da mesma forma que os omnis
      *
      **/
-    var arraySpot = [];
+    this.arraySpot = [];
 
 
     for (var i = 0; i < spots.length; i++) {
 
-        var arrayLocationSpot = [];
-        var arrayTargetSpot = [];
-        var arrayAmbientSpot = [];
-        var arrayDiffuseSpot = [];
-        var arraySpecularSpot = [];
+        this.arrayLocationSpot = [];
+        this.arrayTargetSpot = [];
+        this.arrayAmbientSpot = [];
+        this.arrayDiffuseSpot = [];
+        this.arraySpecularSpot = [];
 
 
         this.enabledspot = this.reader.getBoolean(spots[i], "enabled", true);
@@ -406,14 +409,14 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
 
         if (i == 0) {
             this.idspot = this.reader.getString(spots[i], "id", true);
-            arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
+            this.arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
         }
 
         if (i > 0) {
-            for (var j = 0; j < arraySpot.length; j++) {
+            for (var j = 0; j < this.arraySpot.length; j++) {
                 var resultSpot = [];
                 var secondidSpot = this.reader.getString(spots[i], "id", true);
-                var spotID = arraySpot[j][0].localeCompare(secondidSpot);
+                var spotID = this.arraySpot[j][0].localeCompare(secondidSpot);
                 resultSpot.push(spotID);
                 if(spotID == 0){
                     break;
@@ -423,11 +426,11 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
                 if (resultSpot[y] == 0) {
                     console.log("id of Material: " + this.idspot + " must be different from the other ones. " +
                         " A new random id will be applied : " + this.idspot + i);
-                    arraySpot.push([this.idspot + i, this.enabledspot, this.anglespot, this.exponentspot]);
+                    this.arraySpot.push([this.idspot + i, this.enabledspot, this.anglespot, this.exponentspot]);
                     break;
                 } else {
                     this.idspot = this.reader.getString(spots[i], "id", true);
-                    arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
+                    this.arraySpot.push([this.idspot, this.enabledspot, this.anglespot, this.exponentspot]);
                 }
             }
         }
@@ -445,8 +448,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.ytarspot = this.reader.getFloat(targets2, "y", true);
         this.ztarspot = this.reader.getFloat(targets2, "z", true);
 
-        arrayTargetSpot.push(this.xtarspot, this.ytarspot, this.ztarspot);
-        arraySpot[i].push(arrayTargetSpot);
+        this.arrayTargetSpot.push(this.xtarspot, this.ytarspot, this.ztarspot);
+        this.arraySpot[i].push(this.arrayTargetSpot);
 
         /********************* location in spot   *******************/
 
@@ -462,8 +465,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.ylocspot = this.reader.getFloat(locationspot2, "y", true);
         this.zlocspot = this.reader.getFloat(locationspot2, "z", true);
 
-        arrayLocationSpot.push(this.xlocspot, this.ylocspot, this.zlocspot);
-        arraySpot[i].push(arrayLocationSpot);
+        this.arrayLocationSpot.push(this.xlocspot, this.ylocspot, this.zlocspot);
+        this.arraySpot[i].push(this.arrayLocationSpot);
 
         /********************* ambient in spot   *******************/
 
@@ -480,8 +483,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.bal = this.reader.getFloat(ambspot2, "b", true);
         this.aal = this.reader.getFloat(ambspot2, "a", true);
 
-        arrayAmbientSpot.push(this.ral, this.gal, this.bal, this.aal);
-        arraySpot[i].push(arrayAmbientSpot);
+        this.arrayAmbientSpot.push(this.ral, this.gal, this.bal, this.aal);
+        this.arraySpot[i].push(this.arrayAmbientSpot);
 
         /********************* diffuse in spot   *******************/
 
@@ -499,8 +502,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.bds = this.reader.getFloat(diffspot2, "b", true);
         this.ads = this.reader.getFloat(diffspot2, "a", true);
 
-        arrayDiffuseSpot.push(this.rds, this.gds, this.bds, this.ads);
-        arraySpot[i].push(arrayDiffuseSpot);
+        this.arrayDiffuseSpot.push(this.rds, this.gds, this.bds, this.ads);
+        this.arraySpot[i].push(this.arrayDiffuseSpot);
 
         /********************* specular in spot   *******************/
 
@@ -517,8 +520,8 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.bsspot = this.reader.getFloat(specspot2, "b", true);
         this.asspot = this.reader.getFloat(specspot2, "a", true);
 
-        arraySpecularSpot.push(this.rsspot, this.gsspot, this.bsspot, this.asspot);
-        arraySpot[i].push(arraySpecularSpot);
+        this.arraySpecularSpot.push(this.rsspot, this.gsspot, this.bsspot, this.asspot);
+        this.arraySpot[i].push(this.arraySpecularSpot);
     }
 };
 
@@ -1035,7 +1038,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                     this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
                     this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
                     this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
-                    arrayTransformationTranslateComponents.push(2, 1,this.xtranslate2, this.ytranslate2, this.ztranslate2);
+                    arrayTransformationTranslateComponents.push(2,[ 1,this.xtranslate2, this.ytranslate2, this.ztranslate2]);
                     arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
                 }
 

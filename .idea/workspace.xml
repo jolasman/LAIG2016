@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" afterPath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/XMLscene.js" afterPath="$PROJECT_DIR$/laig/reader/XMLscene.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
     <ignored path="LAIG2016.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -23,24 +26,34 @@
     <favorites_list name="LAIG2016" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.63307726">
+    <splitter split-orientation="horizontal" split-proportion="0.4870229">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="582">
-                  <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+                <state relative-caret-position="234">
+                  <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
                   <folding>
                     <element signature="e#679#2080#0" expanded="false" />
-                    <element signature="e#2150#5714#0" expanded="false" />
-                    <element signature="e#5887#7663#0" expanded="false" />
-                    <element signature="e#7829#19378#0" expanded="false" />
-                    <element signature="e#19546#21461#0" expanded="false" />
-                    <element signature="e#21630#26743#0" expanded="false" />
-                    <element signature="e#26917#30800#0" expanded="false" />
-                    <element signature="e#30969#37793#0" expanded="false" />
+                    <element signature="e#2150#5762#0" expanded="false" />
+                    <element signature="e#5935#7914#0" expanded="false" />
+                    <element signature="e#19993#21908#0" expanded="false" />
+                    <element signature="e#22077#27190#0" expanded="false" />
+                    <element signature="e#27364#31247#0" expanded="false" />
+                    <element signature="e#31416#38240#0" expanded="false" />
+                    <element signature="e#38408#47330#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="442">
+                  <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -52,16 +65,34 @@
           <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-313">
-                  <caret line="159" column="20" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
+                <state relative-caret-position="71">
+                  <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
                   <folding>
                     <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="918">
+                  <caret line="958" column="63" selection-start-line="958" selection-start-column="63" selection-end-line="958" selection-end-column="63" />
+                  <folding>
+                    <element signature="e#679#2080#0" expanded="false" />
+                    <element signature="e#2150#5762#0" expanded="false" />
+                    <element signature="e#5935#7914#0" expanded="false" />
+                    <element signature="e#8080#19825#0" expanded="false" />
+                    <element signature="e#19993#21908#0" expanded="false" />
+                    <element signature="e#22077#27190#0" expanded="false" />
+                    <element signature="e#27364#31247#0" expanded="false" />
+                    <element signature="e#31416#38240#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -83,8 +114,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
         <option value="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
+        <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
+        <option value="$PROJECT_DIR$/laig/reader/XMLscene.js" />
       </list>
     </option>
   </component>
@@ -95,10 +127,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -125,8 +157,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -201,15 +231,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Skills2Help" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -643,15 +676,19 @@
       <workItem from="1475874450113" duration="7478000" />
       <workItem from="1475920081478" duration="6146000" />
       <workItem from="1476010950007" duration="82000" />
-      <workItem from="1476126500394" duration="3065000" />
+      <workItem from="1476126500394" duration="3822000" />
+      <workItem from="1476131373751" duration="95000" />
+      <workItem from="1476193161876" duration="379000" />
+      <workItem from="1476193560381" duration="628000" />
+      <workItem from="1476258261830" duration="9534000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25474000" />
+    <option name="totallyTimeSpent" value="36867000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="2576" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -665,7 +702,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.041015625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04099561" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -693,24 +730,184 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19210">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1853">
           <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -721,12 +918,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -737,13 +933,13 @@
           <caret line="817" column="63" selection-start-line="817" selection-start-column="63" selection-end-line="817" selection-end-column="63" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,12 +950,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -770,13 +965,13 @@
           <caret line="583" column="50" selection-start-line="583" selection-start-column="50" selection-end-line="583" selection-end-column="50" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -787,12 +982,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -803,13 +997,13 @@
           <caret line="919" column="12" selection-start-line="919" selection-start-column="12" selection-end-line="919" selection-end-column="12" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -820,12 +1014,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,13 +1029,13 @@
           <caret line="279" column="112" selection-start-line="279" selection-start-column="112" selection-end-line="279" selection-end-column="112" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -853,12 +1046,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -869,13 +1061,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -886,46 +1078,52 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
-          <caret line="159" column="20" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
-          <folding>
-            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+        <state relative-caret-position="234">
+          <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5714#0" expanded="false" />
-            <element signature="e#5887#7663#0" expanded="false" />
-            <element signature="e#7829#19378#0" expanded="false" />
-            <element signature="e#19546#21461#0" expanded="false" />
-            <element signature="e#21630#26743#0" expanded="false" />
-            <element signature="e#26917#30800#0" expanded="false" />
-            <element signature="e#30969#37793#0" expanded="false" />
+            <element signature="e#2150#5762#0" expanded="false" />
+            <element signature="e#5935#7914#0" expanded="false" />
+            <element signature="e#19993#21908#0" expanded="false" />
+            <element signature="e#22077#27190#0" expanded="false" />
+            <element signature="e#27364#31247#0" expanded="false" />
+            <element signature="e#31416#38240#0" expanded="false" />
+            <element signature="e#38408#47330#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
