@@ -1,6 +1,11 @@
-
 function XMLscene() {
     CGFscene.call(this);
+    
+    this.grafo = [];
+    this.root = [];
+    this.texturas = [];
+    this.materiais = [];
+    this.primitivas = [];
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
