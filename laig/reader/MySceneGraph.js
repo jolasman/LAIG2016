@@ -891,12 +891,14 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.y2rect = this.reader.getFloat(rect2, "y2", true);
             arrayRectanglePrimitives.push(1,this.x1rect, this.ylrect, this.x2rect, this.y2rect);
             arrayPrimitives[i].push(arrayRectanglePrimitives);
+            
+            this.scene.primitivas[this.idprims] = new MyRectangle(this.scene, this.x1rect, this.ylrect, this.x2rec, this.y2rect);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("rectangle");
+            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
         
-        this.scene.primitivas[this.idprims] = new MyRectangle(this.scene, this.x1rect, this.ylrect, this.x2rec, this.y2rect);
-        this.scene.grafo[this.idprims] = new Node();
-        this.scene.grafo[this.idprims].setType("rectangle");
-        this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
+        
 
         /*************************** triangle ***************************/
 
@@ -914,12 +916,13 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
             arrayTrianglePrimitives.push(2,this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
             arrayPrimitives[i].push(arrayTrianglePrimitives);
-
+            
+            this.scene.primitivas[this.idprims] = new MyTriangle(this.scene, this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("triangle");
+            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
-        this.scene.primitivas[this.idprims] = new MyTriangle(this.scene, this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
-        this.scene.grafo[this.idprims] = new Node();
-        this.scene.grafo[this.idprims].setType("triangle");
-        this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
+        
         
         /*************************** cylinder ***************************/
 
@@ -933,13 +936,14 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
             arrayCylinderPrimitives.push(3,this.cylbase, this.cyltop, this.cylheight, this.cylslices, this.cylstacks);
             arrayPrimitives[i].push(arrayCylinderPrimitives);
-
+            
+            this.scene.primitivas[this.idprims] = new MyCylinder(this.scene, this.cylheight, this.cylbase, this.cyltop, this.cylstacks, this.cylslices);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("cylinder");
+            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
         
-        this.scene.primitivas[this.idprims] = new MyCylinder(this.scene, this.cylheight, this.cylbase, this.cyltop, this.cylstacks, this.cylslices);
-        this.scene.grafo[this.idprims] = new Node();
-        this.scene.grafo[this.idprims].setType("cylinder");
-        this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
+        
         /*************************** sphere ***************************/
 
         if (( (tri.length && cyl.length && cyl.length && tor.length) == 0) && sphe.length == 1) {
@@ -950,12 +954,12 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             arraySpherePrimitives.push(4,this.spheradius, this.spheslices, this.sphestacks);
             arrayPrimitives[i].push(arraySpherePrimitives);
 
+            this.scene.primitivas[this.idprims] = new MySphere(this.scene, this.spheradius, this.sphestacks, this.spheslices);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("sphere");
+            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
 
-        this.scene.primitivas[this.idprims] = new MySphere(this.scene, this.spheradius, this.sphestacks, this.spheslices);
-        this.scene.grafo[this.idprims] = new Node();
-        this.scene.grafo[this.idprims].setType("sphere");
-        this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         /*************************** torus ***************************/
 
         if (( (tri.length && cyl.length && sphe.length && sphe.length) == 0) && tor.length == 1) {
@@ -966,13 +970,13 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.torloops = this.reader.getInteger(tor2, "loops", true);
             arrayTorusPrimitives.push(5,this.torinner, this.torouter, this.torslices, this.torloops);
             arrayPrimitives[i].push(arrayTorusPrimitives);
-
+            
+            this.scene.primitivas[this.idprims] = new MyTorus(this.scene, this.torinner, this.torouter, this.torslices, this.torstacks);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("torus");
+            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
-        
-        this.scene.primitivas[this.idprims] = new MyTorus(this.scene, this.torinner, this.torouter, this.torslices, this.torstacks);
-        this.scene.grafo[this.idprims] = new Node();
-        this.scene.grafo[this.idprims].setType("torus");
-        this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
+
         
         if ((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1) {
             console.log("more than one primitive defined in primitive tag. not allowed");
