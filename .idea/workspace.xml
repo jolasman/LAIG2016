@@ -3,6 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyCylinder.js" afterPath="$PROJECT_DIR$/laig/reader/MyCylinder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyRectangle.js" afterPath="$PROJECT_DIR$/laig/reader/MyRectangle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" afterPath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MySphere.js" afterPath="$PROJECT_DIR$/laig/reader/MySphere.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyTorus.js" afterPath="$PROJECT_DIR$/laig/reader/MyTorus.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyTriangle.js" afterPath="$PROJECT_DIR$/laig/reader/MyTriangle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/Node.js" afterPath="$PROJECT_DIR$/laig/reader/Node.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/XMLscene.js" afterPath="$PROJECT_DIR$/laig/reader/XMLscene.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
@@ -25,24 +32,53 @@
     <favorites_list name="LAIG2016" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6734528">
+    <splitter split-orientation="horizontal" split-proportion="0.64913005">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3655">
-                  <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
+                <state relative-caret-position="4629">
+                  <caret line="1250" column="60" selection-start-line="1250" selection-start-column="60" selection-end-line="1250" selection-end-column="60" />
                   <folding>
                     <element signature="e#679#2080#0" expanded="false" />
-                    <element signature="e#2150#5762#0" expanded="false" />
-                    <element signature="e#5935#7914#0" expanded="false" />
-                    <element signature="e#19993#21908#0" expanded="false" />
-                    <element signature="e#22077#27190#0" expanded="false" />
-                    <element signature="e#27364#31247#0" expanded="false" />
-                    <element signature="e#31416#38240#0" expanded="false" />
-                    <element signature="e#38408#47330#0" expanded="false" />
+                    <element signature="e#2150#5781#0" expanded="false" />
+                    <element signature="e#5954#7933#0" expanded="false" />
+                    <element signature="e#8099#19848#0" expanded="false" />
+                    <element signature="e#20016#22448#0" expanded="false" />
+                    <element signature="e#22617#27766#0" expanded="false" />
+                    <element signature="e#27940#32680#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/laig/reader/main.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MyTriangle.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/laig/reader/MyTriangle.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="476">
+                  <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MyRectangle.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/laig/reader/MyRectangle.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="510">
+                  <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -50,9 +86,14 @@
           <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="714">
-                  <caret line="91" column="8" selection-start-line="53" selection-start-column="7" selection-end-line="91" selection-end-column="8" />
-                  <folding />
+                <state relative-caret-position="527">
+                  <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#798#4512#0" expanded="false" />
+                    <element signature="e#4560#5130#0" expanded="false" />
+                    <element signature="e#5188#5357#0" expanded="false" />
+                    <element signature="e#5565#5909#0" expanded="false" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -61,37 +102,24 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="true">
+          <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+                <state relative-caret-position="-146">
+                  <caret line="220" column="32" selection-start-line="220" selection-start-column="32" selection-end-line="220" selection-end-column="32" />
                   <folding>
-                    <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+          <file leaf-file-name="Node.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/laig/reader/Node.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="5814">
-                  <caret line="958" column="63" selection-start-line="958" selection-start-column="63" selection-end-line="958" selection-end-column="63" />
-                  <folding>
-                    <element signature="e#679#2080#0" expanded="false" />
-                    <element signature="e#2150#5762#0" expanded="false" />
-                    <element signature="e#5935#7914#0" expanded="false" />
-                    <element signature="e#19993#21908#0" expanded="false" />
-                    <element signature="e#22077#27190#0" expanded="false" />
-                    <element signature="e#27364#31247#0" expanded="false" />
-                    <element signature="e#31416#38240#0" expanded="false" />
-                    <element signature="e#38408#47330#0" expanded="false" />
-                  </folding>
+                <state relative-caret-position="663">
+                  <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -112,8 +140,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MyRectangle.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MyTriangle.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MyCylinder.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MySphere.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MyTorus.js" />
         <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
+        <option value="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
+        <option value="$PROJECT_DIR$/laig/reader/Node.js" />
         <option value="$PROJECT_DIR$/laig/reader/XMLscene.js" />
       </list>
     </option>
@@ -155,7 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -224,13 +258,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scenes" />
+              <option name="myItemId" value="texturas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -238,7 +272,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Skills2Help" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/LAIG EXAMPLE/nudfhsuydhshdishfihsif/LAIG2016-257c9c949d7ab611ea73432d4846903253832a43" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
@@ -661,6 +695,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="" />
@@ -680,11 +717,13 @@
       <workItem from="1476193560381" duration="628000" />
       <workItem from="1476258261830" duration="9615000" />
       <workItem from="1476270570200" duration="2565000" />
+      <workItem from="1476661821785" duration="2000" />
+      <workItem from="1476704737709" duration="22122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39513000" />
+    <option name="totallyTimeSpent" value="61637000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="2576" height="1056" extended-state="6" />
@@ -696,12 +735,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.040625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05703125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -736,9 +775,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="1547">
+          <caret line="91" column="8" selection-start-line="53" selection-start-column="7" selection-end-line="91" selection-end-column="8" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -747,11 +791,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,186 +802,25 @@
           <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1547">
+          <caret line="91" column="8" selection-start-line="53" selection-start-column="7" selection-end-line="91" selection-end-column="8" />
           <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3893">
-          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3893">
-          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3893">
-          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19210">
-          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -951,166 +830,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2193">
-          <caret line="817" column="63" selection-start-line="817" selection-start-column="63" selection-end-line="817" selection-end-column="63" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5168">
-          <caret line="583" column="50" selection-start-line="583" selection-start-column="50" selection-end-line="583" selection-end-column="50" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15623">
-          <caret line="919" column="12" selection-start-line="919" selection-start-column="12" selection-end-line="919" selection-end-column="12" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4743">
-          <caret line="279" column="112" selection-start-line="279" selection-start-column="112" selection-end-line="279" selection-end-column="112" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1121,36 +841,465 @@
           <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
           <folding>
             <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5762#0" expanded="false" />
-            <element signature="e#5935#7914#0" expanded="false" />
-            <element signature="e#19993#21908#0" expanded="false" />
-            <element signature="e#22077#27190#0" expanded="false" />
-            <element signature="e#27364#31247#0" expanded="false" />
-            <element signature="e#31416#38240#0" expanded="false" />
-            <element signature="e#38408#47330#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
-          <folding>
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="91" column="8" selection-start-line="53" selection-start-column="7" selection-end-line="91" selection-end-column="8" />
+        <state relative-caret-position="1105">
+          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7106">
+          <caret line="418" column="34" selection-start-line="418" selection-start-column="34" selection-end-line="418" selection-end-column="34" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3893">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19210">
+          <caret line="1130" column="39" selection-start-line="1130" selection-start-column="39" selection-end-line="1130" selection-end-column="39" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="244" column="0" selection-start-line="244" selection-start-column="0" selection-end-line="244" selection-end-column="0" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2193">
+          <caret line="817" column="63" selection-start-line="817" selection-start-column="63" selection-end-line="817" selection-end-column="63" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5168">
+          <caret line="583" column="50" selection-start-line="583" selection-start-column="50" selection-end-line="583" selection-end-column="50" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15623">
+          <caret line="919" column="12" selection-start-line="919" selection-start-column="12" selection-end-line="919" selection-end-column="12" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4743">
+          <caret line="279" column="112" selection-start-line="279" selection-start-column="112" selection-end-line="279" selection-end-column="112" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyRectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyCylinder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySphere.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="3" selection-end-line="62" selection-end-column="6" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyTorus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="3" selection-end-line="28" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyTriangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-146">
+          <caret line="220" column="32" selection-start-line="220" selection-start-column="32" selection-end-line="220" selection-end-column="32" />
+          <folding>
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/Node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4629">
+          <caret line="1250" column="60" selection-start-line="1250" selection-start-column="60" selection-end-line="1250" selection-end-column="60" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22448#0" expanded="false" />
+            <element signature="e#22617#27766#0" expanded="false" />
+            <element signature="e#27940#32680#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+          <folding>
+            <element signature="e#798#4512#0" expanded="false" />
+            <element signature="e#4560#5130#0" expanded="false" />
+            <element signature="e#5188#5357#0" expanded="false" />
+            <element signature="e#5565#5909#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

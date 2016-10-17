@@ -17,7 +17,7 @@ XMLscene.prototype.init = function (application) {
 
 
 
-    this.gl.clearColor(0.0, 0.0, 0.0, 1.0);//background
+   // this.gl.clearColor(0.0, 0.0, 0.0, 1.0);//background
 
     this.gl.clearDepth(100.0);
     this.gl.enable(this.gl.DEPTH_TEST);
@@ -28,8 +28,9 @@ XMLscene.prototype.init = function (application) {
 };
 
 XMLscene.prototype.updateLights = function () {
-    for(var i = 0; i < 8; i++) {
-        this.lights[i].update();
+    for(var i = 0; i < 7; i++) {
+
+            this.lights[i].update();
     }
 };
 
@@ -37,21 +38,28 @@ XMLscene.prototype.initLights = function () {
 
     this.omnisLight = this.graph.arrayOmni;
     this.spots = this.graph.arraySpot;
+
     this.count = 1;
     for(var i= 0; i < this.omnisLight.length; i++){
         this.positionLights = this.omnisLight[i][2];
         this.ambientlight = this.omnisLight[i][3];
         this.diff = this.omnisLight[i][4];
         this.spec = this.omnisLight[i][5];
+        var enabledlight = this.omnisLight[i][1];
 
         this.lights[i].setPosition(this.positionLights[0],this.positionLights[1],this.positionLights[2],this.positionLights[3]);
         this.lights[i].setAmbient(this.ambientlight[0],this.ambientlight[1],this.ambientlight[2],this.ambientlight[3]);
         this.lights[i].setDiffuse(this.diff[0],this.diff[1],this.diff[2],this.diff[3]);
         this.lights[i].setSpecular(this.spec[0],this.spec[1],this.spec[2],this.spec[3]);
 
-
-        this.lights[i].setVisible(true);
-        this.lights[i].enable();
+        if(enabledlight){
+            this.lights[i].enable();
+            this.lights[i].setVisible(true);
+        }else
+        {
+            this.lights[i].disable();
+            this.lights[i].setVisible(false);
+        }
         this.lights[i].update();
         this.count++;
     }
@@ -104,22 +112,16 @@ XMLscene.prototype.initLights = function () {
 XMLscene.prototype.initCameras = function () {
     this.cameras = this.graph.arrayPerspectiveViews;
     this.arrayCamaras = [];
-
     for(var i = 0; i < this.cameras.length; i++){
         this.angle = this.cameras[i][3];
         this.near = this.cameras[i][1];
         this.far = this.cameras[i][2];
         this.from = this.cameras[i][4];
         this.to = this.cameras[i][5];
-
-
         this.arrayCamaras.push(new CGFcamera(this.angle, this.near, this.far, vec3.fromValues(this.from[0], this.from[1], this.from[2]), vec3.fromValues(this.to[0], this.to[1], this.to[2])));
-
     }
     this.camera = this.arrayCamaras[0];
-
 };
-
 
 
 XMLscene.prototype.setDefaultAppearance = function () {
@@ -137,13 +139,41 @@ XMLscene.prototype.onGraphLoaded = function ()
     this.gl.clearColor(this.graph.arrayBackground[0],this.graph.arrayBackground[1],this.graph.arrayBackground[2],this.graph.arrayBackground[3]);
 
 
-    // this.setGlobalAmbientLight(this.graph.arrayAmbient[0],this.graph.arrayAmbient[1],this.graph.arrayAmbient[2],this.graph.arrayAmbient[3]);
+     this.setGlobalAmbientLight(this.graph.arrayAmbient[0],this.graph.arrayAmbient[1],this.graph.arrayAmbient[2],this.graph.arrayAmbient[3]);
     this.initLights();
     this.initCameras();
 
 
 
 
+
+};
+
+
+XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
+
+    var node = this.grafo[noID];
+    var prim = node.primitives;
+
+    if(node.descendents.length == 0){
+
+       // this.materiais[materialID].setTexture(null);
+        this.multMatrix(matrixTrans);
+
+        if(textureID != null)
+        {
+            this.materiais[materialID].setTexture(this.texturas[textureID]["textura"]);
+
+
+
+            this.primitivas[prim].updateTexCoords(this.texturas[textureID]["length_s_t"]["s"], this.texturas[textureID]["length_s_t"]["t"]);
+
+
+        }
+        this.materiais[materialID].apply();
+        this.primitivas[prim].display();
+
+    }
 
 };
 
@@ -166,15 +196,32 @@ XMLscene.prototype.display = function () {
 
     this.setDefaultAppearance();
 
+    if (this.graph.loadedOk)
+    {
+        this.updateLights();
+
+        var noinicial = this.root["id"];
+        var matrizTransform = mat4.create();
+        mat4.identity(matrizTransform);
+        var materialInicial = this.grafo[noinicial].material != "null" ? this.grafo[noinicial].material :"madeira";
+        var texturaInicial = this.grafo[noinicial].texture;
+
+        this.writeGraph(noinicial,matrizTransform,materialInicial,texturaInicial);
+
+    }
+
+
+
+
+
+
+
     // ---- END Background, camera and axis setup
 
     // it is important that things depending on the proper loading of the graph
     // only get executed after the graph has loaded correctly.
     // This is one possible way to do it
-    if (this.graph.loadedOk)
-    {
-        this.updateLights();
-    }
+
 
 };
 
