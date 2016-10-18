@@ -5,8 +5,8 @@ function MyRectangle(scene, Ltopx, Ltopy, Rbotx, Rboty) {  //Left top and Right 
     this.Ltopy = Ltopy;
     this.Rbotx = Rbotx;
     this.Rboty = Rboty;
-    this.amplifS=1;
-    this.amplifT=1;
+    this.length_S=1;
+    this.length_T=1;
 
     this.minS=0;
     this.minT=0;
@@ -19,7 +19,7 @@ function MyRectangle(scene, Ltopx, Ltopy, Rbotx, Rboty) {  //Left top and Right 
 MyRectangle.prototype = Object.create(CGFobject.prototype);
 MyRectangle.prototype.constructor=MyRectangle;
 
-MyRectangle.prototype.updateTexCoords=function(amplifS, amplifT){
+MyRectangle.prototype.updateTexCoords=function(length_S, length_T){
 
 
     var width = this.Rbotx;
@@ -27,9 +27,9 @@ MyRectangle.prototype.updateTexCoords=function(amplifS, amplifT){
 
     this.texCoords = [
         0,0,
-		0.0, height /amplifT,
-	 	width /amplifS, height /amplifT,
-      	width /amplifS, 0.0
+		0.0, height /length_T,
+	 	width /length_S, height /length_T,
+      	width /length_S, 0.0
      ];
 
 

@@ -552,8 +552,8 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
         this.length_ttexture = this.reader.getFloat(textures[i], "length_t", true);
         arrayLength["s"] = this.length_stexture;
         arrayLength["t"] = this.length_ttexture;
-       // if (i == 0) {
-            this.idtexture = this.reader.getString(textures[i], "id", true);
+        // if (i == 0) {
+        this.idtexture = this.reader.getString(textures[i], "id", true);
 
         arrayTextures["textura"] = new CGFtexture(this.scene, this.filetexture);
         arrayTextures["length_s_t"] = arrayLength;
@@ -605,14 +605,14 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
     for (var i = 0; i < materiais.length; i++) {
 
-       // if (i == 0) {
+        // if (i == 0) {
 
-            this.idmaterial = this.reader.getString(materiais[i], "id", true);
-            arrayMaterials.push([this.idmaterial]);
+        this.idmaterial = this.reader.getString(materiais[i], "id", true);
+        arrayMaterials.push([this.idmaterial]);
 
-            this.scene.materiais[this.idmaterial] = new CGFappearance(this.scene);
+        this.scene.materiais[this.idmaterial] = new CGFappearance(this.scene);
 
-      //  }
+        //  }
 
         // if (i > 0) {
         //     for (var j = 0; j < arrayMaterials.length; j++) {
@@ -756,8 +756,8 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
 
         // if (i == 0) {
 
-            this.idtrans = this.reader.getString(trans3[i], "id", true);
-            arrayTransformations.push([this.idtrans]);
+        this.idtrans = this.reader.getString(trans3[i], "id", true);
+        arrayTransformations.push([this.idtrans]);
         // }
         //
         // if (i > 0) {
@@ -860,32 +860,32 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
     for (var i = 0; i < prims3.length; i++) {
 
 
-       // if (i == 0) {
+        if (i == 0) {
             this.idprims = this.reader.getString(prims3[i], "id", true);
             arrayPrimitives.push([this.idprims]);
-        //}
-        // if (i > 0) {
-        //     for (var j = 0; j < arrayPrimitives.length; j++) {
-        //         var result = [];
-        //         this.secondid = this.reader.getString(prims3[i], "id", true);
-        //         var resultado = arrayPrimitives[j][0].localeCompare(this.secondid);
-        //         result.push(resultado);
-        //         if(resultado == 0){
-        //             break;
-        //         }
-        //     }
-        //     for (var y = 0; y < result.length; y++) {
-        //         if (result[y] == 0) {
-        //             console.log("id of Primitive: " + this.secondid + " must be different from the other ones. " +
-        //                 " A new random id will be applied : " + this.secondid + i);
-        //             arrayPrimitives.push([this.secondid + i]);
-        //             break;
-        //         } else {
-        //             this.idprims = this.reader.getString(prims3[i], "id", true);
-        //             arrayPrimitives.push([this.idprims]);
-        //         }
-        //     }
-        // }
+        }
+        if (i > 0) {
+            for (var j = 0; j < arrayPrimitives.length; j++) {
+                var result = [];
+                this.secondid = this.reader.getString(prims3[i], "id", true);
+                var resultado = arrayPrimitives[j][0].localeCompare(this.secondid);
+                result.push(resultado);
+                if(resultado == 0){
+                    break;
+                }
+            }
+            for (var y = 0; y < result.length; y++) {
+                if (result[y] == 0) {
+                    console.log("id of Primitive: " + this.secondid + " must be different from the other ones. " +
+                        " A new random id will be applied : " + this.secondid + i);
+                    arrayPrimitives.push([this.secondid + i]);
+                    break;
+                } else {
+                    this.idprims = this.reader.getString(prims3[i], "id", true);
+                    arrayPrimitives.push([this.idprims]);
+                }
+            }
+        }
         var rect = prims3[i].getElementsByTagName('rectangle');
         var tri = prims3[i].getElementsByTagName('triangle');
         var cyl = prims3[i].getElementsByTagName('cylinder');
@@ -930,8 +930,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.y2rect = this.reader.getFloat(rect2, "y2", true);
             arrayRectanglePrimitives.push(this.x1rect, this.ylrect, this.x2rect, this.y2rect);
             arrayPrimitives[i].push(arrayRectanglePrimitives);
-            
-            this.scene.primitivas[this.idprims] = new MyRectangle(this.scene, this.x1rect, this.ylrect, this.x2rec, this.y2rect);
+
+            this.scene.primitivas[this.idprims] = new MyRectangle(this.scene, this.x1rect, this.ylrect, this.x2rect, this.y2rect);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("rectangle");
             this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
@@ -953,7 +953,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
             arrayTrianglePrimitives.push(this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
             arrayPrimitives[i].push(arrayTrianglePrimitives);
-            
+
             this.scene.primitivas[this.idprims] = new MyTriangle(this.scene, this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("triangle");
@@ -972,8 +972,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
             arrayCylinderPrimitives.push(this.cylbase, this.cyltop, this.cylheight, this.cylslices, this.cylstacks);
             arrayPrimitives[i].push(arrayCylinderPrimitives);
-            
-           this.scene.primitivas[this.idprims] = new MyCylinder(this.scene, this.cylheight, this.cylbase, this.cyltop, this.cylstacks, this.cylslices);
+
+            this.scene.primitivas[this.idprims] = new MyCylinder(this.scene, this.cylheight, this.cylbase, this.cyltop, this.cylstacks, this.cylslices);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("cylinder");
             this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
@@ -1005,8 +1005,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.torloops = this.reader.getInteger(tor2, "loops", true);
             arrayTorusPrimitives.push(this.torinner, this.torouter, this.torslices, this.torloops);
             arrayPrimitives[i].push(arrayTorusPrimitives);
-            
-           this.scene.primitivas[this.idprims] = new MyTorus(this.scene, this.torinner, this.torouter, this.torslices, this.torstacks);
+
+            this.scene.primitivas[this.idprims] = new MyTorus(this.scene, this.torinner, this.torouter, this.torslices, this.torloops);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("torus");
             this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
@@ -1090,78 +1090,78 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
             }
         }
         if (transformationRef.length == 0 && transl.length == 0 && rot.length == 0 && scal2.length == 0) {
-               console.warn("in transformation tag inside component :" + this.idcomps + " you need to put one type of transformation.  "
-                    + "the default transformation will be applied: translate x = 0 , y = 0 , z = 0");
-                this.xtranslate2 = 0;
-                this.ytranslate2 = 0;
-                this.ztranslate2 = 0;
+            console.warn("in transformation tag inside component :" + this.idcomps + " you need to put one type of transformation.  "
+                + "the default transformation will be applied: translate x = 0 , y = 0 , z = 0");
+            this.xtranslate2 = 0;
+            this.ytranslate2 = 0;
+            this.ztranslate2 = 0;
             var matrix11 = [];
-                arrayTransformationTranslateComponents.push(2, 1, this.xtranslate2, this.ytranslate2, this.ztranslate2);
-                arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
+            arrayTransformationTranslateComponents.push(2, 1, this.xtranslate2, this.ytranslate2, this.ztranslate2);
+            arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
             matrix11.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
             mat4.translate(no.matrix, no.matrix, matrix11);
-            } else {
+        } else {
 
-                /*************************** translate ***************************/
+            /*************************** translate ***************************/
 
-                var transl2 = transl[0];
+            var transl2 = transl[0];
 
-                if (transl.length !== 0) {
-                    var matrix = [];
-                    this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
-                    this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
-                    this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
-                    arrayTransformationTranslateComponents.push(2, [1, this.xtranslate2, this.ytranslate2, this.ztranslate2]);
-                    arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
+            if (transl.length !== 0) {
+                var matrix = [];
+                this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
+                this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
+                this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
+                arrayTransformationTranslateComponents.push(2, [1, this.xtranslate2, this.ytranslate2, this.ztranslate2]);
+                arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
 
-                    matrix.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
-                    mat4.translate(no.matrix, no.matrix, matrix);
+                matrix.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
+                mat4.translate(no.matrix, no.matrix, matrix);
 
-                }
-
-                /*************************** rotate ***************************/
-
-                var rot2 = rot[0];
-                if (rot.length !== 0) {
-
-                    var matrix12 = [];
-
-                    this.rotaxis2 = this.reader.getString(rot2, "axis", true);
-                    this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
-                    arrayTransformationRotateComponents.push(2, 2, this.rotaxis2, this.rotangle2);
-                    arrayComponentComponents[i].push(arrayTransformationRotateComponents);
-
-                    if (this.rotaxis2 == 'x') {
-                        matrix12 = [1, 0, 0];
-                    }
-                    if (this.rotaxis2 == 'y') {
-                        matrix12 = [0, 1, 0];
-                    }
-
-                    if (this.rotaxis2 == 'z') {
-                        matrix12 = [0, 0, 1];
-                    }
-
-                    this.rotangle2 = this.rotangle2 * Math.PI / 180;
-                    mat4.rotate(no.matrix, no.matrix, this.rotangle2, matrix12)
-
-                }
-                /*************************** scale ***************************/
-
-                var scal3 = scal2[0];
-                if (scal2.length !== 0) {
-                    this.xscale2 = this.reader.getFloat(scal3, "x", true);
-                    this.yscale2 = this.reader.getFloat(scal3, "y", true);
-                    this.zscale2 = this.reader.getFloat(scal3, "z", true);
-                    arrayTransformationScaleComponents.push(2, 3, this.xscale2, this.yscale2, this.zscale2);
-                    arrayComponentComponents[i].push(arrayTransformationScaleComponents);
-
-                    var matrix1 = [];
-                    matrix1.push(this.xscale2, this.yscale2, this.zscale2);
-                    mat4.scale(no.matrix, no.matrix, matrix1)
-
-                }
             }
+
+            /*************************** rotate ***************************/
+
+            var rot2 = rot[0];
+            if (rot.length !== 0) {
+
+                var matrix12 = [];
+
+                this.rotaxis2 = this.reader.getString(rot2, "axis", true);
+                this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
+                arrayTransformationRotateComponents.push(2, 2, this.rotaxis2, this.rotangle2);
+                arrayComponentComponents[i].push(arrayTransformationRotateComponents);
+
+                if (this.rotaxis2 == 'x') {
+                    matrix12 = [1, 0, 0];
+                }
+                if (this.rotaxis2 == 'y') {
+                    matrix12 = [0, 1, 0];
+                }
+
+                if (this.rotaxis2 == 'z') {
+                    matrix12 = [0, 0, 1];
+                }
+
+                this.rotangle2 = this.rotangle2 * Math.PI / 180;
+                mat4.rotate(no.matrix, no.matrix, this.rotangle2, matrix12)
+
+            }
+            /*************************** scale ***************************/
+
+            var scal3 = scal2[0];
+            if (scal2.length !== 0) {
+                this.xscale2 = this.reader.getFloat(scal3, "x", true);
+                this.yscale2 = this.reader.getFloat(scal3, "y", true);
+                this.zscale2 = this.reader.getFloat(scal3, "z", true);
+                arrayTransformationScaleComponents.push(2, 3, this.xscale2, this.yscale2, this.zscale2);
+                arrayComponentComponents[i].push(arrayTransformationScaleComponents);
+
+                var matrix1 = [];
+                matrix1.push(this.xscale2, this.yscale2, this.zscale2);
+                mat4.scale(no.matrix, no.matrix, matrix1)
+
+            }
+        }
 
 
         /*************************** materials ***************************/

@@ -160,20 +160,61 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
        // this.materiais[materialID].setTexture(null);
         this.multMatrix(matrixTrans);
 
-        if(textureID != null)
-        {
-            this.materiais[materialID].setTexture(this.texturas[textureID]["textura"]);
+        // if(textureID != null)
+        // {
+        //     //this.materiais[materialID].setTexture(this.texturas[textureID]["textura"]);
+        //
+        //
+        //
+        //   //  this.primitivas[prim].updateTexCoords(this.texturas[textureID]["length_s_t"]["s"], this.texturas[textureID]["length_s_t"]["t"]);
+        //
+        //
+        // }
+        // this.materiais[materialID].apply();
+        console.log(this.primitivas[prim]);
+        
+        //this.primitivas[prim].display();
+
+    }
+    else{
+        for(var i = 0; i < node.descendents.length; i++){
+            this.pushMatrix();
+            var matriz = mat4.create();
+
+            mat4.multiply(matriz,matrixTrans,node.matrix);
+            var materialnode;
+
+            if(node.material != 'null'){
+                materialnode = node.material;
+            }else {
+                materialnode = materialID;
+            }
+
+            var texturenode;
+
+            if(node.texture != 'null'){
+                texturenode = node.texture;
+            }
+            else{
+                texturenode = textureID;
+            }
 
 
+            if(this.grafo[node.descendents[i]] === undefined){
+                console.warn("Node: " + node.descendents[i] + " doesn't exists, iteration ends here");
+                this.grafo[node.descendents[i]] = null;
+            }
+            else if(this.grafo[node.descendents[i]]){
+                this.writeGraph(node.descendents[i],matriz,materialnode,texturenode);
+                this.popMatrix();
 
-            this.primitivas[prim].updateTexCoords(this.texturas[textureID]["length_s_t"]["s"], this.texturas[textureID]["length_s_t"]["t"]);
+            }
 
 
         }
-        this.materiais[materialID].apply();
-        this.primitivas[prim].display();
-
     }
+
+
 
 };
 
