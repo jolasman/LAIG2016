@@ -26,10 +26,11 @@ MyRectangle.prototype.updateTexCoords=function(length_S, length_T){
     var height = this.Ltopy;
 
     this.texCoords = [
+        0.0, height /length_T,
         0,0,
-		0.0, height /length_T,
-	 	width /length_S, height /length_T,
-      	width /length_S, 0.0
+        width /length_S, 0.0,
+	 	width /length_S, height /length_T
+
      ];
 
 
@@ -41,11 +42,14 @@ MyRectangle.prototype.updateTexCoords=function(length_S, length_T){
 
 MyRectangle.prototype.initBuffers = function () {
 	this.vertices = [
-           this.Ltopx, this.Ltopy, 0,  //canto superior esquerdo
+        this.Ltopx, this.Ltopy, 0,  //canto superior esquerdo
            this.Ltopx, this.Rboty, 0, //canto superior direito
-           this.Rbotx, this.Rboty, 0,   //canto inferior esquerdo
-           this.Rbotx, this.Ltopy, 0,   //canto inferior direito
-			];
+
+        this.Rbotx, this.Rboty, 0,   //canto inferior esquerdo
+           this.Rbotx, this.Ltopy, 0   //canto inferior direito
+
+
+    ];
 
 	this.indices = [
             0,1,2,
@@ -60,11 +64,14 @@ MyRectangle.prototype.initBuffers = function () {
     ];
 
     this.texCoords = [
-			this.minS,this.minT,
+
 			this.minS,this.maxT,
-			this.maxS,this.maxT,
-			this.maxS,this.minT
-	]
+        this.minS,this.minT,
+
+
+			this.maxS,this.minT,
+        this.maxS,this.maxT
+	];
 
 	this.primitiveType=this.scene.gl.TRIANGLES;
 	this.initGLBuffers();

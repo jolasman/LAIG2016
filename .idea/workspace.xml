@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyRectangle.js" afterPath="$PROJECT_DIR$/laig/reader/MyRectangle.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" afterPath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/Node.js" afterPath="$PROJECT_DIR$/laig/reader/Node.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/XMLscene.js" afterPath="$PROJECT_DIR$/laig/reader/XMLscene.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
@@ -28,14 +27,14 @@
     <favorites_list name="LAIG2016" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.64913005">
+    <splitter split-orientation="horizontal" split-proportion="0.60518295">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-629">
-                  <caret line="866" column="20" selection-start-line="866" selection-start-column="20" selection-end-line="866" selection-end-column="20" />
+                <state relative-caret-position="-1684">
+                  <caret line="1097" column="0" selection-start-line="1097" selection-start-column="0" selection-end-line="1097" selection-end-column="0" />
                   <folding>
                     <element signature="e#679#2080#0" expanded="false" />
                     <element signature="e#2150#5781#0" expanded="false" />
@@ -43,8 +42,8 @@
                     <element signature="e#8099#19848#0" expanded="false" />
                     <element signature="e#20016#22445#0" expanded="false" />
                     <element signature="e#22614#27754#0" expanded="false" />
-                    <element signature="e#27928#32660#0" expanded="false" />
-                    <element signature="e#41512#51817#0" expanded="false" />
+                    <element signature="e#27928#33148#0" expanded="false" />
+                    <element signature="e#33317#41831#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -53,8 +52,8 @@
           <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state relative-caret-position="442">
+                  <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -70,17 +69,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="8" />
+                <state relative-caret-position="374">
+                  <caret line="183" column="46" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
                   <folding>
-                    <element signature="e#798#4512#0" expanded="false" />
-                    <element signature="e#4560#5130#0" expanded="false" />
-                    <element signature="e#5188#5357#0" expanded="false" />
-                    <element signature="e#5565#5909#0" expanded="false" />
+                    <element signature="e#916#4630#0" expanded="false" />
+                    <element signature="e#5527#5696#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MyRectangle.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/laig/reader/MyRectangle.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="663">
+                  <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -89,19 +96,23 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="false">
+          <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-842">
-                  <caret line="177" column="33" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
+                <state relative-caret-position="463">
+                  <caret line="110" column="87" selection-start-line="110" selection-start-column="87" selection-end-line="110" selection-end-column="87" />
                   <folding>
+                    <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Node.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Node.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/Node.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="493">
@@ -131,11 +142,12 @@
         <option value="$PROJECT_DIR$/laig/reader/MyCylinder.js" />
         <option value="$PROJECT_DIR$/laig/reader/MySphere.js" />
         <option value="$PROJECT_DIR$/laig/reader/MyTorus.js" />
-        <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
-        <option value="$PROJECT_DIR$/laig/reader/MyRectangle.js" />
-        <option value="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
         <option value="$PROJECT_DIR$/laig/reader/Node.js" />
+        <option value="$PROJECT_DIR$/laig/reader/main.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MyRectangle.js" />
         <option value="$PROJECT_DIR$/laig/reader/XMLscene.js" />
+        <option value="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
+        <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
       </list>
     </option>
   </component>
@@ -146,10 +158,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="2576" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -176,7 +188,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -251,8 +265,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -706,16 +718,18 @@
       <workItem from="1476270570200" duration="2565000" />
       <workItem from="1476661821785" duration="2000" />
       <workItem from="1476704737709" duration="22122000" />
-      <workItem from="1476828056725" duration="2433000" />
+      <workItem from="1476828056725" duration="2470000" />
+      <workItem from="1476830635383" duration="609000" />
+      <workItem from="1476863098678" duration="10061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64070000" />
+    <option name="totallyTimeSpent" value="74777000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="2576" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -728,7 +742,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05703125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.03953148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -756,11 +770,19 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/laig/reader/Node.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21250">
@@ -772,8 +794,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -790,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,10 +827,8 @@
         <state relative-caret-position="884">
           <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -820,7 +838,11 @@
         <state relative-caret-position="3366">
           <caret line="220" column="32" selection-start-line="220" selection-start-column="32" selection-end-line="220" selection-end-column="32" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -838,10 +860,8 @@
         <state relative-caret-position="1547">
           <caret line="91" column="8" selection-start-line="53" selection-start-column="7" selection-end-line="91" selection-end-column="8" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -851,7 +871,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -867,8 +891,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,10 +902,8 @@
         <state relative-caret-position="1547">
           <caret line="91" column="8" selection-start-line="53" selection-start-column="7" selection-end-line="91" selection-end-column="8" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,7 +913,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -907,8 +933,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -918,10 +944,8 @@
         <state relative-caret-position="1105">
           <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -931,7 +955,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -947,8 +975,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -958,10 +986,8 @@
         <state relative-caret-position="646">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -971,7 +997,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -987,8 +1017,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -998,10 +1028,8 @@
         <state relative-caret-position="646">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1011,7 +1039,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1027,8 +1059,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1038,10 +1070,8 @@
         <state relative-caret-position="646">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1051,7 +1081,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1067,8 +1101,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1078,10 +1112,8 @@
         <state relative-caret-position="646">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1091,7 +1123,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1107,8 +1143,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1124,8 +1160,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1135,7 +1171,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1151,8 +1191,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1162,7 +1202,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1178,8 +1222,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1189,7 +1233,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1205,8 +1253,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1216,7 +1264,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1232,8 +1284,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1243,7 +1295,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1259,8 +1315,8 @@
             <element signature="e#8099#19848#0" expanded="false" />
             <element signature="e#20016#22445#0" expanded="false" />
             <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1270,7 +1326,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1280,7 +1340,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1289,26 +1349,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="3" selection-end-line="62" selection-end-column="6" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyTriangle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-842">
-          <caret line="177" column="33" selection-start-line="177" selection-start-column="33" selection-end-line="177" selection-end-column="33" />
-          <folding>
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="476">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MyRectangle.js">
+    <entry file="file://$PROJECT_DIR$/laig/reader/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="46" selection-start-line="68" selection-start-column="46" selection-end-line="68" selection-end-column="46" />
+        <state relative-caret-position="442">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1321,39 +1375,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MyTriangle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="866" column="20" selection-start-line="866" selection-start-column="20" selection-end-line="866" selection-end-column="20" />
-          <folding>
-            <element signature="e#679#2080#0" expanded="false" />
-            <element signature="e#2150#5781#0" expanded="false" />
-            <element signature="e#5954#7933#0" expanded="false" />
-            <element signature="e#8099#19848#0" expanded="false" />
-            <element signature="e#20016#22445#0" expanded="false" />
-            <element signature="e#22614#27754#0" expanded="false" />
-            <element signature="e#27928#32660#0" expanded="false" />
-            <element signature="e#41512#51817#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/Node.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1362,15 +1383,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyRectangle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="8" />
+        <state relative-caret-position="374">
+          <caret line="183" column="46" selection-start-line="183" selection-start-column="46" selection-end-line="183" selection-end-column="46" />
           <folding>
-            <element signature="e#798#4512#0" expanded="false" />
-            <element signature="e#4560#5130#0" expanded="false" />
-            <element signature="e#5188#5357#0" expanded="false" />
-            <element signature="e#5565#5909#0" expanded="false" />
+            <element signature="e#916#4630#0" expanded="false" />
+            <element signature="e#5527#5696#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1684">
+          <caret line="1097" column="0" selection-start-line="1097" selection-start-column="0" selection-end-line="1097" selection-end-column="0" />
+          <folding>
+            <element signature="e#679#2080#0" expanded="false" />
+            <element signature="e#2150#5781#0" expanded="false" />
+            <element signature="e#5954#7933#0" expanded="false" />
+            <element signature="e#8099#19848#0" expanded="false" />
+            <element signature="e#20016#22445#0" expanded="false" />
+            <element signature="e#22614#27754#0" expanded="false" />
+            <element signature="e#27928#33148#0" expanded="false" />
+            <element signature="e#33317#41831#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="110" column="87" selection-start-line="110" selection-start-column="87" selection-end-line="110" selection-end-column="87" />
+          <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#1;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

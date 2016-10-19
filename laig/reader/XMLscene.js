@@ -6,6 +6,7 @@ function XMLscene() {
     this.texturas = [];
     this.materiais = [];
     this.primitivas = [];
+    this.application = null;
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
@@ -14,8 +15,9 @@ XMLscene.prototype.constructor = XMLscene;
 XMLscene.prototype.init = function (application) {
     CGFscene.prototype.init.call(this, application);
 
-
-
+    this.application = application;
+    this.initCameras();
+    this.enableTextures(true);
 
    // this.gl.clearColor(0.0, 0.0, 0.0, 1.0);//background
 
@@ -110,6 +112,14 @@ XMLscene.prototype.initLights = function () {
 };
 
 XMLscene.prototype.initCameras = function () {
+    this.camera = new CGFcamera(0.4, 0.1, 500, vec3.fromValues(15, 15, 15), vec3.fromValues(0, 0, 0));
+
+
+};
+
+XMLscene.prototype.createCameras = function () {
+
+
     this.cameras = this.graph.arrayPerspectiveViews;
     this.arrayCamaras = [];
     for(var i = 0; i < this.cameras.length; i++){
@@ -121,8 +131,9 @@ XMLscene.prototype.initCameras = function () {
         this.arrayCamaras.push(new CGFcamera(this.angle, this.near, this.far, vec3.fromValues(this.from[0], this.from[1], this.from[2]), vec3.fromValues(this.to[0], this.to[1], this.to[2])));
     }
     this.camera = this.arrayCamaras[0];
-};
+    this.application.interface.setActiveCamera(this.camera);
 
+};
 
 XMLscene.prototype.setDefaultAppearance = function () {
 
@@ -141,7 +152,8 @@ XMLscene.prototype.onGraphLoaded = function ()
 
      this.setGlobalAmbientLight(this.graph.arrayAmbient[0],this.graph.arrayAmbient[1],this.graph.arrayAmbient[2],this.graph.arrayAmbient[3]);
     this.initLights();
-    this.initCameras();
+    this.createCameras();
+
 
 
 
@@ -158,22 +170,19 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
     if(node.descendents.length == 0){
 
        // this.materiais[materialID].setTexture(null);
-        this.multMatrix(matrixTrans);
+        this.multMatrix(node.matrix,matrixTrans);
 
-        // if(textureID != null)
-        // {
-        //     //this.materiais[materialID].setTexture(this.texturas[textureID]["textura"]);
-        //
-        //
-        //
-        //   //  this.primitivas[prim].updateTexCoords(this.texturas[textureID]["length_s_t"]["s"], this.texturas[textureID]["length_s_t"]["t"]);
-        //
-        //
-        // }
-        // this.materiais[materialID].apply();
-        console.log(this.primitivas[prim]);
-        
-        //this.primitivas[prim].display();
+        if(textureID != null) {
+            this.materiais[node.material].setTexture(this.texturas[textureID]["textura"]);
+
+
+            this.primitivas[prim].updateTexCoords(this.texturas[textureID]["length_s_t"]["s"], this.texturas[textureID]["length_s_t"]["t"]);
+
+            // this.texturas[textureID]["textura"].apply();
+
+        }
+        this.materiais[node.material].apply();
+        this.primitivas[prim].display();
 
     }
     else{
