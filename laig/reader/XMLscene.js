@@ -27,16 +27,24 @@ XMLscene.prototype.init = function (application) {
     this.gl.depthFunc(this.gl.LEQUAL);
 
     this.axis=new CGFaxis(this);
+
+    this.lightStatus = [false, false, false, false, false, false, false, false, false];
 };
 
 XMLscene.prototype.updateLights = function () {
     for(var i = 0; i < 7; i++) {
 
+            if(this.lightStatus[i])	this.lights[i].enable();
+            else this.lights[i].disable();
+
             this.lights[i].update();
+
     }
 };
 
 XMLscene.prototype.initLights = function () {
+
+
 
     this.omnisLight = this.graph.arrayOmni;
     this.spots = this.graph.arraySpot;
@@ -47,6 +55,7 @@ XMLscene.prototype.initLights = function () {
         this.ambientlight = this.omnisLight[i][3];
         this.diff = this.omnisLight[i][4];
         this.spec = this.omnisLight[i][5];
+        this.idLights = this.omnisLight[i][0];
         var enabledlight = this.omnisLight[i][1];
 
         this.lights[i].setPosition(this.positionLights[0],this.positionLights[1],this.positionLights[2],this.positionLights[3]);
@@ -57,14 +66,21 @@ XMLscene.prototype.initLights = function () {
         if(enabledlight){
             this.lights[i].enable();
             this.lights[i].setVisible(true);
+            this.lightStatus[i] = true;
         }else
         {
             this.lights[i].disable();
             this.lights[i].setVisible(false);
+            this.lightStatus[i] = false;
         }
         this.lights[i].update();
-        this.count++;
+
+        //this.count++;
+       // console.log(this.graph.arrayOmni[i][0]);
+       // this.graph.interface.addLightToggler(i, this.idLights);
+
     }
+
 
     // for(var j = 0; j < this.spots.length; j++){
     //
@@ -169,109 +185,88 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
 
     if(node.descendents.length == 0){
 
-       // this.materiais[materialID].setTexture(null);
         this.multMatrix(node.matrix,matrixTrans);
 
-        if(textureID != null) {
+        if(node.material == "inherit")//aplica material do pai
+        {
+            node.material = materialID
+        }
+        if(node.texture == "none") {//aplica textura null
+            this.materiais[node.material].setTexture(null);
+        }
+        else if(node.texture == "inherit") {//aplica textura do pai
             this.materiais[node.material].setTexture(this.texturas[textureID]["textura"]);
-
-
             this.primitivas[prim].updateTexCoords(this.texturas[textureID]["length_s_t"]["s"], this.texturas[textureID]["length_s_t"]["t"]);
-
-            // this.texturas[textureID]["textura"].apply();
-
+        }
+        else if(node.texture != null){//aplica textura do no
+            this.materiais[node.material].setTexture(this.texturas[node.texture]["textura"]);
+            this.primitivas[prim].updateTexCoords(this.texturas[node.texture]["length_s_t"]["s"], this.texturas[node.texture]["length_s_t"]["t"]);
         }
         this.materiais[node.material].apply();
         this.primitivas[prim].display();
-
     }
     else{
-        for(var i = 0; i < node.descendents.length; i++){
-            this.pushMatrix();
-            var matriz = mat4.create();
+        for(var i = 0; i < node.descendents.length; i++) {
 
-            mat4.multiply(matriz,matrixTrans,node.matrix);
+            this.pushMatrix();
+
+            var matiz = mat4.create();
+
+            mat4.multiply(matiz, matrixTrans, node.matrix);
+
+            console.log(matiz);// caso mude os valores das tranformações nos nós pai esta matriz muda o seu valor, mas a imagem nao altera
+
             var materialnode;
 
-            if(node.material != 'null'){
+            if(node.material != "inherit"){// muda para o material do no
                 materialnode = node.material;
             }else {
-                materialnode = materialID;
+                materialnode = materialID; // mantem o material do pai
             }
 
             var texturenode;
 
-            if(node.texture != 'null'){
+            if(node.texture !== "inherit"){ // muda para a textura do no
                 texturenode = node.texture;
             }
             else{
-                texturenode = textureID;
+                texturenode = textureID; // mantem a textura do pai
             }
-
-
             if(this.grafo[node.descendents[i]] === undefined){
                 console.warn("Node: " + node.descendents[i] + " doesn't exists, iteration ends here");
                 this.grafo[node.descendents[i]] = null;
             }
             else if(this.grafo[node.descendents[i]]){
-                this.writeGraph(node.descendents[i],matriz,materialnode,texturenode);
+                this.writeGraph(node.descendents[i],matiz,materialnode,texturenode);
                 this.popMatrix();
-
             }
-
-
         }
     }
-
-
-
 };
 
 XMLscene.prototype.display = function () {
-    // ---- BEGIN Background, camera and axis setup
 
-    // Clear image and depth buffer everytime we update the scene
     this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
 
     // Initialize Model-View matrix as identity (no transformation
     this.updateProjectionMatrix();
     this.loadIdentity();
-
-    // Apply transformations corresponding to the camera position relative to the origin
     this.applyViewMatrix();
-
-    // Draw axis
-    this.axis.display();
-
     this.setDefaultAppearance();
 
     if (this.graph.loadedOk)
     {
+        this.axis.display();
         this.updateLights();
 
         var noinicial = this.root["id"];
         var matrizTransform = mat4.create();
         mat4.identity(matrizTransform);
-        var materialInicial = this.grafo[noinicial].material != "null" ? this.grafo[noinicial].material :"madeira";
+        var materialInicial = this.grafo[noinicial].material != "null" ? this.grafo[noinicial].material :"branco";
         var texturaInicial = this.grafo[noinicial].texture;
 
         this.writeGraph(noinicial,matrizTransform,materialInicial,texturaInicial);
-
     }
-
-
-
-
-
-
-
-    // ---- END Background, camera and axis setup
-
-    // it is important that things depending on the proper loading of the graph
-    // only get executed after the graph has loaded correctly.
-    // This is one possible way to do it
-
-
 };
 

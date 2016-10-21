@@ -753,37 +753,8 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
         var arrayRotateTransformations = [];
         var arrayScaleTransformations = [];
 
-
-        // if (i == 0) {
-
         this.idtrans = this.reader.getString(trans3[i], "id", true);
-
         this.arrayTransformations[this.idtrans] = mat4.create();
-        // }
-        //
-        // if (i > 0) {
-        //     for (var j = 0; j < arrayTransformations.length; j++) {
-        //         var resultTransformations = [];
-        //         var secondidTransf = this.reader.getString(trans3[i], "id", true);
-        //         var transformationsID = arrayTransformations[j][0].localeCompare(secondidTransf);
-        //         resultTransformations.push(transformationsID);
-        //         if(transformationsID == 0){
-        //             break;
-        //         }
-        //     }
-        //     for (var y = 0; y < resultTransformations.length; y++) {
-        //         if (resultTransformations[y] == 0) {
-        //             console.log("id of Transformations: " + secondidTransf + " must be different from the other ones. " +
-        //                 " A new random id will be applied : " + secondidTransf + i);
-        //             //this.idtrans = this.reader.getString(trans3[i], "id", true);
-        //             arrayTransformations.push([this.idtrans + i]);
-        //             break;
-        //         } else {
-        //             this.idtrans = this.reader.getString(trans3[i], "id", true);
-        //             arrayTransformations.push([this.idtrans]);
-        //         }
-        //     }
-        // }
 
         /*************************** translate ***************************/
 
@@ -794,10 +765,7 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
             this.ytransl = this.reader.getFloat(translation, "y", true);
             this.ztransl = this.reader.getFloat(translation, "z", true);
             arrayTranslateTransformations.push(this.xtransl, this.ytransl, this.ztransl);
-            //this.arrayTransformations[this.idtrans] = (arrayTranslateTransformations);
-
             matrix.push(this.xtransl, this.ytransl, this.ztransl);
-
             this.arrayTransformations[this.idtrans] = mat4.translate(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], matrix);
 
         }
@@ -839,14 +807,14 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
             this.xscale = this.reader.getFloat(scale, "x", true);
             this.yscale = this.reader.getFloat(scale, "y", true);
             this.zscale = this.reader.getFloat(scale, "z", true);
-            arrayScaleTransformations.push(this.xscale, this.yscale, this.zscale);
+            //arrayScaleTransformations.push(this.xscale, this.yscale, this.zscale);
             //this.arrayTransformations[this.idtrans] = (arrayScaleTransformations);
             var matrix1 = [];
             matrix1.push(this.xscale, this.yscale, this.zscale);
 
             var newmatrix4 = mat4.create();
-
-            this.arrayTransformations[this.idtrans] = mat4.multiply(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans],  mat4.scale(newmatrix4, newmatrix4, matrix1));
+            mat4.scale(newmatrix4, newmatrix4, matrix1);
+            mat4.multiply(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], newmatrix4 );
 
         }
     }
@@ -1051,22 +1019,19 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
 
 
     var arrayComponentComponents = [];
-
+    this.arrayTranformationsComponents = [];
 
     for (var i = 0; i < comps3.length; i++) {
 
         var no = new Node();
 
         this.idcomps = this.reader.getString(comps3[i], "id", true);
+
         arrayComponentComponents.push([this.idcomps]);
 
-        var arrayTransformationRefComponents = [];
-        var arrayTransformationTranslateComponents = [];
-        var arrayTransformationRotateComponents = [];
-        var arrayTransformationScaleComponents = [];
+        this.arrayTranformationsComponents[this.idcomps] = mat4.create();
         var arrayMaterialsComponents = [];
         var arrayTextureComponents = [];
-
 
         /*************************** transformation ***************************/
 
@@ -1095,10 +1060,8 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.idtran = this.reader.getString(tran4, "id", true);
                 mat4.multiply(no.matrix,no.matrix,this.arrayTransformations[this.idtran]);
 
-                arrayTransformationRefComponents.push(this.idtran);
-                arrayComponentComponents[i].push(arrayTransformationRefComponents);
             }
-            else if ( (transformationRef.length !== 0) && (transl.length && rot.length & scal2.length !== 0) ){
+            else if ( (transformationRef.length !== 0) && (transl.length && rot.length && scal2.length !== 0) ){
                 console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
             }
         }
@@ -1109,10 +1072,10 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
             this.ytranslate2 = 0;
             this.ztranslate2 = 0;
             var matrix11 = [];
-            arrayTransformationTranslateComponents.push(2, 1, this.xtranslate2, this.ytranslate2, this.ztranslate2);
-            arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
-            matrix11.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
-            mat4.translate(no.matrix, no.matrix, matrix11);
+
+            // matrix11.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
+            // this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix11);
+            // mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
         } else {
 
             /*************************** translate ***************************/
@@ -1124,11 +1087,10 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
                 this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
                 this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
-                arrayTransformationTranslateComponents.push(2, [1, this.xtranslate2, this.ytranslate2, this.ztranslate2]);
-                arrayComponentComponents[i].push(arrayTransformationTranslateComponents);
-
                 matrix.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
-                mat4.translate(no.matrix, no.matrix, matrix);
+
+                this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix);
+                //mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
 
             }
 
@@ -1136,13 +1098,12 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
 
             var rot2 = rot[0];
             if (rot.length !== 0) {
-
                 var matrix12 = [];
+                var newmatrix3 = mat4.create();
 
                 this.rotaxis2 = this.reader.getString(rot2, "axis", true);
                 this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
-                arrayTransformationRotateComponents.push(2, 2, this.rotaxis2, this.rotangle2);
-                arrayComponentComponents[i].push(arrayTransformationRotateComponents);
+                this.arrayTranformationsComponents.push(this.rotaxis2, this.rotangle2);
 
                 if (this.rotaxis2 == 'x') {
                     matrix12 = [1, 0, 0];
@@ -1154,9 +1115,10 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 if (this.rotaxis2 == 'z') {
                     matrix12 = [0, 0, 1];
                 }
-
                 this.rotangle2 = this.rotangle2 * Math.PI / 180;
-                mat4.rotate(no.matrix, no.matrix, this.rotangle2, matrix12)
+                mat4.rotate(newmatrix3, newmatrix3, this.rotangle,matrix12);
+                mat4.multiply(this.arrayTranformationsComponents[this.idcomps],this.arrayTranformationsComponents[this.idcomps],newmatrix3);
+               // mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
 
             }
             /*************************** scale ***************************/
@@ -1166,15 +1128,14 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.xscale2 = this.reader.getFloat(scal3, "x", true);
                 this.yscale2 = this.reader.getFloat(scal3, "y", true);
                 this.zscale2 = this.reader.getFloat(scal3, "z", true);
-                arrayTransformationScaleComponents.push(2, 3, this.xscale2, this.yscale2, this.zscale2);
-                arrayComponentComponents[i].push(arrayTransformationScaleComponents);
 
                 var matrix1 = [];
                 matrix1.push(this.xscale2, this.yscale2, this.zscale2);
-
-                mat4.scale(no.matrix, no.matrix, matrix1)
+                var newmatrix4 = mat4.create();
+                this.arrayTranformationsComponents[this.idcomps] = mat4.multiply(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps],  mat4.scale(newmatrix4, newmatrix4, matrix1));
 
             }
+            mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
         }
 
 
