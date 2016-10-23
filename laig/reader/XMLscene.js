@@ -18,13 +18,20 @@ XMLscene.prototype.init = function (application) {
     this.application = application;
     this.initCameras();
     this.enableTextures(true);
+
+    // this.gl.clearColor(0.0, 0.0, 0.0, 1.0);//background
+
     this.gl.clearDepth(100.0);
     this.gl.enable(this.gl.DEPTH_TEST);
     this.gl.enable(this.gl.CULL_FACE);
     this.gl.depthFunc(this.gl.LEQUAL);
+
     this.axis=new CGFaxis(this);
-    this.lightStatus = [true, true, true, true, true, true, true, true];
+
+    this.lightStatus = [true, true, true, true, false, false, false, false];
+
     this.switchMaterials = true;
+
     this.switch_camera = false;
 };
 
@@ -39,13 +46,16 @@ XMLscene.prototype.updateLights = function () {
             this.lights[i].disable();
             this.lights[i].setVisible(false);
         }
+
         this.lights[i].update();
+
     }
 };
 
 XMLscene.prototype.initLights = function () {
 
     this.omnisLight = this.graph.arrayOmni;
+
 
     for(var i= 0; i < this.omnisLight.length; i++) {
         this.positionLights = this.omnisLight[i][2];
@@ -60,11 +70,9 @@ XMLscene.prototype.initLights = function () {
         this.lights[i].setDiffuse(this.diff[0], this.diff[1], this.diff[2], this.diff[3]);
         this.lights[i].setSpecular(this.spec[0], this.spec[1], this.spec[2], this.spec[3]);
 
-        if (this.enabledlight) {
-            this.lights[i].enable();
+        if(this.enabledlight == true){
             this.lightStatus[i] = true;
         } else {
-            this.lights[i].disable();
             this.lightStatus[i] = false;
         }
         this.lights[i].update();

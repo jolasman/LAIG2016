@@ -11,7 +11,7 @@ MyInterface.prototype.init = function(application){
 	CGFinterface.prototype.init.call(this, application);
 
 	this.gui= new dat.GUI();
-	var gui_lights= this.gui.addFolder("Lights");
+	gui_lights= this.gui.addFolder("Lights");
 	//gui_lights.open();
 
 	for(var i=0; i < 8; i++) {
@@ -26,18 +26,16 @@ MyInterface.prototype.init = function(application){
 };
 
 
-MyInterface.prototype.adicionaLuzes	 = function(luzes){
-
-
-	for(var i=0; i < luzes.length; i++){
-
-		this.scene.lightStatus[luzes[i][0]] = luzes[i].enable;
-
-		this.group.add(this.scene.lightStatus,luzes[i][0]);
-
-	}
-
-};
+// MyInterface.prototype.adicionaLuzes	 = function(luzes){
+//
+// 		for(var i=0; i<luzes.length;i++){
+//
+// 		this.scene.lightStatus[luzes[i][0]]=luzes[i].enable;
+//
+// 		this.group.add(this.scene.lightStatus,i,luzes[i][0]);
+//
+// 	}
+// };
 
 
 MyInterface.prototype.processKeyDown = function(event) {
