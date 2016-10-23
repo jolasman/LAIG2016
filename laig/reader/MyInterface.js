@@ -38,13 +38,9 @@ MyInterface.prototype.adicionaLuzes	 = function(luzes){
 
 };
 
-//
-// Template keyboard access interface
-//
-MyInterface.prototype.processKeyboard = function(event) {
 
-	CGFinterface.prototype.processKeyboard.call(this,event);
-	
+MyInterface.prototype.processKeyDown = function(event) {
+
 	switch (event.keyCode)
 	{
 		case (72):	// 'H' abre e fecha o GUI
@@ -53,3 +49,4 @@ MyInterface.prototype.processKeyboard = function(event) {
 			this.scene.switchCameras();
 	};
 };
+

@@ -30,7 +30,7 @@ XMLscene.prototype.init = function (application) {
     
     this.lightStatus = [true, true, true, true, true, true, true, true];
 
-    this.camera_view = 0;
+   // this.camera_view = 0;
     this.switch_camera = false;
 };
 
