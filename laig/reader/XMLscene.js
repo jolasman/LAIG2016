@@ -29,8 +29,9 @@ XMLscene.prototype.init = function (application) {
     this.axis=new CGFaxis(this);
     
     this.lightStatus = [true, true, true, true, true, true, true, true];
+    
+    this.switchMaterials = true;
 
-   // this.camera_view = 0;
     this.switch_camera = false;
 };
 
@@ -137,11 +138,17 @@ XMLscene.prototype.onGraphLoaded = function ()
 
 };
 
-
 XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
 
     var node = this.grafo[noID];
     var prim = node.primitives;
+    
+    if(this.switchMaterials) {
+    	if(materialID == this.grafo[this.root["id"]].material.length - 1)
+    		materialID == 0;
+    	else
+    		materialID++;
+    }
 
     if(node.descendents.length == 0){
 
@@ -205,10 +212,12 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
             }
         }
     }
+    
+    this.switchMaterials = false;
 };
 
 XMLscene.prototype.switchMaterials = function () {
-	
+	this.switchMaterials = true;
 }
 
 XMLscene.prototype.display = function () {
