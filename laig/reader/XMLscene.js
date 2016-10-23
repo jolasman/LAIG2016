@@ -18,20 +18,13 @@ XMLscene.prototype.init = function (application) {
     this.application = application;
     this.initCameras();
     this.enableTextures(true);
-
-    // this.gl.clearColor(0.0, 0.0, 0.0, 1.0);//background
-
     this.gl.clearDepth(100.0);
     this.gl.enable(this.gl.DEPTH_TEST);
     this.gl.enable(this.gl.CULL_FACE);
     this.gl.depthFunc(this.gl.LEQUAL);
-
     this.axis=new CGFaxis(this);
-    
     this.lightStatus = [true, true, true, true, true, true, true, true];
-    
     this.switchMaterials = true;
-
     this.switch_camera = false;
 };
 
@@ -40,13 +33,13 @@ XMLscene.prototype.updateLights = function () {
 
         if(this.lightStatus[i]){
             this.lights[i].enable();
+            this.lights[i].setVisible(true);
         }
         else{
             this.lights[i].disable();
+            this.lights[i].setVisible(false);
         }
-
         this.lights[i].update();
-
     }
 };
 
@@ -60,20 +53,18 @@ XMLscene.prototype.initLights = function () {
         this.diff = this.omnisLight[i][4];
         this.spec = this.omnisLight[i][5];
         this.idLights = this.omnisLight[i][0];
-        var enabledlight = this.omnisLight[i][1];
+        this.enabledlight = this.omnisLight[i][1];
 
         this.lights[i].setPosition(this.positionLights[0], this.positionLights[1], this.positionLights[2], this.positionLights[3]);
         this.lights[i].setAmbient(this.ambientlight[0], this.ambientlight[1], this.ambientlight[2], this.ambientlight[3]);
         this.lights[i].setDiffuse(this.diff[0], this.diff[1], this.diff[2], this.diff[3]);
         this.lights[i].setSpecular(this.spec[0], this.spec[1], this.spec[2], this.spec[3]);
 
-        if (enabledlight) {
+        if (this.enabledlight) {
             this.lights[i].enable();
-            this.lights[i].setVisible(true);
             this.lightStatus[i] = true;
         } else {
             this.lights[i].disable();
-            this.lights[i].setVisible(false);
             this.lightStatus[i] = false;
         }
         this.lights[i].update();
@@ -143,12 +134,12 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
     var node = this.grafo[noID];
     var prim = node.primitives;
     
-    if(this.switchMaterials) {
-    	if(materialID == this.grafo[this.root["id"]].material.length - 1)
-    		materialID == 0;
-    	else
-    		materialID++;
-    }
+    // if(this.switchMaterials) {
+    // 	if(materialID == this.grafo[this.root["id"]].material.length - 1)
+    // 		materialID == 0;
+    // 	else
+    // 		materialID++;
+    // }
 
     if(node.descendents.length == 0){
 
