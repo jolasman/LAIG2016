@@ -212,12 +212,12 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
         }
     }
     
-    this.switchMaterials = false;
+    //this.switchMaterials = false;
 };
 
 XMLscene.prototype.switchMaterials = function () {
 	this.switchMaterials = true;
-}
+};
 
 XMLscene.prototype.display = function () {
 
