@@ -14,18 +14,9 @@ MyInterface.prototype.init = function(application){
 	var gui_lights= this.gui.addFolder("Lights");
 	gui_lights.open();
 
-	gui_lights.add(this.scene, 'tmp_light');
-	// booleano temporario. Quer-se adicionar o array das luzes
-	
-	gui_lights.add(this.scene, 'light_1');
-	gui_lights.add(this.scene, 'light_2');
-	gui_lights.add(this.scene, 'light_3');
-	gui_lights.add(this.scene, 'light_4');
-	gui_lights.add(this.scene, 'light_5');
-	gui_lights.add(this.scene, 'light_6');
-	gui_lights.add(this.scene, 'light_7');
-	gui_lights.add(this.scene, 'light_8');
-	gui_lights.add(this.scene, 'light_9');	
+	for(var i=0; i < 8; i++) {
+		gui_lights.add(this.scene.lightStatus, i, this.scene.lightStatus[i]);
+	}
 
 	return true;
 

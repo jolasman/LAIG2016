@@ -27,24 +27,12 @@ XMLscene.prototype.init = function (application) {
     this.gl.depthFunc(this.gl.LEQUAL);
 
     this.axis=new CGFaxis(this);
-    this.tmp_light = true;
     
-    this.light_1 = true;
-    this.light_2 = true;
-    this.light_3 = true;
-    this.light_4 = true;
-    this.light_5 = true;
-    this.light_6 = true;
-    this.light_7 = true;
-    this.light_8 = true;
-    this.light_9 = true;
-    this.lightStatus = [this.light_1, this.light_2, this.light_3, 
-                        this.light_4, this.light_5, this.light_6, 
-                        this.light_7, this.light_8, this.light_9];
+    this.lightStatus = [true, true, true, true, true, true, true, true];
 };
 
-XMLscene.prototype.updateLights = function () {
-    for(var i = 0; i < 7; i++) {
+XMLscene.prototype.updateLights = function () {	
+	for(var i = 0; i < 8; i++) {
 
         if(this.lightStatus[i]){
             this.lights[i].enable();
