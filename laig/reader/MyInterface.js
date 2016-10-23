@@ -18,6 +18,8 @@ MyInterface.prototype.init = function(application){
 		gui_lights.add(this.scene.lightStatus, i, this.scene.lightStatus[i]);
 	}
 
+	this.gui.add(this.scene, 'switchCameras');
+	
 	return true;
 
 };
@@ -40,16 +42,14 @@ MyInterface.prototype.adicionaLuzes	 = function(luzes){
 // Template keyboard access interface
 //
 MyInterface.prototype.processKeyboard = function(event) {
-	// call CGFinterface default code (omit if you want to override)
+
 	CGFinterface.prototype.processKeyboard.call(this,event);
 	
-	// Check key codes e.g. here: http://www.asciitable.com/
-	// or use String.fromCharCode(event.keyCode) to compare chars
-	
-	// for better cross-browser support, you may also check suggestions on using event.which in http://www.w3schools.com/jsref/event_key_keycode.asp
 	switch (event.keyCode)
 	{
-		case (72):	// only works for capital 'A', as it is
+		case (72):	// 'H' abre e fecha o GUI
 			this.group.open();
+		case (86): // 'V' mudar de vista
+			this.scene.switchCameras();
 	};
 };

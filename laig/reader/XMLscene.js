@@ -29,6 +29,9 @@ XMLscene.prototype.init = function (application) {
     this.axis=new CGFaxis(this);
     
     this.lightStatus = [true, true, true, true, true, true, true, true];
+
+    this.camera_view = 0;
+    this.switch_camera = false;
 };
 
 XMLscene.prototype.updateLights = function () {	
@@ -94,8 +97,29 @@ XMLscene.prototype.createCameras = function () {
     }
 
         this.camera = this.arrayCamaras[0];
+        this.camera_view = 0;
         this.application.interface.setActiveCamera(this.camera);
 
+};
+
+XMLscene.prototype.switchCameras = function () {
+	/*if(this.switch_camera) {
+	*/
+	if(this.camera_view == 0) {
+		this.camera = this.arrayCamaras[1];
+		this.camera_view = 1;
+		this.application.interface.setActiveCamera(this.camera);
+	}
+	
+	else {
+		this.camera = this.arrayCamaras[0];
+		this.camera_view = 0;
+		this.application.interface.setActiveCamera(this.camera);
+
+	}
+	/*}
+	
+	this.switch_camera = false;*/
 };
 
 XMLscene.prototype.setDefaultAppearance = function () {
@@ -203,7 +227,8 @@ XMLscene.prototype.display = function () {
     {
         this.axis.display();
         this.updateLights();
-
+       // this.switchCameras();
+        
         var noinicial = this.root["id"];
         var matrizTransform = mat4.create();
         mat4.identity(matrizTransform);
