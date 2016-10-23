@@ -8,19 +8,10 @@ function MySceneGraph(filename, scene) {
 
     // File reading
     this.reader = new CGFXMLreader();
-
-    /*
-     * Read the contents of the xml file, and refer to this class for loading and error handlers.
-     * After the file is read, the reader calls onXMLReady on this object.
-     * If any error occurs, the reader calls onXMLError on this object, with an error message
-     */
-
     this.reader.open('scenes/'+filename, this);
 }
 
-/*
- * Callback to be executed after successful reading
- */
+
 MySceneGraph.prototype.onXMLReady=function()
 {
     console.log("XML Loading finished.");
@@ -89,6 +80,7 @@ MySceneGraph.prototype.onXMLReady=function()
     this.scene.onGraphLoaded();
 };
 
+/***************************************  views and root    *********************************************/
 MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
 
 
@@ -117,8 +109,6 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
         return "views element is missing.";
     }
     this.arrayPerspectiveViews = [];
-
-    // various examples of different types of access
 
     for (var i = 0; i < 1; i++) {
 
@@ -539,54 +529,48 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
     if (textures == null) {
         return "texture' element in textures is missing.";
     }
-
-
-
-
+    var arrayVerificaID = [];
     for (var i = 0; i < textures.length; i++) {
         var arrayLength = [];
         var arrayTextures = [];
+
+
         this.idtexture = this.reader.getString(textures[i], "id", true);
         this.filetexture = this.reader.getString(textures[i], "file", true);
         this.length_stexture = this.reader.getFloat(textures[i], "length_s", true);
         this.length_ttexture = this.reader.getFloat(textures[i], "length_t", true);
         arrayLength["s"] = this.length_stexture;
         arrayLength["t"] = this.length_ttexture;
-        // if (i == 0) {
-        this.idtexture = this.reader.getString(textures[i], "id", true);
 
-        arrayTextures["textura"] = new CGFtexture(this.scene, this.filetexture);
-        arrayTextures["length_s_t"] = arrayLength;
-
-
-        this.scene.texturas[this.idtexture] = arrayTextures;
-
-
-        //}
-        // if (i > 0) {
-        //     for (var j = 0; j < arrayTextures.length; j++) {
-        //         var resultTexture = [];
-        //         var secondidText  = this.reader.getString(textures[i], "id", true);
-        //         var texturasID = this.scene.texturas[j].localeCompare(secondidText);
-        //         resultTexture.push(texturasID);
-        //         if(texturasID == 0){
-        //             break;
-        //         }
-        //     }
-        //     for (var y = 0; y < resultTexture.length; y++) {
-        //         if (resultTexture[y] == 0) {
-        //             console.log("id of Texture: " + this.idtexture + " must be different from the other ones");
-        //             break;
-        //         } else {
-        //             arrayTextures["Textura"] = new CGFtexture(this.scene, this.filetexture);
-        //             arrayLength["s"] = this.length_stexture;
-        //             arrayLength["t"] = this.length_ttexture;
-        //             arrayTextures["length "] = arrayLength;
-        //             this.scene.texturas[this.idtexture] = arrayTextures;
-        //
-        //         }
-        //     }
-        // }
+        if (i == 0) {
+            this.idtexture = this.reader.getString(textures[i], "id", true);
+            arrayTextures["textura"] = new CGFtexture(this.scene, this.filetexture);
+            arrayTextures["length_s_t"] = arrayLength;
+            this.scene.texturas[this.idtexture] = arrayTextures;
+            arrayVerificaID.push(this.idtexture);
+        }
+        if (i > 0) {
+            for (var j = 0; j < arrayVerificaID.length; j++) {
+                var resultTexture = [];
+                var secondidText  = this.reader.getString(textures[i], "id", true);
+                var texturasID = arrayVerificaID[j].localeCompare(secondidText);
+                resultTexture.push(texturasID);
+                if(texturasID == 0){
+                    break;
+                }
+            }
+            for (var y = 0; y < resultTexture.length; y++) {
+                if (resultTexture[y] == 0) {
+                    console.error("id of Texture: " + this.idtexture + " must be different from the other ones");
+                    break;
+                } else {
+                    this.idtexture = this.reader.getString(textures[i], "id", true);
+                    arrayTextures["textura"] = new CGFtexture(this.scene, this.filetexture);
+                    arrayTextures["length_s_t"] = arrayLength;
+                    this.scene.texturas[this.idtexture] = arrayTextures;
+                }
+            }
+        }
     }
 };
 
@@ -605,41 +589,10 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
     for (var i = 0; i < materiais.length; i++) {
 
-        // if (i == 0) {
-
         this.idmaterial = this.reader.getString(materiais[i], "id", true);
         arrayMaterials.push([this.idmaterial]);
 
         this.scene.materiais[this.idmaterial] = new CGFappearance(this.scene);
-
-        //  }
-
-        // if (i > 0) {
-        //     for (var j = 0; j < arrayMaterials.length; j++) {
-        //         var resultMaterials = [];
-        //         var secondidMaterial = this.reader.getString(materiais[i], "id", true);
-        //         var materialID = arrayMaterials[j][0].localeCompare(secondidMaterial);
-        //         resultMaterials.push(materialID);
-        //         if(materialID == 0){
-        //             break;
-        //         }
-        //     }
-        //     for (var y = 0; y < resultMaterials.length; y++) {
-        //         if (resultMaterials[y] == 0) {
-        //             console.log("id of Material: " + this.idmaterial + " must be different from the other ones. " +
-        //                 " A new random id will be applied : " + this.idmaterial + i);
-        //             arrayMaterials.push([this.idmaterial + i]);
-        //             this.scene.materiais[this.idmaterial + i] = new CGFappearance(this.scene);
-        //             break;
-        //         } else {
-        //             this.idmaterial = this.reader.getString(materiais[i], "id", true);
-        //             arrayMaterials.push([this.idmaterial]);
-        //             this.scene.materiais[this.idmaterial] = new CGFappearance(this.scene);
-        //         }
-        //     }
-        // }
-
-
 
         /*************************** emisiion material ***************************/
 
@@ -655,8 +608,6 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
         this.scene.materiais[this.idmaterial].setEmission(this.remission, this.gemission, this.bemission, this.aemission);
 
-
-
         /*************************** ambiente material ***************************/
 
         var ambemi = materiais[i].getElementsByTagName('ambient');
@@ -670,8 +621,6 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
         this.aambemi = this.reader.getFloat(ambemi2, "a", true);
 
         this.scene.materiais[this.idmaterial].setAmbient(this.rambemi, this.gambemi, this.bambemi, this.aambemi);
-
-
 
         /*************************** diffuse material ***************************/
 
@@ -687,8 +636,6 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
         this.scene.materiais[this.idmaterial].setDiffuse(this.rdiffemi, this.gdiffemii, this.bdiffemi, this.adiffemi);
 
-
-
         /*************************** specular material ***************************/
 
         var specemi = materiais[i].getElementsByTagName('specular');
@@ -703,8 +650,6 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
         this.scene.materiais[this.idmaterial].setSpecular(this.rspecemi, this.gspecemi, this.bspecemi, this.aspecemi);
 
-
-
         /*************************** shininess material ***************************/
 
         var shinemi = materiais[i].getElementsByTagName('shininess');
@@ -714,9 +659,7 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
         var shinemi2 = shinemi[0];
         this.rshinemi = this.reader.getFloat(shinemi2, "value", true);
         this.scene.materiais[this.idmaterial].setShininess(this.rshinemi)
-
     }
-    console.log(this.scene.materiais);
 };
 
 
@@ -744,14 +687,13 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
         if (transla == null) {
             if (rota == null) {
                 if (sca == null) {
-                    console.log(" Translate, rotate or scale need to be declared in tranformation tag");
+                    console.error(" Translate, rotate or scale need to be declared in tranformation tag");
                 }
             }
         }
 
         var arrayTranslateTransformations = [];
         var arrayRotateTransformations = [];
-        var arrayScaleTransformations = [];
 
         this.idtrans = this.reader.getString(trans3[i], "id", true);
         this.arrayTransformations[this.idtrans] = mat4.create();
@@ -778,7 +720,6 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
             this.rotaxis = this.reader.getString(rotation, "axis", true);
             this.rotangle = this.reader.getFloat(rotation, "angle", true);
             arrayRotateTransformations.push(this.rotaxis, this.rotangle);
-            //this.arrayTransformations[this.idtrans] = (arrayRotateTransformations);
 
             if (this.rotaxis == 'x') {
                 matrix12 = [1, 0, 0];
@@ -807,8 +748,7 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
             this.xscale = this.reader.getFloat(scale, "x", true);
             this.yscale = this.reader.getFloat(scale, "y", true);
             this.zscale = this.reader.getFloat(scale, "z", true);
-            //arrayScaleTransformations.push(this.xscale, this.yscale, this.zscale);
-            //this.arrayTransformations[this.idtrans] = (arrayScaleTransformations);
+
             var matrix1 = [];
             matrix1.push(this.xscale, this.yscale, this.zscale);
 
@@ -855,9 +795,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             }
             for (var y = 0; y < result.length; y++) {
                 if (result[y] == 0) {
-                    console.log("id of Primitive: " + this.secondid + " must be different from the other ones. " +
-                        " A new random id will be applied : " + this.secondid + i);
-                    arrayPrimitives.push([this.secondid + i]);
+                    console.error("id of Primitive: " + this.secondid + " must be different from the other ones. " );
                     break;
                 } else {
                     this.idprims = this.reader.getString(prims3[i], "id", true);
@@ -999,7 +937,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
 
 /**************************************** components **********************************************/
-
 MySceneGraph.prototype.parseComponents = function(rootElement) {
 
     var comps = rootElement.getElementsByTagName('components');
@@ -1012,28 +949,18 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     var comps2 = comps[0];
     var comps3 = comps2.getElementsByTagName('component');
     if (comps3 == null || comps3.length == 0) {
-        console.warn( "'component' element in components is missing." + "  NOT ALLOWED");
+        console.error( "'component' element in components is missing." + "  NOT ALLOWED");
     }
-
-    //falta aqui dar erro
-
-
-    var arrayComponentComponents = [];
     this.arrayTranformationsComponents = [];
 
     for (var i = 0; i < comps3.length; i++) {
 
         var no = new Node();
 
-        this.idcomps = this.reader.getString(comps3[i], "id", true);
-
-        arrayComponentComponents.push([this.idcomps]);
-
-        this.arrayTranformationsComponents[this.idcomps] = mat4.create();
-        var arrayMaterialsComponents = [];
-        var arrayTextureComponents = [];
-
         /*************************** transformation ***************************/
+
+        this.idcomps = this.reader.getString(comps3[i], "id", true);
+        this.arrayTranformationsComponents[this.idcomps] = mat4.create();
 
         var tran = comps3[i].getElementsByTagName('transformation');
         if (tran == null || tran.length == 0) {
@@ -1048,11 +975,6 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         var rot = variableTranformation.getElementsByTagName('rotate');
         var scal2 = variableTranformation.getElementsByTagName('scale');
 
-        // se a tranformacao tiver sido referenciada id no array : 1
-        // para conjunto de transformacoes na hora id : 2
-        //translate : [2,1]
-        //rotate : [2,2]
-        //scale : [2,3]
         if (transformationRef.length !== 0) // caso haja transformationref
         {
             if ((transl.length && rot.length && scal2.length) == 0) {
@@ -1062,7 +984,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
 
             }
             else if ( (transformationRef.length !== 0) && (transl.length && rot.length && scal2.length !== 0) ){
-                console.log("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
+                console.error("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
             }
         }
         if (transformationRef.length == 0 && transl.length == 0 && rot.length == 0 && scal2.length == 0) {
@@ -1071,11 +993,11 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
             this.xtranslate2 = 0;
             this.ytranslate2 = 0;
             this.ztranslate2 = 0;
-            var matrix11 = [];
 
-            // matrix11.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
-            // this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix11);
-            // mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
+            var matrix11 = [];
+            matrix11.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
+            this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix11);
+
         } else {
 
             /*************************** translate ***************************/
@@ -1087,11 +1009,9 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
                 this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
                 this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
+
                 matrix.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
-
                 this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix);
-                //mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
-
             }
 
             /*************************** rotate ***************************/
@@ -1118,8 +1038,6 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 this.rotangle2 = this.rotangle2 * Math.PI / 180;
                 mat4.rotate(newmatrix3, newmatrix3, this.rotangle,matrix12);
                 mat4.multiply(this.arrayTranformationsComponents[this.idcomps],this.arrayTranformationsComponents[this.idcomps],newmatrix3);
-               // mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
-
             }
             /*************************** scale ***************************/
 
@@ -1133,11 +1051,9 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 matrix1.push(this.xscale2, this.yscale2, this.zscale2);
                 var newmatrix4 = mat4.create();
                 this.arrayTranformationsComponents[this.idcomps] = mat4.multiply(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps],  mat4.scale(newmatrix4, newmatrix4, matrix1));
-
             }
             mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
         }
-
 
         /*************************** materials ***************************/
 
@@ -1151,19 +1067,13 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
             console.warn("you need to declare at least one material in component: " + this.idcomps + "" +
                 " default material will be applied: inherit");
             this.idmat = "inherit";
-            arrayMaterialsComponents.push(this.idmat);
-            arrayComponentComponents[i].push(arrayMaterialsComponents);
             no.setMaterial(this.idmat);
         } else {
-            var arrayMateriaisTodosComponentes = [];
 
             for (var j = 0; j < mat3.length; j++) {
                 this.idmat = this.reader.getString(mat3[j], "id", true);
-                arrayMateriaisTodosComponentes.push(this.idmat);
-
+                no.setMaterial(this.idmat);
             }
-            arrayComponentComponents[i].push(arrayMateriaisTodosComponentes);
-
             no.setMaterial(this.idmat);
         }
 
@@ -1177,20 +1087,15 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
             console.warn("you need to declare at least one texture in component: " + this.idcomps + "" +
                 " default texture will be applied: inherit");
             this.idtex = "inherit";
-            arrayTextureComponents.push(this.idtex);
-            arrayComponentComponents[i].push(arrayTextureComponents);
             no.setTexture(this.idtex);
         } else {
             var tex2 = tex[0];
             this.idtex = this.reader.getString(tex2, "id", true);
-            arrayTextureComponents.push(this.idtex);
-            arrayComponentComponents[i].push(arrayTextureComponents);
             no.setTexture(this.idtex);
 
         }
 
         /*************************** children ***************************/
-
 
         var child = comps3[i].getElementsByTagName('children');
         if (child.length == 0) {
@@ -1198,44 +1103,24 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         }
         var child2 = child[0];
         var componentrefChildren = child2.getElementsByTagName('componentref');
-        if (componentrefChildren.length == 0) {
-            console.warn("'componentref' element in children(component:" + this.idcomps + ") is missing.");
-        }
-        var arrayChildrenRefPrimComp = [];
-        var arrayChildrenRefPrimComp2 = [];
 
-        var arrayChildrenRefCompComp2 = [];
-        //id : 1
         if (componentrefChildren.length !== 0) {
             for (var k = 0; k < componentrefChildren.length; k++) {
                 this.componentrefidchildren = this.reader.getString(componentrefChildren[k], "id", true);
-                arrayChildrenRefCompComp2.push(this.componentrefidchildren);
                 no.push(this.componentrefidchildren);
             }
         }
-
         var primitiverefCholdren = child2.getElementsByTagName('primitiveref');
-        if (primitiverefCholdren.length == 0) {
-            console.warn("'primitiveref' element in children(component:" + this.idcomps + ") is missing.");
-        }
-        //id : 2
+
         if (primitiverefCholdren.length !== 0) {
             for (var l = 0; l < primitiverefCholdren.length; l++) {
                 this.primitiverefidchildren = this.reader.getString(primitiverefCholdren[l], "id", true);
-                arrayChildrenRefPrimComp2.push(this.primitiverefidchildren);
                 no.setPrimitives(this.primitiverefidchildren);
-
             }
-            arrayChildrenRefPrimComp.push(2, arrayChildrenRefPrimComp2);
-            arrayComponentComponents[i].push(arrayChildrenRefPrimComp);
         }
         this.scene.grafo[this.idcomps] = no;
     }
 };
-
-/*
- * Callback to be executed on any read error
- */
 
 MySceneGraph.prototype.onXMLError=function (message) {
     console.error("XML Loading Error: "+message);
