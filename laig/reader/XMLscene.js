@@ -27,7 +27,7 @@ XMLscene.prototype.init = function (application) {
     this.gl.depthFunc(this.gl.LEQUAL);
 
     this.axis=new CGFaxis(this);
-
+    this.tmp_light = true;
     this.lightStatus = [false, false, false, false, false, false, false, false, false];
 };
 
