@@ -103,11 +103,9 @@ XMLscene.prototype.createCameras = function () {
 };
 
 XMLscene.prototype.switchCameras = function () {
-	/*if(this.switch_camera) {
-	*/
-	if(this.camera_view == 0) {
-		this.camera = this.arrayCamaras[1];
-		this.camera_view = 1;
+	if(this.camera_view < this.arrayCamaras.length - 1) {
+		this.camera_view++;
+		this.camera = this.arrayCamaras[this.camera_view];
 		this.application.interface.setActiveCamera(this.camera);
 	}
 	
@@ -117,9 +115,7 @@ XMLscene.prototype.switchCameras = function () {
 		this.application.interface.setActiveCamera(this.camera);
 
 	}
-	/*}
 	
-	this.switch_camera = false;*/
 };
 
 XMLscene.prototype.setDefaultAppearance = function () {
@@ -211,6 +207,10 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
     }
 };
 
+XMLscene.prototype.switchMaterials = function () {
+	
+}
+
 XMLscene.prototype.display = function () {
 
     this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
@@ -227,7 +227,6 @@ XMLscene.prototype.display = function () {
     {
         this.axis.display();
         this.updateLights();
-       // this.switchCameras();
         
         var noinicial = this.root["id"];
         var matrizTransform = mat4.create();
