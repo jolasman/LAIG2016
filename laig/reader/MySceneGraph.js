@@ -814,6 +814,10 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         var cyl = prims3[i].getElementsByTagName('cylinder');
         var sphe = prims3[i].getElementsByTagName('sphere');
         var tor = prims3[i].getElementsByTagName('torus');
+        var plane = prims3[i].getElementsByTagName('plane');
+        // var vehicle = prims3[i].getElementsByTagName('vehicle');
+        var patch = prims3[i].getElementsByTagName('patch');
+        var terrain = prims3[i].getElementsByTagName('terrain');
 
         var arrayRectanglePrimitives = [];
         var arrayTrianglePrimitives = [];
@@ -836,6 +840,15 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         if (tor.length > 1) {
             console.log("torus defined more than once in primitive tag");
         }
+        if (plane.length > 1) {
+            console.log("plane defined more than once in primitive tag");
+        }
+        if (patch.length > 1) {
+            console.log("patch defined more than once in primitive tag");
+        }
+        if (terrain.length > 1) {
+            console.log("terrain defined more than once in primitive tag");
+        }
 
         /*************************** rectangle ***************************/
 
@@ -845,13 +858,10 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.ylrect = this.reader.getFloat(rect2, "y1", true);
             this.x2rect = this.reader.getFloat(rect2, "x2", true);
             this.y2rect = this.reader.getFloat(rect2, "y2", true);
-            arrayRectanglePrimitives.push(this.x1rect, this.ylrect, this.x2rect, this.y2rect);
-            arrayPrimitives[i].push(arrayRectanglePrimitives);
 
             this.scene.primitivas[this.idprims] = new MyRectangle(this.scene, this.x1rect, this.ylrect, this.x2rect, this.y2rect);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("rectangle");
-            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
 
         /*************************** triangle ***************************/
@@ -868,13 +878,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.y3tri = this.reader.getFloat(tri2, "y3", true);
             this.z3tri = this.reader.getFloat(tri2, "z3", true);
 
-            arrayTrianglePrimitives.push(this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
-            arrayPrimitives[i].push(arrayTrianglePrimitives);
-
             this.scene.primitivas[this.idprims] = new MyTriangle(this.scene, this.x1tri, this.yltri, this.zltri, this.x2tri, this.y2tri, this.z2tri, this.x3tri, this.y3tri, this.z3tri);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("triangle");
-            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
 
         /*************************** cylinder ***************************/
@@ -887,13 +893,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.cylslices = this.reader.getInteger(cyl2, "slices", true);
             this.cylstacks = this.reader.getInteger(cyl2, "stacks", true);
 
-            arrayCylinderPrimitives.push(this.cylbase, this.cyltop, this.cylheight, this.cylslices, this.cylstacks);
-            arrayPrimitives[i].push(arrayCylinderPrimitives);
-
             this.scene.primitivas[this.idprims] = new MyCylinder(this.scene, this.cylheight, this.cylbase, this.cyltop, this.cylstacks, this.cylslices);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("cylinder");
-            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
 
         /*************************** sphere ***************************/
@@ -903,13 +905,10 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.spheradius = this.reader.getFloat(sphe2, "radius", true);
             this.spheslices = this.reader.getInteger(sphe2, "slices", true);
             this.sphestacks = this.reader.getInteger(sphe2, "stacks", true);
-            arraySpherePrimitives.push(this.spheradius, this.spheslices, this.sphestacks);
-            arrayPrimitives[i].push(arraySpherePrimitives);
 
             this.scene.primitivas[this.idprims] = new MySphere(this.scene, this.spheradius, this.sphestacks, this.spheslices);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("sphere");
-            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
         }
 
         /*************************** torus ***************************/
@@ -920,13 +919,79 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.torouter = this.reader.getFloat(tor2, "outer", true);
             this.torslices = this.reader.getInteger(tor2, "slices", true);
             this.torloops = this.reader.getInteger(tor2, "loops", true);
-            arrayTorusPrimitives.push(this.torinner, this.torouter, this.torslices, this.torloops);
-            arrayPrimitives[i].push(arrayTorusPrimitives);
 
             this.scene.primitivas[this.idprims] = new MyTorus(this.scene, this.torinner, this.torouter, this.torslices, this.torloops);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("torus");
-            this.scene.grafo[this.idprims].setArgs(arrayPrimitives[i]);
+        }
+
+        /************************** plane *****************************/
+        if ( plane.length == 1) {
+            var plane2 = plane[0];
+            this.dimXplane = this.reader.getFloat(plane2, "dimX", true);
+            this.dimYplane = this.reader.getFloat(plane2, "dimY", true);
+            this.partsXplane = this.reader.getInteger(plane2, "partsX", true);
+            this.partsYplane = this.reader.getInteger(plane2, "partsY", true);
+
+
+            // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("plane");
+
+        }
+
+        /************************** patch *****************************/
+        if ( patch.length == 1) {
+            var patch2 = patch[0];
+            this.orderUpatch = this.reader.getInteger(patch2, "orderU", true);
+            this.orderVpatch = this.reader.getInteger(patch2, "orderV", true);
+            this.partUpatch = this.reader.getInteger(patch2, "partsU", true);
+            this.partYpatch = this.reader.getInteger(patch2, "partsV", true);
+
+            var control = patch2.getElementsByTagName('controlpoint');
+            var controlpoints = control[0];
+            this.controlpointXPatch = this.reader.getFloat(controlpoints,"x", true);
+            this.controlpointYPatch = this.reader.getFloat(controlpoints,"y", true);
+            this.controlpointZPatch = this.reader.getFloat(controlpoints,"z", true);
+
+            // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("patch");
+
+        }
+
+        /************************** vehicle *****************************/
+        // if (vehicle.length == 1) {
+        //     var vehicle2 = vehicle2[0];
+        //     this.orderUpatch = this.reader.getInteger(patch2, "orderU", true);
+        //     this.orderVpatch = this.reader.getInteger(patch2, "orderV", true);
+        //     this.partUpatch = this.reader.getInteger(patch2, "partsU", true);
+        //     this.partYpatch = this.reader.getInteger(patch2, "partsV", true);
+        //
+        //     var control = patch2[i].getElementsByTagName('controlpoint');
+        //     var controlpoints = control[0];
+        //     this.controlpointXPatch = this.reader.getFloat(controlpoints,"x", true);
+        //     this.controlpointYPatch = this.reader.getFloat(controlpoints,"y", true);
+        //     this.controlpointZPatch = this.reader.getFloat(controlpoints,"z", true);
+        //
+        //     // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+        //     this.scene.grafo[this.idprims] = new Node();
+        //     this.scene.grafo[this.idprims].setType("plane");
+        //
+        // }
+
+        /************************** terrain *****************************/
+
+        if ( terrain.length == 1) {
+            var terrain2 = terrain[0];
+            this.textureTerrain = this.reader.getString(terrain2, "texture", true);
+            this.heightmap = this.reader.getString(terrain2, "heightmap", true);
+
+
+            // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("terrain");
+
         }
 
         if ((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1) {
@@ -936,7 +1001,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 };
 
 
-/************************************** primitives *************************************************/
+/************************************** animations *************************************************/
 MySceneGraph.prototype.parseAnimations = function(rootElement){
 
         var animations = rootElement.getElementsByTagName('animations')
@@ -949,8 +1014,6 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
 
         var animaaux = animations[0];
         var anima = animaaux.getElementsByTagName('animation');
-        var pontos_controlo = [];
-
 
         for( var i = 0; i < anima.length; i++){
 
@@ -960,6 +1023,7 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
             if(this.tipo == "linear"){
                 var control = anima[i].getElementsByTagName('controlpoint');
                 var controlAnimation = control[0];
+                var pontos_controlo = [];
 
                 this.idAnimation = this.reader.getString(anima[i], "id", true);
                 this.spanAnim = this.reader.getFloat(anima[i],"span",true)
@@ -972,13 +1036,16 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                 // this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
             }
             else if(this.tipo == "circular"){
+                var centro = [];
                 this.idAnimatioCircular = this.reader.getString(anima[i],"id",true);
                 this.spanAnimatioCircular = this.reader.getString(anima[i],"span",true);
                 this.centerAnimCirc = this.reader.getString(anima[i],"center",true);
                 this.radiusAnimCirc = this.reader.getString(anima[i],"radius",true);
                 this.startangAnimCirc = this.reader.getString(anima[i],"startang",true);
                 this.rotangAnimCirc = this.reader.getString(anima[i],"rotang",true);
-                // this.scene.animacoes[id] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, this.centerAnimCirc, this.startangAnimCirc,this.rotangAnimCirc);
+                centro = this.centerAnimCirc.split("");
+
+                // this.scene.animacoes[id] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
 
             }
 
