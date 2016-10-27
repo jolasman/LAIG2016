@@ -6,6 +6,7 @@ function Node(){
 	this.primitives = [];
 	this.type = null;
 	this.args = null;
+	this.currentAnimation=-1;
 
 };
 

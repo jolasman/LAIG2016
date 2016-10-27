@@ -12,8 +12,7 @@ function MySceneGraph(filename, scene) {
 }
 
 
-MySceneGraph.prototype.onXMLReady=function()
-{
+MySceneGraph.prototype.onXMLReady=function(){
     console.log("XML Loading finished.");
     var rootElement = this.reader.xmlDoc.documentElement;
 
@@ -68,6 +67,13 @@ MySceneGraph.prototype.onXMLReady=function()
     }
 
     error = this.parseComponents(rootElement);
+
+    if (error != null) {
+        this.onXMLError(error);
+        return;
+    }
+
+    error = this.parseAnimations(rootElement);
 
     if (error != null) {
         this.onXMLError(error);
@@ -831,12 +837,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             console.log("torus defined more than once in primitive tag");
         }
 
-
-        // if( (rect.length && tri.length && cyl.length && sphe.length && tor.length) == 0 ){         //porque e que aqui nao faz o pedido caso haja alguma primitiva declarada
-        // console.log("no primitive defined in primitive:" + this.idprims + ".");
-        // }
-
-
         /*************************** rectangle ***************************/
 
         if (( (tri.length && cyl.length && sphe.length && tor.length) == 0) && rect.length == 1) {
@@ -931,6 +931,57 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
         if ((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1) {
             console.log("more than one primitive defined in primitive tag. not allowed");
+        }
+    }
+};
+
+
+/************************************** primitives *************************************************/
+MySceneGraph.prototype.parseAnimations = function(rootElement){
+
+        var animations = rootElement.getElementsByTagName('animations')
+
+    if(animations == null || animations.length == 0){
+        console.warn("no animations was found");
+    }
+    else {
+
+
+        var animaaux = animations[0];
+        var anima = animaaux.getElementsByTagName('animation');
+        var pontos_controlo = [];
+
+
+        for( var i = 0; i < anima.length; i++){
+
+
+            this.tipo = this.reader.getString(anima[i], "type", true);
+
+            if(this.tipo == "linear"){
+                var control = anima[i].getElementsByTagName('controlpoint');
+                var controlAnimation = control[0];
+
+                this.idAnimation = this.reader.getString(anima[i], "id", true);
+                this.spanAnim = this.reader.getFloat(anima[i],"span",true)
+
+                this.xxcontrol = this.reader.getFloat(controlAnimation,"xx",true);
+                this.yycontrol = this.reader.getFloat(controlAnimation,"yy",true);
+                this.zzcontrol = this.reader.getFloat(controlAnimation,"zz",true);
+                pontos_controlo.push([this.xxcontrol,this.yycontrol,this.zzcontrol]);
+
+                this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
+            }
+            else if(this.tipo == "circular"){
+                this.idAnimatioCircular = this.reader.getString(anima[i],"id",true);
+                this.spanAnimatioCircular = this.reader.getString(anima[i],"span",true);
+                this.centerAnimCirc = this.reader.getString(anima[i],"center",true);
+                this.radiusAnimCirc = this.reader.getString(anima[i],"radius",true);
+                this.startangAnimCirc = this.reader.getString(anima[i],"startang",true);
+                this.rotangAnimCirc = this.reader.getString(anima[i],"rotang",true);
+                // this.scene.animacoes[id] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, this.centerAnimCirc, this.startangAnimCirc,this.rotangAnimCirc);
+
+            }
+
         }
     }
 };

@@ -1,4 +1,4 @@
-function LinearAnimation(scene, span, constrol_points) {
+function LinearAnimation(scene, span, control_points) {
 
 	Animation.call(this, scene, span);
 	

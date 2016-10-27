@@ -7,6 +7,9 @@ function XMLscene() {
     this.materiais = [];
     this.primitivas = [];
     this.application = null;
+
+    this.animacoes=[];
+    this.nosComAnimacoes=[];
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
