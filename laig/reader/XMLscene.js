@@ -53,7 +53,8 @@ XMLscene.prototype.updateLights = function () {
 XMLscene.prototype.initLights = function () {
 
     this.omnisLight = this.graph.arrayOmni;
-
+   this.spots = this.graph.arraySpot;
+    this.count = this.spots.length;
 
     for(var i= 0; i < this.omnisLight.length; i++) {
         this.positionLights = this.omnisLight[i][2];
@@ -62,6 +63,8 @@ XMLscene.prototype.initLights = function () {
         this.spec = this.omnisLight[i][5];
         this.idLights = this.omnisLight[i][0];
         this.enabledlight = this.omnisLight[i][1];
+        this.enabledlightSpot = this.spots[i][1];
+
 
         this.lights[i].setPosition(this.positionLights[0], this.positionLights[1], this.positionLights[2], this.positionLights[3]);
         this.lights[i].setAmbient(this.ambientlight[0], this.ambientlight[1], this.ambientlight[2], this.ambientlight[3]);
@@ -74,6 +77,52 @@ XMLscene.prototype.initLights = function () {
             this.lightStatus[i] = false;
         }
         this.lights[i].update();
+
+    }
+
+    for(var j = 0; j < this.spots.length; j++){
+
+        this.targetspot = this.spots[j][4];
+        this.positionLightsSpot = this.spots[j][5];
+        this.ambientlightSpot = this.spots[j][6];
+        this.diffSpot = this.spots[j][7];
+        this.specSpot = this.spots[j][8];
+        this.angleSpot = this.spots[j][2];
+        this.eSpot = this.spots[j][3];
+
+        if(this.omnisLight.length == 0){
+            this.lights[j].setSpotCutOff(this.angleSpot);
+            this.lights[j].setSpotExponent(this.eSpot);
+            this.lights[j].setSpotDirection(this.targetspot[0], this.targetspot[1], this.targetspot[2]);
+            this.lights[j].setPosition(this.positionLightsSpot[0], this.positionLightsSpot[1], this.positionLightsSpot[2], this.positionLightsSpot[3]);
+            this.lights[j].setAmbient(this.ambientlightSpot[0], this.ambientlightSpot[1], this.ambientlightSpot[2], this.ambientlightSpot[3]);
+            this.lights[j].setDiffuse(this.diffSpot[0], this.diffSpot[1], this.diffSpot[2], this.diffSpot[3]);
+            this.lights[j].setSpecular(this.specSpot[0], this.specSpot[1], this.specSpot[2], this.specSpot[3]);
+
+            if(this.enabledlightSpot == true){
+                this.lightStatus[j] = true;
+            } else {
+                this.lightStatus[j] = false;
+            }
+            this.lights[j].update();
+
+        }else if(this.omnisLight.length > 0) {
+
+            this.lights[j + this.count].setSpotCutOff(this.angleSpot);
+            this.lights[j + this.count].setSpotExponent(this.eSpot);
+            this.lights[j + this.count].setSpotDirection(this.targetspot[0], this.targetspot[1], this.targetspot[2]);
+            this.lights[j + this.count].setPosition(this.positionLightsSpot[0], this.positionLightsSpot[1], this.positionLightsSpot[2], this.positionLightsSpot[3]);
+            this.lights[j + this.count].setAmbient(this.ambientlightSpot[0], this.ambientlightSpot[1], this.ambientlightSpot[2], this.ambientlightSpot[3]);
+            this.lights[j + this.count].setDiffuse(this.diffSpot[0], this.diffSpot[1], this.diffSpot[2], this.diffSpot[3]);
+            this.lights[j + this.count].setSpecular(this.specSpot[0], this.specSpot[1], this.specSpot[2], this.specSpot[3]);
+
+            if(this.enabledlightSpot == true){
+                this.lightStatus[j + this.count] = true;
+            } else {
+                this.lightStatus[j  + this.count] = false;
+            }
+            this.lights[j  + this.count].update();
+        }
     }
 };
 
@@ -126,8 +175,7 @@ XMLscene.prototype.setDefaultAppearance = function () {
 
 // Handler called when the graph is finally loaded. 
 // As loading is asynchronous, this may be called already after the application has started the run loop
-XMLscene.prototype.onGraphLoaded = function ()
-{
+XMLscene.prototype.onGraphLoaded = function (){
     this.gl.clearColor(this.graph.arrayBackground[0],this.graph.arrayBackground[1],this.graph.arrayBackground[2],this.graph.arrayBackground[3]);
     this.setGlobalAmbientLight(this.graph.arrayAmbient[0],this.graph.arrayAmbient[1],this.graph.arrayAmbient[2],this.graph.arrayAmbient[3]);
     this.initLights();
