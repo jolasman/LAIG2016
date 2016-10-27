@@ -31,7 +31,5 @@ MyInterface.prototype.processKeyDown = function(event) {
 	{
 		case (86): // 'V' mudar de vista
 			this.scene.switchCameras();
-		case (77): // 'M' mudar os materiais
-			this.scene.switchMaterials();
-	};
+	}
 };

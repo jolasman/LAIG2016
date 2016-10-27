@@ -21,17 +21,12 @@ XMLscene.prototype.init = function (application) {
     this.application = application;
     this.initCameras();
     this.enableTextures(true);
-
-    // this.gl.clearColor(0.0, 0.0, 0.0, 1.0);//background
-
     this.gl.clearDepth(100.0);
     this.gl.enable(this.gl.DEPTH_TEST);
     this.gl.enable(this.gl.CULL_FACE);
     this.gl.depthFunc(this.gl.LEQUAL);
 
     this.lightStatus = [true, true, true, true, false, false, false, false];
-
-    this.switchMaterials = true;
 
     this.switch_camera = false;
 };
@@ -191,13 +186,6 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
 
     var node = this.grafo[noID];
     var prim = node.primitives;
-    
-    // if(this.switchMaterials) {
-    // 	if(materialID == this.grafo[this.root["id"]].material.length - 1)
-    // 		materialID == 0;
-    // 	else
-    // 		materialID++;
-    // }
 
     if(node.descendents.length == 0){
 
@@ -261,12 +249,7 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
             }
         }
     }
-    
-    //this.switchMaterials = false;
-};
 
-XMLscene.prototype.switchMaterials = function () {
-	this.switchMaterials = true;
 };
 
 XMLscene.prototype.display = function () {
