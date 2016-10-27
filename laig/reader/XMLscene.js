@@ -26,8 +26,6 @@ XMLscene.prototype.init = function (application) {
     this.gl.enable(this.gl.CULL_FACE);
     this.gl.depthFunc(this.gl.LEQUAL);
 
-    this.axis=new CGFaxis(this);
-
     this.lightStatus = [true, true, true, true, false, false, false, false];
 
     this.switchMaterials = true;
@@ -134,6 +132,7 @@ XMLscene.prototype.onGraphLoaded = function ()
     this.setGlobalAmbientLight(this.graph.arrayAmbient[0],this.graph.arrayAmbient[1],this.graph.arrayAmbient[2],this.graph.arrayAmbient[3]);
     this.initLights();
     this.createCameras();
+    this.axis=new CGFaxis(this,this.root["axis"]);
 
 };
 
