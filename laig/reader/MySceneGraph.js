@@ -707,61 +707,65 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
         /*************************** translate ***************************/
 
         if (transla.length !== 0) {
-            var matrix = [];
-            var translation = transla[0];
-            this.xtransl = this.reader.getFloat(translation, "x", true);
-            this.ytransl = this.reader.getFloat(translation, "y", true);
-            this.ztransl = this.reader.getFloat(translation, "z", true);
-            arrayTranslateTransformations.push(this.xtransl, this.ytransl, this.ztransl);
-            matrix.push(this.xtransl, this.ytransl, this.ztransl);
-            this.arrayTransformations[this.idtrans] = mat4.translate(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], matrix);
-
+            for(var k= 0; k < transla.length; k++) {
+                var matrix = [];
+                var translation = transla[k];
+                this.xtransl = this.reader.getFloat(translation, "x", true);
+                this.ytransl = this.reader.getFloat(translation, "y", true);
+                this.ztransl = this.reader.getFloat(translation, "z", true);
+                arrayTranslateTransformations.push(this.xtransl, this.ytransl, this.ztransl);
+                matrix.push(this.xtransl, this.ytransl, this.ztransl);
+                this.arrayTransformations[this.idtrans] = mat4.translate(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], matrix);
+            }
         }
 
         /*************************** rotate ***************************/
 
         if (rota.length !== 0) {
-            var rotation = rota[0];
-            var matrix12 = [];
-            this.rotaxis = this.reader.getString(rotation, "axis", true);
-            this.rotangle = this.reader.getFloat(rotation, "angle", true);
-            arrayRotateTransformations.push(this.rotaxis, this.rotangle);
+            for(var j= 0; j < rota.length;j++) {
 
-            if (this.rotaxis == 'x') {
-                matrix12 = [1, 0, 0];
+                var rotation = rota[j];
+                var matrix12 = [];
+                this.rotaxis = this.reader.getString(rotation, "axis", true);
+                this.rotangle = this.reader.getFloat(rotation, "angle", true);
+                arrayRotateTransformations.push(this.rotaxis, this.rotangle);
+
+                if (this.rotaxis == 'x') {
+                    matrix12 = [1, 0, 0];
+                }
+                if (this.rotaxis == 'y') {
+                    matrix12 = [0, 1, 0];
+                }
+
+                if (this.rotaxis == 'z') {
+                    matrix12 = [0, 0, 1];
+                }
+
+                this.rotangle = this.rotangle * Math.PI / 180;
+                var newmatrix3 = mat4.create();
+
+                mat4.rotate(newmatrix3, newmatrix3, this.rotangle, matrix12);
+                mat4.multiply(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], newmatrix3);
+
             }
-            if (this.rotaxis == 'y') {
-                matrix12 = [0, 1, 0];
-            }
-
-            if (this.rotaxis == 'z') {
-                matrix12 = [0, 0, 1];
-            }
-
-            this.rotangle = this.rotangle * Math.PI / 180;
-            var newmatrix3 = mat4.create();
-
-            mat4.rotate(newmatrix3, newmatrix3, this.rotangle,matrix12);
-            mat4.multiply(this.arrayTransformations[this.idtrans],this.arrayTransformations[this.idtrans],newmatrix3 );
-
-
         }
 
         /*************************** scale ***************************/
 
         if (sca.length !== 0) {
-            var scale = sca[0];
-            this.xscale = this.reader.getFloat(scale, "x", true);
-            this.yscale = this.reader.getFloat(scale, "y", true);
-            this.zscale = this.reader.getFloat(scale, "z", true);
+            for(var l = 0; l < sca.length; l++) {
+                var scale = sca[l];
+                this.xscale = this.reader.getFloat(scale, "x", true);
+                this.yscale = this.reader.getFloat(scale, "y", true);
+                this.zscale = this.reader.getFloat(scale, "z", true);
 
-            var matrix1 = [];
-            matrix1.push(this.xscale, this.yscale, this.zscale);
+                var matrix1 = [];
+                matrix1.push(this.xscale, this.yscale, this.zscale);
 
-            var newmatrix4 = mat4.create();
-            mat4.scale(newmatrix4, newmatrix4, matrix1);
-            mat4.multiply(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], newmatrix4 );
-
+                var newmatrix4 = mat4.create();
+                mat4.scale(newmatrix4, newmatrix4, matrix1);
+                mat4.multiply(this.arrayTransformations[this.idtrans], this.arrayTransformations[this.idtrans], newmatrix4);
+            }
         }
     }
 };
@@ -1120,59 +1124,64 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
 
             /*************************** translate ***************************/
 
-            var transl2 = transl[0];
-
             if (transl.length !== 0) {
-                var matrix = [];
-                this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
-                this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
-                this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
+                for (var o = 0; o < transl.length; o++) {
+                    var transl2 = transl[o];
+                    var matrix = [];
+                    this.xtranslate2 = this.reader.getFloat(transl2, "x", true);
+                    this.ytranslate2 = this.reader.getFloat(transl2, "y", true);
+                    this.ztranslate2 = this.reader.getFloat(transl2, "z", true);
 
-                matrix.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
-                this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix);
+                    matrix.push(this.xtranslate2, this.ytranslate2, this.ztranslate2);
+                    this.arrayTranformationsComponents[this.idcomps] = mat4.translate(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], matrix);
+                }
             }
 
             /*************************** rotate ***************************/
 
-            var rot2 = rot[0];
             if (rot.length !== 0) {
-                var matrix12 = [];
-                var newmatrix3 = mat4.create();
+                for (var a = 0; a < transl.length; a++) {
+                    var matrix12 = [];
+                    var newmatrix3 = mat4.create();
+                    var rot2 = rot[a];
 
-                this.rotaxis2 = this.reader.getString(rot2, "axis", true);
-                this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
-                this.arrayTranformationsComponents.push(this.rotaxis2, this.rotangle2);
+                    this.rotaxis2 = this.reader.getString(rot2, "axis", true);
+                    this.rotangle2 = this.reader.getFloat(rot2, "angle", true);
+                    this.arrayTranformationsComponents.push(this.rotaxis2, this.rotangle2);
 
-                if (this.rotaxis2 == 'x') {
-                    matrix12 = [1, 0, 0];
-                }
-                if (this.rotaxis2 == 'y') {
-                    matrix12 = [0, 1, 0];
-                }
+                    if (this.rotaxis2 == 'x') {
+                        matrix12 = [1, 0, 0];
+                    }
+                    if (this.rotaxis2 == 'y') {
+                        matrix12 = [0, 1, 0];
+                    }
 
-                if (this.rotaxis2 == 'z') {
-                    matrix12 = [0, 0, 1];
+                    if (this.rotaxis2 == 'z') {
+                        matrix12 = [0, 0, 1];
+                    }
+                    this.rotangle2 = this.rotangle2 * Math.PI / 180;
+                    mat4.rotate(newmatrix3, newmatrix3, this.rotangle, matrix12);
+                    mat4.multiply(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], newmatrix3);
                 }
-                this.rotangle2 = this.rotangle2 * Math.PI / 180;
-                mat4.rotate(newmatrix3, newmatrix3, this.rotangle,matrix12);
-                mat4.multiply(this.arrayTranformationsComponents[this.idcomps],this.arrayTranformationsComponents[this.idcomps],newmatrix3);
             }
             /*************************** scale ***************************/
 
-            var scal3 = scal2[0];
             if (scal2.length !== 0) {
-                this.xscale2 = this.reader.getFloat(scal3, "x", true);
-                this.yscale2 = this.reader.getFloat(scal3, "y", true);
-                this.zscale2 = this.reader.getFloat(scal3, "z", true);
+                for (var b = 0; b < transl.length; b++) {
 
-                var matrix1 = [];
-                matrix1.push(this.xscale2, this.yscale2, this.zscale2);
-                var newmatrix4 = mat4.create();
-                this.arrayTranformationsComponents[this.idcomps] = mat4.multiply(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps],  mat4.scale(newmatrix4, newmatrix4, matrix1));
+                    var scal3 = scal2[b];
+                    this.xscale2 = this.reader.getFloat(scal3, "x", true);
+                    this.yscale2 = this.reader.getFloat(scal3, "y", true);
+                    this.zscale2 = this.reader.getFloat(scal3, "z", true);
+
+                    var matrix1 = [];
+                    matrix1.push(this.xscale2, this.yscale2, this.zscale2);
+                    var newmatrix4 = mat4.create();
+                    this.arrayTranformationsComponents[this.idcomps] = mat4.multiply(this.arrayTranformationsComponents[this.idcomps], this.arrayTranformationsComponents[this.idcomps], mat4.scale(newmatrix4, newmatrix4, matrix1));
+                }
+                mat4.multiply(no.matrix, no.matrix, this.arrayTranformationsComponents[this.idcomps]);
             }
-            mat4.multiply(no.matrix,no.matrix,this.arrayTranformationsComponents[this.idcomps]);
         }
-
         /*************************** materials ***************************/
 
         var mat = comps3[i].getElementsByTagName('materials');
