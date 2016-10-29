@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" afterPath="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
     <ignored path="LAIG2016.iws" />
@@ -31,8 +30,8 @@
           <file leaf-file-name="MySceneGraph.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="532">
-                  <caret line="1171" column="39" selection-start-line="1171" selection-start-column="39" selection-end-line="1171" selection-end-column="39" />
+                <state relative-caret-position="663">
+                  <caret line="1061" column="63" selection-start-line="1061" selection-start-column="63" selection-end-line="1061" selection-end-column="63" />
                   <folding>
                     <element signature="n#!!block;n#MySceneGraph#0" expanded="false" />
                     <element signature="e#336#1865#0" expanded="false" />
@@ -41,8 +40,10 @@
                     <element signature="e#7937#19686#0" expanded="false" />
                     <element signature="e#19854#22254#0" expanded="false" />
                     <element signature="e#22423#26150#0" expanded="false" />
+                    <element signature="e#26324#30150#0" expanded="false" />
                     <element signature="e#30319#41406#0" expanded="false" />
                     <element signature="e#41574#43701#0" expanded="false" />
+                    <element signature="e#43869#52718#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -54,7 +55,6 @@
                 <state relative-caret-position="221">
                   <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
                   <folding>
-                    <marker date="1477688388855" expanded="true" signature="980:1954" ph="[...]" />
                     <marker date="1477688388855" expanded="true" signature="1922:1951" ph="{...}" />
                   </folding>
                 </state>
@@ -81,7 +81,6 @@
                   <folding>
                     <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
                     <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-                    <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -104,15 +103,18 @@
           <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="674">
-                  <caret line="243" column="25" selection-start-line="243" selection-start-column="25" selection-end-line="243" selection-end-column="25" />
+                <state relative-caret-position="630">
+                  <caret line="188" column="43" selection-start-line="188" selection-start-column="43" selection-end-line="188" selection-end-column="43" />
                   <folding>
+                    <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -126,6 +128,9 @@
                     <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -146,7 +151,7 @@
                     <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-                    <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -156,6 +161,9 @@
                     <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                    <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -239,7 +247,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,8 +299,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -765,16 +773,18 @@
       <workItem from="1477497247136" duration="199000" />
       <workItem from="1477571500065" duration="8813000" />
       <workItem from="1477590836609" duration="5061000" />
-      <workItem from="1477696527566" duration="1253000" />
+      <workItem from="1477696527566" duration="1311000" />
+      <workItem from="1477697904145" duration="61000" />
+      <workItem from="1477698019759" duration="3389000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139157000" />
+    <option name="totallyTimeSpent" value="142665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -828,7 +838,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -838,12 +847,15 @@
         <state relative-caret-position="3366">
           <caret line="220" column="32" selection-start-line="220" selection-start-column="32" selection-end-line="220" selection-end-column="32" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -857,6 +869,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -877,7 +892,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -887,6 +902,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -905,7 +923,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -915,12 +932,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -934,6 +954,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -954,7 +977,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -964,6 +987,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -980,8 +1006,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -993,7 +1021,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1003,12 +1030,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1022,6 +1052,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1042,7 +1075,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1052,6 +1085,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1068,8 +1104,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1081,7 +1119,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1091,12 +1128,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1110,6 +1150,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1130,7 +1173,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1140,6 +1183,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1156,8 +1202,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1169,7 +1217,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1179,12 +1226,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1198,6 +1248,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1218,7 +1271,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1228,6 +1281,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1244,8 +1300,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1257,7 +1315,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1267,12 +1324,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1286,6 +1346,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1306,7 +1369,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1316,6 +1379,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1332,8 +1398,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1345,7 +1413,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1355,12 +1422,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1374,6 +1444,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1394,7 +1467,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1404,6 +1477,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1420,8 +1496,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1433,7 +1511,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1443,12 +1520,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1462,6 +1542,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1482,7 +1565,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1492,6 +1575,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1508,8 +1594,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1526,8 +1614,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1537,12 +1627,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1556,6 +1649,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1576,7 +1672,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1586,6 +1682,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1602,8 +1701,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1613,12 +1714,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1632,6 +1736,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1652,7 +1759,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1662,6 +1769,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1678,8 +1788,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1689,12 +1801,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1708,6 +1823,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1728,7 +1846,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1738,6 +1856,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1754,8 +1875,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1765,12 +1888,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1784,6 +1910,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1804,7 +1933,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1814,6 +1943,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1830,8 +1962,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1841,12 +1975,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1860,6 +1997,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1880,7 +2020,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1890,6 +2030,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1906,8 +2049,10 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1917,12 +2062,15 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1936,6 +2084,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1956,7 +2107,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -1966,6 +2117,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2029,7 +2183,6 @@
         <state relative-caret-position="221">
           <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
           <folding>
-            <marker date="1477688388855" expanded="true" signature="980:1954" ph="[...]" />
             <marker date="1477688388855" expanded="true" signature="1922:1951" ph="{...}" />
           </folding>
         </state>
@@ -2049,7 +2202,6 @@
           <folding>
             <marker date="1477688388854" expanded="true" signature="20:47" ph="{...}" />
             <marker date="1477688388854" expanded="true" signature="10244:10250" ph="{...}" />
-            <marker date="1477688388854" expanded="true" signature="10244:10253" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -2064,8 +2216,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/MySceneGraph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="1171" column="39" selection-start-line="1171" selection-start-column="39" selection-end-line="1171" selection-end-column="39" />
+        <state relative-caret-position="663">
+          <caret line="1061" column="63" selection-start-line="1061" selection-start-column="63" selection-end-line="1061" selection-end-column="63" />
           <folding>
             <element signature="n#!!block;n#MySceneGraph#0" expanded="false" />
             <element signature="e#336#1865#0" expanded="false" />
@@ -2074,23 +2226,28 @@
             <element signature="e#7937#19686#0" expanded="false" />
             <element signature="e#19854#22254#0" expanded="false" />
             <element signature="e#22423#26150#0" expanded="false" />
+            <element signature="e#26324#30150#0" expanded="false" />
             <element signature="e#30319#41406#0" expanded="false" />
             <element signature="e#41574#43701#0" expanded="false" />
+            <element signature="e#43869#52718#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="243" column="25" selection-start-line="243" selection-start-column="25" selection-end-line="243" selection-end-column="25" />
+        <state relative-caret-position="630">
+          <caret line="188" column="43" selection-start-line="188" selection-start-column="43" selection-end-line="188" selection-end-column="43" />
           <folding>
+            <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#0;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#1;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#2;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#3;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#transformation#4;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#5;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#6;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#7;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -2104,6 +2261,9 @@
             <element signature="n#transformation#15;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#16;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#transformation#17;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#18;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#19;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#transformation#20;n#transformations#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#primitive#0;n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
@@ -2124,7 +2284,7 @@
             <element signature="n#component#13;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#14;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#15;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#16;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#17;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#18;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#19;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#20;n#components#0;n#dsx#0;n#!!top" expanded="false" />
@@ -2134,6 +2294,9 @@
             <element signature="n#component#24;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#25;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#26;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#27;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#28;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#29;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
