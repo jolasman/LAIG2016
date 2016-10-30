@@ -18,7 +18,7 @@ function LinearAnimation(scene, span, control_points) {
 
 
 	// calcula-se todas as variaveis de cada segmento
-	for(var i=0; i < control_points.length-1; i++) {
+	for(var i=0; i < this.control_points.length-1; i++) {
 		this.comprimento_segmentos[i] = this.calculaComprimentoSegmento(control_points[i], control_points[i+1]);
 		this.tempo_segmentos[i] = this.comprimento_segmentos[i] / this.velocidade_animacao;
 		this.velocidade_segmentos[i] = this.calculaVelocidadeSegmento(control_points[i], control_points[i+1], this.tempo_segmentos[i]);
@@ -26,7 +26,7 @@ function LinearAnimation(scene, span, control_points) {
 	}
 
 	// calcular a distancia total da animaçao, ou seja, o somatorio dos comprimentos de cada segmento
-	for(var i=0; i < comprimento_segmentos.length; i++) {
+	for(var i=0; i < this.comprimento_segmentos.length; i++) {
 		this.distancia_total += this.comprimento_segmentos[i];
 	}
 
@@ -36,16 +36,16 @@ function LinearAnimation(scene, span, control_points) {
 	this.current_direction = this.direcao_segmentos[0];
 	this.tempo_no_segmento = 0;
 
-	mat4.identify(this.matrix);
-	mat4.translate(this.matrix, this.matrix, control_points(this.current_point-1));
+	mat4.identity(this.matrix);
+	mat4.translate(this.matrix, this.matrix, this.control_points[this.current_point-1]);
 
 	// direcionar o objeto apropriadamento segundo a direcao do movimento
 	// roda-se sobre o eixo y para ficar paralelo ao 'chao'
 	mat4.rotate(this.matrix,this.matrix,this.current_direction,[0,1,0]);
 
-	this.dist_perc_x = control_point[this.current_point-1][0];
-	this.dist_perc_y = control_point[this.current_point-1][1];
-	this.dist_perc_z = control_point[this.current_point-1][2];
+	this.dist_perc_x = this.control_points[this.current_point-1][0];
+	this.dist_perc_y = this.control_points[this.current_point-1][1];
+	this.dist_perc_z = this.control_points[this.current_point-1][2];
 };
 
 LinearAnimation.prototype = Object.create(Animation.prototype);
