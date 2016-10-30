@@ -1037,7 +1037,7 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                 this.zzcontrol = this.reader.getFloat(controlAnimation,"zz",true);
                 pontos_controlo.push([this.xxcontrol,this.yycontrol,this.zzcontrol]);
 
-                // this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
+                this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
             }
             else if(this.tipo == "circular"){
                 var centro = [];
