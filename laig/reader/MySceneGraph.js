@@ -66,6 +66,13 @@ MySceneGraph.prototype.onXMLReady=function(){
         return;
     }
 
+    error = this.parseAnimations(rootElement);
+
+    if (error != null) {
+        this.onXMLError(error);
+        return;
+    }
+
     error = this.parseComponents(rootElement);
 
     if (error != null) {
@@ -73,12 +80,7 @@ MySceneGraph.prototype.onXMLReady=function(){
         return;
     }
 
-    error = this.parseAnimations(rootElement);
 
-    if (error != null) {
-        this.onXMLError(error);
-        return;
-    }
 
     this.loadedOk=true;
 
@@ -1014,30 +1016,30 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
         console.warn("no animations was found");
     }
     else {
-
-
         var animaaux = animations[0];
         var anima = animaaux.getElementsByTagName('animation');
 
         for( var i = 0; i < anima.length; i++){
 
-
             this.tipo = this.reader.getString(anima[i], "type", true);
 
             if(this.tipo == "linear"){
-                var control = anima[i].getElementsByTagName('controlpoint');
-                var controlAnimation = control[0];
-                var pontos_controlo = [];
-
                 this.idAnimation = this.reader.getString(anima[i], "id", true);
                 this.spanAnim = this.reader.getFloat(anima[i],"span",true)
 
-                this.xxcontrol = this.reader.getFloat(controlAnimation,"xx",true);
-                this.yycontrol = this.reader.getFloat(controlAnimation,"yy",true);
-                this.zzcontrol = this.reader.getFloat(controlAnimation,"zz",true);
-                pontos_controlo.push([this.xxcontrol,this.yycontrol,this.zzcontrol]);
+                var control = anima[i].getElementsByTagName('controlpoint');
+                var pontos_controlo = [];
 
-                this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
+                for(var e = 0; e < control.length; e++) {
+                    var controlAnimation = control[e];
+
+                    this.xxcontrol = this.reader.getFloat(controlAnimation, "xx", true);
+                    this.yycontrol = this.reader.getFloat(controlAnimation, "yy", true);
+                    this.zzcontrol = this.reader.getFloat(controlAnimation, "zz", true);
+                    pontos_controlo.push([this.xxcontrol, this.yycontrol, this.zzcontrol]);
+                }
+                 this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
+               
             }
             else if(this.tipo == "circular"){
                 var centro = [];
@@ -1049,7 +1051,7 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                 this.rotangAnimCirc = this.reader.getString(anima[i],"rotang",true);
                 centro = this.centerAnimCirc.split("");
 
-                // this.scene.animacoes[id] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
+                 this.scene.animacoes[this.idAnimatioCircular] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
 
             }
 
@@ -1182,6 +1184,26 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                 mat4.multiply(no.matrix, no.matrix, this.arrayTranformationsComponents[this.idcomps]);
             }
         }
+
+        /*************************** animations ***************************/
+        var animation = comps3[i].getElementsByTagName('animationref');
+
+        if(animation.length != 0){
+            for( var d = 0; d < animation.length; d++){
+                var animation2 = animation[d];
+
+                this.animationref = this.reader.getString(animation2,"id",true);
+                var animacao = this.scene.animacoes[this.animationref];
+                if(animacao === undefined){
+                    console.error("amination " + this.animationref + " doesn't exists in the animations");
+                    break;
+                }
+                no.animacoes.push(animacao); //coloca animacao no array do XMLScene
+
+            }
+            this.scene.nodeAnimations.push(this.idcomps); // guarda o nome do no que tem animacao
+        }
+
         /*************************** materials ***************************/
 
         var mat = comps3[i].getElementsByTagName('materials');

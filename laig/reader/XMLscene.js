@@ -8,8 +8,8 @@ function XMLscene() {
     this.primitivas = [];
     this.application = null;
 
-    this.animacoes=[];
-    this.nosComAnimacoes=[];
+    this.animacoes = [];
+    this.nodeAnimations = [];
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
@@ -28,7 +28,7 @@ XMLscene.prototype.init = function (application) {
 
     this.lightStatus = [true, true, true, true, false, false, false, false];
 
-    this.switch_camera = false;
+    this.setUpdatePeriod(10);
 };
 
 XMLscene.prototype.updateLights = function () {	
@@ -280,4 +280,31 @@ XMLscene.prototype.display = function () {
     }
 
 };
+
+// XMLscene.prototype.update= function(currTime){
+//
+//     for(var i=0;i < this.nodeAnimations.length;i++){
+//
+//
+//         var no= this.grafo[this.nodeAnimations[i]];
+//
+//         if(no.currentAnimation==-2)
+//             break;
+//
+//         if(no.currentAnimation==-1)
+//             no.currentAnimation++;
+//
+//         if((no.animacoes[no.currentAnimation]).finished==1 && no.animacoes.length>no.currentAnimation )
+//             no.currentAnimation++;
+//
+//         if(no.animacoes.length==no.currentAnimation){
+//             no.currentAnimation=-2;
+//             break;
+//         }
+//         else{
+//             no.animacoes[no.currentAnimation].update(currTime);
+//         }
+//     }
+// };
+//
 
