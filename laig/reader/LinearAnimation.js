@@ -1,8 +1,8 @@
-function LinearAnimation(scene, span, control_points) {
+function LinearAnimation(scene, span, ctrl_points) {
 
 	Animation.call(this, scene, span);
 
-	this.control_points = control_points; // vetor de movimento
+	this.control_points = ctrl_points; // vetor de movimento
 
 	this.comprimento_segmentos = [];
 	this.direcao_segmentos = [];
@@ -93,10 +93,10 @@ LinearAnimation.prototype.update= function(currTime){
 LinearAnimation.prototype.init = function () {
 	// calcula-se todas as variaveis de cada segmento
 	for(var i=0; i < this.control_points.length-1; i++) {
-		this.comprimento_segmentos[i] = this.calculaComprimentoSegmento(control_points[i], control_points[i+1]);
+		this.comprimento_segmentos[i] = this.calculaComprimentoSegmento(this.control_points[i], this.control_points[i+1]);
 		this.tempo_segmentos[i] = this.comprimento_segmentos[i] / this.velocidade_animacao;
-		this.velocidade_segmentos[i] = this.calculaVelocidadeSegmento(control_points[i], control_points[i+1], this.tempo_segmentos[i]);
-		this.direcao_segmentos[i] = this.calculaDirecaoSegmento(control_points[i], control_points[i+1]);
+		this.velocidade_segmentos[i] = this.calculaVelocidadeSegmento(this.control_points[i], this.control_points[i+1], this.tempo_segmentos[i]);
+		this.direcao_segmentos[i] = this.calculaDirecaoSegmento(this.control_points[i], this.control_points[i+1]);
 	}
 
 	// calcular a distancia total da animaçao, ou seja, o somatorio dos comprimentos de cada segmento
