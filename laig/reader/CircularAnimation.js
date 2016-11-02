@@ -23,12 +23,12 @@ function CircularAnimation(scene, span, radius, centre, start_angle, rot_angle) 
 	this.rotation = this.start_angle;
 };
 
-LinearAnimation.prototype = Object.create(Animation.prototype);
-LinearAnimation.prototype.constructor = CircularAnimation;
+CircularAnimation.prototype = Object.create(Animation.prototype);
+CircularAnimation.prototype.constructor = CircularAnimation;
 
 /***********************************update das animaçoes*********************************/
 
-LinearAnimation.prototype.update= function(currTime){
+CircularAnimation.prototype.update= function(currTime){
 
 	if(this.prevTime < 0) 
 		this.prevTime = currTime;

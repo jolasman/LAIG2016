@@ -21,6 +21,7 @@ MyInterface.prototype.init = function(application){
 	this.gui.add(this.scene, 'switchCameras');
 	// this.gui.add(this.scene, 'switchMaterials');
 	
+	
 	return true;
 
 };

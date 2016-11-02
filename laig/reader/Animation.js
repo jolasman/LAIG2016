@@ -5,3 +5,5 @@ function Animation(scene, span) {
 };
 
 Animation.prototype.constructor = Animation;
+
+Animation.prototype.init = function() {};
