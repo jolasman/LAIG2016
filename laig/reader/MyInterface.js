@@ -21,6 +21,13 @@ MyInterface.prototype.init = function(application){
 	this.gui.add(this.scene, 'switchCameras');
 	// this.gui.add(this.scene, 'switchMaterials');
 	
+	this.gui.add(this.scene, 'linearAnimation');
+	
+	/*
+	for(var j=0; j < this.scene.anim_types.length; j++) {
+		this.gui.add(this.scene, 'linearAnimation');
+	}*/
+	
 	
 	return true;
 

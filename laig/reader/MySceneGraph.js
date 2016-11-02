@@ -1039,7 +1039,7 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                     pontos_controlo.push([this.xxcontrol, this.yycontrol, this.zzcontrol]);
                 }
                  this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
-               
+                 this.scene.anim_types.push(this.idAnimation);
             }
             else if(this.tipo == "circular"){
                 var centro = [];
@@ -1052,7 +1052,7 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                 centro = this.centerAnimCirc.split("");
 
                  this.scene.animacoes[this.idAnimatioCircular] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
-
+                 this.scene.anim_types.push(this.idAnimationCircular);
             }
 
         }
