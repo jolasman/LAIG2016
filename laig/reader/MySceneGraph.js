@@ -1080,6 +1080,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     for (var i = 0; i < comps3.length; i++) {
 
         var no = new Node();
+        no.currentAnimation = -2;
 
         /*************************** transformation ***************************/
 
@@ -1199,6 +1200,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
                     break;
                 }
                 no.animacoes.push(animacao); //coloca animacao no array do XMLScene
+                no.currentAnimation = 0;
 
             }
             this.scene.nodeAnimations.push(this.idcomps); // guarda o nome do no que tem animacao

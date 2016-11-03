@@ -11,6 +11,7 @@ function XMLscene() {
 	this.anim_types = [];
 	this.animacoes = [];
 	this.nodeAnimations = [];
+	this.animations_i = 0;
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
@@ -164,15 +165,6 @@ XMLscene.prototype.switchCameras = function () {
 
 };
 
-/*
-XMLscene.prototype.linearAnimation = function () {
-	for(var i=0; i < this.anim_types.length; i++) {
-		this.curr_time = (new Date()).getTime();
-		this.animacoes['anime1'].update(this.curr_time);
-	}
-};
-*/
-
 XMLscene.prototype.setDefaultAppearance = function () {
 
 	// this.setAmbient(0.2, 0.4, 0.8, 1.0);
@@ -228,6 +220,14 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
 			this.pushMatrix();
 
 			var matiz = mat4.create();
+			
+			if((node.animacoes.length != 0) && node.currentAnimation != (-2)) {
+				for(var h=0; h < node.currentAnimation; h++) {
+					console.log("ok node");
+					this.multMatriz(node.animacoes[h].matriz);
+					this.multMatriz(node.animacoes[no.currentAnimation].matriz);
+				}
+			} 
 
 			mat4.multiply(matiz, matrixTrans, node.matrix);
 
@@ -292,28 +292,39 @@ XMLscene.prototype.display = function () {
 };
 
 XMLscene.prototype.update= function(currTime){
+//console.log("update xmlscene");
+	console.log("animations length %d", this.nodeAnimations.length);
+	
+	while(this.animations_i < this.nodeAnimations.length){
 
-	for(var i=0;i < this.nodeAnimations.length;i++){
-
-
-		var no= this.grafo[this.nodeAnimations[i]];
+		var no= this.grafo[this.nodeAnimations[this.animations_i]];
 
 		if(no.currentAnimation==-2)
 			break;
 
 		if(no.currentAnimation==-1)
 			no.currentAnimation++;
-
-		if((no.animacoes[no.currentAnimation]).finished==1 && no.animacoes.length>no.currentAnimation )
+		
+		var ani = no.animacoes[no.currentAnimation];
+		console.log("id %s", this.nodeAnimations[this.animations_i]);
+		console.log("current %d", no.currentAnimation);
+		console.log("animacoes %d", no.animacoes.length);
+		
+		if(ani.finished==1 && no.animacoes.length < no.currentAnimation) {
+			console.log("ANIMATION");
 			no.currentAnimation++;
+		}
 
 		if(no.animacoes.length==no.currentAnimation){
 			no.currentAnimation=-2;
+			console.log("CANCELED");
 			break;
 		}
 		else{
-			no.animacoes[no.currentAnimation].update(currTime);
+			console.log("UPDATE");
+			ani.update(currTime);
 		}
+		this.animations_i++;
 	}
 };
 

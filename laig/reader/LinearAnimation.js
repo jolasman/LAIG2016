@@ -15,7 +15,7 @@ function LinearAnimation(scene, span, ctrl_points) {
 	this.tempo_decorrido = 0;
 
 	this.velocidade_animacao = this.distancia_total / span;
-
+	this.finished = 0;
 	this.init();
 };
 
@@ -48,9 +48,11 @@ LinearAnimation.prototype.calculaVelocidadeSegmento = function(start, end, seg_t
 /***********************************update das animaçoes*********************************/
 
 LinearAnimation.prototype.update= function(currTime){
-	if(this.prevTime < 0) 
+	console.log("UPDATING");
+	if(this.prevTime < 0) {
 		this.prevTime = currTime;
-
+		this.update(currTime);
+	}
 	else {
 		var deltaTime = (currTime - this.prevTime) / 1000;
 
@@ -82,8 +84,10 @@ LinearAnimation.prototype.update= function(currTime){
 				this.current_point++;
 				this.tempo_no_segmento = 0;
 			}
+			this.update(currTime);
 		}
-		else {
+	else {
+	console.log("FINISHED ANIMATION");
 			this.finished=1;
 			return;
 		}
