@@ -8,13 +8,24 @@ function LinearAnimation(scene, span, ctrl_points) {
 	this.direcao_segmentos = [];
 	this.tempo_segmentos = [];
 	this.velocidade_segmentos = [];
+	this.tempo_do_segmento = 0;
+	this.current_point = 1;
 
 	this.prevTime = -1;
 	this.distancia_percorrida = 0;
 	this.distancia_total = 0;
 	this.tempo_decorrido = 0;
 
+	// calcular a distancia total da animaçao, ou seja, o somatorio dos comprimentos de cada segmento
+	for(var i=0; i < this.control_points.length-1; i++) {
+		this.comprimento_segmentos[i] = this.calculaComprimentoSegmento(this.control_points[i], this.control_points[i+1]);
+	}
+	for(var j=0; j < this.comprimento_segmentos.length; j++) {
+		this.distancia_total += this.comprimento_segmentos[j];
+	}
+
 	this.velocidade_animacao = this.distancia_total / span;
+
 	this.finished = 0;
 	this.init();
 };
@@ -48,15 +59,13 @@ LinearAnimation.prototype.calculaVelocidadeSegmento = function(start, end, seg_t
 /***********************************update das animaçoes*********************************/
 
 LinearAnimation.prototype.update= function(currTime){
-	console.log("UPDATING");
 	if(this.prevTime < 0) {
 		this.prevTime = currTime;
-		this.update(currTime);
 	}
 	else {
 		var deltaTime = (currTime - this.prevTime) / 1000;
 
-		this.tempoDecorrido += deltaTime;
+		this.tempo_decorrido += deltaTime;
 
 		this.tempo_do_segmento += deltaTime;
 
@@ -73,44 +82,45 @@ LinearAnimation.prototype.update= function(currTime){
 			this.dist_perc_z += incZ;
 
 			this.current_direction = this.direcao_segmentos[this.current_point - 1];
-
+			
 			mat4.identity(this.matrix);
 
 			mat4.translate(this.matrix, this.matrix, [this.dist_perc_x, this.dist_perc_y, this.dist_perc_z]);
 
 			mat4.rotate(this.matrix, this.matrix, this.current_direction, [0,1,0]);
+			
 
-			if((this.tempo_no_segmento == this.tempo_segmentos[this.current_point - 1]) && (this.current_point+1 < this.control_points.length)) {
-				this.current_point++;
-				this.tempo_no_segmento = 0;
+			if((this.tempo_do_segmento >= this.tempo_segmentos[this.current_point - 1])) {
+				if(this.current_point + 1 >= this.control_points.length) {
+					this.finished=1;
+					return;
+				}
+				else {
+					this.current_point++;
+					this.tempo_do_segmento = 0;
+				}
 			}
-			this.update(currTime);
 		}
-	else {
-	console.log("FINISHED ANIMATION");
+		else {
 			this.finished=1;
 			return;
 		}
 	}
+
 };
 
 LinearAnimation.prototype.init = function () {
 	// calcula-se todas as variaveis de cada segmento
 	for(var i=0; i < this.control_points.length-1; i++) {
-		this.comprimento_segmentos[i] = this.calculaComprimentoSegmento(this.control_points[i], this.control_points[i+1]);
 		this.tempo_segmentos[i] = this.comprimento_segmentos[i] / this.velocidade_animacao;
+	}
+	for(var i=0; i < this.control_points.length-1; i++) {
 		this.velocidade_segmentos[i] = this.calculaVelocidadeSegmento(this.control_points[i], this.control_points[i+1], this.tempo_segmentos[i]);
 		this.direcao_segmentos[i] = this.calculaDirecaoSegmento(this.control_points[i], this.control_points[i+1]);
 	}
 
-	// calcular a distancia total da animaçao, ou seja, o somatorio dos comprimentos de cada segmento
-	for(var i=0; i < this.comprimento_segmentos.length; i++) {
-		this.distancia_total += this.comprimento_segmentos[i];
-	}
-
 
 	/*****Colocar o objeto na posicao inicial*****/
-	this.current_point = 1;
 	this.current_direction = this.direcao_segmentos[0];
 	this.tempo_no_segmento = 0;
 

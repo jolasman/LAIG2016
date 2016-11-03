@@ -12,6 +12,7 @@ function CircularAnimation(scene, span, radius, centre, start_angle, rot_angle) 
 	this.delta_angle = this.final_angle / this.span;
 	this.delta_x = Math.sin(this.start_angle)*this.radius;
 	this.delta_z = Math.cos(this.start_angle)*this.radius;
+	this.delta_time = 0;
 
 	this.finished = 0;
 	this.prevTime = -1;
@@ -30,15 +31,15 @@ CircularAnimation.prototype.constructor = CircularAnimation;
 
 CircularAnimation.prototype.update= function(currTime){
 
-	if(this.prevTime < 0) 
+	if(this.prevTime < 0) {
 		this.prevTime = currTime;
-
+	}
 	else {
 		if(Math.abs(this.rotation) < Math.abs(this.final_angle)) {
-			var delta_time = (currTime - this.prev_time) / 1000; // tempo em milisegundos
+			this.delta_time = (currTime - this.prevTime) / 1000; // tempo em milisegundos
 
-			this.rotation += this.delta_angle * delta_time;
-
+			this.rotation += this.delta_angle * this.delta_time;
+			
 			this.delta_x = Math.sin(this.rotation)*this.radius;
 			this.delta_z = Math.cos(this.rotation)*this.radius;
 

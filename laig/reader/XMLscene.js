@@ -185,17 +185,26 @@ XMLscene.prototype.onGraphLoaded = function (){
 };
 
 XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
-
 	var node = this.grafo[noID];
 	var prim = node.primitives;
 
 	if(node.descendents.length == 0){
 
+		this.pushMatrix();
+		
 		var matriz = mat4.create();
+		
+		if(node.animacoes.length > 0 && node.currentAnimation != (-2)) {
+			for(var h=0; h < node.currentAnimation+1; h++) {
+				mat4.multiply(matriz, matrixTrans, node.animacoes[h].matrix);
+			}
 
+			mat4.multiply(matriz, matrixTrans, node.animacoes[node.currentAnimation].matrix);
+		} 
+		else {
 		mat4.multiply(matriz, matrixTrans, node.matrix);
+		}
 		this.multMatrix(matriz);
-
 		if(node.material == "inherit")//aplica material do pai
 		{
 			node.material = materialID
@@ -218,15 +227,15 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
 		for(var i = 0; i < node.descendents.length; i++) {
 
 			this.pushMatrix();
+			
 
 			var matiz = mat4.create();
-			
-			if((node.animacoes.length != 0) && node.currentAnimation != (-2)) {
-				for(var h=0; h < node.currentAnimation; h++) {
-					console.log("ok node");
-					this.multMatriz(node.animacoes[h].matriz);
-					this.multMatriz(node.animacoes[no.currentAnimation].matriz);
-				}
+
+			if(node.animacoes.length > 0 && node.currentAnimation != (-2)) {
+				for(var h=0; h < node.currentAnimation+1; h++)
+					mat4.multiply(matiz, matrixTrans, node.animacoes[h].matrix);
+					
+				mat4.multiply(matiz, matrixTrans, node.animacoes[node.currentAnimation].matrix);
 			} 
 
 			mat4.multiply(matiz, matrixTrans, node.matrix);
@@ -259,7 +268,6 @@ XMLscene.prototype.writeGraph = function(noID,matrixTrans,materialID,textureID){
 			}
 		}
 	}
-
 };
 
 XMLscene.prototype.display = function () {
@@ -292,39 +300,29 @@ XMLscene.prototype.display = function () {
 };
 
 XMLscene.prototype.update= function(currTime){
-//console.log("update xmlscene");
-	console.log("animations length %d", this.nodeAnimations.length);
-	
-	while(this.animations_i < this.nodeAnimations.length){
+	var i=0;
+	while(i < this.nodeAnimations.length){
 
-		var no= this.grafo[this.nodeAnimations[this.animations_i]];
+		var no= this.grafo[this.nodeAnimations[i]];
 
 		if(no.currentAnimation==-2)
 			break;
 
 		if(no.currentAnimation==-1)
 			no.currentAnimation++;
-		
-		var ani = no.animacoes[no.currentAnimation];
-		console.log("id %s", this.nodeAnimations[this.animations_i]);
-		console.log("current %d", no.currentAnimation);
-		console.log("animacoes %d", no.animacoes.length);
-		
-		if(ani.finished==1 && no.animacoes.length < no.currentAnimation) {
-			console.log("ANIMATION");
+
+		if(no.animacoes[no.currentAnimation].finished==1 && no.currentAnimation < no.animacoes.length) {
 			no.currentAnimation++;
 		}
 
 		if(no.animacoes.length==no.currentAnimation){
 			no.currentAnimation=-2;
-			console.log("CANCELED");
 			break;
 		}
 		else{
-			console.log("UPDATE");
-			ani.update(currTime);
+			no.animacoes[no.currentAnimation].update(currTime);
 		}
-		this.animations_i++;
+		i++;
 	}
 };
 
