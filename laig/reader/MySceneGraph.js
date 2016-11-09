@@ -1073,7 +1073,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
     var comps2 = comps[0];
     var comps3 = comps2.getElementsByTagName('component');
     if (comps3 == null || comps3.length == 0) {
-        console.error( "'component' element in components is missing." + "  NOT ALLOWED");
+        console.error("'component' element in components is missing." + "  NOT ALLOWED");
     }
     this.arrayTranformationsComponents = [];
 
@@ -1105,10 +1105,10 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
             if ((transl.length && rot.length && scal2.length) == 0) {
                 var tran4 = transformationRef[0];
                 this.idtran = this.reader.getString(tran4, "id", true);
-                mat4.multiply(no.matrix,no.matrix,this.arrayTransformations[this.idtran]);
+                mat4.multiply(no.matrix, no.matrix, this.arrayTransformations[this.idtran]);
 
             }
-            else if ( (transformationRef.length !== 0) && (transl.length && rot.length && scal2.length !== 0) ){
+            else if ((transformationRef.length !== 0) && (transl.length && rot.length && scal2.length !== 0)) {
                 console.error("is allowed only one type of tranformation in component: " + this.idcomps + ". choose one  ");
             }
         }
@@ -1187,15 +1187,17 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         }
 
         /*************************** animations ***************************/
-        var animation = comps3[i].getElementsByTagName('animationref');
+        var companimation = comps3[i].getElementsByTagName('animation');
 
-        if(animation.length != 0){
-            for( var d = 0; d < animation.length; d++){
+        if (companimation.length != 0) {
+            for (var d = 0; d < companimation.length; d++) {
+                var animation = companimation[d].getElementsByTagName('animationref');
+
                 var animation2 = animation[d];
 
-                this.animationref = this.reader.getString(animation2,"id",true);
+                this.animationref = this.reader.getString(animation2, "id", true);
                 var animacao = this.scene.animacoes[this.animationref];
-                if(animacao === undefined){
+                if (animacao === undefined) {
                     console.error("amination " + this.animationref + " doesn't exists in the animations");
                     break;
                 }
