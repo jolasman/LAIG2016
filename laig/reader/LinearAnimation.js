@@ -92,6 +92,7 @@ LinearAnimation.prototype.update= function(currTime){
 
 			if((this.tempo_do_segmento >= this.tempo_segmentos[this.current_point - 1])) {
 				if(this.current_point + 1 >= this.control_points.length) {
+
 					this.finished=1;
 					return;
 				}
