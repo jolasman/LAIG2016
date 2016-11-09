@@ -1044,15 +1044,17 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
             else if(this.tipo == "circular"){
                 var centro = [];
                 this.idAnimatioCircular = this.reader.getString(anima[i],"id",true);
-                this.spanAnimatioCircular = this.reader.getString(anima[i],"span",true);
-                this.centerAnimCirc = this.reader.getString(anima[i],"center",true);
-                this.radiusAnimCirc = this.reader.getString(anima[i],"radius",true);
-                this.startangAnimCirc = this.reader.getString(anima[i],"startang",true);
-                this.rotangAnimCirc = this.reader.getString(anima[i],"rotang",true);
-                centro = this.centerAnimCirc.split("");
+                this.spanAnimatioCircular = this.reader.getFloat(anima[i],"span",true);
+                this.centerAnimCircX = this.reader.getFloat(anima[i],"centerx",true);
+                this.centerAnimCircY = this.reader.getFloat(anima[i],"centery",true);
+                this.centerAnimCircZ = this.reader.getFloat(anima[i],"centerz",true);
+                this.radiusAnimCirc = this.reader.getFloat(anima[i],"radius",true);
+                this.startangAnimCirc = this.reader.getFloat(anima[i],"startang",true);
+                this.rotangAnimCirc = this.reader.getFloat(anima[i],"rotang",true);
+                centro.push(this.centerAnimCircX,this.centerAnimCircY,this.centerAnimCircZ);
 
                  this.scene.animacoes[this.idAnimatioCircular] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
-                 this.scene.anim_types.push(this.idAnimationCircular);
+                 this.scene.anim_types.push(this.idAnimatioCircular);
             }
 
         }
