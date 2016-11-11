@@ -189,7 +189,6 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	var texturaprim;
 	var texturaprimup;
 	var material;
-
 	var matriz = mat4.create();
 
 	if(node.animacoes.length > 0 && node.currentAnimation != (-2)) {
@@ -197,7 +196,6 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	}
 	mat4.multiply(matriz, matriz, node.matrix);
 	this.multMatrix(matriz);
-	console.log(node.texture);
 	 if(node.material == "inherit")//aplica material do pai
 	{
 		material = materialID;
@@ -210,8 +208,12 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 		texturaprim = null;
 	}
 	else if(node.texture == "inherit") {//aplica textura do pai
-		texturaprim = this.texturas[textureID]["textura"];
-		texturaprimup = textureID;
+		if(textureID == null){
+			texturaprim = null;
+		}else {
+			texturaprim = this.texturas[textureID]["textura"];
+			texturaprimup = textureID;
+		}
 	}
 	else if(node.texture != null){//aplica textura do no
 		texturaprim = this.texturas[node.texture]["textura"];
@@ -219,13 +221,14 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 		}
 
 
-
 	for(var i = 0; i< node.primitives.length; i++) {
 		var nome = node.primitives[i];
 
 		this.materiais[material].setTexture(texturaprim);
-		this.primitivas[nome].updateTexCoords(this.texturas[texturaprimup]["length_s_t"]["s"], this.texturas[texturaprimup]["length_s_t"]["t"]);
-		this.materiais[material].apply();
+		if(texturaprim != null) {
+			this.primitivas[nome].updateTexCoords(this.texturas[texturaprimup]["length_s_t"]["s"], this.texturas[texturaprimup]["length_s_t"]["t"]);
+		}
+			this.materiais[material].apply();
 		this.primitivas[nome].display();
 	}
 	for(var i = 0; i < node.descendents.length; i++) {
