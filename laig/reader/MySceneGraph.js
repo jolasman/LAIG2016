@@ -108,9 +108,7 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
     this.scene.root["id"] = this.reader.getString(scene, "root", true);
     this.scene.root["axis"] = this.reader.getFloat(scene, "axis_length", true);
 
-
     /**************************************** views *************************************/
-
 
     var vistas = rootElement.getElementsByTagName('views');
     if (vistas == null || vistas.length == 0) {
@@ -180,7 +178,6 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
         }
     }
 };
-
 
 /***************************************  ilumination    *********************************************/
 MySceneGraph.prototype.parseIllumination = function(rootElement) {
@@ -266,8 +263,6 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
             this.enabledomni = true;
         }
 
-
-
         if (i == 0) {
             this.idomni = this.reader.getString(omnis[i], "id", true);
             this.arrayOmni.push([this.idomni, this.enabledomni]);
@@ -295,8 +290,6 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
                 }
             }
         }
-
-
 
         /********************* location in omni   *******************/
 
@@ -372,7 +365,6 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
         this.arrayOmni[i].push(this.arraySpecularOmni);
     }
 
-
     /******************************************* spot *************************************************/
 
     var spots = luzes.getElementsByTagName('spot');
@@ -385,7 +377,6 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
      *
      **/
     this.arraySpot = [];
-
 
     for (var i = 0; i < spots.length; i++) {
 
@@ -542,7 +533,6 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
         var arrayLength = [];
         var arrayTextures = [];
 
-
         this.idtexture = this.reader.getString(textures[i], "id", true);
         this.filetexture = this.reader.getString(textures[i], "file", true);
         this.length_stexture = this.reader.getFloat(textures[i], "length_s", true);
@@ -674,7 +664,6 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 /******************************************* transformations ***************************************/
 MySceneGraph.prototype.parseTransformations = function(rootElement) {
 
-
     var trans = rootElement.getElementsByTagName('transformations');
     if (trans == null) {
         return "'transformations' element is missing."
@@ -684,7 +673,6 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
     if (trans3 == null) {
         return "'transformation' element in transformations is missing.";
     }
-
     this.arrayTransformations = [];
 
     for (var i = 0; i < trans3.length; i++) {
@@ -787,10 +775,57 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
     }
     var arrayPrimitives = [];
 
+    /************************** chessboard *****************************/
+    var chessboard = prims2.getElementsByTagName('chessboard');
+    for (var j = 0; j < chessboard.length; j++) {
+        if (chessboard.length > 1) {
+            console.log("chessboard defined more than once in primitive tag");
+        }
 
+
+
+        if ( chessboard.length == 1) {
+            var chessboard2 = chessboard[0];
+            this.duchessboard = this.reader.getInteger(chessboard2, "du", true);
+            this.dvchessboard = this.reader.getInteger(chessboard2, "dv", true);
+            this.texturechessboard = this.reader.getString(chessboard2, "textureref", true);
+            this.suchessboard = this.reader.getInteger(chessboard2, "su", true);
+            this.svchessboard = this.reader.getInteger(chessboard2, "sv", true);
+
+            var cor1 = chessboard2.getElementsByTagName('c1');
+            var cor2 = chessboard2.getElementsByTagName('c2');
+            var cor3 = chessboard2.getElementsByTagName('cs');
+            var cor12 = cor1[0];
+            var cor22 = cor2[0];
+            var cor32 = cor3[0];
+
+            if((cor1 && cor2 && cor3) == undefined || (cor1.length && cor2.length && cor3.length) == 0){
+                console.error("color(s) not defined in chessboard");
+            }else{
+                this.cor1r = this.reader.getFloat(cor12,"r",true);
+                this.cor1g = this.reader.getFloat(cor12,"g",true);
+                this.cor1b = this.reader.getFloat(cor12,"b",true);
+                this.cor1a = this.reader.getFloat(cor12,"a",true);
+
+                this.cor2r = this.reader.getFloat(cor22,"r",true);
+                this.cor2g = this.reader.getFloat(cor22,"g",true);
+                this.cor2b = this.reader.getFloat(cor22,"b",true);
+                this.cor2a = this.reader.getFloat(cor22,"a",true);
+
+                this.cor3r = this.reader.getFloat(cor32,"r",true);
+                this.cor3g = this.reader.getFloat(cor32,"g",true);
+                this.cor3b = this.reader.getFloat(cor32,"b",true);
+                this.cor3a = this.reader.getFloat(cor32,"a",true);
+
+                // this.scene.primitivas[this.idprims] = new chessboard(this.scene, );
+                this.scene.grafo[this.idprims] = new Node();
+                this.scene.grafo[this.idprims].setType("chessboard");
+            }
+        }
+    }
+
+    /************************ others primitives ***********************/
     for (var i = 0; i < prims3.length; i++) {
-
-
         if (i == 0) {
             this.idprims = this.reader.getString(prims3[i], "id", true);
             arrayPrimitives.push([this.idprims]);
@@ -821,15 +856,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         var sphe = prims3[i].getElementsByTagName('sphere');
         var tor = prims3[i].getElementsByTagName('torus');
         var plane = prims3[i].getElementsByTagName('plane');
-        // var vehicle = prims3[i].getElementsByTagName('vehicle');
+        var vehicle = prims3[i].getElementsByTagName('vehicle');
         var patch = prims3[i].getElementsByTagName('patch');
-        var terrain = prims3[i].getElementsByTagName('terrain');
-
-        var arrayRectanglePrimitives = [];
-        var arrayTrianglePrimitives = [];
-        var arrayCylinderPrimitives = [];
-        var arraySpherePrimitives = [];
-        var arrayTorusPrimitives = [];
 
         if (rect.length > 1) {
             console.log("rectangle defined more than once in primitive tag");
@@ -851,9 +879,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         }
         if (patch.length > 1) {
             console.log("patch defined more than once in primitive tag");
-        }
-        if (terrain.length > 1) {
-            console.log("terrain defined more than once in primitive tag");
         }
 
         /*************************** rectangle ***************************/
@@ -967,36 +992,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         }
 
         /************************** vehicle *****************************/
-        // if (vehicle.length == 1) {
-        //     var vehicle2 = vehicle2[0];
-        //     this.orderUpatch = this.reader.getInteger(patch2, "orderU", true);
-        //     this.orderVpatch = this.reader.getInteger(patch2, "orderV", true);
-        //     this.partUpatch = this.reader.getInteger(patch2, "partsU", true);
-        //     this.partYpatch = this.reader.getInteger(patch2, "partsV", true);
-        //
-        //     var control = patch2[i].getElementsByTagName('controlpoint');
-        //     var controlpoints = control[0];
-        //     this.controlpointXPatch = this.reader.getFloat(controlpoints,"x", true);
-        //     this.controlpointYPatch = this.reader.getFloat(controlpoints,"y", true);
-        //     this.controlpointZPatch = this.reader.getFloat(controlpoints,"z", true);
-        //
-        //     // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
-        //     this.scene.grafo[this.idprims] = new Node();
-        //     this.scene.grafo[this.idprims].setType("plane");
-        //
-        // }
-
-        /************************** terrain *****************************/
-
-        if ( terrain.length == 1) {
-            var terrain2 = terrain[0];
-            this.textureTerrain = this.reader.getString(terrain2, "texture", true);
-            this.heightmap = this.reader.getString(terrain2, "heightmap", true);
-
-
-            // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
-            this.scene.grafo[this.idprims] = new Node();
-            this.scene.grafo[this.idprims].setType("terrain");
+        if (vehicle.length == 1) {
 
         }
 
@@ -1020,7 +1016,6 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
         var anima = animaaux.getElementsByTagName('animation');
 
         for( var i = 0; i < anima.length; i++){
-
             this.tipo = this.reader.getString(anima[i], "type", true);
 
             if(this.tipo == "linear"){
@@ -1056,7 +1051,6 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                  this.scene.animacoes[this.idAnimatioCircular] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
                  this.scene.anim_types.push(this.idAnimatioCircular);
             }
-
         }
     }
 };
