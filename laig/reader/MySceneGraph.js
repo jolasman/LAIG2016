@@ -965,7 +965,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.partsYplane = this.reader.getInteger(plane2, "partsY", true);
 
 
-            // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+             this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("plane");
 

@@ -75,10 +75,61 @@ LightingScene.prototype.init = function (application) {
 						]
 					]);
 
-	
+	this.makeSurface("2", 2, // degree on U: 3 control vertexes U
+					 3, // degree on V: 4 control vertexes on V
+					[	// U = 0
+						[ // V = 0..3;
+							 [ -1.5, -1.5, 0.0, 1 ],
+							 [ -2.0, -2.0, 2.0, 1 ],
+							 [ -2.0,  2.0, 2.0, 1 ],
+							 [ -1.5,  1.5, 0.0, 1 ]
+							
+						],
+						// U = 1
+						[ // V = 0..3
+							 [ 0, 0, 3.0, 1 ],
+							 [ 0, -2.0, 3.0, 1],
+							 [ 0,  2.0, 3.0, 1 ],
+							 [ 0,  0, 3.0, 1 ]							 
+						],
+						// U = 2
+						[ // V = 0..3							 
+							 [ 1.5, -1.5, 0.0, 1 ],
+							 [ 2.0, -2.0, 2.0, 1 ],
+							 [ 2.0,  2.0, 2.0, 1 ],
+							 [ 1.5,  1.5, 0.0, 1 ]
+						]
+					]);
+
+	this.makeSurface("3", 2, // degree on U: 3 control vertexes U
+					3, // degree on V: 4 control vertexes on V
+					[	// U = 0
+						[ // V = 0..3;
+							 [ -2.0, -2.0, 1.0, 1 ],
+							 [ -2.0, -1.0, -2.0, 1 ],
+							 [ -2.0, 1.0, 5.0, 1 ],
+							 [ -2.0, 2.0, -1.0, 1 ]
+						],
+						// U = 1
+						[ // V = 0..3
+							 [ 0, -2.0, 0, 1 ],
+							 [ 0, -1.0, -1.0, 1 ],
+							 [ 0, 1.0, 1.5, 1 ],
+							 [ 0, 2.0, 0, 1 ]
+						],
+						// U = 2
+						[ // V = 0..3
+							 [ 2.0, -2.0, -1.0, 1 ],
+							 [ 2.0, -1.0, 2.0, 1 ],
+							 [ 2.0, 1.0, -5.0, 1 ],
+							 [ 2.0, 2.0, 1.0, 1 ]
+						]
+					]);
+
 	this.translations.push([-7.5,0,0]);
 	this.translations.push([-2.5,0,0]);
-	
+	this.translations.push([ 2.5,0,0]);
+	this.translations.push([ 7.5,0,0]);
 };
 
 LightingScene.prototype.getKnotsVector = function(degree) { // TODO (CGF 0.19.3): add to CGFnurbsSurface
