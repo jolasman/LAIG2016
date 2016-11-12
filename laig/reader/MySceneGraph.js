@@ -977,15 +977,22 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.orderUpatch = this.reader.getInteger(patch2, "orderU", true);
             this.orderVpatch = this.reader.getInteger(patch2, "orderV", true);
             this.partUpatch = this.reader.getInteger(patch2, "partsU", true);
-            this.partYpatch = this.reader.getInteger(patch2, "partsV", true);
+            this.partVpatch = this.reader.getInteger(patch2, "partsV", true);
 
             var control = patch2.getElementsByTagName('controlpoint');
-            var controlpoints = control[0];
-            this.controlpointXPatch = this.reader.getFloat(controlpoints,"x", true);
-            this.controlpointYPatch = this.reader.getFloat(controlpoints,"y", true);
-            this.controlpointZPatch = this.reader.getFloat(controlpoints,"z", true);
+            var arrayControlPoints =[];
 
-            // this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+            for(var z = 0; z <control.length; z++){
+                var controlpoints = control[z];
+                this.controlpointXPatch = this.reader.getFloat(controlpoints,"x", true);
+                this.controlpointYPatch = this.reader.getFloat(controlpoints,"y", true);
+                this.controlpointZPatch = this.reader.getFloat(controlpoints,"z", true);
+
+                arrayControlPoints.push([this.controlpointXPatch,this.controlpointYPatch,this.controlpointZPatch]);
+            }
+
+
+             this.scene.primitivas[this.idprims] = new Patch(this.scene, this.orderUpatch, this.orderVpatch, this.partUpatch, this.partVpatch,arrayControlPoints);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("patch");
 
