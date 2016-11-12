@@ -964,8 +964,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.partsXplane = this.reader.getInteger(plane2, "partsX", true);
             this.partsYplane = this.reader.getInteger(plane2, "partsY", true);
 
-
-             this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
+            this.scene.primitivas[this.idprims] = new Plane(this.scene, this.dimXplane, this.dimYplane, this.partsXplane, this.partsYplane);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("plane");
 
@@ -1001,6 +1000,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         /************************** vehicle *****************************/
         if (vehicle.length == 1) {
 
+            this.scene.primitivas[this.idprims] = new Vehicle(this.scene);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("vehicle");
         }
 
         if ((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1) {
