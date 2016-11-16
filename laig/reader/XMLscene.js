@@ -31,6 +31,9 @@ XMLscene.prototype.init = function (application) {
 	this.lightStatus = [true, true, true, true, false, false, false, false];
 	this.curr_time;
 	this.setUpdatePeriod(10);
+
+	this.customShader = new CGFshader(this.gl, "shaders/flat.vert", "shaders/flat.frag");
+
 };
 
 XMLscene.prototype.updateLights = function () {
@@ -251,7 +254,6 @@ XMLscene.prototype.display = function () {
 	this.applyViewMatrix();
 	this.setDefaultAppearance();
 
-
 	if (this.graph.loadedOk)
 	{
 		this.axis.display();
@@ -263,7 +265,6 @@ XMLscene.prototype.display = function () {
 
 		this.writeGraph(noinicial,materialInicial,texturaInicial);
 	}
-
 };
 
 XMLscene.prototype.update= function(currTime){

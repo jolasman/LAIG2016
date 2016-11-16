@@ -775,55 +775,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
     }
     var arrayPrimitives = [];
 
-    /************************** chessboard *****************************/
-    var chessboard = prims2.getElementsByTagName('chessboard');
-    for (var j = 0; j < chessboard.length; j++) {
-        if (chessboard.length > 1) {
-            console.log("chessboard defined more than once in primitive tag");
-        }
-
-
-
-        if ( chessboard.length == 1) {
-            var chessboard2 = chessboard[0];
-            this.duchessboard = this.reader.getInteger(chessboard2, "du", true);
-            this.dvchessboard = this.reader.getInteger(chessboard2, "dv", true);
-            this.texturechessboard = this.reader.getString(chessboard2, "textureref", true);
-            this.suchessboard = this.reader.getInteger(chessboard2, "su", true);
-            this.svchessboard = this.reader.getInteger(chessboard2, "sv", true);
-
-            var cor1 = chessboard2.getElementsByTagName('c1');
-            var cor2 = chessboard2.getElementsByTagName('c2');
-            var cor3 = chessboard2.getElementsByTagName('cs');
-            var cor12 = cor1[0];
-            var cor22 = cor2[0];
-            var cor32 = cor3[0];
-
-            if((cor1 && cor2 && cor3) == undefined || (cor1.length && cor2.length && cor3.length) == 0){
-                console.error("color(s) not defined in chessboard");
-            }else{
-                this.cor1r = this.reader.getFloat(cor12,"r",true);
-                this.cor1g = this.reader.getFloat(cor12,"g",true);
-                this.cor1b = this.reader.getFloat(cor12,"b",true);
-                this.cor1a = this.reader.getFloat(cor12,"a",true);
-
-                this.cor2r = this.reader.getFloat(cor22,"r",true);
-                this.cor2g = this.reader.getFloat(cor22,"g",true);
-                this.cor2b = this.reader.getFloat(cor22,"b",true);
-                this.cor2a = this.reader.getFloat(cor22,"a",true);
-
-                this.cor3r = this.reader.getFloat(cor32,"r",true);
-                this.cor3g = this.reader.getFloat(cor32,"g",true);
-                this.cor3b = this.reader.getFloat(cor32,"b",true);
-                this.cor3a = this.reader.getFloat(cor32,"a",true);
-
-                // this.scene.primitivas[this.idprims] = new chessboard(this.scene, );
-                this.scene.grafo[this.idprims] = new Node();
-                this.scene.grafo[this.idprims].setType("chessboard");
-            }
-        }
-    }
-
     /************************ others primitives ***********************/
     for (var i = 0; i < prims3.length; i++) {
         if (i == 0) {
@@ -879,6 +830,60 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         }
         if (patch.length > 1) {
             console.log("patch defined more than once in primitive tag");
+        }
+
+        /************************** chessboard *****************************/
+        var chessboard = prims3[i].getElementsByTagName('chessboard');
+        for (var j = 0; j < chessboard.length; j++) {
+            if (chessboard.length > 1) {
+                console.log("chessboard defined more than once in primitive tag");
+            }
+            if ( chessboard.length == 1) {
+                var chessboard2 = chessboard[0];
+                this.duchessboard = this.reader.getFloat(chessboard2, "du", true);
+                this.dvchessboard = this.reader.getFloat(chessboard2, "dv", true);
+                this.texturechessboard = this.reader.getString(chessboard2, "textureref", true);
+                this.suchessboard = this.reader.getFloat(chessboard2, "su", true);
+                this.svchessboard = this.reader.getFloat(chessboard2, "sv", true);
+
+                var cor1 = chessboard2.getElementsByTagName('c1');
+                var cor2 = chessboard2.getElementsByTagName('c2');
+                var cor3 = chessboard2.getElementsByTagName('cs');
+                var cor12 = cor1[0];
+                var cor22 = cor2[0];
+                var cor32 = cor3[0];
+
+                if((cor1 && cor2 && cor3) == undefined || (cor1.length && cor2.length && cor3.length) == 0){
+                    console.error("color(s) not defined in chessboard");
+                }else{
+                    var arrayColor1 = [];
+                    this.cor1r = this.reader.getFloat(cor12,"r",true);
+                    this.cor1g = this.reader.getFloat(cor12,"g",true);
+                    this.cor1b = this.reader.getFloat(cor12,"b",true);
+                    this.cor1a = this.reader.getFloat(cor12,"a",true);
+                    arrayColor1.push(this.cor1r,this.cor1g,this.cor1b,this.cor1a);
+                    var arrayColor2 = [];
+                    this.cor2r = this.reader.getFloat(cor22,"r",true);
+                    this.cor2g = this.reader.getFloat(cor22,"g",true);
+                    this.cor2b = this.reader.getFloat(cor22,"b",true);
+                    this.cor2a = this.reader.getFloat(cor22,"a",true);
+                    arrayColor2.push(this.cor2r,this.cor2g,this.cor2b,this.cor2a);
+
+                    var arrayColors = [];
+                    this.cor3r = this.reader.getFloat(cor32,"r",true);
+                    this.cor3g = this.reader.getFloat(cor32,"g",true);
+                    this.cor3b = this.reader.getFloat(cor32,"b",true);
+                    this.cor3a = this.reader.getFloat(cor32,"a",true);
+                    arrayColors.push(this.cor3r,this.cor3g,this.cor3b,this.cor3a);
+
+                    this.scene.primitivas[this.idprims] = new Chessboard(this.scene,this.duchessboard,this.dvchessboard,this.texturechessboard,this.suchessboard,this.svchessboard,arrayColor1,arrayColor2,arrayColors);
+                    console.log(this.idprims);
+                    console.log(this.scene.primitivas);
+
+                    this.scene.grafo[this.idprims] = new Node();
+                    this.scene.grafo[this.idprims].setType("chessboard");
+                }
+            }
         }
 
         /*************************** rectangle ***************************/
