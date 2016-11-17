@@ -27,8 +27,6 @@ function Vehicle(scene)
     this.torus5 = new MyTorus(this.scene, 0.3, 0.4, 30, 30);
     this.torus6 = new MyTorus(this.scene, 0.3, 0.4, 30, 30);
 
-
-
     this.torusAppearance1 = new CGFappearance(this.scene);
     this.torusAppearance1.setAmbient(0,0,0,1);
     this.torusAppearance1.setDiffuse(1.0,1.0,1.0,1);
@@ -37,7 +35,6 @@ function Vehicle(scene)
     this.torusAppearance1.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
     this.torusAppearance1.loadTexture("./texturas/roda.png");
 
-
     this.tetoAppearance1 = new CGFappearance(this.scene);
     this.tetoAppearance1.setAmbient(0,0,0,1);
     this.tetoAppearance1.setDiffuse(1.0,1.0,1.0,1);
@@ -45,7 +42,6 @@ function Vehicle(scene)
     this.tetoAppearance1.setShininess(0.8);
     this.tetoAppearance1.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
     this.tetoAppearance1.loadTexture("./texturas/tecto.png");
-
 
     this.luzesAppearance1 = new CGFappearance(this.scene);
     this.luzesAppearance1.setAmbient(0,0,0,1);
@@ -62,11 +58,7 @@ function Vehicle(scene)
 Vehicle.prototype = Object.create(CGFobject.prototype);
 Vehicle.prototype.constructor=Vehicle;
 
-Vehicle.prototype.initBuffers = function () {
-
-
-
-};
+Vehicle.prototype.initBuffers = function () {};
 
 Vehicle.prototype.updateTexCoords=function(length_,length_T){};
 
@@ -75,9 +67,6 @@ Vehicle.prototype.display = function ()
     this.vehicle.display();
     this.vehicle2.display();
 
-
-
-
     this.scene.pushMatrix();
     this.luzesAppearance1.apply();
     this.scene.rotate(Math.PI/2, 0,1,0);
@@ -85,15 +74,12 @@ Vehicle.prototype.display = function ()
     this.torus5.display();
     this.scene.popMatrix();
 
-
     this.scene.pushMatrix();
     this.luzesAppearance1.apply();
     this.scene.rotate(Math.PI/2, 0,1,0);
     this.scene.translate(-0.6,-0.6,-1.5);
     this.torus6.display();
     this.scene.popMatrix();
-
-
 
     this.scene.pushMatrix();
     this.torusAppearance1.apply();
@@ -108,13 +94,11 @@ Vehicle.prototype.display = function ()
     this.torus2.display();
     this.scene.popMatrix();
 
-
     this.scene.pushMatrix();
     this.scene.rotate(-(Math.PI/2), 1,0,0);
     this.scene.translate(0,0,1.5);
     this.torus3.display();
     this.scene.popMatrix();
-
 
     this.scene.pushMatrix();
     this.scene.rotate(-(Math.PI/2), 1,0,0);

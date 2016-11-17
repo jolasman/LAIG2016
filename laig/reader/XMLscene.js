@@ -247,7 +247,7 @@ XMLscene.prototype.display = function () {
 
 	if (this.graph.loadedOk)
 	{
-		this.axis.display();
+		// this.axis.display();
 		this.updateLights();
 
 		var noinicial = this.root["id"];
