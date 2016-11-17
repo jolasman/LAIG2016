@@ -28,7 +28,7 @@ XMLscene.prototype.init = function (application) {
 	this.gl.enable(this.gl.CULL_FACE);
 	this.gl.depthFunc(this.gl.LEQUAL);
 
-	this.lightStatus = [true, true, true, true, false, false, false, false];
+	this.lightStatus = [true, true, false, false, false, false, false, false];
 	this.curr_time;
 	this.setUpdatePeriod(10);
 
