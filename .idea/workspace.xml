@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyInterface.js" afterPath="$PROJECT_DIR$/laig/reader/MyInterface.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/XMLscene.js" afterPath="$PROJECT_DIR$/laig/reader/XMLscene.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/main.js" afterPath="$PROJECT_DIR$/laig/reader/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
     <ignored path="LAIG2016.iws" />
@@ -30,7 +27,7 @@
     <splitter split-orientation="horizontal" split-proportion="0.58924395">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="477">
@@ -50,11 +47,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MyInterface.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MyInterface.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/MyInterface.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="595">
-                  <caret line="44" column="37" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="37" />
+                <state relative-caret-position="289">
+                  <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
                   <folding />
                 </state>
               </provider>
@@ -208,7 +205,7 @@
             <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-1069">
-                  <caret line="376" column="4" selection-start-line="376" selection-start-column="4" selection-end-line="376" selection-end-column="4" />
+                  <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
                   <folding>
                     <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
                     <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
@@ -334,10 +331,10 @@
         <option value="$PROJECT_DIR$/laig/reader/Primitives/Chessboard.js" />
         <option value="$PROJECT_DIR$/laig/reader/Primitives/Vehicle.js" />
         <option value="$PROJECT_DIR$/laig/reader/MySceneGraph.js" />
-        <option value="$PROJECT_DIR$/laig/reader/MyInterface.js" />
         <option value="$PROJECT_DIR$/laig/reader/main.js" />
         <option value="$PROJECT_DIR$/laig/reader/XMLscene.js" />
         <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
+        <option value="$PROJECT_DIR$/laig/reader/MyInterface.js" />
       </list>
     </option>
   </component>
@@ -984,12 +981,12 @@
       <workItem from="1479168163529" duration="2302000" />
       <workItem from="1479285783539" duration="8770000" />
       <workItem from="1479389683727" duration="9018000" />
-      <workItem from="1479406143947" duration="2016000" />
+      <workItem from="1479406143947" duration="2105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197505000" />
+    <option name="totallyTimeSpent" value="197594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="2576" height="1056" extended-state="6" />
@@ -3252,14 +3249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/MyInterface.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="44" column="37" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="477">
@@ -3281,7 +3270,7 @@
     <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1069">
-          <caret line="376" column="4" selection-start-line="376" selection-start-column="4" selection-end-line="376" selection-end-column="4" />
+          <caret line="376" column="0" selection-start-line="376" selection-start-column="0" selection-end-line="376" selection-end-column="0" />
           <folding>
             <element signature="n#views#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
@@ -3362,6 +3351,14 @@
             <element signature="n#component#32;n#components#0;n#dsx#0;n#!!top" expanded="false" />
             <element signature="n#component#33;n#components#0;n#dsx#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/MyInterface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
