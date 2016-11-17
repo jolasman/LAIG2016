@@ -41,7 +41,7 @@ XMLscene.prototype.setMyInterface = function (interface) {
 };
 
 XMLscene.prototype.updateLights = function () {
-	for(var i = 0; i < 8; i++) {
+	for(var i = 0; i < this.lightStatus.length; i++) {
 
 		if(this.lightStatus[i]){
 			this.lights[i].enable();
@@ -59,7 +59,8 @@ XMLscene.prototype.initLights = function () {
 
 	this.omnisLight = this.graph.arrayOmni;
 	this.spots = this.graph.arraySpot;
-	this.count = this.spots.length;
+	this.count = this.omnisLight.length + 1;
+
 
 	for(var i= 0; i < this.omnisLight.length; i++) {
 		this.positionLights = this.omnisLight[i][2];
@@ -68,7 +69,6 @@ XMLscene.prototype.initLights = function () {
 		this.spec = this.omnisLight[i][5];
 		this.idLights = this.omnisLight[i][0];
 		this.enabledlight = this.omnisLight[i][1];
-
 
 		this.lights[i].setPosition(this.positionLights[0], this.positionLights[1], this.positionLights[2], this.positionLights[3]);
 		this.lights[i].setAmbient(this.ambientlight[0], this.ambientlight[1], this.ambientlight[2], this.ambientlight[3]);
@@ -94,44 +94,25 @@ XMLscene.prototype.initLights = function () {
 		this.angleSpot = this.spots[j][2];
 		this.eSpot = this.spots[j][3];
 		this.idLightsspot = this.spots[j][0];
+		this.enabledlightSpot = this.spots[j][1];
 
+		this.lights[j + this.count].setSpotCutOff(this.angleSpot);
+		this.lights[j + this.count].setSpotExponent(this.eSpot);
+		this.lights[j + this.count].setSpotDirection(this.targetspot[0], this.targetspot[1], this.targetspot[2]);
+		this.lights[j + this.count].setPosition(this.positionLightsSpot[0], this.positionLightsSpot[1], this.positionLightsSpot[2], this.positionLightsSpot[3]);
+		this.lights[j + this.count].setAmbient(this.ambientlightSpot[0], this.ambientlightSpot[1], this.ambientlightSpot[2], this.ambientlightSpot[3]);
+		this.lights[j + this.count].setDiffuse(this.diffSpot[0], this.diffSpot[1], this.diffSpot[2], this.diffSpot[3]);
+		this.lights[j + this.count].setSpecular(this.specSpot[0], this.specSpot[1], this.specSpot[2], this.specSpot[3]);
 
-		if(this.omnisLight.length == 0){
-			this.lights[j].setSpotCutOff(this.angleSpot);
-			this.lights[j].setSpotExponent(this.eSpot);
-			this.lights[j].setSpotDirection(this.targetspot[0], this.targetspot[1], this.targetspot[2]);
-			this.lights[j].setPosition(this.positionLightsSpot[0], this.positionLightsSpot[1], this.positionLightsSpot[2], this.positionLightsSpot[3]);
-			this.lights[j].setAmbient(this.ambientlightSpot[0], this.ambientlightSpot[1], this.ambientlightSpot[2], this.ambientlightSpot[3]);
-			this.lights[j].setDiffuse(this.diffSpot[0], this.diffSpot[1], this.diffSpot[2], this.diffSpot[3]);
-			this.lights[j].setSpecular(this.specSpot[0], this.specSpot[1], this.specSpot[2], this.specSpot[3]);
-
-			if(this.enabledlightSpot == true){
-				this.lightStatus[j] = true;
-			} else {
-				this.lightStatus[j] = false;
-			}
-			this.lights[j].update();
-
-		}else if(this.omnisLight.length > 0) {
-
-			this.lights[j + this.count].setSpotCutOff(this.angleSpot);
-			this.lights[j + this.count].setSpotExponent(this.eSpot);
-			this.lights[j + this.count].setSpotDirection(this.targetspot[0], this.targetspot[1], this.targetspot[2]);
-			this.lights[j + this.count].setPosition(this.positionLightsSpot[0], this.positionLightsSpot[1], this.positionLightsSpot[2], this.positionLightsSpot[3]);
-			this.lights[j + this.count].setAmbient(this.ambientlightSpot[0], this.ambientlightSpot[1], this.ambientlightSpot[2], this.ambientlightSpot[3]);
-			this.lights[j + this.count].setDiffuse(this.diffSpot[0], this.diffSpot[1], this.diffSpot[2], this.diffSpot[3]);
-			this.lights[j + this.count].setSpecular(this.specSpot[0], this.specSpot[1], this.specSpot[2], this.specSpot[3]);
-
-			if(this.enabledlightSpot == true){
-				this.lightStatus[j + this.count] = true;
-			} else {
-				this.lightStatus[j  + this.count] = false;
-			}
-			this.lights[j  + this.count].update();
+		if(this.enabledlightSpot == true){
+			this.lightStatus[j + this.count] = true;
+		} else {
+			this.lightStatus[j  + this.count] = false;
 		}
-		this.interface.addLightToggler(i,this.idLightsspot);
-
+		this.lights[j  + this.count].update();
+		this.interface.addLightToggler(j + this.count,this.idLightsspot);
 	}
+
 };
 
 XMLscene.prototype.initCameras = function () {
@@ -204,13 +185,13 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	}
 	mat4.multiply(matriz, matriz, node.matrix);
 	this.multMatrix(matriz);
-	 if(node.material == "inherit")//aplica material do pai
+	if(node.material == "inherit")//aplica material do pai
 	{
 		material = materialID;
 	}
 	else if(node.material != null){
-		 material = node.material;
-	 }
+		material = node.material;
+	}
 
 	if(node.texture == "none") {//aplica textura null
 		texturaprim = null;
@@ -226,7 +207,7 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	else if(node.texture != null){//aplica textura do no
 		texturaprim = this.texturas[node.texture]["textura"];
 		texturaprimup = node.texture;
-		}
+	}
 
 
 	for(var i = 0; i< node.primitives.length; i++) {
@@ -236,7 +217,7 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 		if(texturaprim != null) {
 			this.primitivas[nome].updateTexCoords(this.texturas[texturaprimup]["length_s_t"]["s"], this.texturas[texturaprimup]["length_s_t"]["t"]);
 		}
-			this.materiais[material].apply();
+		this.materiais[material].apply();
 		this.primitivas[nome].display();
 	}
 	for(var i = 0; i < node.descendents.length; i++) {
