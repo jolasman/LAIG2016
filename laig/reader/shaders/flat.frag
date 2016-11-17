@@ -25,6 +25,7 @@ uniform vec4 cor3;
 uniform vec2 dims;
 uniform vec2 dimscs;
 varying vec2 vTextureCoord;
+uniform sampler2D texturaref;
 
 
 void main() {
@@ -32,12 +33,12 @@ void main() {
 vec2 currentPosition = vec2(vTextureCoord[0] * dims[0], vTextureCoord[1] * dims[1]);
 currentPosition = ceil(currentPosition);
         if( mod(currentPosition[0] + currentPosition[1],2.0) < 0.1 ){
-        gl_FragColor = cor1 ;
+        gl_FragColor = cor1 * texture2D(texturaref,vTextureCoord);
         }else{
-        gl_FragColor =  cor2 ;
+        gl_FragColor =  cor2 * texture2D(texturaref,vTextureCoord) ;
         }
         if((currentPosition[0] == dimscs[0]) && (currentPosition[1] == dimscs[1]) ){
-        gl_FragColor =  cor3 ;
+        gl_FragColor =  cor3 * texture2D(texturaref,vTextureCoord) ;
         }
 
 

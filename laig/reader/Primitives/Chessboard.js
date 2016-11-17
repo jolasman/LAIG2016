@@ -11,7 +11,7 @@ function Chessboard(scene,du,dv,textureref,su,sv, c1,c2,cs)
     this.su= su;
     this.sv= sv;
 
-    this.scene.customShader.setUniformsValues({cor1 :c1, cor2 :c2, cor3 :cs, dims: [du,dv], dimscs: [su,sv]});
+    this.scene.customShader.setUniformsValues({cor1 :c1, cor2 :c2, cor3 :cs, dims: [du,dv], dimscs: [su,sv], texturaref: textureref});
 
     this.chess = new Plane(scene,1,1,90,90);
     this.initBuffers();
