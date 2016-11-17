@@ -28,12 +28,16 @@ XMLscene.prototype.init = function (application) {
 	this.gl.enable(this.gl.CULL_FACE);
 	this.gl.depthFunc(this.gl.LEQUAL);
 
-	this.lightStatus = [true, true, false, false, false, false, false, false];
+	this.lightStatus = [false, false, false, false, false, false, false, false];
 	this.curr_time;
 	this.setUpdatePeriod(10);
 
 	this.customShader = new CGFshader(this.gl, "shaders/flat.vert", "shaders/flat.frag");
 
+};
+
+XMLscene.prototype.setMyInterface = function (interface) {
+	this.interface = interface;
 };
 
 XMLscene.prototype.updateLights = function () {
@@ -47,9 +51,7 @@ XMLscene.prototype.updateLights = function () {
 			this.lights[i].disable();
 			this.lights[i].setVisible(false);
 		}
-
 		this.lights[i].update();
-
 	}
 };
 
@@ -66,7 +68,6 @@ XMLscene.prototype.initLights = function () {
 		this.spec = this.omnisLight[i][5];
 		this.idLights = this.omnisLight[i][0];
 		this.enabledlight = this.omnisLight[i][1];
-		this.enabledlightSpot = this.spots[i][1];
 
 
 		this.lights[i].setPosition(this.positionLights[0], this.positionLights[1], this.positionLights[2], this.positionLights[3]);
@@ -80,7 +81,7 @@ XMLscene.prototype.initLights = function () {
 			this.lightStatus[i] = false;
 		}
 		this.lights[i].update();
-
+		this.interface.addLightToggler(i,this.idLights);
 	}
 
 	for(var j = 0; j < this.spots.length; j++){
@@ -92,6 +93,8 @@ XMLscene.prototype.initLights = function () {
 		this.specSpot = this.spots[j][8];
 		this.angleSpot = this.spots[j][2];
 		this.eSpot = this.spots[j][3];
+		this.idLightsspot = this.spots[j][0];
+
 
 		if(this.omnisLight.length == 0){
 			this.lights[j].setSpotCutOff(this.angleSpot);
@@ -126,6 +129,8 @@ XMLscene.prototype.initLights = function () {
 			}
 			this.lights[j  + this.count].update();
 		}
+		this.interface.addLightToggler(i,this.idLightsspot);
+
 	}
 };
 

@@ -23,6 +23,7 @@ main=function()
     var myScene = new XMLscene();
     var myInterface = new MyInterface(); //usado o construtor do MyInterface.js
 
+    myScene.setMyInterface(myInterface);
     app.init();
 
     app.setScene(myScene);
