@@ -28,7 +28,7 @@ XMLscene.prototype.init = function (application) {
 	this.gl.enable(this.gl.CULL_FACE);
 	this.gl.depthFunc(this.gl.LEQUAL);
 
-	this.lightStatus = [false, false, false, false, false, false, false, false];
+	this.lightStatus = [false, false,	 false, false, false, false, false, false];
 	this.curr_time;
 	this.setUpdatePeriod(10);
 
@@ -183,6 +183,11 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	if(node.animacoes.length > 0 && node.currentAnimation != (-2)) {
 		mat4.multiply(matriz,matriz, node.animacoes[node.currentAnimation].matrix);
 	}
+	
+	if(node.animacoes.length > 0 && node.currentAnimation == (-2)) {
+		mat4.multiply(matriz,matriz, node.animacoes[node.animacoes.length-1].matrix);
+	}
+	
 	mat4.multiply(matriz, matriz, node.matrix);
 	this.multMatrix(matriz);
 	if(node.material == "inherit")//aplica material do pai
