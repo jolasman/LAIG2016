@@ -1200,9 +1200,9 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
         var companimation = comps3[i].getElementsByTagName('animation');
 
         if (companimation.length != 0) {
-            for (var d = 0; d < companimation.length; d++) {
-                var animation = companimation[d].getElementsByTagName('animationref');
 
+                var animation = companimation[0].getElementsByTagName('animationref');
+            for (var d = 0; d < animation.length; d++) {
                 var animation2 = animation[d];
 
                 this.animationref = this.reader.getString(animation2, "id", true);
