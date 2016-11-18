@@ -775,7 +775,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
     }
     var arrayPrimitives = [];
 
-    /************************ others primitives ***********************/
     for (var i = 0; i < prims3.length; i++) {
         if (i == 0) {
             this.idprims = this.reader.getString(prims3[i], "id", true);
@@ -809,6 +808,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         var plane = prims3[i].getElementsByTagName('plane');
         var vehicle = prims3[i].getElementsByTagName('vehicle');
         var patch = prims3[i].getElementsByTagName('patch');
+        var chessboard = prims3[i].getElementsByTagName('chessboard');
 
         if (rect.length > 1) {
             console.log("rectangle defined more than once in primitive tag");
@@ -833,7 +833,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         }
 
         /************************** chessboard *****************************/
-        var chessboard = prims3[i].getElementsByTagName('chessboard');
+
         for (var j = 0; j < chessboard.length; j++) {
             if (chessboard.length > 1) {
                 console.log("chessboard defined more than once in primitive tag");
@@ -877,9 +877,6 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
                     arrayColors.push(this.cor3r,this.cor3g,this.cor3b,this.cor3a);
 
                     this.scene.primitivas[this.idprims] = new Chessboard(this.scene,this.duchessboard,this.dvchessboard,this.texturechessboard,this.suchessboard,this.svchessboard,arrayColor1,arrayColor2,arrayColors);
-                    console.log(this.idprims);
-                    console.log(this.scene.primitivas);
-
                     this.scene.grafo[this.idprims] = new Node();
                     this.scene.grafo[this.idprims].setType("chessboard");
                 }
