@@ -26,6 +26,7 @@ function Vehicle(scene)
     this.torus4 = new MyTorus(this.scene, 0.5, 1.2, 30, 30);
     this.torus5 = new MyTorus(this.scene, 0.3, 0.4, 30, 30);
     this.torus6 = new MyTorus(this.scene, 0.3, 0.4, 30, 30);
+    this.pneuSuplente =  new MyTorus(this.scene, 0.5, 1.2, 30, 30);
 
     this.torusAppearance1 = new CGFappearance(this.scene);
     this.torusAppearance1.setAmbient(0,0,0,1);
@@ -64,9 +65,11 @@ Vehicle.prototype.updateTexCoords=function(length_,length_T){};
 
 Vehicle.prototype.display = function ()
 {
+    //corpo do carro
     this.vehicle.display();
     this.vehicle2.display();
 
+    //luzes
     this.scene.pushMatrix();
     this.luzesAppearance1.apply();
     this.scene.rotate(Math.PI/2, 0,1,0);
@@ -81,6 +84,7 @@ Vehicle.prototype.display = function ()
     this.torus6.display();
     this.scene.popMatrix();
 
+    //rodas
     this.scene.pushMatrix();
     this.torusAppearance1.apply();
     this.scene.rotate(Math.PI/2, 1,0,0);
@@ -100,15 +104,25 @@ Vehicle.prototype.display = function ()
     this.torus3.display();
     this.scene.popMatrix();
 
+
     this.scene.pushMatrix();
     this.scene.rotate(-(Math.PI/2), 1,0,0);
     this.scene.translate(3.2,0,1.5);
     this.torus4.display();
     this.scene.popMatrix();
 
+    //teto do carro
     this.scene.pushMatrix();
     this.tetoAppearance1.apply();
     this.scene.translate(1.8,0,1.5);
     this.vehicle3.display();
+    this.scene.popMatrix();
+
+//pneu suplente
+    this.scene.pushMatrix();
+    this.torusAppearance1.apply();
+    this.scene.rotate(Math.PI/2, 0,1,0);
+    this.scene.translate(-1,0,6);
+    this.pneuSuplente.display();
     this.scene.popMatrix();
 };
