@@ -16,7 +16,7 @@ function Patch(scene,order1,order2, partsU,partsV,controlpoints){
     for(var i = 0; i < (order2+1)*2; ++i) {
         knots2.push(Math.round(i/((order2+1)*2), 0));// calcular array de pontos dependendo da order
     }
-
+    //divide os control points de acordo com as orders
     var vertex = 0;
     for(var i = 0; i < (order1+1); ++i) {
         var temp = [];
@@ -31,10 +31,8 @@ function Patch(scene,order1,order2, partsU,partsV,controlpoints){
     getSurfacePoint = function(u, v) {
         return nurbsSurface.getPoint(u, v);
     };
-
     this.obj = new CGFnurbsObject(scene, getSurfacePoint, partsU, partsV );
     this.obj.initBuffers();
-
 };
 
 Patch.prototype = Object.create(CGFobject.prototype);

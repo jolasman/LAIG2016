@@ -89,6 +89,11 @@ MySceneGraph.prototype.onXMLReady=function(){
 };
 
 /***************************************  views and root    *********************************************/
+/**
+ * funcao que le os valores das camaras, os valores para as dimensoes do axis e o no raiz do grapho
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
 
 
@@ -180,6 +185,11 @@ MySceneGraph.prototype.parseGlobalsExample = function(rootElement) {
 };
 
 /***************************************  ilumination    *********************************************/
+/**
+ * funcao que le os valores do background e da luz ambiente geral da cena
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseIllumination = function(rootElement) {
 
     var iluminacao = rootElement.getElementsByTagName('illumination');
@@ -230,6 +240,11 @@ MySceneGraph.prototype.parseIllumination = function(rootElement) {
 
 
 /************************************** lights ******************************************************/
+/**
+ * funcao que le os valores das luzes declaradas no ficheiro .dsx
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseLights = function(rootElement) {
 
     var luz = rootElement.getElementsByTagName('lights');
@@ -516,6 +531,11 @@ MySceneGraph.prototype.parseLights = function(rootElement) {
 
 
 /****************************************** textures ************************************************/
+/**
+ * funcao que cria as texturas declaradas no .dsx
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseTextures = function(rootElement) {
 
     var textura = rootElement.getElementsByTagName('textures');
@@ -574,6 +594,11 @@ MySceneGraph.prototype.parseTextures = function(rootElement) {
 
 
 /****************************************** materials ***********************************************/
+/**
+ * funcao que cria os materiais declarados no ficheiro .dsx
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
     var material1 = rootElement.getElementsByTagName('materials');
@@ -662,6 +687,11 @@ MySceneGraph.prototype.parseMaterials = function(rootElement) {
 
 
 /******************************************* transformations ***************************************/
+/**
+ * funcao que le as tranformacoes geometricas declaradas no ficheiro .dsx na tag transformations
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseTransformations = function(rootElement) {
 
     var trans = rootElement.getElementsByTagName('transformations');
@@ -762,6 +792,11 @@ MySceneGraph.prototype.parseTransformations = function(rootElement) {
 
 
 /************************************** primitives *************************************************/
+/**
+ * funcao que cria as primitivas declaras no ficheiro .dsx
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
     var prims = rootElement.getElementsByTagName('primitives');
@@ -1015,6 +1050,10 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
 
 /************************************** animations *************************************************/
+/**
+ * funcao que cria as animacoes declaradas no ficheiro .dsx
+ * @param rootElement
+ */
 MySceneGraph.prototype.parseAnimations = function(rootElement){
 
         var animations = rootElement.getElementsByTagName('animations')
@@ -1068,6 +1107,11 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
 
 
 /**************************************** components **********************************************/
+/**
+ * funcao que le e cria o grapho da cena com os nos declarados no ficheiro da cena
+ * @param rootElement
+ * @returns {*}
+ */
 MySceneGraph.prototype.parseComponents = function(rootElement) {
 
     var comps = rootElement.getElementsByTagName('components');

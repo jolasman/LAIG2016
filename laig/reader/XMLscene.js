@@ -17,6 +17,10 @@ function XMLscene() {
 XMLscene.prototype = Object.create(CGFscene.prototype);
 XMLscene.prototype.constructor = XMLscene;
 
+/**
+ * função que inicializa os valores das cameras,das texturas,aaplicacao entre outros
+ * @param application
+ */
 XMLscene.prototype.init = function (application) {
 	CGFscene.prototype.init.call(this, application);
 
@@ -35,11 +39,16 @@ XMLscene.prototype.init = function (application) {
 	this.customShader = new CGFshader(this.gl, "shaders/flat.vert", "shaders/flat.frag");
 
 };
-
+/**
+ * funcao para fazer set da interface criada em MyInterface.js
+ * @param interface
+ */
 XMLscene.prototype.setMyInterface = function (interface) {
 	this.interface = interface;
 };
-
+/**
+ * funcao que fazo update das luzes colocando-as enable or disable e visible ou invisible conforme o caso
+ */
 XMLscene.prototype.updateLights = function () {
 	for(var i = 0; i < this.lightStatus.length; i++) {
 
@@ -55,6 +64,9 @@ XMLscene.prototype.updateLights = function () {
 	}
 };
 
+/**
+ * funcao que inicializa as luzes utilizando os array spot e pmni onde estao guardados os valores refentes as luzes criadas no .dsx
+ */
 XMLscene.prototype.initLights = function () {
 
 	this.omnisLight = this.graph.arrayOmni;
@@ -115,10 +127,16 @@ XMLscene.prototype.initLights = function () {
 
 };
 
+/**
+ * funcao que inicializa a camara que depois e substituida pela camara default especificada no .dsx
+ */
 XMLscene.prototype.initCameras = function () {
 	this.camera = new CGFcamera(0.4, 0.1, 500, vec3.fromValues(15, 15, 15), vec3.fromValues(0, 0, 0));
 };
 
+/**
+ * funcao que cria as camaras especificadas no .dsx e coloca activa a default
+ */
 XMLscene.prototype.createCameras = function () {
 
 	this.cameras = this.graph.arrayPerspectiveViews;
@@ -138,29 +156,23 @@ XMLscene.prototype.createCameras = function () {
 
 };
 
+/**
+ * funcao que usa a Myinterface.js para trocar de camara quando se carrega na tecla v do teclado
+ */
 XMLscene.prototype.switchCameras = function () {
 	if(this.camera_view < this.arrayCamaras.length - 1) {
 		this.camera_view++;
 		this.camera = this.arrayCamaras[this.camera_view];
 		this.application.interface.setActiveCamera(this.camera);
 	}
-
 	else {
 		this.camera = this.arrayCamaras[0];
 		this.camera_view = 0;
 		this.application.interface.setActiveCamera(this.camera);
-
 	}
-
 };
 
-XMLscene.prototype.setDefaultAppearance = function () {
-
-	// this.setAmbient(0.2, 0.4, 0.8, 1.0);
-	// this.setDiffuse(0.2, 0.4, 0.8, 1.0);
-	// this.setSpecular(0.2, 0.4, 0.8, 1.0);
-	// this.setShininess(10.0);
-};
+XMLscene.prototype.setDefaultAppearance = function () {};
 
 //Handler called when the graph is finally loaded. 
 //As loading is asynchronous, this may be called already after the application has started the run loop
@@ -173,6 +185,12 @@ XMLscene.prototype.onGraphLoaded = function (){
 
 };
 
+/**
+ * funcao principal que desenha o grapho criado no .dsx no ecra.
+ * @param noID no que esta a ser lido
+ * @param materialID material do no pai
+ * @param textureID material do no pai
+ */
 XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	var node = this.grafo[noID];
 	var texturaprim;
@@ -180,14 +198,16 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 	var material;
 	var matriz = mat4.create();
 
+	//tratamento das matrizes das animacoes
 	if(node.animacoes.length > 0 && node.currentAnimation != (-2)) {
 		mat4.multiply(matriz,matriz, node.animacoes[node.currentAnimation].matrix);
 	}
-	
+
 	if(node.animacoes.length > 0 && node.currentAnimation == (-2)) {
 		mat4.multiply(matriz,matriz, node.animacoes[node.animacoes.length-1].matrix);
 	}
-	
+
+	//matriz dos nos
 	mat4.multiply(matriz, matriz, node.matrix);
 	this.multMatrix(matriz);
 	if(node.material == "inherit")//aplica material do pai
@@ -214,7 +234,7 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 		texturaprimup = node.texture;
 	}
 
-
+//caso o no seja primitiva
 	for(var i = 0; i< node.primitives.length; i++) {
 		var nome = node.primitives[i];
 
@@ -234,6 +254,9 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 
 };
 
+/**
+ * funcao que faz o display no ecra do pretendido onde sao chamadas as outras funcoes com os valores que pretendemos colocar no ecra
+ */
 XMLscene.prototype.display = function () {
 
 	this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
@@ -258,22 +281,27 @@ XMLscene.prototype.display = function () {
 	}
 };
 
+/**
+ * funcao update das animacoes
+ * @param currTime tempo atual
+ */
 XMLscene.prototype.update= function(currTime){
 	var i=0;
 	while(i < this.nodeAnimations.length){
 
 		var no= this.grafo[this.nodeAnimations[i]];
-
+//se nao houver animacoes no no
 		if(no.currentAnimation==-2)
 			break;
 
 		if(no.currentAnimation==-1)
 			no.currentAnimation++;
 
+		//se ja fez uma continua a fazer as restantes
 		if(no.animacoes[no.currentAnimation].finished==1 && no.currentAnimation < no.animacoes.length) {
 			no.currentAnimation++;
 		}
-
+		//quando ja fez todas acaba
 		if(no.animacoes.length==no.currentAnimation){
 			no.currentAnimation=-2;
 			break;
