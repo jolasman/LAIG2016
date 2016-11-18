@@ -5,8 +5,6 @@ function MyRectangle(scene, Ltopx, Ltopy, Rbotx, Rboty) {  //Left top and Right 
     this.Ltopy = Ltopy;
     this.Rbotx = Rbotx;
     this.Rboty = Rboty;
-    this.length_S=1;
-    this.length_T=1;
 
     this.minS=0;
     this.minT=0;
@@ -22,8 +20,8 @@ MyRectangle.prototype.constructor=MyRectangle;
 MyRectangle.prototype.updateTexCoords=function(length_S, length_T){
 
 
-    var width = this.Rbotx;
-    var height = this.Ltopy;
+    var width = this.Rbotx - this.Ltopx;
+    var height = this.Rboty-this.Ltopy;
 
     this.texCoords = [
         0.0, height /length_T,
