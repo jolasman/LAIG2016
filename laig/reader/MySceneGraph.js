@@ -888,32 +888,33 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
                 var cor22 = cor2[0];
                 var cor32 = cor3[0];
 
-                if((cor1 && cor2 && cor3) == undefined || (cor1.length && cor2.length && cor3.length) == 0){
+                if ((cor1 || cor2 || cor3) == undefined || (cor1.length || cor2.length || cor3.length) == 0) {
                     console.error("color(s) not defined in chessboard");
-                }else{
+                } else {
                     var arrayColor1 = [];
-                    this.cor1r = this.reader.getFloat(cor12,"r",true);
-                    this.cor1g = this.reader.getFloat(cor12,"g",true);
-                    this.cor1b = this.reader.getFloat(cor12,"b",true);
-                    this.cor1a = this.reader.getFloat(cor12,"a",true);
-                    arrayColor1.push(this.cor1r,this.cor1g,this.cor1b,this.cor1a);
+                    this.cor1r = this.reader.getFloat(cor12, "r", true);
+                    this.cor1g = this.reader.getFloat(cor12, "g", true);
+                    this.cor1b = this.reader.getFloat(cor12, "b", true);
+                    this.cor1a = this.reader.getFloat(cor12, "a", true);
+                    arrayColor1.push(this.cor1r, this.cor1g, this.cor1b, this.cor1a);
                     var arrayColor2 = [];
-                    this.cor2r = this.reader.getFloat(cor22,"r",true);
-                    this.cor2g = this.reader.getFloat(cor22,"g",true);
-                    this.cor2b = this.reader.getFloat(cor22,"b",true);
-                    this.cor2a = this.reader.getFloat(cor22,"a",true);
-                    arrayColor2.push(this.cor2r,this.cor2g,this.cor2b,this.cor2a);
+                    this.cor2r = this.reader.getFloat(cor22, "r", true);
+                    this.cor2g = this.reader.getFloat(cor22, "g", true);
+                    this.cor2b = this.reader.getFloat(cor22, "b", true);
+                    this.cor2a = this.reader.getFloat(cor22, "a", true);
+                    arrayColor2.push(this.cor2r, this.cor2g, this.cor2b, this.cor2a);
 
                     var arrayColors = [];
-                    this.cor3r = this.reader.getFloat(cor32,"r",true);
-                    this.cor3g = this.reader.getFloat(cor32,"g",true);
-                    this.cor3b = this.reader.getFloat(cor32,"b",true);
-                    this.cor3a = this.reader.getFloat(cor32,"a",true);
-                    arrayColors.push(this.cor3r,this.cor3g,this.cor3b,this.cor3a);
+                    this.cor3r = this.reader.getFloat(cor32, "r", true);
+                    this.cor3g = this.reader.getFloat(cor32, "g", true);
+                    this.cor3b = this.reader.getFloat(cor32, "b", true);
+                    this.cor3a = this.reader.getFloat(cor32, "a", true);
+                    arrayColors.push(this.cor3r, this.cor3g, this.cor3b, this.cor3a);
 
-                    this.scene.primitivas[this.idprims] = new Chessboard(this.scene,this.duchessboard,this.dvchessboard,this.texturechessboard,this.suchessboard,this.svchessboard,arrayColor1,arrayColor2,arrayColors);
+                    this.scene.primitivas[this.idprims] = new Chessboard(this.scene, this.duchessboard, this.dvchessboard, this.texturechessboard, this.suchessboard, this.svchessboard, arrayColor1, arrayColor2, arrayColors);
                     this.scene.grafo[this.idprims] = new Node();
                     this.scene.grafo[this.idprims].setType("chessboard");
+
                 }
             }
         }
@@ -1028,7 +1029,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             }
 
 
-             this.scene.primitivas[this.idprims] = new Patch(this.scene, this.orderUpatch, this.orderVpatch, this.partUpatch, this.partVpatch,arrayControlPoints);
+            this.scene.primitivas[this.idprims] = new Patch(this.scene, this.orderUpatch, this.orderVpatch, this.partUpatch, this.partVpatch,arrayControlPoints);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("patch");
 
@@ -1056,7 +1057,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
  */
 MySceneGraph.prototype.parseAnimations = function(rootElement){
 
-        var animations = rootElement.getElementsByTagName('animations')
+    var animations = rootElement.getElementsByTagName('animations')
 
     if(animations == null || animations.length == 0){
         console.warn("no animations was found");
@@ -1083,8 +1084,8 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                     this.zzcontrol = this.reader.getFloat(controlAnimation, "zz", true);
                     pontos_controlo.push([this.xxcontrol, this.yycontrol, this.zzcontrol]);
                 }
-                 this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
-                 this.scene.anim_types.push(this.idAnimation);
+                this.scene.animacoes[this.idAnimation] = new LinearAnimation(this.scene,this.spanAnim,pontos_controlo);
+                this.scene.anim_types.push(this.idAnimation);
             }
             else if(this.tipo == "circular"){
                 var centro = [];
@@ -1098,8 +1099,8 @@ MySceneGraph.prototype.parseAnimations = function(rootElement){
                 this.rotangAnimCirc = this.reader.getFloat(anima[i],"rotang",true);
                 centro.push(this.centerAnimCircX,this.centerAnimCircY,this.centerAnimCircZ);
 
-                 this.scene.animacoes[this.idAnimatioCircular] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
-                 this.scene.anim_types.push(this.idAnimatioCircular);
+                this.scene.animacoes[this.idAnimatioCircular] = new CircularAnimation(this.scene,this.spanAnimatioCircular,this.radiusAnimCirc, centro, this.startangAnimCirc,this.rotangAnimCirc);
+                this.scene.anim_types.push(this.idAnimatioCircular);
             }
         }
     }
@@ -1242,7 +1243,7 @@ MySceneGraph.prototype.parseComponents = function(rootElement) {
 
         if (companimation.length != 0) {
 
-                var animation = companimation[0].getElementsByTagName('animationref');
+            var animation = companimation[0].getElementsByTagName('animationref');
             for (var d = 0; d < animation.length; d++) {
                 var animation2 = animation[d];
 
