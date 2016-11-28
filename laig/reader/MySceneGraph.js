@@ -844,6 +844,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         var vehicle = prims3[i].getElementsByTagName('vehicle');
         var patch = prims3[i].getElementsByTagName('patch');
         var chessboard = prims3[i].getElementsByTagName('chessboard');
+        var tabuleiro = prims3[i].getElementsByTagName('tabuleiro');
+        var dado = prims3[i].getElementsByTagName('dadoazul');
 
         if (rect.length > 1) {
             console.log("rectangle defined more than once in primitive tag");
@@ -864,6 +866,12 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             console.log("plane defined more than once in primitive tag");
         }
         if (patch.length > 1) {
+            console.log("patch defined more than once in primitive tag");
+        }
+        if (tabuleiro.length > 1) {
+            console.log("patch defined more than once in primitive tag");
+        }
+        if (dado.length > 1) {
             console.log("patch defined more than once in primitive tag");
         }
 
@@ -1039,6 +1047,47 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         if (vehicle.length == 1) {
 
             this.scene.primitivas[this.idprims] = new Vehicle(this.scene);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("vehicle");
+        }
+
+        /************************** tabuleiro *****************************/
+        if (tabuleiro.length == 1) {
+
+            this.scene.primitivas[this.idprims] = new Tabuleiro(this.scene);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("vehicle");
+        }
+
+        /************************** dado *****************************/
+        if (dado.length == 1) {
+
+            var amb = prims3[i].getElementsByTagName('ambient');
+            var ambiente = amb[0];
+
+            this.rambda = this.reader.getFloat(ambiente, "r", true);
+            this.gambda = this.reader.getFloat(ambiente, "g", true);
+            this.bambda = this.reader.getFloat(ambiente, "b", true);
+            this.aambda = this.reader.getFloat(ambiente, "a", true);
+            var ambfinal = [this.rambda,this.gambda,this.bambda,this.aambda];
+
+            var dif = prims3[i].getElementsByTagName('diffuse');
+            var difuse = dif[0];
+            this.rdifda = this.reader.getFloat(difuse, "r", true);
+            this.gdifda = this.reader.getFloat(difuse, "g", true);
+            this.bdifda = this.reader.getFloat(difuse, "b", true);
+            this.adifda = this.reader.getFloat(difuse, "a", true);
+            var diffinal = [this.rdifda,this.gdifda,this.bdifda,this.adifda];
+
+            var spec = prims3[i].getElementsByTagName('specular');
+            var specul = spec[0];
+            this.rspeda = this.reader.getFloat(specul, "r", true);
+            this.gspeda= this.reader.getFloat(specul, "g", true);
+            this.bspeda = this.reader.getFloat(specul, "b", true);
+            this.aspeda = this.reader.getFloat(specul, "a", true);
+            var spefinal = [this.rspeda,this.gspeda,this.bspeda,this.aspeda];
+
+            this.scene.primitivas[this.idprims] = new Dado(this.scene,ambfinal,diffinal,spefinal);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("vehicle");
         }
