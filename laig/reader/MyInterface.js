@@ -13,6 +13,17 @@ MyInterface.prototype.init = function(application) {
     return true;
 };
 
+MyInterface.prototype.initScenario = function() {
+	this.gui.add(this.scene, 'scenarioName', this.scene.scenarioNames).name("Scenario");
+	// this.gui.add(this.scene, 'automaticCamera').name("Automatic Camera");
+};
+
+
+
+
+
+
+
 MyInterface.prototype.addLightToggler = function(i, id){
     this.lights.add(this.scene.lightStatus, i, this.scene.lightStatus[i]).name(id);
 };

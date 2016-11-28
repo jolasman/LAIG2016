@@ -845,7 +845,8 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
         var patch = prims3[i].getElementsByTagName('patch');
         var chessboard = prims3[i].getElementsByTagName('chessboard');
         var tabuleiro = prims3[i].getElementsByTagName('tabuleiro');
-        var dado = prims3[i].getElementsByTagName('dadoazul');
+        var dado = prims3[i].getElementsByTagName('dado');
+        var cubo = prims3[i].getElementsByTagName('cubo');
 
         if (rect.length > 1) {
             console.log("rectangle defined more than once in primitive tag");
@@ -872,6 +873,9 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             console.log("patch defined more than once in primitive tag");
         }
         if (dado.length > 1) {
+            console.log("patch defined more than once in primitive tag");
+        }
+        if (cubo.length > 1) {
             console.log("patch defined more than once in primitive tag");
         }
 
@@ -1056,7 +1060,15 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
             this.scene.primitivas[this.idprims] = new Tabuleiro(this.scene);
             this.scene.grafo[this.idprims] = new Node();
-            this.scene.grafo[this.idprims].setType("vehicle");
+            this.scene.grafo[this.idprims].setType("tabuleiro");
+        }
+
+        /************************** cubo *****************************/
+        if (cubo.length == 1) {
+
+            this.scene.primitivas[this.idprims] = new Cubo(this.scene);
+            this.scene.grafo[this.idprims] = new Node();
+            this.scene.grafo[this.idprims].setType("cubo");
         }
 
         /************************** dado *****************************/
@@ -1089,7 +1101,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
 
             this.scene.primitivas[this.idprims] = new Dado(this.scene,ambfinal,diffinal,spefinal);
             this.scene.grafo[this.idprims] = new Node();
-            this.scene.grafo[this.idprims].setType("vehicle");
+            this.scene.grafo[this.idprims].setType("dado");
         }
 
         if ((tri.length || cyl.length || sphe.length || sphe.length || tor.length) > 1) {
