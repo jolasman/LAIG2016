@@ -2,9 +2,17 @@
 function MySceneGraph(filename, scene) {
     this.loadedOk = null;
 
+
     // Establish bidirectional references between scene and graph
     this.scene = scene;
     scene.graph=this;
+
+   //  if(this.scene.scenarioNamesStatus[0] == true){
+   //      this.ficheiro= "cena.dsx";
+   //  }
+   // else if(this.scene.scenarioNamesStatus[1] ==true){
+   //      this.ficheiro= "scenario2.dsx";
+   //  }
 
     // File reading
     this.reader = new CGFXMLreader();
@@ -1392,5 +1400,7 @@ MySceneGraph.prototype.onXMLError=function (message) {
     console.error("XML Loading Error: "+message);
     this.loadedOk=false;
 };
+
+
 
 

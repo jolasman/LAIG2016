@@ -33,10 +33,13 @@ XMLscene.prototype.init = function (application) {
 	this.gl.depthFunc(this.gl.LEQUAL);
 
 	this.lightStatus = [false, false,	 false, false, false, false, false, false];
+	this.scenarioNamesStatus = [true, false];
 	this.curr_time;
 	this.setUpdatePeriod(10);
 
 	this.customShader = new CGFshader(this.gl, "shaders/flat.vert", "shaders/flat.frag");
+
+	this.initScenarios();
 
 };
 /**
@@ -270,7 +273,7 @@ XMLscene.prototype.display = function () {
 
 	if (this.graph.loadedOk)
 	{
-		this.axis.display();
+		// this.axis.display();
 		this.updateLights();
 
 		var noinicial = this.root["id"];
@@ -312,5 +315,29 @@ XMLscene.prototype.update= function(currTime){
 		i++;
 	}
 };
+
+XMLscene.prototype.updateScenarios = function () {
+	for(var i = 0; i < this.scenarioNames.length; i++) {
+
+		if(this.scenarioNamesStatus[i]){
+			// chamar scenario
+
+		}
+	}
+};
+
+
+XMLscene.prototype.initScenarios = function () {
+
+	this.scenarioNames = ['cenario1', 'cenario2'];
+	this.scenarioName = this.scenarioNames[0];
+
+
+	this.updateScenarios();
+
+
+
+};
+
 
 

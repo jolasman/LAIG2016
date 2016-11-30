@@ -1,5 +1,5 @@
 function MyInterface(){
-	CGFinterface.call(this);
+    CGFinterface.call(this);
 }
 
 MyInterface.prototype = Object.create(CGFinterface.prototype);
@@ -9,14 +9,38 @@ MyInterface.prototype.init = function(application) {
     CGFinterface.prototype.init.call(this, application);
     this.gui = new dat.GUI();
     this.lights = this.gui.addFolder("Lights");
+    this.scenario = this.gui.addFolder("Scenarios");
+    this.initScenarios();
+    var view = this;
 
     return true;
 };
 
-MyInterface.prototype.initScenario = function() {
-	this.gui.add(this.scene, 'scenarioName', this.scene.scenarioNames).name("Scenario");
-	// this.gui.add(this.scene, 'automaticCamera').name("Automatic Camera");
+MyInterface.prototype.initScenarios = function() {
+    this.scenario1 = this.scenario.add(this.scene.scenarioNamesStatus,0, this.scene.scenarioNames[0]).name(this.scene.scenarioNames[0]);
+    this.scenario2 = this.scenario.add(this.scene.scenarioNamesStatus,1, this.scene.scenarioNames[1]).name(this.scene.scenarioNames[1]);
+
+    var view = this;
+    this.contro1ler1 = this.scenario1.listen();
+    this.contro1ler1.onChange(function (value) {
+        if (value) {
+            view.scene.scenarioNamesStatus[1] = false;
+        }
+    });
+
+    this.controller2 = this.scenario2.listen();
+    this.controller2.onChange(function (value) {
+        if (value) {
+            view.scene.scenarioNamesStatus[0] = false;
+        }
+    });
+
+
+
+
+    // this.gui.add(this.scene, 'automaticCamera').name("Automatic Camera");
 };
+
 
 
 
@@ -30,9 +54,9 @@ MyInterface.prototype.addLightToggler = function(i, id){
 
 MyInterface.prototype.processKeyDown = function(event) {
 
-	switch (event.keyCode)
-	{
-		case (86): // 'V' mudar de vista
-			this.scene.switchCameras();
-	}
+    switch (event.keyCode)
+    {
+        case (86): // 'V' mudar de vista
+            this.scene.switchCameras();
+    }
 };

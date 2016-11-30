@@ -35,12 +35,23 @@ main=function()
 
 	// get file name provided in URL, e.g. http://localhost/myproj/?file=myfile.xml 
 	// or use "demo.xml" as default (assumes files in subfolder "scenes", check MySceneGraph constructor) 
-	
-	var filename=getUrlVars()['file'] || "cena.dsx";
+
+    this.scene = myScene;
+    myScene.graph=this;
+
+    // while((this.scene.scenarioNamesStatus[0] && this.scene.scenarioNamesStatus[1])==false){}
+
+    if(this.scene.scenarioNamesStatus[0] == true){
+        this.ficheiro= "cena.dsx";
+    }
+    else if(this.scene.scenarioNamesStatus[1] ==true){
+        this.ficheiro= "scenario2.dsx";
+    }
 
 	// create and load graph, and associate it to scene. 
 	// Check console for loading errors
-	var myGraph = new MySceneGraph(filename, myScene);
+	 var myGraph = new MySceneGraph(this.ficheiro, myScene);
+
 
 	
 	// start
