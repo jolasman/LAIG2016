@@ -6,23 +6,39 @@ function Tabuleiro(scene)
 {
     CGFobject.call(this,scene);
     this.scene = scene;
-    this.du= 10.0;
-    this.dv= 10.0;
-    this.su= 2.0;
-    this.sv= 2.0;
-
-    var c1 = [0.0,0.0,0.0,1.0];
-    var c2 = [1.0,1.0,1.0,1.0];
-    var cs = [0.9,0.0,0.0,1.0];
 
     this.tabuleiroAppearance1 = new CGFappearance(this.scene);
     this.tabuleiroAppearance1.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
     this.tabuleiroAppearance1.loadTexture("./texturas/marmore.png");
-    this.textureref = this.tabuleiroAppearance1;
+    this.tabuleiroAppearance2 = new CGFappearance(this.scene);
+    this.tabuleiroAppearance2.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+    this.tabuleiroAppearance2.loadTexture("./texturas/marmore_preto.png");
 
-    //passar valores para o shader
-    this.scene.customShader.setUniformsValues({cor1 :c1, cor2 :c2, cor3 :cs, dims: [this.du,this.dv], dimscs: [this.su,this.sv], texturaref: this.textureref});
-
+    this.q1= new MyRectangle(scene,0,8,8,0);
+    this.q2= new MyRectangle(scene,0,8,8,0);
+    this.q3= new MyRectangle(scene,0,8,8,0);
+    this.qq4= new MyRectangle(scene,0,8,8,0);
+    this.q5= new MyRectangle(scene,0,8,8,0);
+    this.q6= new MyRectangle(scene,0,8,8,0);
+    this.q7= new MyRectangle(scene,0,8,8,0);
+    this.q8= new MyRectangle(scene,0,8,8,0);
+    this.q9= new MyRectangle(scene,0,8,8,0);
+    this.q10= new MyRectangle(scene,0,8,8,0);
+    this.q11= new MyRectangle(scene,0,8,8,0);
+    this.q12= new MyRectangle(scene,0,8,8,0);
+    this.q13= new MyRectangle(scene,0,8,8,0);
+    this.q14= new MyRectangle(scene,0,8,8,0);
+    this.q15= new MyRectangle(scene,0,8,8,0);
+    this.q16= new MyRectangle(scene,0,8,8,0);
+    this.q17= new MyRectangle(scene,0,8,8,0);
+    this.q18= new MyRectangle(scene,0,8,8,0);
+    this.q19= new MyRectangle(scene,0,8,8,0);
+    this.q20= new MyRectangle(scene,0,8,8,0);
+    this.q21= new MyRectangle(scene,0,8,8,0);
+    this.q22= new MyRectangle(scene,0,8,8,0);
+    this.q23= new MyRectangle(scene,0,8,8,0);
+    this.q24= new MyRectangle(scene,0,8,8,0);
+    this.q25= new MyRectangle(scene,0,8,8,0);
 
     this.esquerdo = new Cubo(scene);
     this.direito = new Cubo(scene);
@@ -30,7 +46,6 @@ function Tabuleiro(scene)
     this.tras = new Cubo(scene);
     this.baixo = new Cubo(scene);
 
-    this.chess = new Plane(scene,20,20,90,90); // usar valores altos e multiplos de du e dv no valores de partsX e partsY do Plane, para melhor efeito no levantamento dos vertices
     this.initBuffers();
 };
 
@@ -43,15 +58,189 @@ Tabuleiro.prototype.updateTexCoords=function(length_S,length_T){};
 
 Tabuleiro.prototype.display = function ()
 {
-    //truque manhoso para o shader nao estourar
-    this.scene.setActiveShader(this.scene.customShader);
+
+//mil rectangulos para tabuleiro
+//    canto inferior esquerdo
     this.scene.pushMatrix();
     this.tabuleiroAppearance1.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.translate(0,0,2);
-    this.chess.display();
+    this.scene.translate(12,-20,2);
+    this.q1.display();
     this.scene.popMatrix();
-    this.scene.setActiveShader(this.scene.defaultShader);
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(12,-12,2);
+    this.q2.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(12,-4,2);
+    this.q3.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(12,4,2);
+    this.qq4.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(12,12,2);
+    this.q5.display();
+    this.scene.popMatrix();
+
+    // segunda linha
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(4,-20,2);
+    this.q6.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(4,-12,2);
+    this.q7.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(4,-4,2);
+    this.q8.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(4,4,2);
+    this.q9.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(4,12,2);
+    this.q10.display();
+    this.scene.popMatrix();
+
+    // terceira linha
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-4,-20,2);
+    this.q11.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-4,-12,2);
+    this.q12.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-4,-4,2);
+    this.q13.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-4,4,2);
+    this.q14.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-4,12,2);
+    this.q15.display();
+    this.scene.popMatrix();
+
+    // quarta linha
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-12,-20,2);
+    this.q6.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-12,-12,2);
+    this.q7.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-12,-4,2);
+    this.q8.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-12,4,2);
+    this.q9.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-12,12,2);
+    this.q10.display();
+    this.scene.popMatrix();
+
+    // ultima linha
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-20,-20,2);
+    this.q11.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-20,-12,2);
+    this.q12.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-20,-4,2);
+    this.q13.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance2.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-20,4,2);
+    this.q14.display();
+    this.scene.popMatrix();
+
+    this.scene.pushMatrix();
+    this.tabuleiroAppearance1.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.translate(-20,12,2);
+    this.q15.display();
+    this.scene.popMatrix();
 
     //lados
 
