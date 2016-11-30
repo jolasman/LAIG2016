@@ -326,7 +326,7 @@ XMLscene.prototype.update= function(currTime){
 
 XMLscene.prototype.initScenarios = function () {
 
-    this.scenarioNames = ['Mesa', 'Sem Mesa'];
+    this.scenarioNames = ['Mesa', 'Praia'];
 
     this.updateScenario();
 
@@ -337,19 +337,15 @@ XMLscene.prototype.updateScenario = function () {
 
     if(this.scenarioNamesStatus[0] == true){
         this.ficheiro= "cena.dsx";
-        // create and load graph, and associate it to scene.
-        // Check console for loading errors
         var myGraph = new MySceneGraph(this.ficheiro,this);
         this.scenarioNamesStatus[0] = false;
         var myScene = new XMLscene();
     }
     else if(this.scenarioNamesStatus[1] ==true){
         this.ficheiro= "scenario2.dsx";
-        // create and load graph, and associate it to scene.
-        // Check console for loading errors
-        var myGraph = new MySceneGraph(this.ficheiro,this);
+        var myGraph2 = new MySceneGraph(this.ficheiro,this);
         this.scenarioNamesStatus[1] = false;
-        var myScene = new XMLscene();
+        var myScene2 = new XMLscene();
 
     }
 
