@@ -23,6 +23,16 @@ XMLscene.prototype.constructor = XMLscene;
  */
 XMLscene.prototype.init = function (application) {
 	CGFscene.prototype.init.call(this, application);
+	this.scenarioNamesStatus = [true,false];
+
+    // if(!this.scenarioNamesStatus[0] && !this.scenarioNamesStatus[1]){
+        this.initScenarios();
+        // var newgraph = new MySceneGraph('cena.dsx', this);
+        // this.changeScenario();
+    // }
+
+
+
 
 	this.application = application;
 	this.initCameras();
@@ -32,14 +42,13 @@ XMLscene.prototype.init = function (application) {
 	this.gl.enable(this.gl.CULL_FACE);
 	this.gl.depthFunc(this.gl.LEQUAL);
 
-	this.lightStatus = [false, false,	 false, false, false, false, false, false];
-	this.scenarioNamesStatus = [true, false];
+	this.lightStatus = [false, false, false, false, false, false, false, false];
+
 	this.curr_time;
 	this.setUpdatePeriod(10);
 
 	this.customShader = new CGFshader(this.gl, "shaders/flat.vert", "shaders/flat.frag");
 
-	this.initScenarios();
 
 };
 /**
@@ -49,6 +58,10 @@ XMLscene.prototype.init = function (application) {
 XMLscene.prototype.setMyInterface = function (interface) {
 	this.interface = interface;
 };
+
+
+
+
 /**
  * funcao que fazo update das luzes colocando-as enable or disable e visible ou invisible conforme o caso
  */
@@ -270,11 +283,12 @@ XMLscene.prototype.display = function () {
 	this.loadIdentity();
 	this.applyViewMatrix();
 	this.setDefaultAppearance();
-
+    this.updateScenario();
 	if (this.graph.loadedOk)
 	{
 		// this.axis.display();
 		this.updateLights();
+
 
 		var noinicial = this.root["id"];
 		var materialInicial = this.grafo[noinicial].material != "null" ? this.grafo[noinicial].material :"branco";
@@ -316,28 +330,37 @@ XMLscene.prototype.update= function(currTime){
 	}
 };
 
-XMLscene.prototype.updateScenarios = function () {
-	for(var i = 0; i < this.scenarioNames.length; i++) {
-
-		if(this.scenarioNamesStatus[i]){
-			// chamar scenario
-
-		}
-	}
-};
-
 
 XMLscene.prototype.initScenarios = function () {
 
-	this.scenarioNames = ['cenario1', 'cenario2'];
-	this.scenarioName = this.scenarioNames[0];
+	this.scenarioNames = ['Mesa', 'Sem Mesa'];
+
+this.updateScenario();
+
+};
 
 
-	this.updateScenarios();
+XMLscene.prototype.updateScenario = function () {
+
+     if(this.scenarioNamesStatus[0] == true){
+         this.ficheiro= "cena.dsx";
+         // create and load graph, and associate it to scene.
+         // Check console for loading errors
+         var myGraph = new MySceneGraph(this.ficheiro,this);
+         this.scenarioNamesStatus[0] = false;
+     }
+     else if(this.scenarioNamesStatus[1] ==true){
+         this.ficheiro= "scenario2.dsx";
+         // create and load graph, and associate it to scene.
+         // Check console for loading errors
+         var myGraph = new MySceneGraph(this.ficheiro,this);
+         this.scenarioNamesStatus[1] = false;
+
+     }
+
 
 
 
 };
-
 
 

@@ -7,13 +7,6 @@ function MySceneGraph(filename, scene) {
     this.scene = scene;
     scene.graph=this;
 
-   //  if(this.scene.scenarioNamesStatus[0] == true){
-   //      this.ficheiro= "cena.dsx";
-   //  }
-   // else if(this.scene.scenarioNamesStatus[1] ==true){
-   //      this.ficheiro= "scenario2.dsx";
-   //  }
-
     // File reading
     this.reader = new CGFXMLreader();
     this.reader.open('scenes/'+filename, this);

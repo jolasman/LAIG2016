@@ -26,13 +26,16 @@ MyInterface.prototype.initScenarios = function() {
         if (value) {
             view.scene.scenarioNamesStatus[1] = false;
         }
+
     });
 
     this.controller2 = this.scenario2.listen();
     this.controller2.onChange(function (value) {
         if (value) {
             view.scene.scenarioNamesStatus[0] = false;
+
         }
+
     });
 
 
