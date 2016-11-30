@@ -14,6 +14,10 @@ function Tabuleiro(scene)
     this.tabuleiroAppearance2.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
     this.tabuleiroAppearance2.loadTexture("./texturas/marmore_preto.png");
 
+    this.ladosAppearance = new CGFappearance(this.scene);
+    this.ladosAppearance.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+    this.ladosAppearance.loadTexture("./texturas/tecto.png");
+
     this.q1= new MyRectangle(scene,0,8,8,0);
     this.q2= new MyRectangle(scene,0,8,8,0);
     this.q3= new MyRectangle(scene,0,8,8,0);
@@ -45,6 +49,9 @@ function Tabuleiro(scene)
     this.frente = new Cubo(scene);
     this.tras = new Cubo(scene);
     this.baixo = new Cubo(scene);
+
+    this.recEsq = new MyRectangle(scene,0,1,1,0);
+    this.recDir = new MyRectangle(scene,0,1,1,0);
 
     this.initBuffers();
 };
@@ -174,35 +181,35 @@ Tabuleiro.prototype.display = function ()
     this.tabuleiroAppearance2.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-12,-20,2);
-    this.q6.display();
+    this.q16.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance1.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-12,-12,2);
-    this.q7.display();
+    this.q17.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance2.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-12,-4,2);
-    this.q8.display();
+    this.q18.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance1.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-12,4,2);
-    this.q9.display();
+    this.q19.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance2.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-12,12,2);
-    this.q10.display();
+    this.q20.display();
     this.scene.popMatrix();
 
     // ultima linha
@@ -211,42 +218,42 @@ Tabuleiro.prototype.display = function ()
     this.tabuleiroAppearance1.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-20,-20,2);
-    this.q11.display();
+    this.q21.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance2.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-20,-12,2);
-    this.q12.display();
+    this.q22.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance1.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-20,-4,2);
-    this.q13.display();
+    this.q23.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance2.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-20,4,2);
-    this.q14.display();
+    this.q24.display();
     this.scene.popMatrix();
 
     this.scene.pushMatrix();
     this.tabuleiroAppearance1.apply();
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(-20,12,2);
-    this.q15.display();
+    this.q25.display();
     this.scene.popMatrix();
 
     //lados
 
     //lado esquerdo
     this.scene.pushMatrix();
-    this.tabuleiroAppearance1.apply();
+    this.ladosAppearance.apply();
     this.scene.scale(40,3,5);
     this.scene.translate(-0.5,0,4);
     this.esquerdo.display();
@@ -280,5 +287,28 @@ Tabuleiro.prototype.display = function ()
     this.scene.translate(-0.5,-1,-0.5);
     this.baixo.display();
     this.scene.popMatrix();
+
+    // recs
+
+    //rec esquerdo
+    this.scene.pushMatrix();
+    this.ladosAppearance.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(Math.PI/2, 0,0,1);
+    this.scene.translate(-25,-20,3.1);
+    this.scene.scale(5,40,1);
+    this.recEsq.display();
+    this.scene.popMatrix();
+
+    // rec direito
+    this.scene.pushMatrix();
+    this.ladosAppearance.apply();
+    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(Math.PI/2, 0,0,1);
+    this.scene.translate(20,-20,3.1);
+    this.scene.scale(5,40,1);
+    this.recEsq.display();
+    this.scene.popMatrix();
+
 
 };
