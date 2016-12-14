@@ -42,6 +42,10 @@ XMLscene.prototype.init = function (application) {
 
     this.customShader = new CGFshader(this.gl, "shaders/flat.vert", "shaders/flat.frag");
 
+    this.setPickEnabled(true);
+    this.j =26;
+
+    this.escolhido = null;
 
 };
 /**
@@ -51,8 +55,6 @@ XMLscene.prototype.init = function (application) {
 XMLscene.prototype.setMyInterface = function (interface) {
     this.interface = interface;
 };
-
-
 
 
 /**
@@ -252,7 +254,11 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
             this.primitivas[nome].updateTexCoords(this.texturas[texturaprimup]["length_s_t"]["s"], this.texturas[texturaprimup]["length_s_t"]["t"]);
         }
         this.materiais[material].apply();
+
+
         this.primitivas[nome].display();
+        this.clearPickRegistration();
+
     }
     for(var i = 0; i < node.descendents.length; i++) {
 
@@ -263,10 +269,36 @@ XMLscene.prototype.writeGraph = function(noID,materialID,textureID){
 
 };
 
+
+
+XMLscene.prototype.logPicking = function ()
+{
+    if (this.pickMode == false) {
+        if (this.pickResults != null && this.pickResults.length > 0) {
+            for (var i=0; i< this.pickResults.length; i++) {
+                var obj = this.pickResults[i][0];
+                if (obj)
+                {
+                    var customId = this.pickResults[i][1];
+                    console.log("Picked object: " + obj + ", with pick id " + customId);
+                    this.escolhido = customId;
+                }
+            }
+            this.pickResults.splice(0,this.pickResults.length);
+        }
+    }
+};
+
+
+
 /**
  * funcao que faz o display no ecra do pretendido onde sao chamadas as outras funcoes com os valores que pretendemos colocar no ecra
  */
 XMLscene.prototype.display = function () {
+
+
+    this.logPicking();
+    this.clearPickRegistration();
 
     this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
@@ -288,8 +320,13 @@ XMLscene.prototype.display = function () {
         var texturaInicial = this.grafo[noinicial].texture;
 
         this.writeGraph(noinicial,materialInicial,texturaInicial);
+        this.j = 26;
     }
 };
+
+
+
+
 
 /**
  * funcao update das animacoes

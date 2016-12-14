@@ -1100,7 +1100,7 @@ MySceneGraph.prototype.parsePrimitives = function(rootElement) {
             this.aspeda = this.reader.getFloat(specul, "a", true);
             var spefinal = [this.rspeda,this.gspeda,this.bspeda,this.aspeda];
 
-            this.scene.primitivas[this.idprims] = new Dado(this.scene,ambfinal,diffinal,spefinal);
+            this.scene.primitivas[this.idprims] = new Peca(this.scene,ambfinal,diffinal,spefinal);
             this.scene.grafo[this.idprims] = new Node();
             this.scene.grafo[this.idprims].setType("dado");
         }

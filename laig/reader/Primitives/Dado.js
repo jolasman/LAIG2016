@@ -27,7 +27,9 @@ Dado.prototype.display = function ()
     this.scene.pushMatrix();
     this.scene.scale(5,5,5);
     this.scene.translate(-0.5,0.45,-0.5);
+
     this.dado.display();
     this.scene.popMatrix();
 
 };
+
