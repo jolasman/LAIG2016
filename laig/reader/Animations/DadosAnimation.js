@@ -1,12 +1,18 @@
-function DadosAnimation(scene, span, radius, centre, start_angle, rot_angle) {
+/*
+	recebe a posição inicial do dado e a posiçao final, e faz o movimento em volta do centro das duas posições
+	o movimento é uma rotação que ocorre ao longo do eixo dos Zs
+*/
 
-	Animation.call(this, scene, span);
+function DadosAnimation(scene, initial_pos, chessboard_pos) {
+
+	this.span = 3;
+	Animation.call(this, scene, this.span);
 
 
-	this.radius = radius;
-	this.centre = centre;
-	this.start_angle = start_angle * Math.PI/180; //conversao para radianos
-	this.rot_angle = rot_angle * Math.PI/180;
+	this.centre = chessboard_pos - initial_pos;
+	this.radius = chessboard_pos - centre;
+	this.start_angle = 0 * Math.PI/180;		//conversao para radianos
+	this.rot_angle = Math.PI;
 
 	this.final_angle = this.start_angle + this.rot_angle;
 	this.delta_angle = this.final_angle / this.span;
@@ -19,7 +25,7 @@ function DadosAnimation(scene, span, radius, centre, start_angle, rot_angle) {
 
 	mat4.identity(this.matrix);
 	mat4.translate(this.matrix, this.matrix, [this.centre[0] + this.delta_x, this.centre[1], this.centre[2] + this.delta_z]);
-	mat4.rotate(this.matrix, this.matrix, this.start_angle, [0,1,0]);
+	mat4.rotate(this.matrix, this.matrix, this.start_angle, [0,0,1]);
 
 	this.rotation = this.start_angle;
 };
@@ -45,7 +51,7 @@ DadosAnimation.prototype.update= function(currTime){
 
 			mat4.identity(this.matrix);
 			mat4.translate(this.matrix, this.matrix, [this.centre[0]+this.delta_x, this.centre[1], this.centre[2]+this.delta_z]);
-			mat4.rotate(this.matrix, this.matrix, this.rotation, [0,1,0]);
+			mat4.rotate(this.matrix, this.matrix, this.rotation, [0,0,1]);
 
 			this.prevTime = currTime;
 		}
