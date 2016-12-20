@@ -14,11 +14,10 @@ function Tabuleiro(scene)
             this.arrayTiles[i].push( new Tile(this.scene,this.tabuleiro));
         }
     }
-    this.arrayTiles[0][0].setTilePeca(new Peca(this.scene));
-    this.arrayTiles[0][1].setTilePeca(new Peca(this.scene));
-    this.arrayTiles[0][2].setTilePeca(new Peca(this.scene));
-    this.arrayTiles[4][0].setTilePeca(new Peca(this.scene));
-
+    this.arrayTiles[0][0].setTilePeca(new Peca(this.scene),1);
+    this.arrayTiles[0][1].setTilePeca(new Peca(this.scene),2);
+    this.arrayTiles[0][2].setTilePeca(new Peca(this.scene),1);
+    this.arrayTiles[4][0].setTilePeca(new Peca(this.scene),2);
 
     this.esquerdo = new Cubo(scene);
     this.direito = new Cubo(scene);
@@ -29,19 +28,6 @@ function Tabuleiro(scene)
     this.recEsq = new MyRectangle(scene,0,1,1,0);
     this.recDir = new MyRectangle(scene,0,1,1,0);
 
-
-
-    this.selectappear = new CGFappearance(this.scene);
-    this.selectappear.setAmbient(0.5,0.5,0.5,1);
-    this.selectappear.setDiffuse(0.5,0.5,0.5,1);
-    this.selectappear.setSpecular(0.5,0.5,0.5,1);
-    this.selectappear.setShininess(8.8);
-    this.selectappear.setEmission(0,0,0.0,1);
-    this.selectappear.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-    this.selectappear.loadTexture("./texturas/agua.png");
-
-
-
     this.ladosAppearance = new CGFappearance(this.scene);
     this.ladosAppearance.setAmbient(0.5,0.5,0.5,1);
     this.ladosAppearance.setDiffuse(0.5,0.5,0.5,1);
@@ -50,8 +36,6 @@ function Tabuleiro(scene)
     this.ladosAppearance.setEmission(0,0,0.0,1);
     this.ladosAppearance.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
     this.ladosAppearance.loadTexture("./texturas/madeiracena.png");
-
-
 
     this.initBuffers();
 }
@@ -68,27 +52,24 @@ Tabuleiro.prototype.display = function ()
 
     for( var i= 0; i<5; i++){
         for(var j = 0; j<5; j++){
-            var k = i*5+j;
+            var k = i*5 + j + 1;
             this.scene.pushMatrix();
             this.scene.rotate(-Math.PI/2, 1,0,0);
             this.scene.translate(12-8*i,-20+8*j,2);
+
             if(this.scene.escolhido == k){
-
-
+                this.arrayTiles[i][j].display(true,true);
             }
 
             else if((i+j)%2 == 0) {
-                this.arrayTiles[i][j].display(true);
+                this.arrayTiles[i][j].display(true,false);
             }else {
-                this.arrayTiles[i][j].display(false);
+                this.arrayTiles[i][j].display(false,false);
             }
 
             this.scene.registerForPick(k, this.arrayTiles[i][j]);
-
             this.scene.popMatrix();
         }
-
-
     }
 
 
