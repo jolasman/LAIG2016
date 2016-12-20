@@ -18,13 +18,22 @@ function Tile(scene, tabuleiro)
     this.marmoreappearance.setShininess(0.8);
     this.marmoreappearance.setEmission(0,0,0.0,1);
     this.marmoreappearance.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-    this.marmoreappearance.loadTexture("./texturas/marmore_preto.png");
+    this.marmoreappearance.loadTexture("./texturas/marmore.png");
+
+    this.marmorepretoappearance = new CGFappearance(this.scene);
+    this.marmorepretoappearance.setAmbient(0.5,0.5,0.5,1);
+    this.marmorepretoappearance.setDiffuse(0.5,0.5,0.5,1);
+    this.marmorepretoappearance.setSpecular(0.5,0.5,0.5,1);
+    this.marmorepretoappearance.setShininess(0.8);
+    this.marmorepretoappearance.setEmission(0,0,0.0,1);
+    this.marmorepretoappearance.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+    this.marmorepretoappearance.loadTexture("./texturas/marmore_preto.png");
 
 
     this.pecaappearance = new CGFappearance(this.scene);
-    this.pecaappearance.setAmbient(0.9,0.1,0.5,1);
-    this.pecaappearance.setDiffuse(0.9,0.1,0.5,1);
-    this.pecaappearance.setSpecular(0.9,0.1,0.5,1);
+    this.pecaappearance.setAmbient(0.9,0.1,0.1,1);
+    this.pecaappearance.setDiffuse(0.9,0.1,0.1,1);
+    this.pecaappearance.setSpecular(0.9,0.1,0.1,1);
     this.pecaappearance.setShininess(0.8);
     this.pecaappearance.setEmission(0,0,0.0,1);
 
@@ -39,7 +48,7 @@ Tile.prototype.initBuffers = function () {};
 
 Tile.prototype.updateTexCoords=function(length_S,length_T){};
 
-Tile.prototype.display = function ()
+Tile.prototype.display = function (cor)
 {
     this.scene.pushMatrix();
    if(this.peca != null){
@@ -50,11 +59,19 @@ Tile.prototype.display = function ()
        this.peca.display();
        this.scene.popMatrix();
    }
-    this.marmoreappearance.apply();
-    this.rec.display();
-    this.scene.popMatrix();
 
+   if(cor) {
+       this.marmoreappearance.apply();
+       this.rec.display();
+       this.scene.popMatrix();
+   } else {
+       this.marmorepretoappearance.apply();
+       this.rec.display();
+       this.scene.popMatrix();
+   }
 };
+
+
 
 
 Tile.prototype.setTilePeca=function(peca){

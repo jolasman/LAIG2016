@@ -75,18 +75,12 @@ Tabuleiro.prototype.display = function ()
             if(this.scene.escolhido == k){
 
 
-
             }
 
             else if((i+j)%2 == 0) {
-
-                this.arrayTiles[i][j].display();
-
+                this.arrayTiles[i][j].display(true);
             }else {
-
-
-                this.arrayTiles[i][j].display();
-
+                this.arrayTiles[i][j].display(false);
             }
 
             this.scene.registerForPick(k, this.arrayTiles[i][j]);
