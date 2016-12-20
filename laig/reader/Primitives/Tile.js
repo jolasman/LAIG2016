@@ -12,7 +12,7 @@ function Tile(scene, tabuleiro)
     this.rec= new MyRectangle(scene,0,8,8,0);
 
     this.initBuffers();
-};
+}
 
 Tile.prototype = Object.create(CGFobject.prototype);
 Tile.prototype.constructor=Tile;

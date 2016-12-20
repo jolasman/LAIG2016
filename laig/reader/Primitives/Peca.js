@@ -1,15 +1,12 @@
 /**
  * Created by Joel Carneiro on 12/11/2016.
  */
-function Peca(scene,ambient,difuse,specular, tile)
+function Peca(scene)
 
 {
     CGFobject.call(this,scene);
     this.scene = scene;
-    this.ambiente = ambient;
-    this.difuse = difuse;
-    this.speculare = specular;
-    this.tile = tile;
+
 
     this.ladobaixo1 = new MyRectangle(scene,0,1,1,0);
     this.ladoesquerdo1 = new MyRectangle(scene,0,1,1,0);

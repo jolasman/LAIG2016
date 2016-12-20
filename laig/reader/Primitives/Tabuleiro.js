@@ -8,12 +8,12 @@ function Tabuleiro(scene)
     this.scene = scene;
     this.arrayTiles = [];
 
-    // for(var i = 0; i <5; i++ ){
-    //     this.arrayTiles.push([]);
-    //     for(var j = 0; j <5; j++ ){
-    //         this.arrayTiles[i].push( new Tile(this));
-    //     }
-    // }
+    for(var i = 0; i <5; i++ ){
+        this.arrayTiles.push([]);
+        for(var j = 0; j <5; j++ ){
+            this.arrayTiles[i].push( new Tile(this.scene,this.tabuleiro));
+        }
+    }
 
 
     // this.dadoazul = new Peca(this,[0.0,0.2,1,1],[0.0,0.2,1,1],[0.0,0.2,1,1]);
