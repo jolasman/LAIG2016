@@ -48,6 +48,8 @@ Peca.prototype.display = function ()
 
     this.scene.rotate(Math.PI/2, 1,0,0);
     this.ladobaixo1.display();
+    this.numero6.unbind();
+
     this.scene.popMatrix();
 
     //lado esquerdo
@@ -57,6 +59,8 @@ Peca.prototype.display = function ()
 
     this.scene.translate(0,0,1);
     this.ladoesquerdo1.display();
+    this.numero3.unbind();
+
     this.scene.popMatrix();
 
 //lado direito
@@ -67,6 +71,8 @@ Peca.prototype.display = function ()
     this.scene.rotate(Math.PI, 0,1,0);
     this.scene.translate(-1,0,0);
     this.ladodireito1.display();
+    this.numero4.unbind();
+
     this.scene.popMatrix();
 
 //lado tras
@@ -76,6 +82,8 @@ Peca.prototype.display = function ()
 
     this.scene.rotate(-Math.PI/2, 0,1,0);
     this.ladotras1.display();
+    this.numero2.unbind();
+
     this.scene.popMatrix();
 
 //lado frente
@@ -86,6 +94,8 @@ Peca.prototype.display = function ()
     this.scene.rotate(Math.PI/2, 0,1,0);
     this.scene.translate(-1,0,1);
     this.ladofrente1.display();
+    this.numero5.unbind();
+
     this.scene.popMatrix();
 
     //lado cima
@@ -97,6 +107,8 @@ Peca.prototype.display = function ()
     this.scene.rotate(-Math.PI/2, 1,0,0);
     this.scene.translate(0,-1,1);
     this.ladocima1.display();
+    this.numero1.unbind();
+
     this.scene.popMatrix();
 
 

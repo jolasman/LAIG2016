@@ -34,7 +34,9 @@ Tile.prototype.display = function ()
 };
 
 
-Tile.prototype.setTilePeca=function(){};
+Tile.prototype.setTilePeca=function(peca){
+    this.peca = peca;
+}
 /**
  * Created by Joel Carneiro on 14/12/2016.
  */
