@@ -56,6 +56,10 @@ XMLscene.prototype.init = function (application) {
     this.j =26;
 
     this.escolhido = null;
+    this.dadoescolhido = null;
+    this.state = 0;
+    this.player = 1;
+
 
 };
 /**
@@ -291,7 +295,25 @@ XMLscene.prototype.logPicking = function ()
                 {
                     var customId = this.pickResults[i][1];
                     console.log("Picked object: " + obj + ", with pick id " + customId);
-                    this.escolhido = customId;
+                    if(this.state == 0){
+                        this.escolhido = customId;
+                        this.state = 1;
+                    }
+                    else if(this.state == 1){
+                        this.dadoescolhido = customId;
+                        this.state=-1;
+                    }
+                    else if(this.state == -1){
+                        this.escolhido = null;
+                        this.dadoescolhido = null;
+                        this.state=0;
+                        if(this.player == 1){
+                            this.player = 2;
+                        }
+                        else {
+                            this.player =1;
+                        }
+                    }
                 }
             }
             this.pickResults.splice(0,this.pickResults.length);

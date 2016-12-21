@@ -50,7 +50,7 @@ function Tile(scene, tabuleiro)
     this.selectappear.setShininess(8.8);
     this.selectappear.setEmission(0,0,0.0,1);
     this.selectappear.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
-    this.selectappear.loadTexture("./texturas/agua.png");
+    this.selectappear.loadTexture("./texturas/marmore_select.png");
 
     this.initBuffers();
 }
@@ -69,14 +69,14 @@ Tile.prototype.display = function (cor,select)
       if(this.player == 1) {
           this.scene.pushMatrix();
           this.scene.scale(5, 5, 5);
-          this.scene.translate(0.35, 0.35, 0.5);
+          this.scene.translate(0.35, 0.35, 0);
           this.pecaappearance.apply();
           this.peca.display();
           this.scene.popMatrix();
       }else{
           this.scene.pushMatrix();
           this.scene.scale(5, 5, 5);
-          this.scene.translate(0.35, 0.35, 0.5);
+          this.scene.translate(0.35, 0.35, 0);
           this.pecaappearance2.apply();
           this.peca.display();
           this.scene.popMatrix();
@@ -105,7 +105,7 @@ Tile.prototype.display = function (cor,select)
 Tile.prototype.setTilePeca=function(peca, player){
     this.peca = peca;
     this.player = player;
-}
+};
 /**
  * Created by Joel Carneiro on 14/12/2016.
  */
