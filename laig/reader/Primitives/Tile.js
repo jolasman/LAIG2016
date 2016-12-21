@@ -92,7 +92,7 @@ Tile.prototype.display = function (cor,select)
           else if(this.numero == 5){
               this.scene.rotate(-Math.PI/2, 0,1,0);
               this.scene.scale(5, 5, 5);
-              this.scene.translate(0, 0.35, -1.5);
+              this.scene.translate(0, 0.35, -1.3);
           }
           else if(this.numero == 6){
               this.scene.rotate(Math.PI/2, 0,0,1);
@@ -129,7 +129,7 @@ Tile.prototype.display = function (cor,select)
           else if(this.numero == 5){
               this.scene.rotate(-Math.PI/2, 0,1,0);
               this.scene.scale(5, 5, 5);
-              this.scene.translate(0, 0.35, -1.5);
+              this.scene.translate(0, 0.35, -1.3);
           }
           else if(this.numero == 6){
               this.scene.rotate(Math.PI/2, 0,0,1);

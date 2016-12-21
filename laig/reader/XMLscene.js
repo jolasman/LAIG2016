@@ -174,10 +174,12 @@ XMLscene.prototype.createCameras = function () {
         this.to = this.cameras[i][5];
         this.arrayCamaras.push(new CGFcamera(this.angle, this.near, this.far, vec3.fromValues(this.from[0], this.from[1], this.from[2]), vec3.fromValues(this.to[0], this.to[1], this.to[2])));
     }
-
-    this.camera = this.arrayCamaras[0];
+if(this.player == 1) {
+    this.camera = this.arrayCamaras[1];
     this.camera_view = 0;
     this.application.interface.setActiveCamera(this.camera);
+}
+
 
 };
 
@@ -308,9 +310,16 @@ XMLscene.prototype.logPicking = function ()
                         this.dadoescolhido = null;
                         this.state=0;
                         if(this.player == 1){
+                            this.camera = this.arrayCamaras[2];
+                            this.camera_view = 0;
+                            this.application.interface.setActiveCamera(this.camera);
                             this.player = 2;
+
                         }
                         else {
+                            this.camera = this.arrayCamaras[1];
+                            this.camera_view = 0;
+                            this.application.interface.setActiveCamera(this.camera);
                             this.player =1;
                         }
                     }
@@ -355,10 +364,6 @@ XMLscene.prototype.display = function () {
         this.j = 26;
     }
 };
-
-
-
-
 
 /**
  * funcao update das animacoes
