@@ -13,6 +13,9 @@ function Tabuleiro(scene) {
         }
     }
 
+    this.dadoexp = new Peca(this.scene);
+
+
     this.um= new MyRectangle(scene,0,8,8,0);
 
     this.appearancedado1 = new CGFappearance(this.scene);
@@ -68,59 +71,45 @@ Tabuleiro.prototype.updateTexCoords = function (length_S, length_T) {
 };
 
 Tabuleiro.prototype.verificaDado = function(i, j, k) {
+
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 51) {
-        if(this.scene.player == 1){
-            this.arrayTiles[i][j].setTilePeca(new Peca1(this.scene), 1);
-        }
-        else if(this.scene.player == 2) {
-            this.arrayTiles[i][j].setTilePeca(new Peca1(this.scene), 2);
-        }
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 1);
     }
-
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 52) {
-        if(this.scene.player == 1){
-            this.arrayTiles[i][j].setTilePeca(new Peca2(this.scene), 1);
-        }
-        else if(this.scene.player == 2) {
-            this.arrayTiles[i][j].setTilePeca(new Peca2(this.scene), 2);
-        }
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 2);
     }
-
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 53) {
-        if(this.scene.player == 1){
-            this.arrayTiles[i][j].setTilePeca(new Peca3(this.scene), 1);
-        }
-        else if(this.scene.player == 2) {
-            this.arrayTiles[i][j].setTilePeca(new Peca3(this.scene), 2);
-        }
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 3);
     }
-
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 54) {
-        if(this.scene.player == 1){
-            this.arrayTiles[i][j].setTilePeca(new Peca4(this.scene), 1);
-        }
-        else if(this.scene.player == 2) {
-            this.arrayTiles[i][j].setTilePeca(new Peca4(this.scene), 2);
-        }
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 4);
     }
-
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 55) {
-        if(this.scene.player == 1){
-            this.arrayTiles[i][j].setTilePeca(new Peca5(this.scene), 1);
-        }
-        else if(this.scene.player == 2) {
-            this.arrayTiles[i][j].setTilePeca(new Peca5(this.scene), 2);
-        }
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 5);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 56) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 6);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 57) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 1);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 58) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 2);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 59) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 3);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 60) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 4);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 61) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 5);
+    }
+    if (this.scene.escolhido == k && this.scene.dadoescolhido == 62) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 6);
     }
 
-    if (this.scene.escolhido == k && this.scene.dadoescolhido == 56) {
-        if(this.scene.player == 1){
-            this.arrayTiles[i][j].setTilePeca(new Peca6(this.scene), 1);
-        }
-        else if(this.scene.player == 2) {
-            this.arrayTiles[i][j].setTilePeca(new Peca6(this.scene), 2);
-        }
-    }
+
 };
 
 Tabuleiro.prototype.display = function () {
@@ -225,7 +214,7 @@ Tabuleiro.prototype.display = function () {
     this.scene.scale(1, 1, 1);
     this.scene.translate(20, -2, 40);
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.registerForPick(51, this.um);
+    this.scene.registerForPick(57, this.um);
     this.um.display();
     this.n1.unbind();
     this.scene.popMatrix();
@@ -236,7 +225,7 @@ Tabuleiro.prototype.display = function () {
     this.scene.scale(1, 1, 1);
     this.scene.translate(10, -2, 40);
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.registerForPick(52, this.um);
+    this.scene.registerForPick(58, this.um);
     this.um.display();
     this.n2.unbind();
     this.scene.popMatrix();
@@ -247,7 +236,7 @@ Tabuleiro.prototype.display = function () {
     this.scene.scale(1, 1, 1);
     this.scene.translate(0, -2, 40);
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.registerForPick(53, this.um);
+    this.scene.registerForPick(59, this.um);
     this.um.display();
     this.n3.unbind();
     this.scene.popMatrix();
@@ -258,7 +247,7 @@ Tabuleiro.prototype.display = function () {
     this.scene.scale(1, 1, 1);
     this.scene.translate(-10, -2, 40);
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.registerForPick(54, this.um);
+    this.scene.registerForPick(60, this.um);
     this.um.display();
     this.n4.unbind();
     this.scene.popMatrix();
@@ -269,7 +258,7 @@ Tabuleiro.prototype.display = function () {
     this.scene.scale(1, 1, 1);
     this.scene.translate(-20, -2, 40);
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.registerForPick(55, this.um);
+    this.scene.registerForPick(61, this.um);
     this.um.display();
     this.n5.unbind();
     this.scene.popMatrix();
@@ -281,7 +270,7 @@ Tabuleiro.prototype.display = function () {
     this.scene.translate(-30, -2, 32);
     this.scene.rotate(-Math.PI/2, 0,1,0);
     this.scene.rotate(-Math.PI/2, 1,0,0);
-    this.scene.registerForPick(56, this.um);
+    this.scene.registerForPick(62, this.um);
     this.um.display();
     this.n6.unbind();
     this.scene.popMatrix();

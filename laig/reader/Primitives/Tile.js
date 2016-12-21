@@ -9,6 +9,7 @@ function Tile(scene, tabuleiro)
     this.tabuleiro = tabuleiro;
     this.peca = null;
     this.player = null;
+    this.numero = null;
     this.rec= new MyRectangle(scene,0,8,8,0);
 
     this.marmoreappearance = new CGFappearance(this.scene);
@@ -68,15 +69,75 @@ Tile.prototype.display = function (cor,select)
    if(this.peca != null){
       if(this.player == 1) {
           this.scene.pushMatrix();
-          this.scene.scale(5, 5, 5);
-          this.scene.translate(0.35, 0.35, 0);
+          if(this.numero == 1){
+               this.scene.rotate(Math.PI*2, 0,1,0);
+              this.scene.rotate(Math.PI/2, 1,0,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0.35, 0, -1.3);
+          }
+          else if(this.numero == 2){
+              this.scene.rotate(Math.PI/2, 0,1,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(-1, 0.3, 0.35);
+          }
+          else if(this.numero == 3){
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0.35, 0.3, 0);
+          }
+          else if(this.numero == 4){
+              this.scene.rotate(Math.PI, 0,1,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(-1.35, 0.3, -1);
+          }
+          else if(this.numero == 5){
+              this.scene.rotate(-Math.PI/2, 0,1,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0, 0.35, -1.5);
+          }
+          else if(this.numero == 6){
+              this.scene.rotate(Math.PI/2, 0,0,1);
+              this.scene.rotate(-Math.PI/2, 1,0,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0.35, -1, -1.3);
+          }
+
           this.pecaappearance.apply();
           this.peca.display();
           this.scene.popMatrix();
       }else{
           this.scene.pushMatrix();
-          this.scene.scale(5, 5, 5);
-          this.scene.translate(0.35, 0.35, 0);
+          if(this.numero == 1){
+              this.scene.rotate(Math.PI*2, 0,1,0);
+              this.scene.rotate(Math.PI/2, 1,0,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0.35, 0, -1.3);
+          }
+          else if(this.numero == 2){
+              this.scene.rotate(Math.PI/2, 0,1,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(-1, 0.3, 0.35);
+          }
+          else if(this.numero == 3){
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0.35, 0.3, 0);
+          }
+          else if(this.numero == 4){
+              this.scene.rotate(Math.PI, 0,1,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(-1.35, 0.3, -1);
+          }
+          else if(this.numero == 5){
+              this.scene.rotate(-Math.PI/2, 0,1,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0, 0.35, -1.5);
+          }
+          else if(this.numero == 6){
+              this.scene.rotate(Math.PI/2, 0,0,1);
+              this.scene.rotate(-Math.PI/2, 1,0,0);
+              this.scene.scale(5, 5, 5);
+              this.scene.translate(0.35, -1, -1.3);
+          }
+
           this.pecaappearance2.apply();
           this.peca.display();
           this.scene.popMatrix();
@@ -102,9 +163,10 @@ Tile.prototype.display = function (cor,select)
 
 
 
-Tile.prototype.setTilePeca=function(peca, player){
+Tile.prototype.setTilePeca=function(peca, player, numero){
     this.peca = peca;
     this.player = player;
+    this.numero = numero;
 };
 /**
  * Created by Joel Carneiro on 14/12/2016.
