@@ -33,7 +33,7 @@ XMLscene.prototype.constructor = XMLscene;
  */
 XMLscene.prototype.init = function (application) {
     CGFscene.prototype.init.call(this, application);
-    this.scenarioNamesStatus = [true, false];
+    this.scenarioNamesStatus = [true,false];
 
     this.initScenarios();
 
