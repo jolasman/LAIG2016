@@ -30,11 +30,11 @@
           <file leaf-file-name="Tabuleiro.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="580">
-                  <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+                <state relative-caret-position="359">
+                  <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
                   <folding>
-                    <element signature="e#5201#9337#0" expanded="false" />
-                    <element signature="e#9388#10895#0" expanded="false" />
+                    <element signature="e#5447#9583#0" expanded="false" />
+                    <element signature="e#9634#11141#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -63,8 +63,8 @@
           <file leaf-file-name="Tile.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="858">
-                  <caret line="154" column="30" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
+                <state relative-caret-position="19">
+                  <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
                   <folding>
                     <element signature="e#2704#2912#0" expanded="false" />
                     <element signature="e#2948#3104#0" expanded="false" />
@@ -941,12 +941,12 @@
       <workItem from="1482325792155" duration="6271000" />
       <workItem from="1482340223981" duration="745000" />
       <workItem from="1482456825084" duration="1718000" />
-      <workItem from="1482503739673" duration="501000" />
+      <workItem from="1482503739673" duration="2517000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301280000" />
+    <option name="totallyTimeSpent" value="303296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1346,8 +1346,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="154" column="30" selection-start-line="154" selection-start-column="30" selection-end-line="154" selection-end-column="30" />
+        <state relative-caret-position="19">
+          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
           <folding>
             <element signature="e#2704#2912#0" expanded="false" />
             <element signature="e#2948#3104#0" expanded="false" />
@@ -1366,11 +1366,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="127" column="39" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
+        <state relative-caret-position="359">
+          <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
           <folding>
-            <element signature="e#5201#9337#0" expanded="false" />
-            <element signature="e#9388#10895#0" expanded="false" />
+            <element signature="e#5447#9583#0" expanded="false" />
+            <element signature="e#9634#11141#0" expanded="false" />
           </folding>
         </state>
       </provider>

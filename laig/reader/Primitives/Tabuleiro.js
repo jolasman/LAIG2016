@@ -112,7 +112,14 @@ Tabuleiro.prototype.verificaDado = function (i, j, k) {
 
 };
 
-
+Tabuleiro.prototype.isValidPosition = function (i, j) {
+    if(this.arrayTiles[i+1][j].getTilePeca()!= null)
+    {
+        this.arrayTiles[i+1][j].display(true, true);
+       // return false;
+    }else
+        return true;
+};
 
 Tabuleiro.prototype.display = function () {
 
@@ -130,7 +137,7 @@ Tabuleiro.prototype.display = function () {
 
             if (this.scene.escolhido == k) {
 
-                this.arrayTiles[i][j].display(true, true);
+                this.arrayTiles[i][j].display(true, this.isValidPosition(i,j));
             }
             else if ((i + j) % 2 == 0) {
                 this.arrayTiles[i][j].display(true, false);
