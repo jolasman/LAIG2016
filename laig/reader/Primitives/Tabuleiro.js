@@ -73,7 +73,6 @@ Tabuleiro.prototype.updateTexCoords = function (length_S, length_T) {
 Tabuleiro.prototype.verificaDado = function(i, j, k) {
 
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 51) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 1);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 52) {
             this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 2);
@@ -112,30 +111,7 @@ Tabuleiro.prototype.verificaDado = function(i, j, k) {
 
 };
 
-Tabuleiro.prototype.display = function () {
-
-    for (var i = 0; i < 5; i++) {
-        for (var j = 0; j < 5; j++) {
-            var k = i * 5 + j;
-            this.scene.pushMatrix();
-            this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-            this.scene.translate(12 - 8 * i, -20 + 8 * j, 2);
-            this.scene.registerForPick(k, this.arrayTiles[i][j]);
-
-            this.verificaDado(i,j,k);
-
-            if (this.scene.escolhido == k) {
-                this.arrayTiles[i][j].display(true, true);
-            }
-            else if ((i + j) % 2 == 0) {
-                this.arrayTiles[i][j].display(true, false);
-            } else {
-                this.arrayTiles[i][j].display(false, false);
-            }
-            this.scene.popMatrix();
-        }
-    }
-
+Tabuleiro.prototype.numerosTabuleiro = function (){
 
     this.scene.pushMatrix();
     this.pecaappearance.apply();
@@ -274,9 +250,10 @@ Tabuleiro.prototype.display = function () {
     this.um.display();
     this.n6.unbind();
     this.scene.popMatrix();
+};
+Tabuleiro.prototype.ladosTabuleiro = function (){
 
-
-//lados
+    //lados
 
 //lado esquerdo
     this.scene.pushMatrix();
@@ -336,7 +313,40 @@ Tabuleiro.prototype.display = function () {
     this.scene.scale(5, 40, 1);
     this.recDir.display();
     this.scene.popMatrix();
+};
+
+Tabuleiro.prototype.display = function () {
+
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++) {
+            var k = i * 5 + j;
+            this.scene.pushMatrix();
+            this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+            this.scene.translate(12 - 8 * i, -20 + 8 * j, 2);
+            this.scene.registerForPick(k, this.arrayTiles[i][j]);
+
+            this.verificaDado(i,j,k);
 
 
-}
-;
+            if (this.scene.escolhido == k) {
+                if(this.arrayTiles[i+1][j].getTilePeca()!= null){
+                    this.arrayTiles[i+1][j].display(true, true);
+                }
+                else
+                    this.arrayTiles[i][j].display(true, true);
+            }
+            else if ((i + j) % 2 == 0) {
+                this.arrayTiles[i][j].display(true, false);
+            } else {
+                this.arrayTiles[i][j].display(false, false);
+            }
+            this.scene.popMatrix();
+        }
+    }
+
+
+   this.numerosTabuleiro();
+    this.ladosTabuleiro();
+
+
+};

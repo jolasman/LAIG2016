@@ -168,6 +168,11 @@ Tile.prototype.setTilePeca=function(peca, player, numero){
     this.player = player;
     this.numero = numero;
 };
+
+Tile.prototype.getTilePeca=function(peca, player, numero){
+  return this.numero;
+};
+
 /**
  * Created by Joel Carneiro on 14/12/2016.
  */
