@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" afterPath="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" />
-    </list>
+    <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="" />
     <ignored path="LAIG2016.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,11 +27,11 @@
           <file leaf-file-name="Tabuleiro.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="291">
-                  <caret line="117" column="24" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+                <state relative-caret-position="342">
+                  <caret line="120" column="9" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
                   <folding>
                     <element signature="e#9633#11140#0" expanded="false" />
-                    <marker date="1482516997219" expanded="false" signature="5446:9582" ph="{...}" />
+                    <marker date="1482517371934" expanded="false" signature="5446:9582" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -945,7 +942,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305567000" />
+    <option name="totallyTimeSpent" value="305579000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1364,11 +1361,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="117" column="24" selection-start-line="117" selection-start-column="24" selection-end-line="117" selection-end-column="24" />
+        <state relative-caret-position="342">
+          <caret line="120" column="9" selection-start-line="120" selection-start-column="9" selection-end-line="120" selection-end-column="9" />
           <folding>
             <element signature="e#9633#11140#0" expanded="false" />
-            <marker date="1482516997219" expanded="false" signature="5446:9582" ph="{...}" />
+            <marker date="1482517371934" expanded="false" signature="5446:9582" ph="{...}" />
           </folding>
         </state>
       </provider>
