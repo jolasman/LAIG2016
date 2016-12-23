@@ -16,15 +16,15 @@ function Tabuleiro(scene) {
     this.dadoexp = new Peca(this.scene);
 
 
-    this.um= new MyRectangle(scene,0,8,8,0);
+    this.um = new MyRectangle(scene, 0, 8, 8, 0);
 
     this.appearancedado1 = new CGFappearance(this.scene);
-    this.n1 = new CGFtexture(this.scene,"./texturas/numero1.png");
-    this.n2 = new CGFtexture(this.scene,"./texturas/numero2.png");
-    this.n3 = new CGFtexture(this.scene,"./texturas/numero3.png");
-    this.n4 = new CGFtexture(this.scene,"./texturas/numero4.png");
-    this.n5 = new CGFtexture(this.scene,"./texturas/numero5.png");
-    this.n6 = new CGFtexture(this.scene,"./texturas/numero6.png");
+    this.n1 = new CGFtexture(this.scene, "./texturas/numero1.png");
+    this.n2 = new CGFtexture(this.scene, "./texturas/numero2.png");
+    this.n3 = new CGFtexture(this.scene, "./texturas/numero3.png");
+    this.n4 = new CGFtexture(this.scene, "./texturas/numero4.png");
+    this.n5 = new CGFtexture(this.scene, "./texturas/numero5.png");
+    this.n6 = new CGFtexture(this.scene, "./texturas/numero6.png");
 
     this.esquerdo = new Cubo(scene);
     this.direito = new Cubo(scene);
@@ -45,18 +45,18 @@ function Tabuleiro(scene) {
     this.ladosAppearance.loadTexture("./texturas/madeiracena.png");
 
     this.pecaappearance = new CGFappearance(this.scene);
-    this.pecaappearance.setAmbient(0.9,0.5,0.0,1);
-    this.pecaappearance.setDiffuse(0.6,0.4,0.0,1);
-    this.pecaappearance.setSpecular(0.6,0.4,0.0,1);
+    this.pecaappearance.setAmbient(0.9, 0.5, 0.0, 1);
+    this.pecaappearance.setDiffuse(0.6, 0.4, 0.0, 1);
+    this.pecaappearance.setSpecular(0.6, 0.4, 0.0, 1);
     this.pecaappearance.setShininess(0.9);
-    this.pecaappearance.setEmission(0,0,0.0,1);
+    this.pecaappearance.setEmission(0, 0, 0.0, 1);
 
     this.pecaappearance2 = new CGFappearance(this.scene);
-    this.pecaappearance2.setAmbient(0.0,0.2,1,1);
-    this.pecaappearance2.setDiffuse(0.0,0.2,0.6,1);
-    this.pecaappearance2.setSpecular(0.0,0.2,0.6,1);
+    this.pecaappearance2.setAmbient(0.0, 0.2, 1, 1);
+    this.pecaappearance2.setDiffuse(0.0, 0.2, 0.6, 1);
+    this.pecaappearance2.setSpecular(0.0, 0.2, 0.6, 1);
     this.pecaappearance2.setShininess(0.8);
-    this.pecaappearance2.setEmission(0,0,0.0,1);
+    this.pecaappearance2.setEmission(0, 0, 0.0, 1);
 
     this.initBuffers();
 }
@@ -70,12 +70,13 @@ Tabuleiro.prototype.initBuffers = function () {
 Tabuleiro.prototype.updateTexCoords = function (length_S, length_T) {
 };
 
-Tabuleiro.prototype.verificaDado = function(i, j, k) {
+Tabuleiro.prototype.verificaDado = function (i, j, k) {
 
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 51) {
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 1);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 52) {
-            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 2);
+        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 2);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 53) {
         this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 3);
@@ -111,7 +112,43 @@ Tabuleiro.prototype.verificaDado = function(i, j, k) {
 
 };
 
-Tabuleiro.prototype.numerosTabuleiro = function (){
+
+
+Tabuleiro.prototype.display = function () {
+
+    for (var i = 0; i < 5; i++) {
+        for (var j = 0; j < 5; j++) {
+            var k = i * 5 + j;
+            this.scene.pushMatrix();
+            this.scene.registerForPick(k, this.arrayTiles[i][j]);
+            this.scene.rotate(-Math.PI / 2, 1, 0, 0);
+            this.scene.translate(12 - 8 * i, -20 + 8 * j, 2);
+
+
+            this.verificaDado(i, j, k);
+
+
+            if (this.scene.escolhido == k) {
+
+                this.arrayTiles[i][j].display(true, true);
+            }
+            else if ((i + j) % 2 == 0) {
+                this.arrayTiles[i][j].display(true, false);
+            } else {
+                this.arrayTiles[i][j].display(false, false);
+            }
+            this.scene.popMatrix();
+        }
+    }
+
+
+    this.numerosTabuleiro();
+    this.ladosTabuleiro();
+
+
+};
+
+Tabuleiro.prototype.numerosTabuleiro = function () {
 
     this.scene.pushMatrix();
     this.pecaappearance.apply();
@@ -119,7 +156,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n1.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(20, -2, -30);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(51, this.um);
     this.um.display();
     this.n1.unbind();
@@ -130,7 +167,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n2.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(10, -2, -30);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(52, this.um);
     this.um.display();
     this.n2.unbind();
@@ -141,7 +178,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n3.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(0, -2, -30);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(53, this.um);
     this.um.display();
     this.n3.unbind();
@@ -152,7 +189,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n4.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(-10, -2, -30);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(54, this.um);
     this.um.display();
     this.n4.unbind();
@@ -163,7 +200,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n5.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(-20, -2, -30);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(55, this.um);
     this.um.display();
     this.n5.unbind();
@@ -174,8 +211,8 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n6.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(-30, -2, -38);
-    this.scene.rotate(-Math.PI/2, 0,1,0);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 0, 1, 0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(56, this.um);
     this.um.display();
     this.n6.unbind();
@@ -189,7 +226,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n1.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(20, -2, 40);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(57, this.um);
     this.um.display();
     this.n1.unbind();
@@ -200,7 +237,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n2.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(10, -2, 40);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(58, this.um);
     this.um.display();
     this.n2.unbind();
@@ -211,7 +248,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n3.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(0, -2, 40);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(59, this.um);
     this.um.display();
     this.n3.unbind();
@@ -222,7 +259,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n4.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(-10, -2, 40);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(60, this.um);
     this.um.display();
     this.n4.unbind();
@@ -233,7 +270,7 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n5.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(-20, -2, 40);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(61, this.um);
     this.um.display();
     this.n5.unbind();
@@ -244,14 +281,14 @@ Tabuleiro.prototype.numerosTabuleiro = function (){
     this.n6.bind();
     this.scene.scale(1, 1, 1);
     this.scene.translate(-30, -2, 32);
-    this.scene.rotate(-Math.PI/2, 0,1,0);
-    this.scene.rotate(-Math.PI/2, 1,0,0);
+    this.scene.rotate(-Math.PI / 2, 0, 1, 0);
+    this.scene.rotate(-Math.PI / 2, 1, 0, 0);
     this.scene.registerForPick(62, this.um);
     this.um.display();
     this.n6.unbind();
     this.scene.popMatrix();
 };
-Tabuleiro.prototype.ladosTabuleiro = function (){
+Tabuleiro.prototype.ladosTabuleiro = function () {
 
     //lados
 
@@ -313,40 +350,4 @@ Tabuleiro.prototype.ladosTabuleiro = function (){
     this.scene.scale(5, 40, 1);
     this.recDir.display();
     this.scene.popMatrix();
-};
-
-Tabuleiro.prototype.display = function () {
-
-    for (var i = 0; i < 5; i++) {
-        for (var j = 0; j < 5; j++) {
-            var k = i * 5 + j;
-            this.scene.pushMatrix();
-            this.scene.rotate(-Math.PI / 2, 1, 0, 0);
-            this.scene.translate(12 - 8 * i, -20 + 8 * j, 2);
-            this.scene.registerForPick(k, this.arrayTiles[i][j]);
-
-            this.verificaDado(i,j,k);
-
-
-            if (this.scene.escolhido == k) {
-                if(this.arrayTiles[i+1][j].getTilePeca()!= null){
-                    this.arrayTiles[i+1][j].display(true, true);
-                }
-                else
-                    this.arrayTiles[i][j].display(true, true);
-            }
-            else if ((i + j) % 2 == 0) {
-                this.arrayTiles[i][j].display(true, false);
-            } else {
-                this.arrayTiles[i][j].display(false, false);
-            }
-            this.scene.popMatrix();
-        }
-    }
-
-
-   this.numerosTabuleiro();
-    this.ladosTabuleiro();
-
-
 };
