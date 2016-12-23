@@ -112,15 +112,15 @@ Tabuleiro.prototype.verificaDado = function (i, j, k) {
 
 };
 
-Tabuleiro.prototype.isValidPosition = function (i, j) {
-    if(this.arrayTiles[i+1][j].getTilePeca()!= null)
-    {
-        this.arrayTiles[i+1][j].display(true, true);
-       // return false;
-    }else
-        return true;
-};
 
+
+Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
+    if(this.arrayTiles[i][j].getTilePeca()!= null)
+    {
+        return true;
+    }else
+        return false;
+};
 Tabuleiro.prototype.display = function () {
 
     for (var i = 0; i < 5; i++) {
@@ -137,12 +137,12 @@ Tabuleiro.prototype.display = function () {
 
             if (this.scene.escolhido == k) {
 
-                this.arrayTiles[i][j].display(true, this.isValidPosition(i,j));
+                this.arrayTiles[i][j].display(true, true);
             }
             else if ((i + j) % 2 == 0) {
-                this.arrayTiles[i][j].display(true, false);
+                this.arrayTiles[i][j].display(true, this.isValidPositionForSelection(i,j));
             } else {
-                this.arrayTiles[i][j].display(false, false);
+                this.arrayTiles[i][j].display(false, this.isValidPositionForSelection(i,j));
             }
             this.scene.popMatrix();
         }
