@@ -170,7 +170,9 @@ Tile.prototype.setTilePeca=function(peca, player, numero){
 };
 
 Tile.prototype.getTilePeca=function(peca, player, numero){
-  return this.numero;
+    if(this.numero == null)
+        this.numero = 0;
+    return this.numero;
 };
 
 /**
