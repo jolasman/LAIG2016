@@ -14,14 +14,28 @@ function XMLscene() {
     this.animations_i = 0;
 	
 	// deste modo, basta chamar a chessboard_position[] com o indices da posição, e tem-se logo as coordenadas da pos
-// 	this.chessboard_position = [];
-// 	this.chessboard_position[0] = "empty space";
-// 	var chessboard_k = 1;
-// 	for(var chessboard_i= 0; chessboard_i<5; i++){
-//         for(var chessboard_j = 0; chessboard_j<5; j++){
-// 			chessboard_position[chessboard_k] = [12-8*chessboard_i,-20+8*chessboard_j,2]
-//         }
-//     }
+ 	this.chessboard_position = [];
+ 	
+ 	var chessboard_k = 0;
+ 	for(var chessboard_i= 0; chessboard_i<5; i++){
+         for(var chessboard_j = 0; chessboard_j<5; j++){
+			chessboard_position[chessboard_k] = [12-8*chessboard_i,-20+8*chessboard_j,2]
+         }
+    }
+	
+	
+	this.dados_position = [];
+	var dados_i = 51;
+	
+	while(dados_i < 57) {
+		dados_position[dados_i] = 1	// deve ser a posiçao [x,y,z] dos dados amarelos, começando no de valor 1
+		dados_i++;
+	}
+	
+	while(dados_i < 63) {
+		dados_position[dados_i] = 2	// deve ser a posiçao [x,y,z] dos dados azuis, começando no de valor 1
+		dados_i++;
+	}
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
