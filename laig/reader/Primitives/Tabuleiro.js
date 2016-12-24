@@ -112,27 +112,76 @@ Tabuleiro.prototype.verificaDado = function (i, j, k) {
 
 };
 
+Tabuleiro.prototype.somaDado = function(i,j){
+
+   return  (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca()
+    + this.arrayTiles[i - 1][j + 1].getTilePeca() + this.arrayTiles[i - 1][j - 1].getTilePeca() + this.arrayTiles[i + 1][j + 1].getTilePeca() + this.arrayTiles[i + 1][j - 1].getTilePeca())
+       - this.arrayTiles[this.i][this.j].getTilePeca();
+};
 
 Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
     if (this.arrayTiles[i][j].getTilePeca() != 0) {
-        if (this.scene.state == 1)
-            if (this.i + 1 == i || this.j + 1 == j || (this.i + 1 == i && this.j + 1 ==j) || this.i - 1 == i || this.j - 1 == j || (this.i - 1 == i && this.j - 1 ==j)){
-                if ((this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca()
-                    + this.arrayTiles[i - 1][j+1].getTilePeca() + this.arrayTiles[i - 1][j-1].getTilePeca() + this.arrayTiles[i + 1][j+1].getTilePeca()  + this.arrayTiles[i + 1][j-1].getTilePeca()
-                    + this.arrayTiles[i-1][j + 1].getTilePeca() + this.arrayTiles[i+1][j + 1].getTilePeca() + this.arrayTiles[i-1][j - 1].getTilePeca()  + this.arrayTiles[i+1][j - 1].getTilePeca() ) < 7)
+        if (this.scene.state == 1) {//quando escolheu a casa
+            if (this.i + 1 == i && this.j == j || this.i + 1 == i && this.j + 1 == j || this.i + 1 == i && this.j - 1 == j
+                || this.i == i && this.j + 1 == j || this.i == i && this.j - 1 == j
+                || this.i - 1 == i && this.j == j || this.i - 1 == i && this.j + 1 == j || this.i - 1 == i && this.j - 1 == j) {
+                if (this.somaDado(i,j) < 7)
                     return true;
             }
 
-        if (this.i + 2 == i || this.j + 2 == j || (this.i + 2 == i && this.j + 2 == j) || this.i - 2 == i || this.j - 2 == j || (this.i - 2 == i && this.j - 2 ==j)) {
+            if ((this.i + 2 == i && this.j == j || this.i + 2 == i && this.j + 2 == j || this.i + 2 == i && this.j + 1 == j || this.i + 2 == i && this.j - 2 == j || this.i + 2 == i && this.j - 1 == j
+                || this.i - 2 == i && this.j == j || this.i - 2 == i && this.j + 2 == j || this.i - 2 == i && this.j + 1 == j || this.i - 2 == i && this.j - 2 == j || this.i - 2 == i && this.j - 1 == j)) {
 
-            if ((this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca()
-                 + this.arrayTiles[i - 1][j+1].getTilePeca() + this.arrayTiles[i - 1][j-1].getTilePeca() + this.arrayTiles[i + 1][j+1].getTilePeca()  + this.arrayTiles[i + 1][j-1].getTilePeca()
-                + this.arrayTiles[i-1][j + 1].getTilePeca() + this.arrayTiles[i+1][j + 1].getTilePeca() + this.arrayTiles[i-1][j - 1].getTilePeca()  + this.arrayTiles[i+1][j - 1].getTilePeca() ) < 7)
-                return true;
+                if (this.somaDado(i,j) < 7)
+                    return true;
+            }
+
+        } else if (this.scene.state == -1) {//quando ja escolheu o dado
+
+            if (this.i + 2 == i && this.j == j || this.i + 2 == i && this.j + 2 == j || this.i + 2 == i && this.j + 1 == j || this.i + 2 == i && this.j - 2 == j || this.i + 2 == i && this.j - 1 == j
+                || this.i == i && this.j + 2 == j || this.i == i && this.j - 2 == j || this.i + 1 == i && this.j + 2 == j || this.i + 1 == i && this.j - 2 == j || this.i - 1 == i && this.j + 2 == j || this.i - 1 == i && this.j - 2 == j
+                || this.i - 2 == i && this.j == j || this.i - 2 == i && this.j + 2 == j || this.i - 2 == i && this.j + 1 == j || this.i - 2 == i && this.j - 2 == j || this.i - 2 == i && this.j - 1 == j) {
+
+
+                if (this.somaDado(i,j) < 7) {
+
+                    this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                }
+
+            }
+           else if (( this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j + 1].getTilePeca() || this.arrayTiles[i - 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca()
+                || this.arrayTiles[i][j + 1].getTilePeca() && this.arrayTiles[i + 1][j + 1].getTilePeca() || this.arrayTiles[i + 1][j + 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca()
+                || this.arrayTiles[i + 1][j].getTilePeca() && this.arrayTiles[i + 1][j - 1].getTilePeca() || this.arrayTiles[i + 1][j - 1].getTilePeca() && this.arrayTiles[i][j - 1].getTilePeca()
+                || this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i - 1][j - 1].getTilePeca() || this.arrayTiles[i - 1][j - 1].getTilePeca() && this.arrayTiles[i - 1][j].getTilePeca() ) != 0) {
+
+                if (this.somaDado(i,j) < 7) {
+
+                    this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                    this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+
+                }
+
+            }
         }
     } else
         return false;
 };
+
 Tabuleiro.prototype.display = function () {
 
     for (var i = 0; i < 5; i++) {
