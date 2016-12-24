@@ -29,7 +29,7 @@ function DadosAnimation(scene, initial_pos, chessboard_pos) {
 
 	this.rotation = this.start_angle;
 };
-
+	
 DadosAnimation.prototype = Object.create(Animation.prototype);
 DadosAnimation.prototype.constructor = CircularAnimation;
 

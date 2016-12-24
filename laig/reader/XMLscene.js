@@ -26,15 +26,19 @@ function XMLscene() {
 	
 	this.dados_position = [];
 	var dados_i = 51;
+	var dados_x = 20;
 	
 	while(dados_i < 57) {
-		dados_position[dados_i] = 1	// deve ser a posiçao [x,y,z] dos dados amarelos, começando no de valor 1
+		dados_position[dados_i] = [dados_x, -2, -30]	// a posiçao [x,y,z] dos dados amarelos, começando no de valor 1
 		dados_i++;
+		dados_x -= 10;
 	}
 	
+	dados_x = 20;
 	while(dados_i < 63) {
-		dados_position[dados_i] = 2	// deve ser a posiçao [x,y,z] dos dados azuis, começando no de valor 1
+		dados_position[dados_i] = [dados_x, -2, -40]	// a posiçao [x,y,z] dos dados azuis, começando no de valor 1
 		dados_i++;
+		dados_x -= 10;
 	}
 }
 
