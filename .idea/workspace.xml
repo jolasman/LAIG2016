@@ -4,7 +4,6 @@
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" afterPath="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/Primitives/Tile.js" afterPath="$PROJECT_DIR$/laig/reader/Primitives/Tile.js" />
     </list>
     <ignored path="LAIG2016.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,11 +30,10 @@
           <file leaf-file-name="Tabuleiro.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="393">
-                  <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+                <state relative-caret-position="444">
+                  <caret line="125" column="46" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
                   <folding>
-                    <element signature="e#11348#12855#0" expanded="false" />
-                    <marker date="1482520878134" expanded="false" signature="7161:11297" ph="{...}" />
+                    <element signature="e#11365#12872#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -64,15 +62,15 @@
           <file leaf-file-name="Tile.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="716">
+                <state relative-caret-position="2601">
                   <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
                   <folding>
+                    <element signature="e#2704#2912#0" expanded="false" />
+                    <element signature="e#2948#3104#0" expanded="false" />
+                    <element signature="e#3140#3244#0" expanded="false" />
+                    <element signature="e#3280#3435#0" expanded="false" />
+                    <element signature="e#3471#3628#0" expanded="false" />
                     <element signature="e#5982#6032#0" expanded="false" />
-                    <marker date="1482520556588" expanded="false" signature="2704:2912" ph="{...}" />
-                    <marker date="1482520556588" expanded="false" signature="2948:3104" ph="{...}" />
-                    <marker date="1482520556588" expanded="false" signature="3140:3244" ph="{...}" />
-                    <marker date="1482520556588" expanded="false" signature="3280:3435" ph="{...}" />
-                    <marker date="1482520556588" expanded="false" signature="3471:3628" ph="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -81,7 +79,7 @@
           <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1547">
+                <state relative-caret-position="595">
                   <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
                   <folding>
                     <element signature="e#2103#2434#0" expanded="false" />
@@ -300,7 +298,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -423,6 +420,7 @@
         <subPane subId="Project Files" />
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -938,15 +936,16 @@
       <workItem from="1482340223981" duration="745000" />
       <workItem from="1482456825084" duration="1718000" />
       <workItem from="1482503739673" duration="2517000" />
+      <workItem from="1482542090385" duration="1291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308846000" />
+    <option name="totallyTimeSpent" value="310137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -954,8 +953,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -964,8 +963,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1325,7 +1324,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1547">
+        <state relative-caret-position="595">
           <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
           <folding>
             <element signature="e#2103#2434#0" expanded="false" />
@@ -1342,26 +1341,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="716">
+        <state relative-caret-position="2601">
           <caret line="173" column="24" selection-start-line="173" selection-start-column="24" selection-end-line="173" selection-end-column="24" />
           <folding>
+            <element signature="e#2704#2912#0" expanded="false" />
+            <element signature="e#2948#3104#0" expanded="false" />
+            <element signature="e#3140#3244#0" expanded="false" />
+            <element signature="e#3280#3435#0" expanded="false" />
+            <element signature="e#3471#3628#0" expanded="false" />
             <element signature="e#5982#6032#0" expanded="false" />
-            <marker date="1482520556588" expanded="false" signature="2704:2912" ph="{...}" />
-            <marker date="1482520556588" expanded="false" signature="2948:3104" ph="{...}" />
-            <marker date="1482520556588" expanded="false" signature="3140:3244" ph="{...}" />
-            <marker date="1482520556588" expanded="false" signature="3280:3435" ph="{...}" />
-            <marker date="1482520556588" expanded="false" signature="3471:3628" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="123" column="13" selection-start-line="123" selection-start-column="13" selection-end-line="123" selection-end-column="13" />
+        <state relative-caret-position="444">
+          <caret line="125" column="46" selection-start-line="125" selection-start-column="46" selection-end-line="125" selection-end-column="46" />
           <folding>
-            <element signature="e#11348#12855#0" expanded="false" />
-            <marker date="1482520878134" expanded="false" signature="7161:11297" ph="{...}" />
+            <element signature="e#11365#12872#0" expanded="false" />
           </folding>
         </state>
       </provider>
