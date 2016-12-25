@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8400e0b9-bd52-4023-850a-855573b22f2e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/MyInterface.js" afterPath="$PROJECT_DIR$/laig/reader/MyInterface.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" afterPath="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/XMLscene.js" afterPath="$PROJECT_DIR$/laig/reader/XMLscene.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" afterPath="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
     </list>
     <ignored path="LAIG2016.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,39 +27,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Tabuleiro.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tabuleiro.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="218" column="203" selection-start-line="218" selection-start-column="203" selection-end-line="218" selection-end-column="203" />
+            <state relative-caret-position="481">
+              <caret line="394" column="0" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
               <folding>
                 <element signature="e#2616#4302#0" expanded="false" />
-                <element signature="e#4839#4868#0" expanded="false" />
-                <element signature="e#7015#7044#0" expanded="false" />
-                <element signature="e#9479#10509#0" expanded="false" />
-                <element signature="e#9526#10494#0" expanded="false" />
-                <element signature="e#10586#11322#0" expanded="false" />
-                <element signature="e#11398#12133#0" expanded="false" />
-                <element signature="e#12207#12940#0" expanded="false" />
-                <element signature="e#13013#13745#0" expanded="false" />
-                <element signature="e#13819#14374#0" expanded="false" />
-                <element signature="e#14447#15001#0" expanded="false" />
-                <element signature="e#15074#15628#0" expanded="false" />
-                <element signature="e#15700#16253#0" expanded="false" />
-                <element signature="e#19707#20177#0" expanded="false" />
-                <element signature="e#21013#21348#0" expanded="false" />
-                <element signature="e#21402#21737#0" expanded="false" />
-                <element signature="e#21798#22039#0" expanded="false" />
-                <element signature="e#22099#22340#0" expanded="false" />
-                <element signature="e#22401#22643#0" expanded="false" />
-                <element signature="e#22705#22946#0" expanded="false" />
-                <element signature="e#23003#23409#0" expanded="false" />
-                <element signature="e#23469#23874#0" expanded="false" />
-                <element signature="e#25958#30094#0" expanded="false" />
-                <element signature="e#30145#31652#0" expanded="false" />
-                <marker date="1482670303273" expanded="false" signature="20625:20960" ph="{...}" />
-                <marker date="1482670303273" expanded="false" signature="23933:24338" ph="{...}" />
-                <marker date="1482670303273" expanded="false" signature="24395:24800" ph="{...}" />
+                <element signature="e#8014#9044#0" expanded="false" />
+                <element signature="e#8061#9029#0" expanded="false" />
+                <element signature="e#18440#18910#0" expanded="false" />
+                <element signature="e#18967#19300#0" expanded="false" />
+                <element signature="e#19356#19688#0" expanded="false" />
+                <element signature="e#19741#20075#0" expanded="false" />
+                <element signature="e#20129#20464#0" expanded="false" />
+                <element signature="e#20525#20765#0" expanded="false" />
+                <element signature="e#20825#21065#0" expanded="false" />
+                <element signature="e#21126#21366#0" expanded="false" />
+                <element signature="e#21428#21668#0" expanded="false" />
+                <element signature="e#24680#28816#0" expanded="false" />
+                <element signature="e#28867#30374#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -101,20 +89,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="XMLscene.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="461">
+              <caret line="200" column="37" selection-start-line="200" selection-start-column="37" selection-end-line="200" selection-end-column="37" />
               <folding>
                 <element signature="e#2661#2992#0" expanded="false" />
                 <element signature="e#3179#5903#0" expanded="false" />
                 <element signature="e#7141#7516#0" expanded="false" />
                 <element signature="e#7780#8170#0" expanded="false" />
                 <element signature="e#8430#10403#0" expanded="false" />
-                <element signature="e#12299#13132#0" expanded="false" />
-                <element signature="e#13250#13988#0" expanded="false" />
-                <element signature="e#14039#14116#0" expanded="false" />
+                <element signature="e#12317#13150#0" expanded="false" />
+                <element signature="e#13268#14006#0" expanded="false" />
+                <element signature="e#14057#14134#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cena.dsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+              <folding>
+                <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#material#5;n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#component#2;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#component#3;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+                <element signature="n#component#4;n#components#0;n#dsx#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -193,11 +202,11 @@
         <option value="$PROJECT_DIR$/laig/reader/main.js" />
         <option value="$PROJECT_DIR$/laig/reader/scenes/exp.dsx" />
         <option value="$PROJECT_DIR$/laig/reader/scenes/scenario2.dsx" />
-        <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
         <option value="$PROJECT_DIR$/laig/reader/Primitives/Tile.js" />
-        <option value="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" />
         <option value="$PROJECT_DIR$/laig/reader/MyInterface.js" />
+        <option value="$PROJECT_DIR$/laig/reader/scenes/cena.dsx" />
         <option value="$PROJECT_DIR$/laig/reader/XMLscene.js" />
+        <option value="$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js" />
       </list>
     </option>
   </component>
@@ -878,15 +887,15 @@
       <workItem from="1482503739673" duration="2517000" />
       <workItem from="1482542090385" duration="1291000" />
       <workItem from="1482616568617" duration="5900000" />
-      <workItem from="1482661844662" duration="8455000" />
+      <workItem from="1482661844662" duration="10040000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324492000" />
+    <option name="totallyTimeSpent" value="326077000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -933,7 +942,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1183,25 +1192,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/scenes/exp.dsx" />
-    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="269" column="16" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
-          <folding>
-            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#material#5;n#materials#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#2;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#3;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-            <element signature="n#component#4;n#components#0;n#dsx#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/scenes/scenario2.dsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1278,42 +1268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="218" column="203" selection-start-line="218" selection-start-column="203" selection-end-line="218" selection-end-column="203" />
-          <folding>
-            <element signature="e#2616#4302#0" expanded="false" />
-            <element signature="e#4839#4868#0" expanded="false" />
-            <element signature="e#7015#7044#0" expanded="false" />
-            <element signature="e#9479#10509#0" expanded="false" />
-            <element signature="e#9526#10494#0" expanded="false" />
-            <element signature="e#10586#11322#0" expanded="false" />
-            <element signature="e#11398#12133#0" expanded="false" />
-            <element signature="e#12207#12940#0" expanded="false" />
-            <element signature="e#13013#13745#0" expanded="false" />
-            <element signature="e#13819#14374#0" expanded="false" />
-            <element signature="e#14447#15001#0" expanded="false" />
-            <element signature="e#15074#15628#0" expanded="false" />
-            <element signature="e#15700#16253#0" expanded="false" />
-            <element signature="e#19707#20177#0" expanded="false" />
-            <element signature="e#21013#21348#0" expanded="false" />
-            <element signature="e#21402#21737#0" expanded="false" />
-            <element signature="e#21798#22039#0" expanded="false" />
-            <element signature="e#22099#22340#0" expanded="false" />
-            <element signature="e#22401#22643#0" expanded="false" />
-            <element signature="e#22705#22946#0" expanded="false" />
-            <element signature="e#23003#23409#0" expanded="false" />
-            <element signature="e#23469#23874#0" expanded="false" />
-            <element signature="e#25958#30094#0" expanded="false" />
-            <element signature="e#30145#31652#0" expanded="false" />
-            <marker date="1482670303273" expanded="false" signature="20625:20960" ph="{...}" />
-            <marker date="1482670303273" expanded="false" signature="23933:24338" ph="{...}" />
-            <marker date="1482670303273" expanded="false" signature="24395:24800" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/MyInterface.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -1322,19 +1276,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/scenes/cena.dsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+          <folding>
+            <element signature="n#illumination#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#lights#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#textures#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#material#5;n#materials#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#primitives#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#animations#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#2;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#3;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+            <element signature="n#component#4;n#components#0;n#dsx#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/laig/reader/XMLscene.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="461">
+          <caret line="200" column="37" selection-start-line="200" selection-start-column="37" selection-end-line="200" selection-end-column="37" />
           <folding>
             <element signature="e#2661#2992#0" expanded="false" />
             <element signature="e#3179#5903#0" expanded="false" />
             <element signature="e#7141#7516#0" expanded="false" />
             <element signature="e#7780#8170#0" expanded="false" />
             <element signature="e#8430#10403#0" expanded="false" />
-            <element signature="e#12299#13132#0" expanded="false" />
-            <element signature="e#13250#13988#0" expanded="false" />
-            <element signature="e#14039#14116#0" expanded="false" />
+            <element signature="e#12317#13150#0" expanded="false" />
+            <element signature="e#13268#14006#0" expanded="false" />
+            <element signature="e#14057#14134#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/laig/reader/Primitives/Tabuleiro.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="394" column="0" selection-start-line="394" selection-start-column="0" selection-end-line="394" selection-end-column="0" />
+          <folding>
+            <element signature="e#2616#4302#0" expanded="false" />
+            <element signature="e#8014#9044#0" expanded="false" />
+            <element signature="e#8061#9029#0" expanded="false" />
+            <element signature="e#18440#18910#0" expanded="false" />
+            <element signature="e#18967#19300#0" expanded="false" />
+            <element signature="e#19356#19688#0" expanded="false" />
+            <element signature="e#19741#20075#0" expanded="false" />
+            <element signature="e#20129#20464#0" expanded="false" />
+            <element signature="e#20525#20765#0" expanded="false" />
+            <element signature="e#20825#21065#0" expanded="false" />
+            <element signature="e#21126#21366#0" expanded="false" />
+            <element signature="e#21428#21668#0" expanded="false" />
+            <element signature="e#24680#28816#0" expanded="false" />
+            <element signature="e#28867#30374#0" expanded="false" />
           </folding>
         </state>
       </provider>
