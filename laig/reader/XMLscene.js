@@ -397,18 +397,18 @@ XMLscene.prototype.update= function(currTime){
     while(i < this.nodeAnimations.length){
 
         var no= this.grafo[this.nodeAnimations[i]];
-//se nao houver animacoes no no
+	//se nao houver animacoes no no
         if(no.currentAnimation==-2)
             break;
 
         if(no.currentAnimation==-1)
             no.currentAnimation++;
 
-        //se ja fez uma continua a fazer as restantes
+    //se ja fez uma continua a fazer as restantes
         if(no.animacoes[no.currentAnimation].finished==1 && no.currentAnimation < no.animacoes.length) {
             no.currentAnimation++;
         }
-        //quando ja fez todas acaba
+	//quando ja fez todas acaba
         if(no.animacoes.length==no.currentAnimation){
             no.currentAnimation=-2;
             break;
