@@ -51,10 +51,14 @@ XMLscene.prototype.constructor = XMLscene;
  */
 XMLscene.prototype.init = function (application) {
     CGFscene.prototype.init.call(this, application);
+    this.scorep1 = 0;
+    this.scorep2 = 0;
     this.scenarioNamesStatus = [true,false];
+    // this.interface.scoredisplay(this.scorep1,this.scorep2);
+
+
 
     this.initScenarios();
-
     this.application = application;
     this.initCameras();
     this.enableTextures(true);
@@ -77,6 +81,7 @@ XMLscene.prototype.init = function (application) {
     this.dadoescolhido = null;
     this.state = 0;
     this.player = 1;
+
 
 
 };

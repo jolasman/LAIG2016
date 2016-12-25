@@ -10,6 +10,7 @@ MyInterface.prototype.init = function(application) {
     this.gui = new dat.GUI();
     this.lights = this.gui.addFolder("Lights");
     this.scenario = this.gui.addFolder("Scenarios");
+    this.score = this.gui.addFolder("Score");
     this.initScenarios();
     var view = this;
 
@@ -47,7 +48,10 @@ MyInterface.prototype.initScenarios = function() {
 
 
 
-
+MyInterface.prototype.scoredisplay = function(p1, p2){
+    this.score.add(this.scene,p1, "player 1 score");
+    this.score.add(this.scene, p2, "palyer 2 score");
+};
 
 
 

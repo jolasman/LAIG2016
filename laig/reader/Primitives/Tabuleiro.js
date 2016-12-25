@@ -159,8 +159,8 @@ Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
                 //         return 2;
                 // }
                 // else {
-                    if (this.somaDado(i, j) < 7)
-                        return 2;
+                if (this.somaDado(i, j) < 7)
+                    return 2;
                 // }
             }
 
@@ -207,17 +207,16 @@ Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
                 //         return 2;
                 // }
                 // else {
-                    if (this.somaDado(i, j) < 7)
-                        return 2;
+                if (this.somaDado(i, j) < 7)
+                    return 2;
                 // }
             }
 
         } else if (this.scene.state == -1) {//quando ja escolheu o dado
+
             if (this.i + 2 == i && this.j == j || this.i + 2 == i && this.j + 2 == j || this.i + 2 == i && this.j + 1 == j || this.i + 2 == i && this.j - 2 == j || this.i + 2 == i && this.j - 1 == j
                 || this.i == i && this.j + 2 == j || this.i == i && this.j - 2 == j || this.i + 1 == i && this.j + 2 == j || this.i + 1 == i && this.j - 2 == j || this.i - 1 == i && this.j + 2 == j || this.i - 1 == i && this.j - 2 == j
                 || this.i - 2 == i && this.j == j || this.i - 2 == i && this.j + 2 == j || this.i - 2 == i && this.j + 1 == j || this.i - 2 == i && this.j - 2 == j || this.i - 2 == i && this.j - 1 == j) {
-
-
                 if (this.somaDado(i, j) < 7) {
                     if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
                         this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
@@ -321,6 +320,11 @@ Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
 
                 if (this.somaDado(i, j) < 7) {
                     if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        if (this.scene.player == 1) {
+                            this.scene.scorep1 += this.arrayTiles[this.i][this.j].getTilePeca() * 100;
+                        } else if (this.scene.player == 2) {
+                            this.scene.scorep2 += this.arrayTiles[this.i][this.j].getTilePeca() * 100;
+                        }
                         this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
                         this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
                         this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
@@ -330,7 +334,12 @@ Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
                         this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
                         this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
                         this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+
                     }
+                    console.log("player 1 score");
+                    console.log(this.scene.scorep1);
+                    console.log("player 2 score");
+                    console.log(this.scene.scorep2);
                 }
 
             }
