@@ -112,12 +112,6 @@ Tabuleiro.prototype.verificaDado = function (i, j, k) {
 
 };
 
-Tabuleiro.prototype.somaDado = function(i,j){
-
-   return  (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca()
-    + this.arrayTiles[i - 1][j + 1].getTilePeca() + this.arrayTiles[i - 1][j - 1].getTilePeca() + this.arrayTiles[i + 1][j + 1].getTilePeca() + this.arrayTiles[i + 1][j - 1].getTilePeca())
-       - this.arrayTiles[this.i][this.j].getTilePeca();
-};
 
 Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
     if (this.arrayTiles[i][j].getTilePeca() != 0) {
@@ -125,55 +119,218 @@ Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
             if (this.i + 1 == i && this.j == j || this.i + 1 == i && this.j + 1 == j || this.i + 1 == i && this.j - 1 == j
                 || this.i == i && this.j + 1 == j || this.i == i && this.j - 1 == j
                 || this.i - 1 == i && this.j == j || this.i - 1 == i && this.j + 1 == j || this.i - 1 == i && this.j - 1 == j) {
-                if (this.somaDado(i,j) < 7)
-                    return true;
+                // if (0 < i < 4 && j == 0) {
+                //     console.log(i + "----------" + j);
+                //
+                //     if (this.somaDadoFundo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (0 < i < 4 && j == 4) {
+                //     console.log(i + "----------" + j);
+                //
+                //     if (this.somaDadoTopo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (0 < i < 4 && j == 4) {
+                //     console.log(i + "----------" + j);
+                //
+                //     if (this.somaDadoDireita(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (0 < j < 4 && i == 0) {
+                //     console.log(i + "----------" + j);
+                //     if (this.somaDadoEsquerda(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 0 && i == 4) {
+                //     if (this.somaCasaFundoEsquerdo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 0 && i == 0) {
+                //     if (this.somaCasaTopoEsquerdo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 4 && i == 4) {
+                //     if (this.somaCasaFundoDireito(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 4 && i == 0) {
+                //     if (this.somaCasaTopoDireito(i, j) < 7)
+                //         return 2;
+                // }
+                // else {
+                    if (this.somaDado(i, j) < 7)
+                        return 2;
+                // }
             }
 
             if ((this.i + 2 == i && this.j == j || this.i + 2 == i && this.j + 2 == j || this.i + 2 == i && this.j + 1 == j || this.i + 2 == i && this.j - 2 == j || this.i + 2 == i && this.j - 1 == j
                 || this.i - 2 == i && this.j == j || this.i - 2 == i && this.j + 2 == j || this.i - 2 == i && this.j + 1 == j || this.i - 2 == i && this.j - 2 == j || this.i - 2 == i && this.j - 1 == j)) {
 
-                if (this.somaDado(i,j) < 7)
-                    return true;
+                // if (0 < i < 4 && j == 0) {
+                //     console.log(i + "----------" + j);
+                //
+                //     if (this.somaDadoFundo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (0 < i < 4 && j == 4) {
+                //     console.log(i + "----------" + j);
+                //
+                //     if (this.somaDadoTopo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (0 < i < 4 && j == 4) {
+                //     console.log(i + "----------" + j);
+                //
+                //     if (this.somaDadoDireita(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (0 < j < 4 && i == 0) {
+                //     console.log(i + "----------" + j);
+                //     if (this.somaDadoEsquerda(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 0 && i == 4) {
+                //     if (this.somaCasaFundoEsquerdo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 0 && i == 0) {
+                //     if (this.somaCasaTopoEsquerdo(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 4 && i == 4) {
+                //     if (this.somaCasaFundoDireito(i, j) < 7)
+                //         return 2;
+                // }
+                // else if (j == 4 && i == 0) {
+                //     if (this.somaCasaTopoDireito(i, j) < 7)
+                //         return 2;
+                // }
+                // else {
+                    if (this.somaDado(i, j) < 7)
+                        return 2;
+                // }
             }
 
         } else if (this.scene.state == -1) {//quando ja escolheu o dado
-
             if (this.i + 2 == i && this.j == j || this.i + 2 == i && this.j + 2 == j || this.i + 2 == i && this.j + 1 == j || this.i + 2 == i && this.j - 2 == j || this.i + 2 == i && this.j - 1 == j
                 || this.i == i && this.j + 2 == j || this.i == i && this.j - 2 == j || this.i + 1 == i && this.j + 2 == j || this.i + 1 == i && this.j - 2 == j || this.i - 1 == i && this.j + 2 == j || this.i - 1 == i && this.j - 2 == j
                 || this.i - 2 == i && this.j == j || this.i - 2 == i && this.j + 2 == j || this.i - 2 == i && this.j + 1 == j || this.i - 2 == i && this.j - 2 == j || this.i - 2 == i && this.j - 1 == j) {
 
 
-                if (this.somaDado(i,j) < 7) {
-
-                    this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                if (this.somaDado(i, j) < 7) {
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
                 }
 
             }
-           else if (( this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j + 1].getTilePeca() || this.arrayTiles[i - 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca()
+            else if (this.deleteDadosEsquerda(i, j) && 0 < i < 4 && j == 0) {
+                if (this.somaDadoEsquerda(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteDadosDireita(i, j) && 0 < i < 4 && j == 4) {
+                if (this.somaDadoDireita(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteDadosFundo(i, j) && 0 < i < 4 && j == 0) {
+                if (this.somaDadoFundo(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteDadosTopo(i, j) && 0 < j < 4 && i == 4) {
+                if (this.somaDadoTopo(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteFundoEsquerdo(i, j) && j == 0 && i == 4) {
+                if (this.somaCasaFundoEsquerdo(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteTopoEsquerdo(i, j) && j == 0 && i == 0) {
+                if (this.somaCasaTopoEsquerdo(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteFundoDireito(i, j) && j == 4 && i == 4) {
+                if (this.somaCasaFundoDireito(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (this.deleteTopoDireito(i, j) && j == 4 && i == 0) {
+                if (this.somaCasaTopoDireito(i, j) < 7)
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                    }
+            }
+            else if (( this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j + 1].getTilePeca() || this.arrayTiles[i - 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca()
                 || this.arrayTiles[i][j + 1].getTilePeca() && this.arrayTiles[i + 1][j + 1].getTilePeca() || this.arrayTiles[i + 1][j + 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca()
                 || this.arrayTiles[i + 1][j].getTilePeca() && this.arrayTiles[i + 1][j - 1].getTilePeca() || this.arrayTiles[i + 1][j - 1].getTilePeca() && this.arrayTiles[i][j - 1].getTilePeca()
-                || this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i - 1][j - 1].getTilePeca() || this.arrayTiles[i - 1][j - 1].getTilePeca() && this.arrayTiles[i - 1][j].getTilePeca() ) != 0) {
+                || this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i - 1][j - 1].getTilePeca() || this.arrayTiles[i - 1][j - 1].getTilePeca() && this.arrayTiles[i - 1][j].getTilePeca() ) != 0
+            ) {
 
-                if (this.somaDado(i,j) < 7) {
-
-                    this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
-                    this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
-
+                if (this.somaDado(i, j) < 7) {
+                    if (this.somaDado(i, j) == this.arrayTiles[this.i][this.j].getTilePeca()) {
+                        this.arrayTiles[i][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i - 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j - 1].setTilePeca(null, this.scene.player, 0);
+                        this.arrayTiles[i + 1][j + 1].setTilePeca(null, this.scene.player, 0);
+                    }
                 }
 
             }
@@ -198,7 +355,7 @@ Tabuleiro.prototype.display = function () {
 
             if (this.scene.escolhido == k) {
 
-                this.arrayTiles[i][j].display(true, true);
+                this.arrayTiles[i][j].display(true, 1);
                 this.i = i;
                 this.j = j;
             }
@@ -216,6 +373,91 @@ Tabuleiro.prototype.display = function () {
     this.ladosTabuleiro();
 
 
+};
+
+Tabuleiro.prototype.somaDado = function (i, j) {
+
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca()
+        + this.arrayTiles[i - 1][j + 1].getTilePeca() + this.arrayTiles[i - 1][j - 1].getTilePeca() + this.arrayTiles[i + 1][j + 1].getTilePeca() + this.arrayTiles[i + 1][j - 1].getTilePeca())
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaDadoEsquerda = function (i, j) {
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i - 1][j + 1].getTilePeca()
+        + this.arrayTiles[i + 1][j + 1].getTilePeca())
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaDadoDireita = function (i, j) {
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca() + this.arrayTiles[i - 1][j - 1].getTilePeca()
+        + this.arrayTiles[i + 1][j - 1].getTilePeca())
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaDadoTopo = function (i, j) {
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i + 1][j + 1].getTilePeca()
+        + this.arrayTiles[i + 1][j - 1].getTilePeca())
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaDadoFundo = function (i, j) {
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca() + this.arrayTiles[i - 1][j - 1].getTilePeca() + this.arrayTiles[i - 1][j + 1].getTilePeca()
+        + this.arrayTiles[i][j + 1].getTilePeca())
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaCasaTopoEsquerdo = function (i, j) {
+
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i + 1][j + 1].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() )
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaCasaTopoDireito = function (i, j) {
+
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca() + this.arrayTiles[i + 1][j - 1].getTilePeca() + this.arrayTiles[i + 1][j].getTilePeca() )
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaCasaFundoDireito = function (i, j) {
+
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i][j - 1].getTilePeca() + this.arrayTiles[i + -1][j - 1].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() )
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+Tabuleiro.prototype.somaCasaFundoEsquerdo = function (i, j) {
+
+    return (this.arrayTiles[i][j].getTilePeca() + this.arrayTiles[i][j + 1].getTilePeca() + this.arrayTiles[i - 1][j + 1].getTilePeca() + this.arrayTiles[i - 1][j].getTilePeca() )
+        - this.arrayTiles[this.i][this.j].getTilePeca();
+};
+
+Tabuleiro.prototype.deleteDadosTopo = function (i, j) {
+
+    if ((this.arrayTiles[i + 1][j].getTilePeca() && this.arrayTiles[i + 1][j + 1].getTilePeca() || this.arrayTiles[i + 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca()
+        || this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i + 1][j - 1].getTilePeca() || this.arrayTiles[i + 1][j - 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteDadosEsquerda = function (i, j) {
+    if ((this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j + 1].getTilePeca() || this.arrayTiles[i - 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca()
+        || this.arrayTiles[i + 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca() || this.arrayTiles[i + 1][j + 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteDadosDireita = function (i, j) {
+    if ((this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j - 1].getTilePeca() || this.arrayTiles[i - 1][j - 1].getTilePeca() && this.arrayTiles[i][j - 1].getTilePeca()
+        || this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i + 1][j - 1].getTilePeca() || this.arrayTiles[i + 1][j - 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteDadosFundo = function (i, j) {
+    if ((this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j + 1].getTilePeca() || this.arrayTiles[i - 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca()
+        || this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i - 1][j - 1].getTilePeca() || this.arrayTiles[i - 1][j - 1].getTilePeca() && this.arrayTiles[i - 1][j].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteFundoEsquerdo = function (i, j) {
+    if ((this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j + 1].getTilePeca() || this.arrayTiles[i - 1][j + 1].getTilePeca() && this.arrayTiles[i][j + 1].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteFundoDireito = function (i, j) {
+    if ((this.arrayTiles[i - 1][j].getTilePeca() && this.arrayTiles[i - 1][j - 1].getTilePeca() || this.arrayTiles[i - 1][j - 1].getTilePeca() && this.arrayTiles[i][j - 1].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteTopoDireito = function (i, j) {
+    if ((this.arrayTiles[i][j - 1].getTilePeca() && this.arrayTiles[i + 1][j - 1].getTilePeca() || this.arrayTiles[i + 1][j - 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca() ) != 0)
+        return true
+};
+Tabuleiro.prototype.deleteTopoEsquerdo = function (i, j) {
+    if ((this.arrayTiles[i][j + 1].getTilePeca() && this.arrayTiles[i + 1][j + 1].getTilePeca() || this.arrayTiles[i + 1][j + 1].getTilePeca() && this.arrayTiles[i + 1][j].getTilePeca() ) != 0)
+        return true
 };
 
 Tabuleiro.prototype.numerosTabuleiro = function () {

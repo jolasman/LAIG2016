@@ -48,10 +48,19 @@ function Tile(scene, tabuleiro)
     this.selectappear.setAmbient(0.5,0.5,0.5,1);
     this.selectappear.setDiffuse(0.5,0.5,0.5,1);
     this.selectappear.setSpecular(0.5,0.5,0.5,1);
-    this.selectappear.setShininess(8.8);
+    this.selectappear.setShininess(0.8);
     this.selectappear.setEmission(0,0,0.0,1);
     this.selectappear.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
     this.selectappear.loadTexture("./texturas/marmore_select.png");
+
+    this.possibleappearance = new CGFappearance(this.scene);
+    this.possibleappearance.setAmbient(0.9,0.1,0.1,1);
+    this.possibleappearance.setDiffuse(0.9,0.1,0.1,1);
+    this.possibleappearance.setSpecular(0.9,0.1,0.1,1);
+    this.possibleappearance.setShininess(0.8);
+    this.possibleappearance.setEmission(0,0,0.0,1);
+    this.possibleappearance.setTextureWrap('CLAMP_TO_EDGE', 'CLAMP_TO_EDGE');
+    this.possibleappearance.loadTexture("./texturas/marmore_select.png");
 
     this.initBuffers();
 }
@@ -143,8 +152,13 @@ Tile.prototype.display = function (cor,select)
           this.scene.popMatrix();
       }
    }
-    if(select) {
+    if(select == 1) {
         this.selectappear.apply();
+        this.rec.display();
+        this.scene.popMatrix();
+    }
+    else if(select == 2) {
+        this.possibleappearance.apply();
         this.rec.display();
         this.scene.popMatrix();
     }

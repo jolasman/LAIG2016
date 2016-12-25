@@ -13,33 +13,33 @@ function XMLscene() {
     this.nodeAnimations = [];
     this.animations_i = 0;
 	
-	// deste modo, basta chamar a chessboard_position[] com o indices da posição, e tem-se logo as coordenadas da pos
- 	this.chessboard_position = [];
- 	
- 	var chessboard_k = 0;
- 	for(var chessboard_i= 0; chessboard_i<5; i++){
-         for(var chessboard_j = 0; chessboard_j<5; j++){
-			chessboard_position[chessboard_k] = [12-8*chessboard_i,-20+8*chessboard_j,2]
-         }
-    }
-	
-	
-	this.dados_position = [];
-	var dados_i = 51;
-	var dados_x = 20;
-	
-	while(dados_i < 57) {
-		dados_position[dados_i] = [dados_x, -2, -30]	// a posiçao [x,y,z] dos dados amarelos, começando no de valor 1
-		dados_i++;
-		dados_x -= 10;
-	}
-	
-	dados_x = 20;
-	while(dados_i < 63) {
-		dados_position[dados_i] = [dados_x, -2, -40]	// a posiçao [x,y,z] dos dados azuis, começando no de valor 1
-		dados_i++;
-		dados_x -= 10;
-	}
+	// // deste modo, basta chamar a chessboard_position[] com o indices da posição, e tem-se logo as coordenadas da pos
+ 	// this.chessboard_position = [];
+    //
+ 	// var chessboard_k = 0;
+ 	// for(var chessboard_i= 0; chessboard_i<5; i++){
+     //     for(var chessboard_j = 0; chessboard_j<5; j++){
+	// 		chessboard_position[chessboard_k] = [12-8*chessboard_i,-20+8*chessboard_j,2]
+     //     }
+    // }
+    //
+    //
+	// this.dados_position = [];
+	// var dados_i = 51;
+	// var dados_x = 20;
+    //
+	// while(dados_i < 57) {
+	// 	dados_position[dados_i] = [dados_x, -2, -30]	// a posiçao [x,y,z] dos dados amarelos, começando no de valor 1
+	// 	dados_i++;
+	// 	dados_x -= 10;
+	// }
+    //
+	// dados_x = 20;
+	// while(dados_i < 63) {
+	// 	dados_position[dados_i] = [dados_x, -2, -40]	// a posiçao [x,y,z] dos dados azuis, começando no de valor 1
+	// 	dados_i++;
+	// 	dados_x -= 10;
+	// }
 }
 
 XMLscene.prototype = Object.create(CGFscene.prototype);
