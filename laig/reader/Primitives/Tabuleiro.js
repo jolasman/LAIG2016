@@ -329,6 +329,7 @@ Tabuleiro.prototype.isValidPositionForSelection = function (i, j) {
                     console.log("player 2 score");
                     console.log(this.scene.scorep2);
                 }
+
             }
         }
     }
@@ -362,6 +363,7 @@ Tabuleiro.prototype.display = function () {
             } else {
                 this.arrayTiles[i][j].display(false, this.isValidPositionForSelection(i, j));
             }
+
             this.scene.popMatrix();
         }
     }
