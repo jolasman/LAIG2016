@@ -54,7 +54,7 @@ XMLscene.prototype.init = function (application) {
     this.scorep1 = 0;
     this.scorep2 = 0;
     this.scenarioNamesStatus = [true,false];
-    // this.interface.scoredisplay(this.scorep1,this.scorep2);
+    this.interface.addGameVars();
 
 
 
