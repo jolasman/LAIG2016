@@ -362,9 +362,9 @@ Tabuleiro.prototype.display = function () {
 				//this.scene.dadosAnims.push(new_dado_anim);
             }
             else if ((i + j) % 2 == 0) {
-                this.arrayTiles[i][j].display(true, this.isValidPositionForSelection(i, j));
+                this.arrayTiles[i][j].display(true, this.isValidPositionForSelection(i, j), i, j);
             } else {
-                this.arrayTiles[i][j].display(false, this.isValidPositionForSelection(i, j));
+                this.arrayTiles[i][j].display(false, this.isValidPositionForSelection(i, j), i, j);
             }
 
             this.scene.popMatrix();
