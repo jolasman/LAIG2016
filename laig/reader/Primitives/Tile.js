@@ -12,7 +12,7 @@ function Tile(scene, tabuleiro)
     this.numero = null;
     this.rec= new MyRectangle(scene,0,8,8,0);
 
-	this.n = 0;
+	
 	
     this.marmoreappearance = new CGFappearance(this.scene);
     this.marmoreappearance.setAmbient(0.5,0.5,0.5,1);
@@ -114,8 +114,10 @@ Tile.prototype.display = function (cor, select, i, j)
 
           this.pecaappearance.apply();
           this.peca.display();
-		  var new_dado_anim = new LinearAnimation(this.scene, 2, ([0,0,0], [12 - 8 * i, -20 + 8 * j, 2]));
+		  if(this.scene.n < 1) {
+		  var new_dado_anim = new DadosAnimation(this.scene, [0.0,0.0,0.0], [4.0 * i, -4.0 * j, 2.0]);
 		  this.scene.dadosAnims.push(new_dado_anim);
+		  }
           this.scene.popMatrix();
       }else{
           this.scene.pushMatrix();
@@ -153,11 +155,12 @@ Tile.prototype.display = function (cor, select, i, j)
 
           this.pecaappearance2.apply();
           this.peca.display();
-		  if(this.n < 1) {
-		  var new_dado_anim = new LinearAnimation(this.scene, 2, ([0,0,0], [12 - 8 * i, -20 + 8 * j, 2]));
+		  if(this.scene.n < 1) {
+		  var new_dado_anim = new DadosAnimation(this.scene, [0.0,0.0,0.0], [4.0 * i, -4.0 * j, 2.0]);
+		  //var new_dado_anim = new CircularAnimation(this.scene, 5, 8, [0,0,0], 0, 25);
 		  this.scene.dadosAnims.push(new_dado_anim);
-		  }this.n++;
-		  console.log(this.scene.dadosAnims.length);
+		  this.scene.n++;}
+		  //console.log(this.scene.dadosAnims.length);
           this.scene.popMatrix();
       }
    }

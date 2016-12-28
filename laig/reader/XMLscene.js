@@ -16,6 +16,7 @@ function XMLscene() {
 	this.dadosAnims= [];
 	this.currentDadoAnim = 0;
 
+	this.n = 0;
     // // deste modo, basta chamar a chessboard_position[] com o indices da posição, e tem-se logo as coordenadas da pos
     // this.chessboard_position = [];
     //
@@ -251,8 +252,11 @@ XMLscene.prototype.writeGraph = function (noID, materialID, textureID) {
     var matriz = mat4.create();
 	
 	//tratamento das animações dos dados
-	if(this.dadosAnims.length > 0 && this.dadosAnims.length < 25) {
+	if(this.dadosAnims.length > 0 && this.dadosAnims.length < 25 && this.dadosAnims[this.dadosAnims.length - 1].finished == 0) {
+		console.log(matriz);
 		mat4.multiply(matriz, matriz, this.dadosAnims[this.dadosAnims.length - 1].matrix);
+		//console.log(this.dadosAnims[this.dadosAnims.length - 1].matrix);
+		console.log(matriz);
 	}
 	
 	
@@ -410,15 +414,12 @@ XMLscene.prototype.display = function () {
 XMLscene.prototype.update = function (currTime) {
 	
 	var i = 0;
-    while (i < this.dadosAnims.length) {
+    while (i < this.dadosAnims.length) {console.log(this.dadosAnims.length);
 		if (this.dadosAnims[i].finished == 1 && this.currentDadoAnim < this.dadosAnims.length) {
 			this.currentDadoAnim++;
+			//console.log("Finished\n");
 		}
-			
-        //quando ja fez todas acaba
-        if (this.dadosAnims.length - 1 == i) {
-            break;
-        }
+		
         else {
             this.dadosAnims[i].update(currTime);
         }
