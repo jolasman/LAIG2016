@@ -104,6 +104,7 @@ LinearAnimation.prototype.update= function(currTime){
 		}
 		else {
 			this.finished=1;
+			//console.log("Finished\n");
 			return;
 		}
 	}

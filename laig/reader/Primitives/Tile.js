@@ -72,7 +72,7 @@ Tile.prototype.initBuffers = function () {};
 
 Tile.prototype.updateTexCoords=function(length_S,length_T){};
 
-Tile.prototype.display = function (cor,select)
+Tile.prototype.display = function (cor, select, i, j)
 {
     this.scene.pushMatrix();
    if(this.peca != null){
@@ -112,6 +112,8 @@ Tile.prototype.display = function (cor,select)
 
           this.pecaappearance.apply();
           this.peca.display();
+		  var new_dado_anim = new LinearAnimation(this.scene, 2, ([0,0,0], [12 - 8 * i, -20 + 8 * j, 2]));
+		  this.scene.dadosAnims.push(new_dado_anim);
           this.scene.popMatrix();
       }else{
           this.scene.pushMatrix();
@@ -149,6 +151,9 @@ Tile.prototype.display = function (cor,select)
 
           this.pecaappearance2.apply();
           this.peca.display();
+		  var new_dado_anim = new LinearAnimation(this.scene, 2, ([0,0,0], [12 - 8 * i, -20 + 8 * j, 2]));
+		  this.scene.dadosAnims.push(new_dado_anim);
+		  console.log(this.scene.dadosAnims.length);
           this.scene.popMatrix();
       }
    }

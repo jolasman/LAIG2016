@@ -16,7 +16,7 @@ serialInclude(['../lib/CGF.js', 'XMLscene.js', 'MySceneGraph.js', 'Node.js',
     'Primitives/Patch.js','Primitives/Plane.js','Primitives/Vehicle.js','Primitives/Chessboard.js','Primitives/Tabuleiro.js','Primitives/Cubo.js',
     'Primitives/Peca.js','Primitives/Dado.js','Primitives/Tile.js',
     'MyInterface.js',
-    'Animations/Animation.js','Animations/LinearAnimation.js', 'Animations/CircularAnimation.js',
+    'Animations/Animation.js','Animations/LinearAnimation.js', 'Animations/CircularAnimation.js', 'Animations/DadosAnimation.js',
 
 main=function()
 {

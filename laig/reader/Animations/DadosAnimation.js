@@ -5,12 +5,12 @@
 
 function DadosAnimation(scene, initial_pos, chessboard_pos) {
 
-	this.span = 3;
+	this.span = 2;
 	Animation.call(this, scene, this.span);
 
 
 	this.centre = chessboard_pos - initial_pos;
-	this.radius = chessboard_pos - centre;
+	this.radius = chessboard_pos - this.centre;
 	this.start_angle = 0 * Math.PI/180;		//conversao para radianos
 	this.rot_angle = Math.PI;
 
@@ -31,7 +31,7 @@ function DadosAnimation(scene, initial_pos, chessboard_pos) {
 };
 	
 DadosAnimation.prototype = Object.create(Animation.prototype);
-DadosAnimation.prototype.constructor = CircularAnimation;
+DadosAnimation.prototype.constructor = DadosAnimation;
 
 /***********************************update das animaçoes*********************************/
 
@@ -58,6 +58,7 @@ DadosAnimation.prototype.update= function(currTime){
 		
 		else {
 			this.finished=1;
+			//console.log("Finished\n");
 			return;
 		}
 		

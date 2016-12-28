@@ -354,9 +354,12 @@ Tabuleiro.prototype.display = function () {
 
             if (this.scene.escolhido == k) {
 
-                this.arrayTiles[i][j].display(true, 1);
+                this.arrayTiles[i][j].display(true, 1, i, j);
                 this.i = i;
                 this.j = j;
+				//var new_dado_anim = new DadosAnimation(this.scene, [0,0,0], [12 - 8 * i, -20 + 8 * j, 2]);
+				//var new_dado_anim = new LinearAnimation(this.scene, 2, ([0,0,0], [12 - 8 * i, -20 + 8 * j, 2]));
+				//this.scene.dadosAnims.push(new_dado_anim);
             }
             else if ((i + j) % 2 == 0) {
                 this.arrayTiles[i][j].display(true, this.isValidPositionForSelection(i, j));

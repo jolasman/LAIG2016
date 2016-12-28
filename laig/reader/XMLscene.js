@@ -12,6 +12,9 @@ function XMLscene() {
     this.animacoes = [];
     this.nodeAnimations = [];
     this.animations_i = 0;
+	
+	this.dadosAnims= [];
+	this.currentDadoAnim = 0;
 
     // // deste modo, basta chamar a chessboard_position[] com o indices da posição, e tem-se logo as coordenadas da pos
     // this.chessboard_position = [];
@@ -246,8 +249,14 @@ XMLscene.prototype.writeGraph = function (noID, materialID, textureID) {
     var texturaprimup;
     var material;
     var matriz = mat4.create();
-
-    //tratamento das matrizes das animacoes
+	
+	//tratamento das animações dos dados
+	if(this.dadosAnims.length > 0 && this.dadosAnims.length < 25) {
+		mat4.multiply(matriz, matriz, this.dadosAnims[this.dadosAnims.length - 1].matrix);
+	}
+	
+	
+    //tratamento das matrizes das animacoes definidas em dsx
     if (node.animacoes.length > 0 && node.currentAnimation != (-2)) {
         mat4.multiply(matriz, matriz, node.animacoes[node.currentAnimation].matrix);
     }
@@ -255,7 +264,8 @@ XMLscene.prototype.writeGraph = function (noID, materialID, textureID) {
     if (node.animacoes.length > 0 && node.currentAnimation == (-2)) {
         mat4.multiply(matriz, matriz, node.animacoes[node.animacoes.length - 1].matrix);
     }
-
+	
+	
     //matriz dos nos
     mat4.multiply(matriz, matriz, node.matrix);
     this.multMatrix(matriz);
@@ -398,6 +408,24 @@ XMLscene.prototype.display = function () {
  * @param currTime tempo atual
  */
 XMLscene.prototype.update = function (currTime) {
+	
+	var i = 0;
+    while (i < this.dadosAnims.length) {
+		if (this.dadosAnims[i].finished == 1 && this.currentDadoAnim < this.dadosAnims.length) {
+			this.currentDadoAnim++;
+		}
+			
+        //quando ja fez todas acaba
+        if (this.dadosAnims.length - 1 == i) {
+            break;
+        }
+        else {
+            this.dadosAnims[i].update(currTime);
+        }
+        i++;
+    }
+	
+	/*
     var i = 0;
     while (i < this.nodeAnimations.length) {
 
@@ -423,6 +451,7 @@ XMLscene.prototype.update = function (currTime) {
         }
         i++;
     }
+	*/
 };
 
 
