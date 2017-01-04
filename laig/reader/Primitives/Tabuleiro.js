@@ -71,40 +71,52 @@ Tabuleiro.prototype.updateTexCoords = function (length_S, length_T) {};
 Tabuleiro.prototype.verificaDado = function (i, j, k) {
 
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 51) {
+       if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
         this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 1);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 52) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 2);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 2);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 53) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 3);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 3);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 54) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 4);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 4);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 55) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 5);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 5);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 56) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 6);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 1, 6);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 57) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 1);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 1);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 58) {
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
         this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 2);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 59) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 3);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 3);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 60) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 4);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 4);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 61) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 5);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 5);
     }
     if (this.scene.escolhido == k && this.scene.dadoescolhido == 62) {
-        this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 6);
+        if(this.arrayTiles[i][j].getTilePeca() == null || this.arrayTiles[i][j].getTilePeca() == 0)
+            this.arrayTiles[i][j].setTilePeca(this.dadoexp, 2, 6);
     }
 
 
